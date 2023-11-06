@@ -1,0 +1,205 @@
+[
+  {
+    "id": "2345",
+    "titre": "Fiche de traite",
+    "description": "traite",
+    "etat": true,
+    "dateCreation": null,
+    "dateModification": null,
+    "attributs": [
+      {
+        "id": "1234",
+        "titre": "TAILLES",
+        "description": "taille",
+        "etat": true,
+        "dateCreation": null,
+        "dateModification": null,
+        "type": "Double"
+      }
+    ]
+  },
+  {
+    "id": "2345-png",
+    "titre": "Fiche de traite Test",
+    "description": "traite test",
+    "etat": true,
+    "dateCreation": null,
+    "dateModification": null,
+    "attributs": []
+  },
+  {
+    "id": "2345-png-01",
+    "titre": "Fiche de Test",
+    "description": "traite test",
+    "etat": true,
+    "dateCreation": null,
+    "dateModification": null,
+    "attributs": []
+  },
+  {
+    "id": "nom-01",
+    "titre": "Fiche de Test",
+    "description": "traite test",
+    "etat": true,
+    "dateCreation": null,
+    "dateModification": null,
+    "attributs": []
+  },
+  {
+    "id": "png-04",
+    "titre": "Fiche de Test 4",
+    "description": "traite test",
+    "etat": true,
+    "dateCreation": null,
+    "dateModification": null,
+    "attributs": [
+      {
+        "id": "3456",
+        "titre": "SEXES",
+        "description": "SEXE",
+        "etat": true,
+        "dateCreation": null,
+        "dateModification": null,
+        "type": "String"
+      },
+      {
+        "id": "1234-png",
+        "titre": "Colle",
+        "description": "colle",
+        "etat": true,
+        "dateCreation": null,
+        "dateModification": null,
+        "type": "Double"
+      }
+    ]
+  },
+  {
+    "id": "2345-png-03",
+    "titre": "Fiche de Test 2345-png-03",
+    "description": "traite test 2345-png-03",
+    "etat": true,
+    "dateCreation": null,
+    "dateModification": null,
+    "attributs": [
+      {
+        "id": "3456",
+        "titre": "SEXES",
+        "description": "SEXE",
+        "etat": true,
+        "dateCreation": null,
+        "dateModification": null,
+        "type": "String"
+      },
+      {
+        "id": "1234-png",
+        "titre": "Colle",
+        "description": "colle",
+        "etat": true,
+        "dateCreation": null,
+        "dateModification": null,
+        "type": "Double"
+      },
+      {
+        "id": "1234",
+        "titre": "TAILLES",
+        "description": "taille",
+        "etat": true,
+        "dateCreation": null,
+        "dateModification": null,
+        "type": "Double"
+      }
+    ]
+  },
+  {
+    "id": "2345-png-02",
+    "titre": "Fiche de Test 2345-png-02",
+    "description": "traite test 2345-png-02",
+    "etat": true,
+    "dateCreation": null,
+    "dateModification": null,
+    "attributs": [
+      {
+        "id": "3456",
+        "titre": "SEXES",
+        "description": "SEXE",
+        "etat": true,
+        "dateCreation": null,
+        "dateModification": null,
+        "type": "String"
+      },
+      {
+        "id": "1234-png",
+        "titre": "Colle",
+        "description": "colle",
+        "etat": true,
+        "dateCreation": null,
+        "dateModification": null,
+        "type": "Double"
+      },
+      {
+        "id": "1234-png-08",
+        "titre": "png-08-colle",
+        "description": "png-08-colle",
+        "etat": true,
+        "dateCreation": null,
+        "dateModification": null,
+        "type": "Double"
+      },
+      {
+        "id": "1234",
+        "titre": "TAILLES",
+        "description": "taille",
+        "etat": true,
+        "dateCreation": null,
+        "dateModification": null,
+        "type": "Double"
+      }
+    ]
+  },
+  {
+    "id": "1234",
+    "titre": "Fiche de soin avec poids avec teint",
+    "description": "fiche de soin",
+    "etat": true,
+    "dateCreation": null,
+    "dateModification": null,
+    "attributs": [
+      {
+        "id": "2345",
+        "titre": "teint",
+        "description": "teint du nouveau",
+        "etat": false,
+        "dateCreation": null,
+        "dateModification": null,
+        "type": "Int"
+      },
+      {
+        "id": "1234-de",
+        "titre": "TAILLE revisee",
+        "description": "taille revisee",
+        "etat": true,
+        "dateCreation": null,
+        "dateModification": null,
+        "type": "Double"
+      }
+    ]
+  },
+  {
+    "id": "nom-010",
+    "titre": "Fiche de Test",
+    "description": "traite test",
+    "etat": true,
+    "dateCreation": null,
+    "dateModification": null,
+    "attributs": []
+  },
+  {
+    "id": "png-040",
+    "titre": "Fiche de Test 4",
+    "description": "traite test",
+    "etat": true,
+    "dateCreation": null,
+    "dateModification": null,
+    "attributs": []
+  }
+]
