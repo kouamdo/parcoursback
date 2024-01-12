@@ -40,8 +40,7 @@ public class DocumentCrudTest extends AbstractIttest {
     fieldsToExclude.add("id");
     fieldsToExclude.add("dateModification");
     Assertions.assertTrue(JsonComparator.CompareResultWithJson(
-            this.getClass().getClassLoader().getResource(pathJson.concat(".json"))
-            ,pathJson
+            pathJson
             ,objectMapper.writeValueAsString(documentsList)
             ,Documents[].class
             ,fieldsToExclude));
