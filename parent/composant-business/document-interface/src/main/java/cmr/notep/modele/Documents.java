@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
+@Builder
 public class Documents {
     private String id;
 

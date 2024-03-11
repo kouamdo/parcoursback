@@ -9,11 +9,16 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <properties>
-        <concatenate.executable>sh</concatenate.executable>
-        <concatenate.arguments>-c</concatenate.arguments>
+        <maven-enforcer-plugin.version>3.3.0</maven-enforcer-plugin.version>
+        <runTestsFromMaven>false</runTestsFromMaven>
     </properties>
     <artifactId>ittest</artifactId>
     <dependencies>
+        <dependency>
+            <groupId>cmr.notep</groupId>
+            <artifactId>document-service</artifactId>
+            <version>${version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-test</artifactId>
@@ -60,15 +65,26 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>cmr.notep</groupId>
-            <artifactId>document-service</artifactId>
-            <version>${version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.8.2</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.enforcer</groupId>
+            <artifactId>enforcer-api</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-core</artifactId>
+            <version>3.0.5</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -92,15 +108,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.1.0</version> <!-- Assurez-vous d'utiliser la dernière version disponible -->
+                <version>3.1.0</version>
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <systemProperties>
-                        <property>
-                            <name>runTestsFromMaven</name>
-                            <value>true</value>
-                        </property>
-                    </systemProperties>
+                    <systemPropertyVariables>
+                        <runTestsFromMaven>
+                           true
+                        </runTestsFromMaven>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
@@ -147,20 +162,31 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>1.4.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>cmr.notep</groupId>
+                        <artifactId>commun-service</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <rules>
+                        <testRules implementation="cmr.notep.utile.enforcerule.CustomRulesParcours">
+                            <location>${project.build.directory}/surefire-reports</location>
+                        </testRules>
+                        <banDuplicatePomDependencyVersions/>
+                    </rules>
+                    <fail>true</fail>
+                    <failFast>true</failFast>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>enforce</id>
+                        <id>default-cli</id>
+                        <phase>verify</phase>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
-                        <configuration>
-                            <rules>
-                                <requireJavaVersion>
-                                    <version>11</version>
-                                </requireJavaVersion>
-                            </rules>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

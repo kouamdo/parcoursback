@@ -32,8 +32,8 @@
     <modules>
         <module>ressources-jpa</module>
         <module>commun-service</module>
-        <module>ittest</module>
         <module>composant-business</module>
+        <module>ittest</module>
     </modules>
     <dependencyManagement>
         <dependencies>

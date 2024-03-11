@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/documents")
+@RequestMapping("document/documents")
 public interface IDocumentApi {
 
     @PostMapping(

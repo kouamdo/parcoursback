@@ -10,6 +10,7 @@ import java.util.Date;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
+@Builder
 public class Attributs {
     private String id;
     private String titre;
