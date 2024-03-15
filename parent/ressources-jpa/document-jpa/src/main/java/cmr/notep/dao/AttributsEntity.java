@@ -1,25 +1,26 @@
 package cmr.notep.dao;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.annotations.Cascade;
-
-import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "attributs")
 public class AttributsEntity {
-    @Id
     
+    @Id
     @Column(name = "id", nullable = false)
     private String id;
 
