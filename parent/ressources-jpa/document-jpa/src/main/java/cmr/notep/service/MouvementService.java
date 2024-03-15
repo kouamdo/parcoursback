@@ -1,4 +1,4 @@
-package cmr.notep.dao;
+package cmr.notep.service;
 
 public interface MouvementService {
 
