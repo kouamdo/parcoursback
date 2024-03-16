@@ -44,24 +44,4 @@ public class AttributServiceImpl implements AttributService {
     public void DeleteAttrib(String id) {
         this.attributRepo.deleteById(id);
     }
-
-    public String GetTitre(String Id_attribut) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'GetTitre'");
-    }
-
-    public String SetTitre(String Id_attribut, String newTitre) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'SetTitre'");
-    }
-
-    public String GetDescription(String Id_attribut) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'GetDescription'");
-    }
-
-    public String SetDescription(String Id_attribut, String newDescript) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'SetDescription'");
-    }
 }
