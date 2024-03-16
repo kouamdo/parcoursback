@@ -23,7 +23,7 @@ public class AttributServiceImpl implements AttributService {
     @SuppressWarnings("null")
     @Override
     public AttributsEntity SaveAttrib(AttributsEntity attribut) {
-        return attribut.SaveAttrib(this);
+        return this.attributRepo.save(attribut);
     }
 
     @SuppressWarnings("null")
