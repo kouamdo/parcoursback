@@ -1,26 +1,26 @@
 package cmr.notep.business;
 
 
+import static cmr.notep.config.DocumentConfig.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
 import cmr.notep.dao.DaoAccessorService;
 import cmr.notep.dao.DocumentsEntity;
 import cmr.notep.modele.Documents;
 import cmr.notep.repository.DocumentsRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import static cmr.notep.config.DocumentConfig.*;
 
 @Component
 @Slf4j
 @Transactional
 public class DocumentBusiness {
     private final DaoAccessorService daoAccessorService;
-    private final DocumentsRepository documentsRepository;
+    
 
     //private final BusinessEntityHelper businessEntityHelper; , BusinessEntityHelper businessEntityHelper
 
