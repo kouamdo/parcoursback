@@ -10,5 +10,4 @@ public interface CategoryService {
     public CategoryEntity SetCategory (String Id_category , CategoryEntity category);
     public CategoryEntity SaveCategory(CategoryEntity category);
     public void DeleteCategory(String id);
-
 }

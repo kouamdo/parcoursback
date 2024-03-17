@@ -19,6 +19,7 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepo = categoryRepository;
     }
 
+    @SuppressWarnings("null")
     public Optional<CategoryEntity> GetCategory(String Id_category) {
         return this.categoryRepo.findById(Id_category);
     }
