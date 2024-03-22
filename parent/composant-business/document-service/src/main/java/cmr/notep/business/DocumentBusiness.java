@@ -50,4 +50,12 @@ public class DocumentBusiness {
                 .save(dozerMapperBean.map(document, DocumentsEntity.class)),
                 Documents.class);
     }
+
+    public Documents avoirDocument(String idDoc) {
+        log.debug("[avoirDocument] called");
+        return dozerMapperBean.map(
+                this.daoAccessorService.getRepository(DocumentsRepository.class)
+                        .findById(idDoc)
+                        .orElseThrow(()->new RuntimeException("Document non trouvé")),Documents.class);
+    }
 }

@@ -19,12 +19,8 @@ public class DaoAccessorService {
     @PostConstruct
     protected void init() {
         jpaRepositories = applicationContext.getBeansOfType(JpaRepository.class);
-      /* Map<String, JpaRepository> beansOfType = applicationContext.getBeansOfType(JpaRepository.class);
-        for (JpaRepository repository : beansOfType.values()) {
-            jpaRepositories.put(repository.getClass().getName(), repository);
-        }*/
     }
-//((JdkDynamicAopProxy) ((Proxy) pagingAndSortingRepository).h).proxiedInterfaces[0].name
+
     public <T> T getRepository(Class<T> clazz) {
         //TODO adaptation du code à refaire
         //TODO un problème avec le repository.getClass qui ne remonte pas le nom de l'interface JPA mais plutot le proxy d*où un NPE à lors du get
