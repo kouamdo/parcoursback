@@ -10,27 +10,18 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import cmr.notep.service.AttributServiceImpl;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "attributs")
 public class AttributsEntity {
-    
-    @SuppressWarnings("null")
-    public AttributsEntity SaveAttrib(AttributServiceImpl attributServiceImpl) {
-        return attributServiceImpl.attributRepo.save(null);
-    }
-
-    @SuppressWarnings("null")
-    public AttributsEntity SaveAttrib(AttributServiceImpl attributServiceImpl) {
-        return SaveAttrib(attributServiceImpl);
-    }
-
     @Id
     @Column(name = "id", nullable = false)
     private String id;

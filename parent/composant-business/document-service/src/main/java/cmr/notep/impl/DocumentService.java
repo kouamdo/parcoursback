@@ -28,7 +28,7 @@ public class DocumentService implements IDocumentApi {
 
     @Override
     public Documents avoirDocument(@NonNull String idDoc) {
-        return null;
+        return documentBusiness.avoirDocument(idDoc);
     }
 
     @Override
