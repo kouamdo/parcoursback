@@ -24,10 +24,8 @@ public class DocumentBusiness {
 
     //private final BusinessEntityHelper businessEntityHelper; , BusinessEntityHelper businessEntityHelper
 
-    public DocumentBusiness(DaoAccessorService daoAccessorService, DocumentsRepository documentsRepository) {
+    public DocumentBusiness(DaoAccessorService daoAccessorService) {
         this.daoAccessorService = daoAccessorService;
-        this.documentsRepository = documentsRepository;
-      //  this.businessEntityHelper = businessEntityHelper;
     }
 
     public List<Documents> avoirTousDocuments() {
