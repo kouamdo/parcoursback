@@ -23,6 +23,4 @@ public class Attributs {
 
     private Date dateModification;
 
-    private Types type;
-
 }

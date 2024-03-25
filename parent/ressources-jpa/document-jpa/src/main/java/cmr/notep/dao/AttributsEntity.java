@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
+import org.dozer.Mapping;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -58,5 +59,12 @@ public class AttributsEntity {
     @JsonIgnore
     //@Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<DocumentsEntity> documentsEntities;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinTable(name = "associer",
+    joinColumns = @JoinColumn(name = "id_attrib"),
+    inverseJoinColumns = @JoinColumn(name = "id_category"))
+    @Mapping("category")
+    private List<CategoryEntity> AttribCategory ;
 
 }
