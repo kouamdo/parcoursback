@@ -1,7 +1,11 @@
 package cmr.notep.business;
 
+import cmr.notep.dao.AttributsEntity;
+import cmr.notep.dao.CategoryEntity;
 import cmr.notep.dao.DaoAccessorService;
+import cmr.notep.modele.Attributs;
 import cmr.notep.modele.Categorie;
+import cmr.notep.repository.AttributsRepository;
 import cmr.notep.repository.CategoryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -35,4 +39,14 @@ public class CategoryBusiness {
                 .collect(Collectors.toList());
     }
 
+    public void supprimerCategory(Categorie categorie)
+    {
+        daoAccessorService.getRepository(CategoryRepository.class)
+                .deleteById(categorie.getId());
+    }
+
+    public Categorie posterCategorie(Categorie categorie) {
+        return dozerMapperBean.map( this.daoAccessorService.getRepository(CategoryRepository.class)
+                .save(dozerMapperBean.map(categorie, CategoryEntity.class)), Categorie.class);
+    }
 }

@@ -1,5 +1,6 @@
 package cmr.notep.business;
 
+import cmr.notep.dao.AttributsEntity;
 import cmr.notep.dao.DaoAccessorService;
 import cmr.notep.modele.Attributs;
 import cmr.notep.repository.AttributsRepository;
@@ -40,5 +41,10 @@ public class AttributBusiness {
     {
         daoAccessorService.getRepository(AttributsRepository.class)
                 .deleteById(attrib.getId());
+    }
+
+    public Attributs posterAttribut(Attributs attributs) {
+        return dozerMapperBean.map( this.daoAccessorService.getRepository(AttributsRepository.class)
+                .save(dozerMapperBean.map(attributs, AttributsEntity.class)), Attributs.class );
     }
 }

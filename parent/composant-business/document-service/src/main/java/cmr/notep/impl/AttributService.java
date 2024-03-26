@@ -1,5 +1,6 @@
 package cmr.notep.impl;
 
+import cmr.notep.api.IAttributApi;
 import cmr.notep.business.AttributBusiness;
 import cmr.notep.modele.Attributs;
 import cmr.notep.repository.AttributsRepository;
@@ -14,7 +15,7 @@ import static cmr.notep.config.DocumentConfig.dozerMapperBean;
 
 @RestController
 @Transactional
-public class AttributService {
+public class AttributService implements IAttributApi {
 
     private final AttributBusiness attribBusiness ;
 
@@ -31,5 +32,10 @@ public class AttributService {
     @Override
     public void supprimerAttribut(@NonNull Attributs attrib){
         attribBusiness.supprimerAttribut(attrib);
+    }
+
+    @Override
+    public Attributs posterAttribut(@NonNull Attributs attributs) {
+        return attribBusiness.posterAttribut(attributs);
     }
 }
