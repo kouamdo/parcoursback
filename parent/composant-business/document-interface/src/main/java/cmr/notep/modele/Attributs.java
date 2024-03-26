@@ -3,6 +3,7 @@ package cmr.notep.modele;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
@@ -22,5 +23,10 @@ public class Attributs {
     private Date dateCreation;
 
     private Date dateModification;
+
+    Types type;
+
+    private List<Documents> documents;
+    private List<Categorie> listCategory ;
 
 }

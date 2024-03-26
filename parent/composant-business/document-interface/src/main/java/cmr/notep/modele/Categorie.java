@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Data
 @Setter
 @Getter
@@ -21,4 +23,6 @@ public class Categorie {
     private String id;
     private String ordre;
     private String libelle;
+    private List<Attributs> listAttribut ;
+    private Documents document ;
 }

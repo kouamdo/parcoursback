@@ -38,7 +38,7 @@ public class Documents {
     //public List<PrecoMouvements>  = new ArrayList<PrecoMouvements> ();
 
     private List<Attributs> attributs;
-
+    private List<Categorie> listCategories ;
 
     //public List<Etats>  = new ArrayList<Etats> ();
 
