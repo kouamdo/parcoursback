@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("attribute/documents")
+@RequestMapping("/documents/attributs")
 public interface IAttributApi {
 
     @GetMapping(
             path = "/{idAttrib}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    Attributs avoirAttribut (@NonNull @RequestParam(name = "idAttrib") String idDoc);
+    Attributs avoirAttribut (@NonNull @RequestParam(name = "idAttribut") String idAttributs);
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
@@ -24,5 +24,11 @@ public interface IAttributApi {
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    void supprimerAttribut(@NonNull @RequestBody Attributs attrib);
+    void supprimerAttribut(@NonNull @RequestBody Attributs attributs);
+
+    @PostMapping(
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    Attributs posterAttribut(@NonNull @RequestBody Attributs attributs);
 }
