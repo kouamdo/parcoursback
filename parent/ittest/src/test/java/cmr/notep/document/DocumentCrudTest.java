@@ -4,6 +4,7 @@ import cmr.notep.commun.AbstractIttest;
 import cmr.notep.config.ItTestConfig;
 import cmr.notep.modele.Attributs;
 import cmr.notep.modele.Documents;
+import cmr.notep.modele.Types;
 import cmr.notep.utile.JsonComparator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;

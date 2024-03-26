@@ -60,11 +60,8 @@ public class AttributsEntity {
     //@Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<DocumentsEntity> documentsEntities;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    @JoinTable(name = "associer",
-    joinColumns = @JoinColumn(name = "id_attrib"),
-    inverseJoinColumns = @JoinColumn(name = "id_category"))
+    @ManyToMany(mappedBy = "listAttribut")
     @Mapping("category")
-    private List<CategoryEntity> AttribCategory ;
+    private List<CategoryEntity> listCategory ;
 
 }

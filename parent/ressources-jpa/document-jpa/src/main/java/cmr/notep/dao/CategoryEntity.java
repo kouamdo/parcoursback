@@ -25,7 +25,15 @@ public class CategoryEntity {
     @Column(name = "libelle")
     private String libelle;
 
-    @ManyToMany(mappedBy = "AttribCategory")
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinTable(name = "associer",
+            joinColumns = @JoinColumn(name = "id_attribut"),
+            inverseJoinColumns = @JoinColumn(name = "id_category"))
     @Mapping("attributs")
-    private List<AttributsEntity> CatAttrib ;
+    private List<AttributsEntity> listAttribut ;
+
+    @ManyToOne
+    @JoinColumn(name = "id_documents" , nullable = false)
+    private DocumentsEntity document ;
+
 }
