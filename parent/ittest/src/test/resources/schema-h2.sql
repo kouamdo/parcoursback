@@ -33,6 +33,22 @@ CREATE TABLE IF NOT EXISTS documents
     CONSTRAINT documents_pkey PRIMARY KEY (id)
 );
 
+CREATE TABLE category (
+    id_category INT AUTO_INCREMENT PRIMARY KEY,
+    ordre VARCHAR(255),
+    libelle VARCHAR(255),
+    id_documents INT NOT NULL,
+    FOREIGN KEY (id_documents) REFERENCES documents(id_documents)
+);
+
+CREATE TABLE associer (
+    id_attribut INT NOT NULL,
+    id_category INT NOT NULL,
+    PRIMARY KEY (id_attribut, id_category),
+    FOREIGN KEY (id_attribut) REFERENCES attributs(id_attribut),
+    FOREIGN KEY (id_category) REFERENCES category(id_category)
+);
+
 ALTER TABLE IF EXISTS constituer
     ADD CONSTRAINT document_fk FOREIGN KEY (id_document)
     REFERENCES documents (id) ;

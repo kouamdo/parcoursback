@@ -35,3 +35,27 @@ INSERT INTO constituer(
 ('2345-png-03','3456'),
 ('png-04','1234-png'),
 ('png-04','3456');
+
+-- Insertions pour la table 'category'
+INSERT INTO category (ordre, libelle, id_documents) VALUES ('1', 'Fiche de traite Test', 1);
+INSERT INTO category (ordre, libelle, id_documents) VALUES ('2', 'Lit hopital', 2);
+INSERT INTO category (ordre, libelle, id_documents) VALUES ('3', 'Don organes', 3);
+INSERT INTO category (ordre, libelle, id_documents) VALUES ('4', 'don de sang', 4);
+INSERT INTO category (ordre, libelle, id_documents) VALUES ('5', 'Économie et comptabilite', 5);
+INSERT INTO category (ordre, libelle, id_documents) VALUES ('6', 'Musique malade', 6);
+INSERT INTO category (ordre, libelle, id_documents) VALUES ('7', 'Cinéma', 7);
+INSERT INTO category (ordre, libelle, id_documents) VALUES ('8', 'Sport', 8);
+INSERT INTO category (ordre, libelle, id_documents) VALUES ('9', 'Cuisine', 9);
+INSERT INTO category (ordre, libelle, id_documents) VALUES ('10', 'Voyage', 10);
+
+INSERT INTO associer (id_attribut, id_category) VALUES (1, 1);
+INSERT INTO associer (id_attribut, id_category) VALUES (2, 2);
+INSERT INTO associer (id_attribut, id_category) VALUES (3, 3);
+INSERT INTO associer (id_attribut, id_category) VALUES (4, 4);
+INSERT INTO associer (id_attribut, id_category) VALUES (5, 5);
+INSERT INTO associer (id_attribut, id_category) VALUES (6, 6);
+INSERT INTO associer (id_attribut, id_category) VALUES (7, 7);
+INSERT INTO associer (id_attribut, id_category) VALUES (8, 8);
+INSERT INTO associer (id_attribut, id_category) VALUES (9, 9);
+INSERT INTO associer (id_attribut, id_category) VALUES (10, 10);
+
