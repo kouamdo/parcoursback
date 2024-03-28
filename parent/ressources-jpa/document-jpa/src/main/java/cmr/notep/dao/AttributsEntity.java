@@ -24,7 +24,8 @@ import java.util.List;
 @Table(name = "attributs")
 public class AttributsEntity {
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id_attribut", nullable = false)
     private String id;
 
     
