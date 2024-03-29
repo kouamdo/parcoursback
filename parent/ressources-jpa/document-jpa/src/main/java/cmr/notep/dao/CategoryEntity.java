@@ -2,6 +2,7 @@ package cmr.notep.dao;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
@@ -30,10 +31,11 @@ public class CategoryEntity {
             joinColumns = @JoinColumn(name = "id_attribut"),
             inverseJoinColumns = @JoinColumn(name = "id_category"))
     @Mapping("attributs")
-    private List<AttributsEntity> listAttribut ;
+    private List<AttributsEntity> attributs ;
 
     @ManyToOne
     @JoinColumn(name = "id_documents" , nullable = false)
+    @JsonIgnore
     private DocumentsEntity document ;
 
 }

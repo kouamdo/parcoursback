@@ -44,8 +44,8 @@ public class DocumentsEntity {
     //@Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<AttributsEntity> attributsEntities ;
 
-    @OneToMany(mappedBy = "document")
-    @Mapping("category")
+    @OneToMany(mappedBy = "document", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @Mapping("categories")
     private List<CategoryEntity> listCategories ;
 
 }
