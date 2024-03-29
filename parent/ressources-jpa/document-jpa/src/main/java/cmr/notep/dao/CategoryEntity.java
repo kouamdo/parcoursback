@@ -33,16 +33,8 @@ public class CategoryEntity {
     @Mapping("attributs")
     private List<AttributsEntity> attributs ;
 
-<<<<<<< HEAD
 //    @ManyToOne
 //    @JoinColumn(name = "id_document" , nullable = false)
 //    @JsonIgnore
 //    private DocumentsEntity document ;
-=======
-    @ManyToOne
-    @JoinColumn(name = "id_documents" , nullable = false)
-    @JsonIgnore
-    private DocumentsEntity document ;
->>>>>>> origin/develop-extend-document
-
 }
