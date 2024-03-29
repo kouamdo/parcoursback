@@ -58,11 +58,11 @@ public class AttributsEntity {
 
     @ManyToMany(mappedBy = "attributsEntities")
     @JsonIgnore
-    //@Cascade(org.hibernate.annotations.CascadeType.ALL)
-    private List<DocumentsEntity> documentsEntities;
+    private List<DocumentsEntity> documents;
 
-    @ManyToMany(mappedBy = "listAttribut")
-    @Mapping("category")
-    private List<CategoryEntity> listCategory ;
+    @ManyToMany(mappedBy = "attributs")
+    //@Mapping("categories")
+    @JsonIgnore
+    private List<CategoryEntity> categories ;
 
 }

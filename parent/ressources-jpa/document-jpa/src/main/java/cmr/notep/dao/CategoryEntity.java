@@ -31,11 +31,18 @@ public class CategoryEntity {
             joinColumns = @JoinColumn(name = "id_attribut"),
             inverseJoinColumns = @JoinColumn(name = "id_category"))
     @Mapping("attributs")
-    private List<AttributsEntity> listAttribut ;
+    private List<AttributsEntity> attributs ;
 
+<<<<<<< HEAD
 //    @ManyToOne
 //    @JoinColumn(name = "id_document" , nullable = false)
 //    @JsonIgnore
 //    private DocumentsEntity document ;
+=======
+    @ManyToOne
+    @JoinColumn(name = "id_documents" , nullable = false)
+    @JsonIgnore
+    private DocumentsEntity document ;
+>>>>>>> origin/develop-extend-document
 
 }

@@ -45,8 +45,14 @@ public class DocumentsEntity {
     //@Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<AttributsEntity> attributsEntities ;
 
+<<<<<<< HEAD
 //    @OneToMany(mappedBy = "document")
 //    @JsonIgnore
 //    private Set<CategoryEntity> listCategories ;
+=======
+    @OneToMany(mappedBy = "document", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @Mapping("categories")
+    private List<CategoryEntity> listCategories ;
+>>>>>>> origin/develop-extend-document
 
 }

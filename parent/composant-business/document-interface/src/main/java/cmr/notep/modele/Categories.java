@@ -19,10 +19,10 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 @Builder
-public class Categorie {
+public class Categories {
     private String id;
     private String ordre;
     private String libelle;
-    private List<Attributs> listAttribut ;
+    private List<Attributs> attributs ;
     private Documents document ;
 }

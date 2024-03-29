@@ -1,11 +1,8 @@
 package cmr.notep.business;
 
-import cmr.notep.dao.AttributsEntity;
 import cmr.notep.dao.CategoryEntity;
 import cmr.notep.dao.DaoAccessorService;
-import cmr.notep.modele.Attributs;
-import cmr.notep.modele.Categorie;
-import cmr.notep.repository.AttributsRepository;
+import cmr.notep.modele.Categories;
 import cmr.notep.repository.CategoryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -26,27 +23,27 @@ public class CategoryBusiness {
         this.daoAccessorService = daoAccessorService ;
     }
 
-    public Categorie avoirCategorie(String id) {
+    public Categories avoirCategorie(String id) {
         return dozerMapperBean.map(
                 this.daoAccessorService.getRepository(CategoryRepository.class)
                         .findById(id)
-                        .orElseThrow(()->new RuntimeException("Categorie inexistante")), Categorie.class);
+                        .orElseThrow(()->new RuntimeException("Categorie inexistante")), Categories.class);
     }
 
-    public List<Categorie> avoirToutCategorie() {
+    public List<Categories> avoirToutCategorie() {
         return daoAccessorService.getRepository(CategoryRepository.class).findAll()
-                .stream().map(cat ->dozerMapperBean.map(cat, Categorie.class))
+                .stream().map(cat ->dozerMapperBean.map(cat, Categories.class))
                 .collect(Collectors.toList());
     }
 
-    public void supprimerCategory(Categorie categorie)
+    public void supprimerCategory(Categories categories)
     {
         daoAccessorService.getRepository(CategoryRepository.class)
-                .deleteById(categorie.getId());
+                .deleteById(categories.getId());
     }
 
-    public Categorie posterCategorie(Categorie categorie) {
+    public Categories posterCategorie(Categories categories) {
         return dozerMapperBean.map( this.daoAccessorService.getRepository(CategoryRepository.class)
-                .save(dozerMapperBean.map(categorie, CategoryEntity.class)), Categorie.class);
+                .save(dozerMapperBean.map(categories, CategoryEntity.class)), Categories.class);
     }
 }

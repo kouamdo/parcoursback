@@ -27,6 +27,6 @@ public class Attributs {
     Types type;
 
     private List<Documents> documents;
-    private List<Categorie> listCategory ;
+    private List<Categories> categories ;
 
 }
