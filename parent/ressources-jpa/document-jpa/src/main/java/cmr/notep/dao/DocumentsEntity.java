@@ -1,5 +1,6 @@
 package cmr.notep.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
@@ -8,6 +9,7 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -15,7 +17,6 @@ import java.util.List;
 @Table(name = "documents")
 public class DocumentsEntity {
     @Id
-    
     @Column(name = "id", nullable = false)
     private String id;
 
@@ -44,8 +45,8 @@ public class DocumentsEntity {
     //@Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<AttributsEntity> attributsEntities ;
 
-    @OneToMany(mappedBy = "document")
-    @Mapping("category")
-    private List<CategoryEntity> listCategories ;
+//    @OneToMany(mappedBy = "document")
+//    @JsonIgnore
+//    private Set<CategoryEntity> listCategories ;
 
 }
