@@ -37,25 +37,30 @@ INSERT INTO constituer(
 ('png-04','3456');
 
 -- Insertions pour la table 'category'
-INSERT INTO category (ordre, libelle, id_documents) VALUES ('1', 'Fiche de traite Test', 1);
-INSERT INTO category (ordre, libelle, id_documents) VALUES ('2', 'Lit hopital', 2);
-INSERT INTO category (ordre, libelle, id_documents) VALUES ('3', 'Don organes', 3);
-INSERT INTO category (ordre, libelle, id_documents) VALUES ('4', 'don de sang', 4);
-INSERT INTO category (ordre, libelle, id_documents) VALUES ('5', 'Économie et comptabilite', 5);
-INSERT INTO category (ordre, libelle, id_documents) VALUES ('6', 'Musique malade', 6);
-INSERT INTO category (ordre, libelle, id_documents) VALUES ('7', 'Cinéma', 7);
-INSERT INTO category (ordre, libelle, id_documents) VALUES ('8', 'Sport', 8);
-INSERT INTO category (ordre, libelle, id_documents) VALUES ('9', 'Cuisine', 9);
-INSERT INTO category (ordre, libelle, id_documents) VALUES ('10', 'Voyage', 10);
+INSERT INTO category (id_category,ordre, libelle, id_documents)
+    VALUES  ('1','1', 'Fiche de traite Test', '1234'),
+            ('2','2', 'Lit hopital', '1234'),
+            ('3','3', 'Don organes', '1234'),
+            ('4','4', 'don de sang', '2345'),
+            ('5','5', 'Économie et comptabilite', '2345'),
+            ('6','6', 'Musique malade', '2345'),
+            ('7','7', 'Cinéma', '2345'),
+            ('8','8', 'Sport', '2345'),
+            ('9','9', 'Cuisine', '2345'),
+            ('10','10', 'Voyage', '2345');
 
-INSERT INTO associer (id_attribut, id_category) VALUES (1, 1);
-INSERT INTO associer (id_attribut, id_category) VALUES (2, 2);
-INSERT INTO associer (id_attribut, id_category) VALUES (3, 3);
-INSERT INTO associer (id_attribut, id_category) VALUES (4, 4);
-INSERT INTO associer (id_attribut, id_category) VALUES (5, 5);
-INSERT INTO associer (id_attribut, id_category) VALUES (6, 6);
-INSERT INTO associer (id_attribut, id_category) VALUES (7, 7);
-INSERT INTO associer (id_attribut, id_category) VALUES (8, 8);
-INSERT INTO associer (id_attribut, id_category) VALUES (9, 9);
-INSERT INTO associer (id_attribut, id_category) VALUES (10, 10);
+
+
+INSERT INTO associer (id_attribut, id_category)
+    VALUES ('1234', '1'),
+            ('2345', '2'),
+            ('3456', '3'),
+            ('3456', '4'),
+            ('3456', '5'),
+            ('3456', '6'),
+            ('1234-png', '7'),
+            ('1234-png', '8'),
+            ('2345', '9'),
+            ('3456', '10');
+
 

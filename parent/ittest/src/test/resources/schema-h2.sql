@@ -4,8 +4,8 @@ CREATE SCHEMA parcours AUTHORIZATION sa;
 CREATE TABLE IF NOT EXISTS attributs
 (
     id character varying  NOT NULL,
-    titre VARCHAR(255)  NOT NULL,
-    description VARCHAR(255) ,
+    titre character varying  NOT NULL,
+    description character varying ,
     etat boolean,
     datecreation date,
     datemodification date,
@@ -17,16 +17,16 @@ CREATE TABLE IF NOT EXISTS attributs
 
 CREATE TABLE IF NOT EXISTS constituer
 (
-    id_document VARCHAR(255) NOT NULL,
-    id_attribut character varying  NOT NULL,
+    id_document text  NOT NULL,
+    id_attribut text  NOT NULL,
     CONSTRAINT constituer_pkey PRIMARY KEY (id_document, id_attribut)
 );
 
 CREATE TABLE IF NOT EXISTS documents
 (
-    id VARCHAR(255) NOT NULL,
+    id character varying  NOT NULL,
     titre character varying  NOT NULL,
-    description VARCHAR(255) ,
+    description character varying ,
     etat boolean,
     datecreation date,
     datemodification date,
@@ -34,16 +34,16 @@ CREATE TABLE IF NOT EXISTS documents
 );
 
 CREATE TABLE category (
-    id_category character varying  PRIMARY KEY,
+    id_category VARCHAR PRIMARY KEY,
     ordre VARCHAR(255),
     libelle VARCHAR(255),
-    id_documents VARCHAR(255) NOT NULL,
+    id_documents INT NOT NULL,
     FOREIGN KEY (id_documents) REFERENCES documents(id)
 );
 
 CREATE TABLE associer (
-    id_attribut character varying NOT NULL,
-    id_category character varying NOT NULL,
+    id_attribut VARCHAR NOT NULL,
+    id_category VARCHAR NOT NULL,
     PRIMARY KEY (id_attribut, id_category),
     FOREIGN KEY (id_attribut) REFERENCES attributs(id),
     FOREIGN KEY (id_category) REFERENCES category(id_category)
