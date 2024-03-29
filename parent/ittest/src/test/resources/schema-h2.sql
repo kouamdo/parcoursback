@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS attributs
 
 CREATE TABLE IF NOT EXISTS constituer
 (
-    id_document text  NOT NULL,
+    id_document character varying  NOT NULL,
     id_attribut character varying  NOT NULL,
     CONSTRAINT constituer_pkey PRIMARY KEY (id_document, id_attribut)
 );
