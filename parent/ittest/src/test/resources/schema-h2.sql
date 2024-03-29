@@ -3,7 +3,7 @@ CREATE SCHEMA parcours AUTHORIZATION sa;
 	
 CREATE TABLE IF NOT EXISTS attributs
 (
-    id character varying  NOT NULL,
+    id character varying  NOT NULL primary key,
     titre character varying  NOT NULL,
     description character varying ,
     etat boolean,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS constituer
 
 CREATE TABLE IF NOT EXISTS documents
 (
-    id character varying  NOT NULL,
+    id character varying  NOT NULL primary key,
     titre character varying  NOT NULL,
     description character varying ,
     etat boolean,
