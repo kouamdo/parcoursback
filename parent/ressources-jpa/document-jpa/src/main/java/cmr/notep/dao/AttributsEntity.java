@@ -28,11 +28,9 @@ public class AttributsEntity {
     @Column(name = "id", nullable = false)
     private String id;
 
-    
     @Column(name = "titre", nullable = false)
     private String titre;
 
-    
     @Column(name = "description")
     private String description;
 
@@ -45,14 +43,12 @@ public class AttributsEntity {
     @Column(name = "datemodification")
     private LocalDate datemodification;
 
-    
     @Column(name = "type", nullable = false)
     private String type;
 
     @Column(name = "optionnel")
     private Boolean optionnel;
 
-    
     @Column(name = "valeurpardefaut")
     private String valeurpardefaut;
 

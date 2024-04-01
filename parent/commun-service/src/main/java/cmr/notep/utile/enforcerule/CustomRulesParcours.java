@@ -66,6 +66,12 @@ public class CustomRulesParcours implements EnforcerRule {
                                         log.error("Failure details: " + failures.item(0).getTextContent());
                                         throw new EnforcerRuleException("Des tests ont échoué, Veuillez vérifier les logs");
                                     }
+                                    NodeList errors = ((Element) testCase).getElementsByTagName("error");
+                                    if (errors.getLength() > 0) {
+                                        log.error("Error found in file: " + file.getName());
+                                        log.error("Errors details: " + errors.item(0).getTextContent());
+                                        throw new EnforcerRuleException("Des tests ont échoué, Veuillez vérifier les logs");
+                                    }
                                 }
                             }
                         }
