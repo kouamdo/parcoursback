@@ -23,6 +23,6 @@ public class Categories {
     private String id;
     private String ordre;
     private String libelle;
-    private List<Attributs> attributs ;
-    private Documents document ;
+    private List<Attributs> attributs;
+   // private Documents document ;
 }

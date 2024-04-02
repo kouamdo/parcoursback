@@ -5,7 +5,8 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "attributs" : [ ]
+  "attributs" : [ ],
+  "categories" : null
 }, {
   "id" : null,
   "titre" : "Fiche de Test",
@@ -13,7 +14,8 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "attributs" : [ ]
+  "attributs" : [ ],
+  "categories" : null
 }, {
   "id" : null,
   "titre" : "Fiche de Test 2345-png-02",
@@ -53,7 +55,8 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double"
-  } ]
+  } ],
+  "categories" : null
 }, {
   "id" : null,
   "titre" : "Fiche de Test 2345-png-03",
@@ -85,7 +88,8 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double"
-  } ]
+  } ],
+  "categories" : null
 }, {
   "id" : null,
   "titre" : "Fiche de Test 4",
@@ -109,7 +113,8 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "String"
-  } ]
+  } ],
+  "categories" : null
 }, {
   "id" : null,
   "titre" : "Fiche de soin avec poids avec teint",
@@ -133,7 +138,8 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Int"
-  } ]
+  } ],
+  "categories" : null
 }, {
   "id" : null,
   "titre" : "Fiche de traite",
@@ -149,7 +155,8 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double"
-  } ]
+  } ],
+  "categories" : null
 }, {
   "id" : null,
   "titre" : "Fiche de traite Test",
@@ -157,5 +164,6 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "attributs" : [ ]
+  "attributs" : [ ],
+  "categories" : null
 } ]

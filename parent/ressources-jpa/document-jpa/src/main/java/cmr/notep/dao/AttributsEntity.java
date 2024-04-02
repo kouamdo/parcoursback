@@ -54,11 +54,10 @@ public class AttributsEntity {
 
     @ManyToMany(mappedBy = "attributsEntities")
     @JsonIgnore
-    private List<DocumentsEntity> documents;
+    private List<DocumentsEntity> documentsEntities;
 
-    @ManyToMany(mappedBy = "attributs")
-    //@Mapping("categories")
+    @ManyToMany(mappedBy = "attributsEntities")
     @JsonIgnore
-    private List<CategoryEntity> categories ;
+    private List<CategoryEntity> categoriesEntities;
 
 }

@@ -1,5 +1,6 @@
 package cmr.notep.modele;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.Date;
@@ -25,8 +26,7 @@ public class Attributs {
     private Date dateModification;
 
     Types type;
-
-    private List<Documents> documents;
-    private List<Categories> categories ;
+    //private List<Documents> documents;
+    // private List<Categories> categories ;
 
 }
