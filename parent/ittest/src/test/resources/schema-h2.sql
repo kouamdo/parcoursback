@@ -44,6 +44,8 @@ CREATE TABLE category (
 CREATE TABLE associer (
     id_attribut VARCHAR NOT NULL,
     id_category VARCHAR NOT NULL,
+    obligatoire boolean,
+    ordre INT ,
     PRIMARY KEY (id_attribut, id_category),
     FOREIGN KEY (id_attribut) REFERENCES attributs(id),
     FOREIGN KEY (id_category) REFERENCES category(id_category)
