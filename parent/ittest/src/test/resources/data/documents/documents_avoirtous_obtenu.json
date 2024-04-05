@@ -1,0 +1,121 @@
+[ {
+  "titre" : "Fiche de Test",
+  "description" : "traite test",
+  "etat" : true,
+  "dateCreation" : null,
+  "attributs" : [ ]
+}, {
+  "titre" : "Fiche de Test",
+  "description" : "traite test",
+  "etat" : true,
+  "dateCreation" : null,
+  "attributs" : [ ]
+}, {
+  "titre" : "Fiche de Test 2345-png-02",
+  "description" : "traite test 2345-png-02",
+  "etat" : true,
+  "dateCreation" : null,
+  "attributs" : [ {
+    "titre" : "Colle",
+    "description" : "colle",
+    "etat" : true,
+    "dateCreation" : null,
+    "type" : "Double"
+  }, {
+    "titre" : "png-08-colle",
+    "description" : "png-08-colle",
+    "etat" : true,
+    "dateCreation" : null,
+    "type" : "Double"
+  }, {
+    "titre" : "SEXES",
+    "description" : "SEXE",
+    "etat" : true,
+    "dateCreation" : null,
+    "type" : "String"
+  }, {
+    "titre" : "TAILLE",
+    "description" : "taille",
+    "etat" : true,
+    "dateCreation" : null,
+    "type" : "Double"
+  } ]
+}, {
+  "titre" : "Fiche de Test 2345-png-03",
+  "description" : "traite test 2345-png-03",
+  "etat" : true,
+  "dateCreation" : null,
+  "attributs" : [ {
+    "titre" : "Colle",
+    "description" : "colle",
+    "etat" : true,
+    "dateCreation" : null,
+    "type" : "Double"
+  }, {
+    "titre" : "SEXES",
+    "description" : "SEXE",
+    "etat" : true,
+    "dateCreation" : null,
+    "type" : "String"
+  }, {
+    "titre" : "TAILLE",
+    "description" : "taille",
+    "etat" : true,
+    "dateCreation" : null,
+    "type" : "Double"
+  } ]
+}, {
+  "titre" : "Fiche de Test 4",
+  "description" : "traite test",
+  "etat" : true,
+  "dateCreation" : null,
+  "attributs" : [ {
+    "titre" : "Colle",
+    "description" : "colle",
+    "etat" : true,
+    "dateCreation" : null,
+    "type" : "Double"
+  }, {
+    "titre" : "SEXES",
+    "description" : "SEXE",
+    "etat" : true,
+    "dateCreation" : null,
+    "type" : "String"
+  } ]
+}, {
+  "titre" : "Fiche de soin avec poids avec teint",
+  "description" : "fiche de soin",
+  "etat" : true,
+  "dateCreation" : null,
+  "attributs" : [ {
+    "titre" : "TAILLE revisee",
+    "description" : "taille revisee",
+    "etat" : true,
+    "dateCreation" : null,
+    "type" : "Double"
+  }, {
+    "titre" : "teint",
+    "description" : "teint du nouveau",
+    "etat" : false,
+    "dateCreation" : null,
+    "type" : "Int"
+  } ]
+}, {
+  "titre" : "Fiche de traite",
+  "description" : "traite",
+  "etat" : true,
+  "dateCreation" : null,
+  "attributs" : [ {
+    "titre" : "TAILLE",
+    "description" : "taille",
+    "etat" : true,
+    "dateCreation" : null,
+    "type" : "Double"
+  } ]
+}, {
+  "titre" : "Fiche de traite Test",
+  "description" : "traite test",
+  "etat" : true,
+  "dateCreation" : null,
+  "attributs" : [ ]
+} ]

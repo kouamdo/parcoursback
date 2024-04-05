@@ -9,6 +9,7 @@ import difflib.DiffUtils;
 import difflib.Patch;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -87,7 +88,10 @@ public class JsonComparator {
     private static void ecrireStringDansunfichier(JsonNode donnee, String extension,String pathJson, ObjectMapper objectMapper) throws IOException {
         String resultObtenuChemin = SRC_TEST_RESOURCES.concat(pathJson).concat(extension);
         //sauvegarde du fichier json obtenu
-        objectMapper.writer(new DefaultPrettyPrinter()).writeValue(new File(resultObtenuChemin), donnee);
+        objectMapper.writer(new DefaultPrettyPrinter()).withRootValueSeparator("\n").writeValue(new File(resultObtenuChemin), donnee);
+        try (FileWriter fileWriter = new FileWriter(resultObtenuChemin, true)) {
+            fileWriter.write("\n");
+        }
     }
 
     private static void ecrireDiffDansUnFichier(String pathJson, Set<String> fieldsToExclude, List<String> patchList) throws IOException {

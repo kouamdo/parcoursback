@@ -16,7 +16,7 @@ import java.util.List;
 public class CategoryEntity {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+   // @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id_category", nullable = false)
     private String id;
 
@@ -35,5 +35,7 @@ public class CategoryEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_documents")
+    @Mapping("document")
+    @JsonIgnore
     private DocumentsEntity documentsEntity ;
 }

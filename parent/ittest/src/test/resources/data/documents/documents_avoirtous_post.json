@@ -5,7 +5,8 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "attributs" : [ ]
+  "attributs" : [ ],
+  "categories" : [ ]
 }, {
   "id" : null,
   "titre" : "Fiche de Test",
@@ -13,7 +14,8 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "attributs" : [ ]
+  "attributs" : [ ],
+  "categories" : [ ]
 }, {
   "id" : null,
   "titre" : "Fiche de Test 2345-png-02",
@@ -28,7 +30,9 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "Double"
+    "type" : "Double",
+    "documents" : null,
+    "categories" : null
   }, {
     "id" : null,
     "titre" : "png-08-colle",
@@ -36,7 +40,9 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "Double"
+    "type" : "Double",
+    "documents" : null,
+    "categories" : null
   }, {
     "id" : null,
     "titre" : "SEXES",
@@ -44,7 +50,9 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "String"
+    "type" : "String",
+    "documents" : null,
+    "categories" : null
   }, {
     "id" : null,
     "titre" : "TAILLE",
@@ -52,8 +60,11 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "Double"
-  } ]
+    "type" : "Double",
+    "documents" : null,
+    "categories" : null
+  } ],
+  "categories" : [ ]
 }, {
   "id" : null,
   "titre" : "Fiche de Test 2345-png-03",
@@ -68,7 +79,9 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "Double"
+    "type" : "Double",
+    "documents" : null,
+    "categories" : null
   }, {
     "id" : null,
     "titre" : "SEXES",
@@ -76,7 +89,9 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "String"
+    "type" : "String",
+    "documents" : null,
+    "categories" : null
   }, {
     "id" : null,
     "titre" : "TAILLE",
@@ -84,8 +99,11 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "Double"
-  } ]
+    "type" : "Double",
+    "documents" : null,
+    "categories" : null
+  } ],
+  "categories" : [ ]
 }, {
   "id" : null,
   "titre" : "Fiche de Test 4",
@@ -100,7 +118,9 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "Double"
+    "type" : "Double",
+    "documents" : null,
+    "categories" : null
   }, {
     "id" : null,
     "titre" : "SEXES",
@@ -108,32 +128,11 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "String"
-  } ]
-}, {
-  "id" : null,
-  "titre" : "Fiche de soin avec poids avec teint",
-  "description" : "fiche de soin",
-  "etat" : true,
-  "dateCreation" : null,
-  "dateModification" : null,
-  "attributs" : [ {
-    "id" : null,
-    "titre" : "TAILLE revisee",
-    "description" : "taille revisee",
-    "etat" : true,
-    "dateCreation" : null,
-    "dateModification" : null,
-    "type" : "Double"
-  }, {
-    "id" : null,
-    "titre" : "teint",
-    "description" : "teint du nouveau",
-    "etat" : false,
-    "dateCreation" : null,
-    "dateModification" : null,
-    "type" : "Int"
-  } ]
+    "type" : "String",
+    "documents" : null,
+    "categories" : null
+  } ],
+  "categories" : [ ]
 }, {
   "id" : null,
   "titre" : "Fiche de traite",
@@ -148,7 +147,115 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "Double"
+    "type" : "Double",
+    "documents" : null,
+    "categories" : null
+  } ],
+  "categories" : [ {
+    "id" : null,
+    "ordre" : "4",
+    "libelle" : "don de sang",
+    "attributs" : [ {
+      "id" : null,
+      "titre" : "SEXES",
+      "description" : "SEXE",
+      "etat" : true,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "String",
+      "documents" : null,
+      "categories" : null
+    } ]
+  }, {
+    "id" : null,
+    "ordre" : "5",
+    "libelle" : "Économie et comptabilite",
+    "attributs" : [ {
+      "id" : null,
+      "titre" : "SEXES",
+      "description" : "SEXE",
+      "etat" : true,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "String",
+      "documents" : null,
+      "categories" : null
+    } ]
+  }, {
+    "id" : null,
+    "ordre" : "6",
+    "libelle" : "Musique malade",
+    "attributs" : [ {
+      "id" : null,
+      "titre" : "SEXES",
+      "description" : "SEXE",
+      "etat" : true,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "String",
+      "documents" : null,
+      "categories" : null
+    } ]
+  }, {
+    "id" : null,
+    "ordre" : "7",
+    "libelle" : "Cinéma",
+    "attributs" : [ {
+      "id" : null,
+      "titre" : "Colle",
+      "description" : "colle",
+      "etat" : true,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "Double",
+      "documents" : null,
+      "categories" : null
+    } ]
+  }, {
+    "id" : null,
+    "ordre" : "8",
+    "libelle" : "Sport",
+    "attributs" : [ {
+      "id" : null,
+      "titre" : "Colle",
+      "description" : "colle",
+      "etat" : true,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "Double",
+      "documents" : null,
+      "categories" : null
+    } ]
+  }, {
+    "id" : null,
+    "ordre" : "9",
+    "libelle" : "Cuisine",
+    "attributs" : [ {
+      "id" : null,
+      "titre" : "teint",
+      "description" : "teint du nouveau",
+      "etat" : false,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "Int",
+      "documents" : null,
+      "categories" : null
+    } ]
+  }, {
+    "id" : null,
+    "ordre" : "10",
+    "libelle" : "Voyage",
+    "attributs" : [ {
+      "id" : null,
+      "titre" : "SEXES",
+      "description" : "SEXE",
+      "etat" : true,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "String",
+      "documents" : null,
+      "categories" : null
+    } ]
   } ]
 }, {
   "id" : null,
@@ -157,7 +264,8 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "attributs" : [ ]
+  "attributs" : [ ],
+  "categories" : [ ]
 }, {
   "id" : null,
   "titre" : "TitreTest",
@@ -172,7 +280,9 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "String"
+    "type" : "String",
+    "documents" : null,
+    "categories" : null
   }, {
     "id" : null,
     "titre" : "TAILLE",
@@ -180,6 +290,83 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "Double"
+    "type" : "Double",
+    "documents" : null,
+    "categories" : null
+  } ],
+  "categories" : null
+}, {
+  "id" : null,
+  "titre" : "TitreTest4",
+  "description" : "fiche de soin",
+  "etat" : false,
+  "dateCreation" : null,
+  "dateModification" : null,
+  "attributs" : [ {
+    "id" : null,
+    "titre" : "TAILLE revisee",
+    "description" : "taille revisee",
+    "etat" : true,
+    "dateCreation" : null,
+    "dateModification" : null,
+    "type" : "Double",
+    "documents" : null,
+    "categories" : null
+  }, {
+    "id" : null,
+    "titre" : "teint",
+    "description" : "teint du nouveau",
+    "etat" : false,
+    "dateCreation" : null,
+    "dateModification" : null,
+    "type" : "Int",
+    "documents" : null,
+    "categories" : null
+  } ],
+  "categories" : [ {
+    "id" : null,
+    "ordre" : "1",
+    "libelle" : "Fiche de traite Test",
+    "attributs" : [ {
+      "id" : null,
+      "titre" : "TAILLE",
+      "description" : "taille",
+      "etat" : true,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "Double",
+      "documents" : null,
+      "categories" : null
+    } ]
+  }, {
+    "id" : null,
+    "ordre" : "2",
+    "libelle" : "Lit hopital",
+    "attributs" : [ {
+      "id" : null,
+      "titre" : "teint",
+      "description" : "teint du nouveau",
+      "etat" : false,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "Int",
+      "documents" : null,
+      "categories" : null
+    } ]
+  }, {
+    "id" : null,
+    "ordre" : "3",
+    "libelle" : "Don organes",
+    "attributs" : [ {
+      "id" : null,
+      "titre" : "SEXES",
+      "description" : "SEXE",
+      "etat" : true,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "String",
+      "documents" : null,
+      "categories" : null
+    } ]
   } ]
 } ]

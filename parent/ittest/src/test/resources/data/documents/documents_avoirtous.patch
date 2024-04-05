@@ -1,0 +1,8 @@
+--- src/test/resources/data/documents/documents_avoirtous.json
++++ src/test/resources/data/documents/documents_avoirtous.json
+@@ -246,1 +246,1 @@
+-    "libelle" : "Économie et comptabilite",
++    "libelle" : "Ã‰conomie et comptabilite",
+@@ -276,1 +276,1 @@
+-    "libelle" : "Cinéma",
++    "libelle" : "CinÃ©ma",
