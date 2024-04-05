@@ -3,6 +3,7 @@ package cmr.notep.document;
 import cmr.notep.commun.AbstractIttest;
 import cmr.notep.config.ItTestConfig;
 import cmr.notep.modele.Attributs;
+import cmr.notep.modele.Categories;
 import cmr.notep.modele.Documents;
 import cmr.notep.modele.Types;
 import cmr.notep.utile.JsonComparator;
@@ -128,10 +129,17 @@ public class DocumentCrudTest extends AbstractIttest {
             Documents document2 = documentsList.get(0);
             document2.setTitre("TitreTest4");
             document2.setEtat(false);
+            //retrait d'une categorie
+           /* document2.getCategories().remove(0);
+            Categories categorie = Categories.builder().id("1234-new").libelle("CategorieTest").ordre("1000").build();
+            categorie.setAttributs(document2.getAttributs());
+            categorie.setDocument(document2);
+            document2.getCategories().add(categorie);*/
+
             return documentService.posterDocument(document2);
         });
 
-        CompletableFuture.allOf(future,future1,future2).join();
+        CompletableFuture.allOf(future, future1, future2).join();
         Documents doc = documentService.avoirDocument(idDoc);
         log.info("idDoc " + idDoc + " doc: "+doc);
     }

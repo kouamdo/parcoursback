@@ -13,7 +13,7 @@ INSERT INTO documents(
 INSERT INTO attributs(
 	id, titre, description, etat, datecreation, datemodification, type, optionnel, valeurpardefaut)
 	VALUES
-('1234','TAILLE','taille',True,NULL,NULL,'Double',NULL,NULL),
+('1234','TAILLES','tailles',True,NULL,NULL,'Double',NULL,NULL),
 ('1234-de','TAILLE revisee','taille revisee',True,NULL,NULL,'Double',NULL,NULL),
 ('1234-png','Colle','colle',True,NULL,NULL,'Double',NULL,NULL),
 ('1234-png-08','png-08-colle','png-08-colle',True,NULL,NULL,'Double',NULL,NULL),
