@@ -60,7 +60,7 @@ public class AttributsEntity {
     @JsonIgnore
     private List<DocumentsEntity> documents;
 
-    @ManyToMany(mappedBy = "attributs")
+    @ManyToMany(mappedBy = "attributsEntities")
     //@Mapping("categories")
     @JsonIgnore
     private List<CategoryEntity> categories ;

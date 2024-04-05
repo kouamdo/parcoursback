@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class AssocierEntity {
 
     @EmbeddedId
-    private AssocierEntity id = new AssocierEntity();
+    private AssoicierEntityID id = new AssocierEntity().getId();
 
     @ManyToOne
     @MapsId("id_category")
