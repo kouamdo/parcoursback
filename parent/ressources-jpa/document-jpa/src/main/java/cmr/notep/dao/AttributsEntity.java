@@ -65,4 +65,6 @@ public class AttributsEntity {
     @JsonIgnore
     private List<CategoryEntity> categories ;
 
+    @OneToMany(mappedBy = "attribut")
+    private List<AssocierEntity> attributAssociation ;
 }

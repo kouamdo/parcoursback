@@ -38,4 +38,7 @@ public class CategoryEntity {
     @Mapping("document")
     @JsonIgnore
     private DocumentsEntity documentsEntity ;
+
+    @OneToMany(mappedBy = "category")
+    private List<AssocierEntity> listAssociation ;
 }

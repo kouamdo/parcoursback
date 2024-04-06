@@ -15,14 +15,19 @@ public class AssocierEntity {
     private AssoicierEntityID id = new AssocierEntity().getId();
 
     @ManyToOne
-    @MapsId("id_category")
+    @MapsId("listAssociation")
+//    @JoinColumn(name = "category_id" refe = "id_category")
     private CategoryEntity category ;
 
+
     @ManyToOne
-    @MapsId("id_attribut")
+    @MapsId("attributAssociation")
+//    @JoinColumn(name = "attribut_id" referencedColumnName = "id")
     private AttributsEntity attribut ;
 
+    @Column(name="obligatoire")
     private boolean obligatoire ;
 
+    @Column(name="ordre")
     private int ordre ;
 }

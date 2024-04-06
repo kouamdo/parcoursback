@@ -12,7 +12,6 @@ import lombok.*;
 @Builder
 public class Associer {
 
-    private Categories category ;
     private  Attributs attribut ;
 
     private boolean obligatoire ;
