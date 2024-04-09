@@ -12,9 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"document, categories"})
-@ToString(exclude = {"documents, categories"})
-@EqualsAndHashCode(exclude = {"documents, categories"})
+@JsonIgnoreProperties({"document"})
+@ToString(exclude = {"documents"})
+@EqualsAndHashCode(exclude = {"documents"})
 public class Attributs {
     private String id;
     private String titre;
@@ -29,6 +29,6 @@ public class Attributs {
 
     Types type;
     private List<Documents> documents;
-    private List<Categories> categories ;
+    //private List<Categories> categories ;
 
 }

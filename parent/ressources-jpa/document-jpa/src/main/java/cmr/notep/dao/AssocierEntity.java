@@ -12,18 +12,18 @@ import javax.persistence.*;
 public class AssocierEntity {
 
     @EmbeddedId
-    private AssoicierEntityID id = new AssocierEntity().getId();
+    private AssoicierEntityID id;
 
     @ManyToOne
-    @MapsId("listAssociation")
-//    @JoinColumn(name = "category_id" refe = "id_category")
-    private CategoryEntity category ;
+    @MapsId("id_category")
+    @JoinColumn(name = "id_category", referencedColumnName = "id_category")
+    private CategoryEntity categoryAssocier ;
 
 
     @ManyToOne
-    @MapsId("attributAssociation")
-//    @JoinColumn(name = "attribut_id" referencedColumnName = "id")
-    private AttributsEntity attribut ;
+    @MapsId("attribut_id")
+    @JoinColumn(name = "attribut_id", referencedColumnName = "id")
+    private AttributsEntity attributAssocier ;
 
     @Column(name="obligatoire")
     private boolean obligatoire ;

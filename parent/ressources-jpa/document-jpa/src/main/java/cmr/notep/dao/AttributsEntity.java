@@ -60,11 +60,11 @@ public class AttributsEntity {
     @JsonIgnore
     private List<DocumentsEntity> documents;
 
-    @ManyToMany(mappedBy = "attributsEntities")
+    //@ManyToMany(mappedBy = "attributsEntities")
     //@Mapping("categories")
-    @JsonIgnore
-    private List<CategoryEntity> categories ;
+    //@JsonIgnore
+   // private List<CategoryEntity> categories ;
 
-    @OneToMany(mappedBy = "attribut")
-    private List<AssocierEntity> attributAssociation ;
+    @OneToMany(mappedBy = "attributAssocier", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    private List<AssocierEntity> attributsAssocier ;
 }

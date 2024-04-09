@@ -26,12 +26,12 @@ public class CategoryEntity {
     @Column(name = "libelle")
     private String libelle;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+   /* @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "associer",
             joinColumns = @JoinColumn(name = "id_category"),
             inverseJoinColumns = @JoinColumn(name = "id_attribut"))
     @Mapping("attributs")
-    private List<AttributsEntity> attributsEntities ;
+    private List<AttributsEntity> attributsEntities ;*/
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_documents")
@@ -39,6 +39,7 @@ public class CategoryEntity {
     @JsonIgnore
     private DocumentsEntity documentsEntity ;
 
-    @OneToMany(mappedBy = "category")
-    private List<AssocierEntity> listAssociation ;
+    @OneToMany(mappedBy = "categoryAssocier", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @Mapping("attributsAsssocier")
+    private List<AssocierEntity> catogriesAssocier;
 }
