@@ -40,6 +40,6 @@ public class CategoryEntity {
     private DocumentsEntity documentsEntity ;
 
     @OneToMany(mappedBy = "categoryAssocier", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("attributsAsssocier")
+    @Mapping("attributsAssocier")
     private List<AssocierEntity> catogriesAssocier;
 }

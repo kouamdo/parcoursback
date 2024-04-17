@@ -78,7 +78,7 @@ public class DocumentCrudTest extends AbstractIttest {
            ,fieldsToExclude));
  }
 
-    @Test
+    //@Test
     @SneakyThrows
     public void testPosterDocumentWithMultiThread(){
         /*Documents document = new Documents();

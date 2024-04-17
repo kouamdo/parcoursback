@@ -31,8 +31,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   }, {
     "id" : null,
     "titre" : "png-08-colle",
@@ -41,8 +40,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   }, {
     "id" : null,
     "titre" : "SEXES",
@@ -51,8 +49,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "String",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   }, {
     "id" : null,
     "titre" : "TAILLE",
@@ -61,8 +58,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   } ],
   "categories" : [ ]
 }, {
@@ -80,8 +76,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   }, {
     "id" : null,
     "titre" : "SEXES",
@@ -90,8 +85,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "String",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   }, {
     "id" : null,
     "titre" : "TAILLE",
@@ -100,8 +94,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   } ],
   "categories" : [ ]
 }, {
@@ -119,8 +112,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   }, {
     "id" : null,
     "titre" : "SEXES",
@@ -129,8 +121,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "String",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   } ],
   "categories" : [ ]
 }, {
@@ -148,8 +139,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   } ],
   "categories" : [ {
     "id" : null,
@@ -163,8 +153,7 @@
       "dateCreation" : null,
       "dateModification" : null,
       "type" : "String",
-      "documents" : null,
-      "categories" : null
+      "documents" : null
     } ]
   }, {
     "id" : null,
@@ -178,8 +167,7 @@
       "dateCreation" : null,
       "dateModification" : null,
       "type" : "String",
-      "documents" : null,
-      "categories" : null
+      "documents" : null
     } ]
   }, {
     "id" : null,
@@ -193,8 +181,7 @@
       "dateCreation" : null,
       "dateModification" : null,
       "type" : "String",
-      "documents" : null,
-      "categories" : null
+      "documents" : null
     } ]
   }, {
     "id" : null,
@@ -208,8 +195,7 @@
       "dateCreation" : null,
       "dateModification" : null,
       "type" : "Double",
-      "documents" : null,
-      "categories" : null
+      "documents" : null
     } ]
   }, {
     "id" : null,
@@ -223,8 +209,7 @@
       "dateCreation" : null,
       "dateModification" : null,
       "type" : "Double",
-      "documents" : null,
-      "categories" : null
+      "documents" : null
     } ]
   }, {
     "id" : null,
@@ -238,8 +223,7 @@
       "dateCreation" : null,
       "dateModification" : null,
       "type" : "Int",
-      "documents" : null,
-      "categories" : null
+      "documents" : null
     } ]
   }, {
     "id" : null,
@@ -253,8 +237,7 @@
       "dateCreation" : null,
       "dateModification" : null,
       "type" : "String",
-      "documents" : null,
-      "categories" : null
+      "documents" : null
     } ]
   } ]
 }, {
@@ -281,8 +264,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "String",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   }, {
     "id" : null,
     "titre" : "TAILLE",
@@ -291,8 +273,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   } ],
   "categories" : null
 }, {
@@ -310,8 +291,7 @@
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double",
-    "documents" : null,
-    "categories" : null
+    "documents" : null
   }, {
     "id" : null,
     "titre" : "teint",
@@ -335,8 +315,7 @@
       "dateCreation" : null,
       "dateModification" : null,
       "type" : "Double",
-      "documents" : null,
-      "categories" : null
+      "documents" : null
     } ]
   }, {
     "id" : null,
@@ -350,8 +329,7 @@
       "dateCreation" : null,
       "dateModification" : null,
       "type" : "Int",
-      "documents" : null,
-      "categories" : null
+      "documents" : null
     } ]
   }, {
     "id" : null,
@@ -365,8 +343,7 @@
       "dateCreation" : null,
       "dateModification" : null,
       "type" : "String",
-      "documents" : null,
-      "categories" : null
+      "documents" : null
     } ]
   } ]
 } ]
