@@ -1,5 +1,7 @@
 package cmr.notep.document;
 
+import cmr.notep.api.IAttributApi;
+import cmr.notep.business.AttributBusiness;
 import cmr.notep.commun.AbstractIttest;
 import cmr.notep.config.ItTestConfig;
 import cmr.notep.modele.Attributs;
