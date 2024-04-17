@@ -21,8 +21,8 @@ public class AssocierEntity {
 
 
     @ManyToOne
-    @MapsId("attribut_id")
-    @JoinColumn(name = "attribut_id", referencedColumnName = "id")
+    @MapsId("id_attribut")
+    @JoinColumn(name = "id_attribut", referencedColumnName = "id")
     private AttributsEntity attributAssocier ;
 
     @Column(name="obligatoire")

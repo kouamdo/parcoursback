@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Setter
 @Getter
 public class AssoicierEntityID implements Serializable {
-    @Column(name = "attribut_id")
+    @Column(name = "id_attribut")
     private String attribut_id ;
     @Column(name = "id_category")
     private String id_category ;
