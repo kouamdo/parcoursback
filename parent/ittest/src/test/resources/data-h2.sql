@@ -3,38 +3,37 @@ INSERT INTO documents(
 	VALUES 
 ('1234','Fiche de soin avec poids avec teint','fiche de soin',True,NULL,NULL),
 ('2345','Fiche de traite','traite',True,'2023-03-31','2023-03-31'),
-('2345-png','Fiche de traite Test','traite test',True,NULL,NULL),
-('2345-png-01','Fiche de Test','traite test',True,NULL,NULL),
-('2345-png-02','Fiche de Test 2345-png-02','traite test 2345-png-02',True,NULL,NULL),
-('2345-png-03','Fiche de Test 2345-png-03','traite test 2345-png-03',True,NULL,NULL),
-('nom-01','Fiche de Test','traite test',True,NULL,NULL),
-('png-04','Fiche de Test 4','traite test',True,NULL,NULL);
+--('2345png','Fiche de traite Test','traite test',True,NULL,NULL),
+--('2345png01','Fiche de Test','traite test',True,NULL,NULL),
+--('2345png02','Fiche de Test 2345-png-02','traite test 2345-png-02',True,NULL,NULL),
+--('2345png03','Fiche de Test 2345-png-03','traite test 2345-png-03',True,NULL,NULL),
+('nom01','Fiche de Test','traite test',True,NULL,NULL),
+('png04','Fiche de Test 4','traite test',True,NULL,NULL);
 
 INSERT INTO attributs(
 	id, titre, description, etat, datecreation, datemodification, type, optionnel, valeurpardefaut)
 	VALUES
 ('1234','TAILLES','tailles',True,NULL,NULL,'Double',NULL,NULL),
-('1234-de','TAILLE revisee','taille revisee',True,NULL,NULL,'Double',NULL,NULL),
-('1234-png','Colle','colle',True,NULL,NULL,'Double',NULL,NULL),
-('1234-png-08','png-08-colle','png-08-colle',True,NULL,NULL,'Double',NULL,NULL),
+('1234de','TAILLE revisee','taille revisee',True,NULL,NULL,'Double',NULL,NULL),
+('1234png','Colle','colle',True,NULL,NULL,'Double',NULL,NULL),
+('1234png08','png-08-colle','png-08-colle',True,NULL,NULL,'Double',NULL,NULL),
 ('2345','teint','teint du nouveau',False,NULL,NULL,'Int',NULL,NULL),
 ('3456','SEXES','SEXE',True,NULL,NULL,'String',NULL,NULL);
 
 INSERT INTO constituer(
 	id_document, id_attribut)
 	VALUES 
-('1234','1234-de'),
+('1234','1234de'),
 ('1234','2345'),
 ('2345','1234'),
-('2345-png-02','1234'),
-('2345-png-02','1234-png'),
-('2345-png-02','1234-png-08'),
-('2345-png-02','3456'),
-('2345-png-03','1234'),
-('2345-png-03','1234-png'),
-('2345-png-03','3456'),
-('png-04','1234-png'),
-('png-04','3456');
+--('2345png02','1234png'),
+--('2345png02','1234png08'),
+--('2345png02','3456'),
+--('2345png03','1234'),
+--('2345png03','1234png'),
+--('2345png03','3456'),
+('png04','1234png'),
+('png04','3456');
 
 -- Insertions pour la table 'category'
 INSERT INTO category (id_category,ordre, libelle, id_documents)
@@ -58,8 +57,8 @@ INSERT INTO associer (id_attribut, id_category)
             ('3456', '4'),
             ('3456', '5'),
             ('3456', '6'),
-            ('1234-png', '7'),
-            ('1234-png', '8'),
+            ('1234png', '7'),
+            ('1234png', '8'),
             ('2345', '9'),
             ('3456', '10');
 
