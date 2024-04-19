@@ -49,4 +49,13 @@ public class DocumentsEntity {
     @Mapping("categories")
     private List<CategoryEntity> categoriesEntities;
 
+    @ManyToMany(mappedBy = "listDocuments")
+    private List<MissionEntity> missionDocuments ;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinTable(name = "suivre",
+            joinColumns = @JoinColumn(name = "id_document"),
+            inverseJoinColumns = @JoinColumn(name = "id_precomouvements"))
+    @Mapping("precomouvements")
+    private List<PrecoMouvementsEntity> precoMouvementssuivie ;
 }
