@@ -59,3 +59,24 @@ ALTER TABLE IF EXISTS constituer
 ALTER TABLE IF EXISTS constituer
     ADD CONSTRAINT id_attribut FOREIGN KEY (id_attribut)
     REFERENCES attributs (id) ;
+
+CREATE TABLE mission (
+    id_mission VARCHAR NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255) ,
+    description VARCHAR(255) ,
+    etat boolean,
+    datecreation date,
+    datemodification date,
+    documents_fk VARCHAR NOT NULL ,
+    FOREIGN KEY (document_fk) REFERENCES documents(id)
+)
+
+CREATE TABLE precomouvement(
+    id_precomouvement VARCHAR NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255) ,
+    etat boolean,
+    datecreation date,
+    datemodification date,
+    documentssuivie_fk VARCHAR NOT NULL ,
+    FOREIGN KEY (documentsuivie_fk) REFERENCES documents(id)
+)
