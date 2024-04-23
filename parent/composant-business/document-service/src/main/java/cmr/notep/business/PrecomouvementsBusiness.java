@@ -1,0 +1,48 @@
+package cmr.notep.business;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import cmr.notep.dao.MissionEntity;
+import cmr.notep.dao.PrecoMouvementsEntity;
+import cmr.notep.modele.Mission;
+import cmr.notep.modele.PrecoMouvements;
+import cmr.notep.repository.MissionRepository;
+import cmr.notep.repository.PrecoMouvementsRepository;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import cmr.notep.dao.DaoAccessorService;
+import lombok.extern.slf4j.Slf4j;
+
+import static cmr.notep.config.DocumentConfig.dozerMapperBean;
+
+@Component
+@Slf4j
+@Transactional
+public class PrecomouvementsBusiness {
+    private final DaoAccessorService daoAccessorService ;
+
+    public PrecomouvementsBusiness(DaoAccessorService daoAccessorService) { this.daoAccessorService = daoAccessorService ;}
+
+    public List <PrecoMouvements> avoirTousPrecouvement()
+    {
+        return daoAccessorService.getRepository(PrecoMouvementsRepository.class).findAll()
+                .stream().map(precomouvement -> dozerMapperBean.map(precomouvement,PrecoMouvements.class))
+                .collect(Collectors.toList());
+    }
+
+    public PrecoMouvements avoirPrecomouvements(String idPreco)
+    {
+        return dozerMapperBean.map(this.daoAccessorService.getRepository(PrecoMouvementsRepository.class).findById(idPreco)
+                .orElseThrow(()->new RuntimeException("Mission non enregistré")), PrecoMouvements.class);
+    }
+
+    public PrecoMouvements posterPrecomouvement (PrecoMouvements preco){
+        return dozerMapperBean.map(
+                this.daoAccessorService.getRepository(PrecoMouvementsRepository.class)
+                        .save(dozerMapperBean.map(preco, PrecoMouvementsEntity.class)),
+                PrecoMouvements.class
+        );
+    }
+}
