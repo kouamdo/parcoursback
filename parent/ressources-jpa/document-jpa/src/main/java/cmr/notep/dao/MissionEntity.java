@@ -44,4 +44,7 @@ public class MissionEntity {
     )
     @Mapping("documents")
     private List<DocumentsEntity> listDocuments ;
+
+    @ManyToOne
+    private ServiceEntity service ;
 }
