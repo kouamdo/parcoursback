@@ -60,6 +60,16 @@ ALTER TABLE IF EXISTS constituer
     ADD CONSTRAINT id_attribut FOREIGN KEY (id_attribut)
     REFERENCES attributs (id) ;
 
+CREATE TABLE service(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255) ,
+    description VARCHAR(255) ,
+    codeuniq VARCHAR NOT NULL UNIQUE,
+    etat boolean,
+    datecreation date,
+    datemodification date
+);
+
 CREATE TABLE mission (
     id VARCHAR NOT NULL PRIMARY KEY,
     libelle VARCHAR(255) ,
@@ -68,8 +78,10 @@ CREATE TABLE mission (
     datecreation date,
     datemodification date,
     documents_fk VARCHAR NOT NULL ,
-    FOREIGN KEY (document_fk) REFERENCES documents(id)
-)
+    service_fk VARCHAR NOT NULL,
+    FOREIGN KEY (documents_fk) REFERENCES documents(id),
+    FOREIGN KEY (service_fk) REFERENCES service(id)
+);
 
 CREATE TABLE precomouvement(
     id VARCHAR NOT NULL PRIMARY KEY,
@@ -77,16 +89,6 @@ CREATE TABLE precomouvement(
     etat boolean,
     datecreation date,
     datemodification date,
-    documentssuivie_fk VARCHAR NOT NULL ,
+    documentsuivie_fk VARCHAR NOT NULL ,
     FOREIGN KEY (documentsuivie_fk) REFERENCES documents(id)
-)
-
-CREATE TABLE service(
-    id VARCHAR NOT NULL PRIMARY KEY,
-    libelle VARCHAR(255) ,
-    description VARCHAR(255) ,
-    codeuniq VARCHAR NOT NULL UNIQUE,
-    etat boolean,
-    datecreation date,
-    datemodification date,
-)
+);
