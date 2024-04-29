@@ -20,16 +20,32 @@ public class DocumentsEntity {
     @Column(name = "id", nullable = false)
     private String id;
 
-    
     @Column(name = "titre", nullable = false)
     private String titre;
 
-    
     @Column(name = "description")
     private String description;
 
+    @Column(name = "type")
+    private String type ;
+
+    @Column(name = "afficherPrix")
+    private String AfficherPrix ;
+
     @Column(name = "etat")
     private Boolean etat;
+
+    @Column(name = "afficherUnite")
+    private Boolean afficherUnite;
+
+    @Column(name="afficherDistributeur")
+    private boolean afficherDistributeur;
+
+    @Column(name="prixEditable")
+    private Boolean prixEditable;
+
+    @Column(name="accentRessource")
+    private Boolean accentRessource;
 
     @Column(name = "datecreation")
     private LocalDate datecreation;
@@ -52,10 +68,10 @@ public class DocumentsEntity {
     @ManyToMany(mappedBy = "listDocuments")
     private List<MissionEntity> missionDocuments ;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "suivre",
             joinColumns = @JoinColumn(name = "id_document"),
             inverseJoinColumns = @JoinColumn(name = "id_precomouvements"))
     @Mapping("precomouvements")
-    private List<PrecoMouvementsEntity> precoMouvementssuivie ;
+    private List<PrecoMouvementsEntity> precoMouvementsEntities ;
 }

@@ -25,6 +25,12 @@ public class Documents {
 
     private Date dateModification;
 
+    private String type ;
+
+    private String AfficherPrix ;
+
+    private Boolean afficherUnite,afficherDistributeur,prixEditable, accentRessource;
+
     //public List<Missions>  = new ArrayList<Missions> ();
 
     //public List<PrecoMouvements>  = new ArrayList<PrecoMouvements> ();

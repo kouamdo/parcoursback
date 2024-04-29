@@ -24,12 +24,16 @@ CREATE TABLE IF NOT EXISTS constituer
 
 CREATE TABLE IF NOT EXISTS documents
 (
-    id VARCHAR(255)  NOT NULL,
-    titre VARCHAR(255)  NOT NULL,
-    description VARCHAR(255) ,
-    etat boolean,
-    datecreation date,
-    datemodification date,
+    id VARCHAR(255) NOT NULL,
+    titre VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    etat BOOLEAN,
+    afficherUnite BOOLEAN,
+    afficherDistributeur BOOLEAN,
+    prixEditable BOOLEAN,
+    accentRessource BOOLEAN,
+    datecreation DATE,
+    datemodification DATE,
     CONSTRAINT documents_pkey PRIMARY KEY (id)
 );
 
@@ -60,7 +64,7 @@ ALTER TABLE IF EXISTS constituer
     ADD CONSTRAINT id_attribut FOREIGN KEY (id_attribut)
     REFERENCES attributs (id) ;
 
-CREATE TABLE service(
+CREATE TABLE taches(
     id VARCHAR NOT NULL PRIMARY KEY,
     libelle VARCHAR(255) ,
     description VARCHAR(255) ,
@@ -78,9 +82,9 @@ CREATE TABLE mission (
     datecreation date,
     datemodification date,
     documents_fk VARCHAR NOT NULL ,
-    service_fk VARCHAR NOT NULL,
+    taches_fk VARCHAR NOT NULL,
     FOREIGN KEY (documents_fk) REFERENCES documents(id),
-    FOREIGN KEY (service_fk) REFERENCES service(id)
+    FOREIGN KEY (taches_fk) REFERENCES taches(id)
 );
 
 CREATE TABLE precomouvement(
