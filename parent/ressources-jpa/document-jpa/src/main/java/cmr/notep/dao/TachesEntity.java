@@ -10,8 +10,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "service")
-public class ServiceEntity {
+@Table(name = "taches")
+public class TachesEntity {
 
     @Id
     @Column(name = "id" , nullable = false)
@@ -33,7 +33,7 @@ public class ServiceEntity {
     private LocalDate datemodification;
 
     @Column(name = "codeuniq", nullable = false , unique = true)
-    private String codeuniq;
+    private String codeunique;
 
     @OneToMany(mappedBy = "service")
     private List<MissionEntity> listMission ;

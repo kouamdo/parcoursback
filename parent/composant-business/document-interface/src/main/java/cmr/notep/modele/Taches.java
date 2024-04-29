@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Service {
+public class Taches {
     private String id ;
     private String description;
     private String libelle;
