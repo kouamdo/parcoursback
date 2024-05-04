@@ -27,11 +27,13 @@ CREATE TABLE IF NOT EXISTS documents
     id VARCHAR(255) NOT NULL,
     titre VARCHAR(255) NOT NULL,
     description VARCHAR(255),
+    type VARCHAR(255),
     etat BOOLEAN,
-    afficherUnite BOOLEAN,
-    afficherDistributeur BOOLEAN,
-    prixEditable BOOLEAN,
-    accentRessource BOOLEAN,
+--    afficherUnite BOOLEAN,
+--    afficherDistributeur BOOLEAN,
+--    prixEditable BOOLEAN,
+--    accentRessource BOOLEAN,
+--    afficherPrix VARCHAR(25),
     datecreation DATE,
     datemodification DATE,
     CONSTRAINT documents_pkey PRIMARY KEY (id)
@@ -81,18 +83,25 @@ CREATE TABLE mission (
     etat boolean,
     datecreation date,
     datemodification date,
-    documents_fk VARCHAR NOT NULL ,
     taches_fk VARCHAR NOT NULL,
-    FOREIGN KEY (documents_fk) REFERENCES documents(id),
     FOREIGN KEY (taches_fk) REFERENCES taches(id)
 );
 
-CREATE TABLE precomouvement(
+CREATE TABLE precomouvements(
     id VARCHAR NOT NULL PRIMARY KEY,
     libelle VARCHAR(255) ,
     etat boolean,
     datecreation date,
     datemodification date,
-    documentsuivie_fk VARCHAR NOT NULL ,
-    FOREIGN KEY (documentsuivie_fk) REFERENCES documents(id)
+    type VARCHAR(25)
+);
+
+CREATE TABLE precomouvementsqte(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    qteMin int,
+    qteMax int,
+    montantMin int ,
+    montantMax int,
+    id_precomouvements VARCHAR NOT NULL ,
+    FOREIGN KEY (id_precomouvements) REFERENCES precomouvements(id)
 );

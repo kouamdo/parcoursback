@@ -3,6 +3,7 @@ package cmr.notep.dao;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.dozer.Mapping;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -30,7 +31,13 @@ public class PrecoMouvementsEntity {
     @Column(name="datemodification")
     private LocalDate dateModification ;
 
-    @ManyToMany(mappedBy = "precoMouvementssuivie")
+    @Column(name="type")
+    private String type ;
+
+    @ManyToMany(mappedBy = "precoMouvementsEntities")
     private List<DocumentsEntity> suivreDocuments ;
 
+    @OneToMany(mappedBy = "precoMouvements" , fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @Mapping("precomouvementsqte")
+    private List<PrecoMouvementsQteEntity> precoMouvementsQte;
 }

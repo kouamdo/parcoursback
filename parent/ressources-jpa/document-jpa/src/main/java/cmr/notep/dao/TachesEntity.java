@@ -35,6 +35,6 @@ public class TachesEntity {
     @Column(name = "codeuniq", nullable = false , unique = true)
     private String codeunique;
 
-    @OneToMany(mappedBy = "service")
+    @OneToMany(mappedBy = "tache")
     private List<MissionEntity> listMission ;
 }
