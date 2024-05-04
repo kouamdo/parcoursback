@@ -14,21 +14,21 @@ public interface IMissionApi {
             path = "/{idMission}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    Mission avoirMission (@NonNull @RequestParam(name="idMission") String idMission);
+    Mission avoirMissions (@NonNull @RequestParam(name="idMission") String idMission);
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    List<Mission> avoirToutAttribut();
+    List<Mission> avoirToutMissions();
 
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    void supprimerMission(@NonNull @RequestBody Mission missions);
+    void supprimerMissions(@NonNull @RequestBody Mission missions);
 
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Mission posterMission(@NonNull @RequestBody Mission mission) ;
+    Mission posterMissions(@NonNull @RequestBody Mission mission) ;
 }
