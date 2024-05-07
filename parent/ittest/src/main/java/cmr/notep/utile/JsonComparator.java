@@ -8,10 +8,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import difflib.DiffUtils;
 import difflib.Patch;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -88,10 +87,7 @@ public class JsonComparator {
     private static void ecrireStringDansunfichier(JsonNode donnee, String extension,String pathJson, ObjectMapper objectMapper) throws IOException {
         String resultObtenuChemin = SRC_TEST_RESOURCES.concat(pathJson).concat(extension);
         //sauvegarde du fichier json obtenu
-        objectMapper.writer(new DefaultPrettyPrinter()).withRootValueSeparator("\n").writeValue(new File(resultObtenuChemin), donnee);
-        try (FileWriter fileWriter = new FileWriter(resultObtenuChemin, true)) {
-            fileWriter.write("\n");
-        }
+        objectMapper.writer(new DefaultPrettyPrinter()).writeValue(new File(resultObtenuChemin), donnee);
     }
 
     private static void ecrireDiffDansUnFichier(String pathJson, Set<String> fieldsToExclude, List<String> patchList) throws IOException {
@@ -142,31 +138,6 @@ public class JsonComparator {
         }
     }
 
-    public static void removeFields(JsonNode node, Set<String> fieldsToExclude) {
-        if (node.isObject()) {
-            Iterator<String> fieldNames = node.fieldNames();
-            List<String> fieldsToRemove = new ArrayList<>();
-
-            while (fieldNames.hasNext()) {
-                String fieldName = fieldNames.next();
-                if (fieldsToExclude.contains(fieldName)) {
-                    fieldsToRemove.add(fieldName);
-                } else {
-                    removeFields(node.get(fieldName), fieldsToExclude);
-                }
-            }
-
-            for (String fieldName : fieldsToRemove) {
-                ((ObjectNode) node).remove(fieldName);
-            }
-        } else if (node.isArray()) {
-            List<JsonNode> nodesToRemove = new ArrayList<>();
-
-            for (JsonNode arrayNode : node) {
-                removeFields(arrayNode, fieldsToExclude);
-            }
-        }
-    }
 
 }
 
