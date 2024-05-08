@@ -105,3 +105,10 @@ CREATE TABLE precomouvementsqte(
     id_precomouvements VARCHAR NOT NULL ,
     FOREIGN KEY (id_precomouvements) REFERENCES precomouvements(id)
 );
+
+CREATE TABLE IF NOT EXISTS suivre
+(
+    id_document VARCHAR(255)  NOT NULL,
+    id_precomouvements VARCHAR NOT NULL,
+    CONSTRAINT suivre_pkey PRIMARY KEY (id_document, id_precomouvements)
+);

@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "precomouvementsqte")
-public class PrecoMouvementsQteEntity extends PrecoMouvementsEntity{
+public class PrecoMouvementsQteEntity{
 
     @Column(name="id", nullable = false)
     private String id ;
