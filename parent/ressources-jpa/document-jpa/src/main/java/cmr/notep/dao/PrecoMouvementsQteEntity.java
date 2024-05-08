@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Table(name = "precomouvementsqte")
 public class PrecoMouvementsQteEntity{
 
+    @Id
     @Column(name="id", nullable = false)
     private String id ;
 
