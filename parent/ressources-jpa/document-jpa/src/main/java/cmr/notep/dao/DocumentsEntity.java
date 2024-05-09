@@ -30,7 +30,7 @@ public class DocumentsEntity {
     private String type ;
 
     @Column(name = "afficherPrix")
-    private String AfficherPrix ;
+    private String afficherPrix ;
 
     @Column(name = "etat")
     private Boolean etat;

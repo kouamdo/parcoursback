@@ -1,5 +1,6 @@
 package cmr.notep.modele;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,13 +28,17 @@ public class Documents {
 
     private String type ;
 
-    private String AfficherPrix ;
+    private String afficherPrix ;
 
-    private Boolean afficherUnite,afficherDistributeur,prixEditable, accentRessource;
+    private Boolean afficherUnite;
+    private Boolean afficherDistributeur;
+
+    private Boolean prixEditable;
 
     //public List<Missions>  = new ArrayList<Missions> ();
 
-    //public List<PrecoMouvements>  = new ArrayList<PrecoMouvements> ();
+    private List<PrecoMouvements> precomouvements = new ArrayList<>();
+
     private List<Attributs> attributs;
     private List<Categories> categories ;
 
