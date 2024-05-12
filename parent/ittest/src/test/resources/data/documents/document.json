@@ -1,0 +1,237 @@
+[
+  {
+    "id": "1",
+    "titre": "Note intervention",
+    "description": "Document delivre par le medecin ou un infirmier de l'etablissement",
+    "missions": [
+      {
+        "id": "1",
+        "libelle": "Consultation",
+        "description": "Consultation faite par une infirmière",
+        "etat": true,
+        "dateCreation": "2000-03-07",
+        "dateModification": "1990-03-07",
+        "idLogin": "admin",
+        "service": {
+          "id": "1",
+          "libelle": "Pharmacie",
+          "etat": true,
+          "dateDerniereModification": "2000-03-07",
+          "dateAttribution": "1990-03-07",
+          "dateFin": "1990-03-07",
+          "nombreTotalAttributions": 6,
+          "localisation": "douala",
+          "description": "bien"
+        }
+      },
+      {
+        "id": "2",
+        "libelle": "Consultation Spécialiste",
+        "description": "Consultation faite par un médecin",
+        "etat": true,
+        "dateCreation": "2000-03-07",
+        "dateModification": "1990-03-07",
+        "idLogin": "admin",
+        "service": {
+          "id": "2",
+          "libelle": "Laboratoire",
+          "etat": true,
+          "dateDerniereModification": "1990-08-06",
+          "dateAttribution": "1990-03-07",
+          "dateFin": "1990-03-07",
+          "nombreTotalAttributions": 20,
+          "localisation": "douala",
+          "description": "bien"
+        }
+      },
+      {
+        "id": "3",
+        "libelle": "Prelevement Labo",
+        "description": "Prélévement fait par laboratoire",
+        "etat": true,
+        "dateCreation": "2000-03-07",
+        "dateModification": "1990-03-07",
+        "idLogin": "admin",
+        "service": {
+          "id": "3",
+          "libelle": "Consultation",
+          "etat": true,
+          "dateDerniereModification": "1972-06-12",
+          "dateAttribution": "1990-03-07",
+          "dateFin": "1990-03-07",
+          "nombreTotalAttributions": 50,
+          "localisation": "douala",
+          "description": "bien"
+        }
+      }
+    ],
+    "attributs": [
+      {
+        "id": "1",
+        "titre": "taille",
+        "description": "taille de l'individu",
+        "etat": true,
+        "dateCreation": "2000-03-07",
+        "dateModification": "1990-03-07",
+        "type": "TypeTicket.String",
+        "valeursParDefaut": ""
+      },
+      {
+        "id": "4",
+        "titre": "age",
+        "description": "age de l'individu",
+        "etat": true,
+        "dateCreation": "2000-03-07",
+        "dateModification": "1990-03-07",
+        "type": "TypeTicket.Double",
+        "valeursParDefaut": ""
+      },
+      {
+        "id": "5",
+        "titre": "allergies",
+        "description": "allergies de l'individu",
+        "etat": true,
+        "dateCreation": "2000-03-07",
+        "dateModification": "1990-03-07",
+        "type": "TypeTicket.String",
+        "valeursParDefaut": ""
+      },
+      {
+        "id": "6",
+        "titre": "teint",
+        "description": "teint de l'individu",
+        "etat": true,
+        "dateCreation": "2000-03-07",
+        "dateModification": "1990-03-07",
+        "type": "TypeTicket.String",
+        "valeursParDefaut": ""
+      },
+      {
+        "id": "7",
+        "titre": "Groupe sangin",
+        "description": "Groupe sangin de l'individu",
+        "etat": true,
+        "dateCreation": "2000-03-07",
+        "dateModification": "1990-03-07",
+        "type": "TypeTicket.Boolean",
+        "valeursParDefaut": "A, A+, A-, B, B+, B-, AB, AB+, AB-, O, O+, O-"
+      },
+      {
+        "id": "8",
+        "titre": "cicatrice",
+        "description": "cicatrice de l'individu",
+        "etat": true,
+        "dateCreation": "2000-03-07",
+        "dateModification": "1990-03-07",
+        "type": "TypeTicket.Boolean",
+        "valeursParDefaut": "true, false"
+      }
+    ],
+    "categories": [
+      {
+        "id": "1",
+        "nom": "informations personelles",
+        "ordre": 1,
+        "listAttributsParCategories": [
+          {
+            "id": "1",
+            "ordre": 11,
+            "obligatoire": false,
+            "attribut": {
+              "id": "1",
+              "titre": "taille",
+              "description": "taille de l'individu",
+              "etat": true,
+              "dateCreation": "2000-03-07",
+              "dateModification": "1990-03-07",
+              "type": "TypeTicket.String",
+              "valeursParDefaut": ""
+            }
+          },
+          {
+            "id": "1",
+            "ordre": 12,
+            "obligatoire": false,
+            "attribut": {
+              "id": "4",
+              "titre": "age",
+              "description": "age de l'individu",
+              "etat": true,
+              "dateCreation": "2000-03-07",
+              "dateModification": "1990-03-07",
+              "type": "TypeTicket.Int",
+              "valeursParDefaut": ""
+            }
+          },
+          {
+            "id": "1",
+            "ordre": 13,
+            "obligatoire": false,
+            "attribut": {
+              "id": "6",
+              "titre": "teint",
+              "description": "teint de l'individu",
+              "etat": true,
+              "dateCreation": "2000-03-07",
+              "dateModification": "1990-03-07",
+              "type": "TypeTicket.String",
+              "valeursParDefaut": ""
+            }
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "nom": "informations de sante",
+        "ordre": 2,
+        "listAttributsParCategories": [
+          {
+            "id": "1",
+            "ordre": 1,
+            "obligatoire": false,
+            "attribut": {
+              "id": "5",
+              "titre": "allergies",
+              "description": "allergies de l'individu",
+              "etat": true,
+              "dateCreation": "2000-03-07",
+              "dateModification": "1990-03-07",
+              "type": "TypeTicket.String",
+              "valeursParDefaut": ""
+            }
+          },
+          {
+            "id": "1",
+            "ordre": 2,
+            "obligatoire": false,
+            "attribut": {
+              "id": "7",
+              "titre": "Groupe sangin",
+              "description": "Groupe sangin de l'individu",
+              "etat": true,
+              "dateCreation": "2000-03-07",
+              "dateModification": "1990-03-07",
+              "type": "TypeTicket.Boolean",
+              "valeursParDefaut": "A, A+, A-, B, B+, B-, AB, AB+, AB-, O, O+, O-"
+            }
+          },
+          {
+            "id": "1",
+            "ordre": 3,
+            "obligatoire": false,
+            "attribut": {
+              "id": "8",
+              "titre": "cicatrice",
+              "description": "cicatrice de l'individu",
+              "etat": true,
+              "dateCreation": "2000-03-07",
+              "dateModification": "1990-03-07",
+              "type": "TypeTicket.Boolean",
+              "valeursParDefaut": "true, false"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

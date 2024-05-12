@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "libelle": "Consultation",
+    "description": "Consultation faite par une infirmière",
+    "etat": true,
+    "dateCreation": "2000-03-07",
+    "dateModification": "1990-03-07",
+    "idLogin": "admin",
+    "service": {
+      "id": "1",
+      "libelle": "Pharmacie",
+      "etat": true,
+      "dateDerniereModification": "2000-03-07",
+      "dateAttribution": "1990-03-07",
+      "dateFin": "1990-03-07",
+      "nombreTotalAttributions": 6,
+      "localisation":"douala",
+      "description":"bien"
+    }
+  },
+  {
+    "id": "2",
+    "libelle": "Consultation Spécialiste",
+    "description": "Consultation faite par un médecin",
+    "etat": true,
+    "dateCreation": "2000-03-07",
+    "dateModification": "1990-03-07",
+    "idLogin": "admin",
+    "service": {
+      "id": "2",
+      "libelle": "Laboratoire",
+      "etat": true,
+      "dateDerniereModification": "1990-08-06",
+      "dateAttribution": "1990-03-07",
+      "dateFin": "1990-03-07",
+      "nombreTotalAttributions": 20,
+      "localisation":"douala",
+      "description":"bien"
+    }
+  },
+  {
+    "id": "3",
+    "libelle": "Prelevement Labo",
+    "description": "Prélévement fait par laboratoire",
+    "etat": true,
+    "dateCreation": "2000-03-07",
+    "dateModification": "1990-03-07",
+    "idLogin": "admin",
+    "service": {
+      "id": "3",
+      "libelle": "Consultation",
+      "etat": true,
+      "dateDerniereModification": "1972-06-12",
+      "dateAttribution": "1990-03-07",
+      "dateFin": "1990-03-07",
+      "nombreTotalAttributions": 50,
+      "localisation":"douala",
+      "description":"bien"
+    }
+  },
+  {
+    "id": "4",
+    "libelle": "Encaissement",
+    "description": "recu de paiement lié à une mission",
+    "etat": true,
+    "dateCreation": "2000-03-07",
+    "dateModification": "1990-03-07",
+    "idLogin": "admin",
+    "service": {
+      "id": "1",
+      "libelle": "Pharmacie",
+      "etat": true,
+      "dateDerniereModification": "2000-03-07",
+      "dateAttribution": "1990-03-07",
+      "dateFin": "1990-03-07",
+      "nombreTotalAttributions": 6,
+      "localisation":"douala",
+      "description":"bien"
+    }
+  },
+  {
+    "id": "5",
+    "libelle": "Resultat Labo",
+    "description": "Communiquer les résultats du labo aux patients",
+    "etat": true,
+    "dateCreation": "2000-03-07",
+    "dateModification": "1990-03-07",
+    "idLogin": "admin",
+    "service": {
+      "id": "3",
+      "libelle": "Consultation",
+      "etat": true,
+      "dateDerniereModification": "1972-06-12",
+      "dateAttribution": "1990-03-07",
+      "dateFin": "1990-03-07",
+      "nombreTotalAttributions": 50,
+      "localisation":"douala",
+      "description":"bien"
+    }
+  },
+  {
+    "id": "6",
+    "libelle": "Hospitalisation",
+    "description": "bon d'entrée et de sortie est une mission",
+    "etat": true,
+    "dateCreation": "2000-03-07",
+    "dateModification": "1990-03-07",
+    "idLogin": "admin",
+    "service": {
+      "id": "1",
+      "libelle": "Pharmacie",
+      "etat": true,
+      "dateDerniereModification": "2000-03-07",
+      "dateAttribution": "1990-03-07",
+      "dateFin": "1990-03-07",
+      "nombreTotalAttributions": 6,
+      "localisation":"douala",
+      "description":"bien"
+    }
+  }
+]
