@@ -14,7 +14,7 @@ INSERT INTO attributs(
 	id, titre, description, etat, datecreation, datemodification, type, optionnel, valeurpardefaut)
 	VALUES
 ('1234','TAILLES','tailles',True,NULL,NULL,'Double',NULL,NULL),
-('1234de','TAILLE revisee','taille revisee',True,NULL,NULL,'Double',NULL,NULL),
+('1234de','TAILLE revisée','taille revisée',True,NULL,NULL,'Double',NULL,NULL),
 ('1234png','Colle','colle',True,NULL,NULL,'Double',NULL,NULL),
 ('1234png08','png-08-colle','png-08-colle',True,NULL,NULL,'Double',NULL,NULL),
 ('2345','teint','teint du nouveau',False,NULL,NULL,'Int',NULL,NULL),
@@ -44,7 +44,7 @@ INSERT INTO category (id_category,ordre, libelle, id_documents)
             ('2','2', 'Lit hopital', '1234'),
             ('3','3', 'Don organes', '1234'),
             ('4','4', 'don de sang', '2345'),
-            ('5','5', 'Économie et comptabilite', '2345'),
+            ('5','5', 'Économie et comptabilité', '2345'),
             ('6','6', 'Musique malade', '2345'),
             ('7','7', 'Cinéma', '2345'),
             ('8','8', 'Sport', '2345'),
