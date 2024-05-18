@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.dozer.Mapping;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -32,5 +33,14 @@ public class PrecoMouvementsQteEntity{
     @JoinColumn(name = "id_precomouvements" , nullable = false)
     @Mapping("precomouvements")
     private PrecoMouvementsEntity precoMouvements ;
+
+    @OneToMany(mappedBy = "precoMouvementsQteEntity" , fetch = FetchType.LAZY)
+    @Mapping("familles")
+    private List<FamilleEntity> familleEntityList ;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_ressources")
+    @Mapping("ressources")
+    private RessourceEntity ressourceEntity;
 
 }

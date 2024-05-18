@@ -32,12 +32,12 @@ public class PrecoMouvementsEntity {
     private LocalDate dateModification ;
 
     @Column(name="type")
-    private String type ;
+    private String typeMouvement ;
 
     @ManyToMany(mappedBy = "precoMouvementsEntities")
-    private List<DocumentsEntity> suivreDocuments ;
+    private List<DocumentsEntity> Documents ;
 
     @OneToMany(mappedBy = "precoMouvements" , fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @Mapping("precomouvementsqte")
-    private List<PrecoMouvementsQteEntity> precoMouvementsQte;
+    private List<PrecoMouvementsQteEntity> precoMouvementsQtes;
 }

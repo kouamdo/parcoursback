@@ -26,14 +26,17 @@ public class Documents {
 
     private String type ;
 
-    private String afficherPrix ;
+    private String afficherprix ;
 
-    private Boolean afficherUnite;
-    private Boolean afficherDistributeur;
+    private Boolean afficherunite;
 
-    private Boolean prixEditable;
+    private Boolean afficherdistributeur;
 
-    //public List<Missions>  = new ArrayList<Missions> ();
+    private Boolean prixeditable;
+
+    private Boolean contientRessources;
+
+//    public List<Missions>  = new ArrayList<Missions> ();
 
     private List<PrecoMouvements> precomouvements = new ArrayList<>();
 

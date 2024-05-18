@@ -1,6 +1,6 @@
 -- DROP DATABASE IF EXISTS parcours;
 CREATE SCHEMA parcours AUTHORIZATION sa;
-	
+
 CREATE TABLE IF NOT EXISTS attributs
 (
     id VARCHAR(255)  NOT NULL,
@@ -15,6 +15,15 @@ CREATE TABLE IF NOT EXISTS attributs
     CONSTRAINT attributs_pkey PRIMARY KEY (id)
 );
 
+CREATE TABLE IF NOT EXISTS precomouvements(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255) ,
+    etat boolean,
+    datecreation date,
+    datemodification date,
+    type VARCHAR(25)
+);
+
 CREATE TABLE IF NOT EXISTS constituer
 (
     id_document VARCHAR(255)  NOT NULL,
@@ -27,13 +36,13 @@ CREATE TABLE IF NOT EXISTS documents
     id VARCHAR(255) NOT NULL,
     titre VARCHAR(255) NOT NULL,
     description VARCHAR(255),
-    type VARCHAR(255),
+    typemouvement VARCHAR(255),
     etat BOOLEAN,
-    afficherUnite BOOLEAN,
-    afficherDistributeur BOOLEAN,
-    prixEditable BOOLEAN,
-    accentRessource BOOLEAN,
-    afficherPrix VARCHAR(25),
+    afficherunite BOOLEAN,
+    afficherdistributeur BOOLEAN,
+    prixeditable BOOLEAN,
+    contientressources BOOLEAN,
+    afficherprix VARCHAR(25),
     datecreation DATE,
     datemodification DATE,
     CONSTRAINT documents_pkey PRIMARY KEY (id)
@@ -87,15 +96,6 @@ CREATE TABLE mission (
     FOREIGN KEY (taches_fk) REFERENCES taches(id)
 );
 
-CREATE TABLE precomouvements(
-    id VARCHAR NOT NULL PRIMARY KEY,
-    libelle VARCHAR(255) ,
-    etat boolean,
-    datecreation date,
-    datemodification date,
-    type VARCHAR(25)
-);
-
 CREATE TABLE precomouvementsqte(
     id VARCHAR NOT NULL PRIMARY KEY,
     qteMin int,
@@ -103,7 +103,36 @@ CREATE TABLE precomouvementsqte(
     montantMin int ,
     montantMax int,
     id_precomouvements VARCHAR NOT NULL ,
-    FOREIGN KEY (id_precomouvements) REFERENCES precomouvements(id)
+    id_ressources VARCHAR NOT NULL,
+    FOREIGN KEY (id_precomouvements) REFERENCES precomouvements(id),
+    FOREIGN KEY (id_ressources) REFERENCES ressources(id)
+);
+
+CREATE TABLE IF NOT EXISTS familles
+(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255) ,
+    description VARCHAR(255) ,
+    etat boolean,
+    datecreation date,
+    id_precomouvementsqte VARCHAR NOT NULL ,
+    FOREIGN KEY (id_precomouvementsqte) REFERENCES precomouvementsqte(id)
+);
+
+
+
+CREATE TABLE IF NOT EXISTS ressources
+(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255) ,
+    etat boolean,
+    datecreation date,
+    datemodification date,
+    quantite int,
+    prix double,
+    unite VARCHAR(15),
+    id_familles VARCHAR NOT NULL ,
+    FOREIGN KEY (id_familles) REFERENCES familles(id)
 );
 
 CREATE TABLE IF NOT EXISTS suivre

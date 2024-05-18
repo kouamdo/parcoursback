@@ -37,15 +37,15 @@ public class DocumentCrudTest extends AbstractIttest {
 @Test
 @SneakyThrows
  public void testAvoirTousDocuments() {
+
    documentsList = documentService.avoirTousDocuments();
-
-   String pathJson = dossier+"/documents_avoirtous";
+    String pathJson = dossier+"/documents_avoirtous";
    documentsList.sort(Comparator.comparing(Documents::getId));
-
     // Les noms des champs à exclure de la comparaison
     Set<String> fieldsToExclude = new HashSet<>();
     fieldsToExclude.add("id");
-    fieldsToExclude.add("dateModification");
+    fieldsToExclude.add("\n\n check assertion");
+    System.out.println("match field");
     Assertions.assertTrue(JsonComparator.CompareResultWithJson(
             pathJson
             ,objectMapper.writeValueAsString(documentsList)
@@ -61,7 +61,7 @@ public class DocumentCrudTest extends AbstractIttest {
    document.setTitre("TitreTest");
    document.setDescription("DescriptionTest");
    document.setEtat(true);
-   Attributs attribut = Attributs.builder().id("1234").etat(true).titre("TAILLE").description("taille").type(Types.Double).build();
+   Attributs attribut = Attributs.builder().id("1234").etat(true).titre("TAILLE").description("taille").type(Types.String).build();
    Attributs attribut1 = Attributs.builder().id("3456").etat(true).titre("SEXES").description("SEXE").type(Types.String).build();
    document.setAttributs(List.of(attribut,attribut1));
    Documents document1 = documentService.posterDocument(document);

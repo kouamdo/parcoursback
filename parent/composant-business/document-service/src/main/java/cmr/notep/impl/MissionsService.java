@@ -40,7 +40,6 @@ public class MissionsService implements IMissionApi {
         return missionBusiness.posterMission(mission);
     }
 
-
 //    @Override
 //    public Mission avoirMission(@NonNull String idMission) {
 //        return missionBusiness.avoirMission(idMission);

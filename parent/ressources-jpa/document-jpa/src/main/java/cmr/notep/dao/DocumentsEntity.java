@@ -26,26 +26,26 @@ public class DocumentsEntity {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "type")
-    private String type ;
+    @Column(name = "typemouvement")
+    private String typeMouvement ;
 
-    @Column(name = "afficherPrix")
-    private String afficherPrix ;
+    @Column(name = "afficherprix")
+    private String afficherprix ;
 
     @Column(name = "etat")
     private Boolean etat;
 
-    @Column(name = "afficherUnite")
+    @Column(name = "afficherunite")
     private Boolean afficherUnite;
 
-    @Column(name="afficherDistributeur")
-    private boolean afficherDistributeur;
+    @Column(name="afficherdistributeur")
+    private Boolean afficherdistributeur;
 
-    @Column(name="prixEditable")
+    @Column(name="prixeditable")
     private Boolean prixEditable;
 
-    @Column(name="accentRessource")
-    private Boolean accentRessource;
+    @Column(name="contientressources")
+    private Boolean contientessources;
 
     @Column(name = "datecreation")
     private LocalDate datecreation;
@@ -65,8 +65,8 @@ public class DocumentsEntity {
     @Mapping("categories")
     private List<CategoryEntity> categoriesEntities;
 
-    @ManyToMany(mappedBy = "listDocuments")
-    private List<MissionEntity> missionDocuments ;
+    @ManyToMany(mappedBy = "Documents")
+    private List<MissionEntity> missionsEntities ;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "suivre",

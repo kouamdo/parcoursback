@@ -1,7 +1,6 @@
 package cmr.notep.utile;
 
 import cmr.notep.modele.Documents;
-import cmr.notep.utile.mapper.MyPrettyPrinter;
 import cmr.notep.utile.tri.GenericTri;
 import com.fasterxml.jackson.core.util.DefaultIndenter;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;

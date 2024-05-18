@@ -45,14 +45,12 @@ public class AttributsEntity {
     @Column(name = "datemodification")
     private LocalDate datemodification;
 
-    
     @Column(name = "type", nullable = false)
     private String type;
 
     @Column(name = "optionnel")
     private Boolean optionnel;
 
-    
     @Column(name = "valeurpardefaut")
     private String valeurpardefaut;
 
