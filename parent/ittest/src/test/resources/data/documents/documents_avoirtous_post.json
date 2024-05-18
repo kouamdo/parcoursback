@@ -193,8 +193,8 @@
   "precomouvements" : [ ],
   "attributs" : [ {
     "id" : null,
-    "titre" : "TAILLE revisee",
-    "description" : "taille revisee",
+    "titre" : "TAILLE revisée",
+    "description" : "taille revisée",
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
@@ -302,7 +302,7 @@
   }, {
     "id" : null,
     "ordre" : "5",
-    "libelle" : "Économie et comptabilite",
+    "libelle" : "Économie et comptabilité",
     "attributsAssocier" : [ {
       "attributAssocier" : {
         "id" : null,
