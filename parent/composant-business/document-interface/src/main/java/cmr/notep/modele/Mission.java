@@ -18,5 +18,5 @@ public class Mission {
     private LocalDate datecreation ;
     private LocalDate dateModification ;
     private List<Documents> documentsEntities ;
-//    private Taches taches ;
+    private Taches taches ;
 }

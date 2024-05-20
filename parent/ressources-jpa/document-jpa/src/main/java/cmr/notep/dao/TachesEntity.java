@@ -39,6 +39,7 @@ public class TachesEntity {
     @Column(name = "codeuniq", nullable = false , unique = true)
     private String codeunique;
 
-//    @OneToMany(mappedBy = "taches")
-//    private List<MissionEntity> missionEntities ;
+    @OneToMany(mappedBy = "taches", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @Mapping("mission")
+    private List<MissionEntity> missionEntities ;
 }

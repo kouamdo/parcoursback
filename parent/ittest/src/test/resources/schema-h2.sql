@@ -91,9 +91,9 @@ CREATE TABLE IF NOT EXISTS mission (
     description VARCHAR(255) ,
     etat boolean,
     datecreation date,
-    datemodification date
---    taches_fk VARCHAR NOT NULL
---    FOREIGN KEY (taches_fk) REFERENCES taches(id)
+    datemodification date,
+    id_tache VARCHAR NOT NULL,
+    FOREIGN KEY (id_tache) REFERENCES taches(id)
 );
 
 CREATE TABLE IF NOT EXISTS ressources(

@@ -45,6 +45,8 @@ public class MissionEntity {
     @Mapping("documents")
     private List<DocumentsEntity> documentsEntities ;
 
-//    @ManyToOne
-//    private TachesEntity taches ;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_tache")
+    @Mapping("tache")
+    private TachesEntity taches ;
 }
