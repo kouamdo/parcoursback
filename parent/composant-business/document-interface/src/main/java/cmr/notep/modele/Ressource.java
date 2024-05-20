@@ -12,6 +12,6 @@ public class Ressource {
     private int quantite ;
     private double prix;
     Unite unites;
-    private List<PrecoMouvementsQte> precoMouvementsQteList;
-    private Famille famille;
+    private List<PrecoMouvementsQte> precoMouvementsQteEntities;
+    private Famille familleEntity;
 }

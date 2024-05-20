@@ -16,7 +16,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "missions")
+@Table(name = "mission")
 public class MissionEntity {
     @Id
     @Column(name="id", nullable = false)
@@ -39,12 +39,12 @@ public class MissionEntity {
 
     @ManyToMany(fetch = FetchType.LAZY , cascade = {CascadeType.ALL} )
     @JoinTable(name = "traiter",
-        joinColumns = @JoinColumn(name = "id_missions"),
-            inverseJoinColumns = @JoinColumn(name="id_documents")
+        joinColumns = @JoinColumn(name = "id_mission"),
+            inverseJoinColumns = @JoinColumn(name="id_document")
     )
     @Mapping("documents")
     private List<DocumentsEntity> documentsEntities ;
 
-    @ManyToOne
-    private TachesEntity tachesEntity ;
+//    @ManyToOne
+//    private TachesEntity taches ;
 }

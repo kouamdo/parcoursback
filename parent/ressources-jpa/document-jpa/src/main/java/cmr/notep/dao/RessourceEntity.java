@@ -44,7 +44,7 @@ public class RessourceEntity {
 
     @OneToMany(mappedBy = "ressourceEntity" , fetch = FetchType.LAZY)
     @Mapping("precomouvementsqte")
-    private List<PrecoMouvementsQteEntity> precoMouvementsQteEntityList;
+    private List<PrecoMouvementsQteEntity> precoMouvementsQteEntities;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_familles")

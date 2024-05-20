@@ -53,7 +53,7 @@ public class DocumentsEntity {
     @Column(name = "datemodification")
     private LocalDate datemodification;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "constituer",
             joinColumns = @JoinColumn(name = "id_document"),
             inverseJoinColumns = @JoinColumn(name = "id_attribut"))

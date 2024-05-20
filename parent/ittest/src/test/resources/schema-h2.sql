@@ -91,9 +91,9 @@ CREATE TABLE IF NOT EXISTS mission (
     description VARCHAR(255) ,
     etat boolean,
     datecreation date,
-    datemodification date,
-    taches_fk VARCHAR NOT NULL,
-    FOREIGN KEY (taches_fk) REFERENCES taches(id)
+    datemodification date
+--    taches_fk VARCHAR NOT NULL
+--    FOREIGN KEY (taches_fk) REFERENCES taches(id)
 );
 
 CREATE TABLE IF NOT EXISTS ressources(
@@ -139,4 +139,13 @@ CREATE TABLE IF NOT EXISTS suivre
     id_document VARCHAR(255)  NOT NULL,
     id_precomouvements VARCHAR NOT NULL,
     CONSTRAINT suivre_pkey PRIMARY KEY (id_document, id_precomouvements)
+);
+
+CREATE TABLE IF NOT EXISTS traiter
+(
+    id_document VARCHAR(255)  NOT NULL,
+    id_mission VARCHAR(255)  NOT NULL,
+    CONSTRAINT traiter_pkey PRIMARY KEY (id_document, id_mission),
+    CONSTRAINT documents_fk FOREIGN KEY (id_document)  REFERENCES documents(id),
+    CONSTRAINT mission_fk FOREIGN KEY (id_mission) REFERENCES mission(id)
 );

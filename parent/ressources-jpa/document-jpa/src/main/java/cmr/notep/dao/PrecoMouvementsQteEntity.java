@@ -32,11 +32,11 @@ public class PrecoMouvementsQteEntity{
     @ManyToOne
     @JoinColumn(name = "id_precomouvements" , nullable = false)
     @Mapping("precomouvements")
-    private PrecoMouvementsEntity precoMouvements ;
+    private PrecoMouvementsEntity precoMouvementsEntity ;
 
     @OneToMany(mappedBy = "precoMouvementsQteEntity" , fetch = FetchType.LAZY)
     @Mapping("familles")
-    private List<FamilleEntity> familleEntityList ;
+    private List<FamilleEntity> familleEntities ;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_ressources")

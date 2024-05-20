@@ -2,6 +2,7 @@ package cmr.notep.dao;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.dozer.Mapping;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -38,6 +39,6 @@ public class TachesEntity {
     @Column(name = "codeuniq", nullable = false , unique = true)
     private String codeunique;
 
-    @OneToMany(mappedBy = "tachesEntity")
-    private List<MissionEntity> missionEntities ;
+//    @OneToMany(mappedBy = "taches")
+//    private List<MissionEntity> missionEntities ;
 }

@@ -28,10 +28,8 @@ public class AttributsEntity {
     @Column(name = "id", nullable = false)
     private String id;
 
-    
     @Column(name = "titre", nullable = false)
     private String titre;
-
     
     @Column(name = "description")
     private String description;
@@ -58,10 +56,10 @@ public class AttributsEntity {
     @JsonIgnore
     private List<DocumentsEntity> documents;
 
-    //@ManyToMany(mappedBy = "attributsEntities")
-    //@Mapping("categories")
-    //@JsonIgnore
-   // private List<CategoryEntity> categories ;
+//    @ManyToMany(mappedBy = "attributsEntities")
+//    @Mapping("categories")
+//    @JsonIgnore
+//    private List<CategoryEntity> categories ;
 
     @OneToMany(mappedBy = "attributAssocier", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     private List<AssocierEntity> attributsAssocier ;

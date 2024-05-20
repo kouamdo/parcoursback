@@ -15,5 +15,7 @@ public class PrecoMouvementsQte {
     private int qteMax ;
     private int montantMin ;
     private int montantMax ;
-    private PrecoMouvements precoMouvements ;
+    private PrecoMouvements precoMouvementsEntity ;
+    private List<Famille> familleEntities ;
+    private Ressource ressourceEntity;
 }

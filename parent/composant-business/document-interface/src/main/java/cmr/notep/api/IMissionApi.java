@@ -1,7 +1,6 @@
 package cmr.notep.api;
 
 
-import cmr.notep.modele.Attributs;
 import cmr.notep.modele.Mission;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
@@ -9,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping("missions")
 public interface IMissionApi {
     @GetMapping(
             path = "/{idMission}",

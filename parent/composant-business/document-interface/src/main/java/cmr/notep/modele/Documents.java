@@ -36,7 +36,7 @@ public class Documents {
 
     private Boolean contientRessources;
 
-//    public List<Missions>  = new ArrayList<Missions> ();
+    public List<Mission> missionsEntities = new ArrayList<> ();
 
     private List<PrecoMouvements> precomouvements = new ArrayList<>();
 

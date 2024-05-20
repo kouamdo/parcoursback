@@ -18,6 +18,6 @@ public class Famille {
     private String description;
     private String etat ;
     private Date dateCreation;
-    private PrecoMouvementsQte precoMouvementsQte;
-    private List<Ressource> ressourcesList;
+    private PrecoMouvementsQte precoMouvementsQteEntity;
+    private List<Ressource> ressourceEntities;
 }

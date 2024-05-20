@@ -35,9 +35,9 @@ public class PrecoMouvementsEntity {
     private String typeMouvement ;
 
     @ManyToMany(mappedBy = "precoMouvementsEntities")
-    private List<DocumentsEntity> documentsEntityList ;
+    private List<DocumentsEntity> documentsEntities ;
 
-    @OneToMany(mappedBy = "precoMouvements" , fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "precoMouvementsEntity" , fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @Mapping("precomouvementsqte")
-    private List<PrecoMouvementsQteEntity> precoMouvementsQteEntityList;
+    private List<PrecoMouvementsQteEntity> precoMouvementsQteEntities;
 }
