@@ -37,14 +37,14 @@ public class MissionEntity {
     @Column(name="datemodification")
     private LocalDate dateModification ;
 
-    @ManyToMany(fetch = FetchType.EAGER , cascade = {CascadeType.ALL} )
+    @ManyToMany(fetch = FetchType.LAZY , cascade = {CascadeType.ALL} )
     @JoinTable(name = "traiter",
         joinColumns = @JoinColumn(name = "id_missions"),
             inverseJoinColumns = @JoinColumn(name="id_documents")
     )
     @Mapping("documents")
-    private List<DocumentsEntity> Documents ;
+    private List<DocumentsEntity> documentsEntities ;
 
     @ManyToOne
-    private TachesEntity tache ;
+    private TachesEntity tachesEntity ;
 }

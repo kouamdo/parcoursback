@@ -17,6 +17,6 @@ public class PrecoMouvements {
     private String typeMouvement ;
     private LocalDate datecreation ;
     private LocalDate dateModification ;
-    private List<Documents> suivreDocuments ;
-    private List<PrecoMouvementsQte> precoMouvementsQte;
+    private List<Documents> documentsEntityList ;
+    private List<PrecoMouvementsQte> precoMouvementsQteEntities;
 }

@@ -23,6 +23,9 @@ public class TachesEntity {
     @Column(name = "libelle")
     private String libelle;
 
+    @Column(name = "localisation")
+    private String localisation;
+
     @Column(name = "etat")
     private Boolean etat;
 
@@ -35,6 +38,6 @@ public class TachesEntity {
     @Column(name = "codeuniq", nullable = false , unique = true)
     private String codeunique;
 
-    @OneToMany(mappedBy = "tache")
-    private List<MissionEntity> Missions ;
+    @OneToMany(mappedBy = "tachesEntity")
+    private List<MissionEntity> missionEntities ;
 }

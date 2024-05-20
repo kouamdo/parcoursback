@@ -17,5 +17,6 @@ public class Mission {
     private boolean etat ;
     private LocalDate datecreation ;
     private LocalDate dateModification ;
-    private List<Documents> listDocuments ;
+    private List<Documents> documentsEntities ;
+    private Taches tachesEntity ;
 }

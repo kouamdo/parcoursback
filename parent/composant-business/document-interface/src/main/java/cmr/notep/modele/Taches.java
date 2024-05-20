@@ -20,5 +20,6 @@ public class Taches {
     private LocalDate datecreation;
     private LocalDate datemodification;
     private String codeuniq;
-    private List<Mission> listMission ;
+    private String localisation;
+    private List<Mission> missionEntities ;
 }
