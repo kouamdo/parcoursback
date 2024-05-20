@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS documents
     CONSTRAINT documents_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE category (
+CREATE TABLE IF NOT EXISTS category (
     id_category VARCHAR PRIMARY KEY,
     ordre VARCHAR(255),
     libelle VARCHAR(255),
@@ -56,7 +56,7 @@ CREATE TABLE category (
     FOREIGN KEY (id_documents) REFERENCES documents(id)
 );
 
-CREATE TABLE associer (
+CREATE TABLE IF NOT EXISTS associer (
     id_attribut VARCHAR NOT NULL,
     id_category VARCHAR NOT NULL,
     obligatoire boolean,
@@ -75,7 +75,7 @@ ALTER TABLE IF EXISTS constituer
     ADD CONSTRAINT id_attribut FOREIGN KEY (id_attribut)
     REFERENCES attributs (id) ;
 
-CREATE TABLE taches(
+CREATE TABLE IF NOT EXISTS taches(
     id VARCHAR NOT NULL PRIMARY KEY,
     libelle VARCHAR(255) ,
     description VARCHAR(255) ,
@@ -85,7 +85,7 @@ CREATE TABLE taches(
     datemodification date
 );
 
-CREATE TABLE mission (
+CREATE TABLE IF NOT EXISTS mission (
     id VARCHAR NOT NULL PRIMARY KEY,
     libelle VARCHAR(255) ,
     description VARCHAR(255) ,
@@ -96,7 +96,19 @@ CREATE TABLE mission (
     FOREIGN KEY (taches_fk) REFERENCES taches(id)
 );
 
-CREATE TABLE precomouvementsqte(
+CREATE TABLE IF NOT EXISTS ressources(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255) ,
+    etat boolean,
+    datecreation date,
+    datemodification date,
+    quantite int,
+    prix double,
+    unite VARCHAR(15),
+    id_familles VARCHAR NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS precomouvementsqte(
     id VARCHAR NOT NULL PRIMARY KEY,
     qteMin int,
     qteMax int,
@@ -119,21 +131,8 @@ CREATE TABLE IF NOT EXISTS familles
     FOREIGN KEY (id_precomouvementsqte) REFERENCES precomouvementsqte(id)
 );
 
-
-
-CREATE TABLE IF NOT EXISTS ressources
-(
-    id VARCHAR NOT NULL PRIMARY KEY,
-    libelle VARCHAR(255) ,
-    etat boolean,
-    datecreation date,
-    datemodification date,
-    quantite int,
-    prix double,
-    unite VARCHAR(15),
-    id_familles VARCHAR NOT NULL ,
-    FOREIGN KEY (id_familles) REFERENCES familles(id)
-);
+ALTER TABLE ressources
+    ADD CONSTRAINT fk_familles FOREIGN KEY (id_familles) REFERENCES familles(id);
 
 CREATE TABLE IF NOT EXISTS suivre
 (
