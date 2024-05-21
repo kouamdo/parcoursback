@@ -26,18 +26,18 @@ public class PrecoMouvementsEntity {
     private boolean etat ;
 
     @Column(name = "datecreation",nullable = false)
-    private LocalDate datecreation ;
+    private LocalDate dateCreation ;
 
     @Column(name="datemodification")
     private LocalDate dateModification ;
 
-    @Column(name="type")
+    @Column(name="typemouvement")
     private String typeMouvement ;
 
     @ManyToMany(mappedBy = "precoMouvementsEntities")
     private List<DocumentsEntity> documentsEntities ;
 
-    @OneToMany(mappedBy = "precoMouvementsEntity" , fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "precoMouvementsEntity" , fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Mapping("precomouvementsqte")
     private List<PrecoMouvementsQteEntity> precoMouvementsQteEntities;
 }

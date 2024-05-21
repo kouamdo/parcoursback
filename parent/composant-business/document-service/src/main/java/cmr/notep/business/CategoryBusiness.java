@@ -1,6 +1,6 @@
 package cmr.notep.business;
 
-import cmr.notep.dao.CategoryEntity;
+import cmr.notep.dao.CategoriesEntity;
 import cmr.notep.dao.DaoAccessorService;
 import cmr.notep.modele.Categories;
 import cmr.notep.repository.CategoryRepository;
@@ -44,6 +44,6 @@ public class CategoryBusiness {
 
     public Categories posterCategorie(Categories categories) {
         return dozerMapperBean.map( this.daoAccessorService.getRepository(CategoryRepository.class)
-                .save(dozerMapperBean.map(categories, CategoryEntity.class)), Categories.class);
+                .save(dozerMapperBean.map(categories, CategoriesEntity.class)), Categories.class);
     }
 }

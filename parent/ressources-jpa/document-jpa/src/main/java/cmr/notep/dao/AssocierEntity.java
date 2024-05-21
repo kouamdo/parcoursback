@@ -12,12 +12,12 @@ import javax.persistence.*;
 public class AssocierEntity {
 
     @EmbeddedId
-    private AssoicierEntityID id;
+    private AssocierEntityID id;
 
     @ManyToOne
     @MapsId("id_category")
     @JoinColumn(name = "id_category", referencedColumnName = "id_category")
-    private CategoryEntity categoryAssocier ;
+    private CategoriesEntity categoryAssocier ;
 
 
     @ManyToOne

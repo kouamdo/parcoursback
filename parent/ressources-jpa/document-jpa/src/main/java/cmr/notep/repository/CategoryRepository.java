@@ -2,8 +2,8 @@ package cmr.notep.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import cmr.notep.dao.CategoryEntity;
+import cmr.notep.dao.CategoriesEntity;
 
-public interface CategoryRepository extends JpaRepository<CategoryEntity, String>  {
+public interface CategoryRepository extends JpaRepository<CategoriesEntity, String>  {
     
 }
