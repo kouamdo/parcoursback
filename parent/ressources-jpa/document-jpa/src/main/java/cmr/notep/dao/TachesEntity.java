@@ -41,5 +41,5 @@ public class TachesEntity {
 
     @OneToMany(mappedBy = "taches", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Mapping("mission")
-    private List<MissionEntity> missionEntities ;
+    private List<MissionsEntity> missionEntities ;
 }

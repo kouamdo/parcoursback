@@ -17,30 +17,30 @@ public class PrecoMouvementsQteEntity{
     @Column(name="id", nullable = false)
     private String id ;
 
-    @Column(name ="qteMin")
+    @Column(name ="qtemin")
     private int qteMin ;
 
-    @Column(name ="qteMax")
+    @Column(name ="qtemax")
     private int qteMax ;
 
-    @Column(name =  "montantMin")
+    @Column(name =  "montantmin")
     private int montantMin ;
 
-    @Column(name = "montantMax")
+    @Column(name = "montantmax")
     private int montantMax ;
 
     @ManyToOne
     @JoinColumn(name = "id_precomouvements" , nullable = false)
-    @Mapping("precomouvements")
+    @Mapping("precoMouvement")
     private PrecoMouvementsEntity precoMouvementsEntity ;
 
     @OneToMany(mappedBy = "precoMouvementsQteEntity" , fetch = FetchType.LAZY)
     @Mapping("familles")
-    private List<FamilleEntity> familleEntities ;
+    private List<FamillesEntity> famillesEntities ;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_ressources")
     @Mapping("ressources")
-    private RessourceEntity ressourceEntity;
+    private RessourcesEntity ressourcesEntity;
 
 }

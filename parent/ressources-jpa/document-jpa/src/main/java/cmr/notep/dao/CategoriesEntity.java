@@ -7,24 +7,27 @@ import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
 
+import java.util.Date;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "category")
-public class CategoryEntity {
+public class CategoriesEntity {
 
     @Id
    // @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id_category", nullable = false)
     private String id;
-
     @Column(name = "ordre")
     private String ordre;
-
     @Column(name = "libelle")
     private String libelle;
+    @Column(name = "datecreation")
+    private Date dateCreation;
+    @Column(name = "datemodification")
+    private Date dateModification;
 
    /* @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "associer",

@@ -4,7 +4,7 @@ package cmr.notep.business;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import cmr.notep.dao.MissionEntity;
+import cmr.notep.dao.MissionsEntity;
 import cmr.notep.modele.Mission;
 import cmr.notep.repository.MissionRepository;
 import org.springframework.stereotype.Component;
@@ -40,7 +40,7 @@ public class MissionBusiness {
     public Mission posterMission (Mission mission){
         return dozerMapperBean.map(
                 this.daoAccessorService.getRepository(MissionRepository.class)
-                        .save(dozerMapperBean.map(mission, MissionEntity.class)),
+                        .save(dozerMapperBean.map(mission, MissionsEntity.class)),
                 Mission.class
         );
     }

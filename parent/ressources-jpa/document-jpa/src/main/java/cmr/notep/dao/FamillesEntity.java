@@ -1,22 +1,18 @@
 package cmr.notep.dao;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "familles")
-public class FamilleEntity {
+public class FamillesEntity {
     @Id
     @Column(name = "id" , nullable = false)
     private String id ;
@@ -29,18 +25,19 @@ public class FamilleEntity {
 
     @Column(name = "etat")
     private Boolean etat ;
-
     @Column(name = "datecreation")
-    private Date dateCreation;
+    private LocalDate dateCreation;
+    @Column(name = "datemodification")
+    private LocalDate dateModification;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_precomouvementsqte")
     @Mapping("precomouvementsqte")
     private PrecoMouvementsQteEntity precoMouvementsQteEntity ;
 
-    @OneToMany(mappedBy = "familleEntity" , fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "famillesEntity", fetch = FetchType.LAZY)
     @Mapping("ressources")
-    private List<RessourceEntity> ressourceEntities;
+    private List<RessourcesEntity> ressourceEntities;
 
 
 }

@@ -1,15 +1,12 @@
 package cmr.notep.dao;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -30,7 +27,7 @@ public class DocumentsEntity {
     private String typeMouvement ;
 
     @Column(name = "afficherprix")
-    private String afficherprix ;
+    private String afficherPrix ;
 
     @Column(name = "etat")
     private Boolean etat;
@@ -39,19 +36,19 @@ public class DocumentsEntity {
     private Boolean afficherUnite;
 
     @Column(name="afficherdistributeur")
-    private Boolean afficherdistributeur;
+    private Boolean afficherDistributeur;
 
     @Column(name="prixeditable")
     private Boolean prixEditable;
 
     @Column(name="contientressources")
-    private Boolean contientessources;
+    private Boolean contientRessources;
 
     @Column(name = "datecreation")
-    private LocalDate datecreation;
+    private LocalDate dateCreation;
 
     @Column(name = "datemodification")
-    private LocalDate datemodification;
+    private LocalDate dateModification;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "constituer",
@@ -63,10 +60,10 @@ public class DocumentsEntity {
 
     @OneToMany(mappedBy = "documentsEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Mapping("categories")
-    private List<CategoryEntity> categoriesEntities;
+    private List<CategoriesEntity> categoriesEntities;
 
     @ManyToMany(mappedBy = "documentsEntities")
-    private List<MissionEntity> missionsEntities ;
+    private List<MissionsEntity> missionsEntities ;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "suivre",

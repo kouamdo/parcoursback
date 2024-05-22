@@ -1,23 +1,19 @@
 package cmr.notep.dao;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
-import net.bytebuddy.asm.Advice;
 import org.dozer.Mapping;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "mission")
-public class MissionEntity {
+public class MissionsEntity {
     @Id
     @Column(name="id", nullable = false)
     private String id ;
@@ -32,7 +28,7 @@ public class MissionEntity {
     private boolean etat ;
 
     @Column(name = "datecreation",nullable = false)
-    private LocalDate datecreation ;
+    private LocalDate dateCreation ;
 
     @Column(name="datemodification")
     private LocalDate dateModification ;
