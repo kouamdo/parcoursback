@@ -42,7 +42,7 @@ public class MissionsEntity {
     private List<DocumentsEntity> documentsEntities ;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_tache")
+    @JoinColumn(name = "id_service")
     @Mapping("tache")
     private ServiceEntity taches ;
 }

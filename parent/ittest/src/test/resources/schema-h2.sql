@@ -92,8 +92,8 @@ CREATE TABLE IF NOT EXISTS mission (
     etat boolean,
     datecreation date,
     datemodification date,
-    id_tache VARCHAR NOT NULL,
-    FOREIGN KEY (id_tache) REFERENCES service(id)
+    id_service VARCHAR NOT NULL,
+    FOREIGN KEY (id_service) REFERENCES service(id)
 );
 
 CREATE TABLE IF NOT EXISTS ressources(
