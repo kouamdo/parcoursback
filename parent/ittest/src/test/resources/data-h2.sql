@@ -16,7 +16,7 @@ INSERT INTO documents(
 INSERT INTO documents (id, titre, description) VALUES ('1', 'Note intervention', 'Document delivre par le medecin ou un infirmier de l''etablissement');
 
 -- Insertion dans la table 'missions'
-INSERT INTO mission (id, libelle, description, etat, datecreation, datemodification, id_tache) VALUES
+INSERT INTO mission (id, libelle, description, etat, datecreation, datemodification, id_service) VALUES
 ('1', 'Consultation', 'Consultation faite par une infirmière', true, '2000-03-07', '1990-03-07', 'admin'),
 ('2', 'Consultation Spécialiste', 'Consultation faite par un médecin', true, '2000-03-07', '1990-03-07', 'admin'),
 ('3', 'Prelevement Labo', 'Prélévement fait par laboratoire', true, '2000-03-07', '1990-03-07', 'admin');
