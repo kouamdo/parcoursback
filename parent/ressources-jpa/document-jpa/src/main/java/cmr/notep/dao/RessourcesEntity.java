@@ -47,4 +47,7 @@ public class RessourcesEntity {
     @Mapping("familles")
     private FamillesEntity famillesEntity;
 
+    @OneToMany(mappedBy = "ressourcesEntity" , fetch = FetchType.LAZY)
+    @Mapping("mouvement")
+    private List<MouvementEntity> mouvementEntityList;
 }
