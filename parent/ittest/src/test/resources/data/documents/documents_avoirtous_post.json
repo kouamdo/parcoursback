@@ -30,88 +30,88 @@
   "precomouvements" : [ ],
   "attributs" : [ ],
   "categories" : [ ]
-}, {
-  "id" : null,
-  "titre" : "Fiche de Test 2345-png-02",
-  "description" : "traite test 2345-png-02",
-  "etat" : true,
-  "dateCreation" : null,
-  "dateModification" : null,
-  "type" : null,
-  "afficherprix" : null,
-  "afficherunite" : null,
-  "afficherdistributeur" : null,
-  "prixeditable" : null,
-  "contientRessources" : null,
-  "precomouvements" : [ ],
-  "attributs" : [ {
-    "id" : null,
-    "titre" : "Colle",
-    "description" : "colle",
-    "etat" : true,
-    "dateCreation" : null,
-    "dateModification" : null,
-    "type" : "Double"
   }, {
     "id" : null,
-    "titre" : "png-08-colle",
-    "description" : "png-08-colle",
+    "titre" : "Fiche de Test 2345-png-02",
+    "description" : "traite test 2345-png-02",
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "Double"
-  }, {
-    "id" : null,
-    "titre" : "SEXES",
-    "description" : "SEXE",
-    "etat" : true,
-    "dateCreation" : null,
-    "dateModification" : null,
-    "type" : "String"
-  } ],
-  "categories" : [ {
-    "id" : null,
-    "ordre" : "19",
-    "libelle" : "Cuisine 19",
-    "attributsAssocier" : [ {
-      "attributAssocier" : {
-        "id" : null,
-        "titre" : "png-08-colle",
-        "description" : "png-08-colle",
-        "etat" : true,
-        "dateCreation" : null,
-        "dateModification" : null,
-        "type" : "Double"
-      },
-      "obligatoire" : false,
-      "ordre" : 0
+    "type" : null,
+    "afficherprix" : null,
+    "afficherunite" : null,
+    "afficherdistributeur" : null,
+    "prixeditable" : null,
+    "contientRessources" : null,
+    "precomouvements" : [ ],
+    "attributs" : [ {
+      "id" : null,
+      "titre" : "Colle",
+      "description" : "colle",
+      "etat" : true,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "Double"
     }, {
-      "attributAssocier" : {
-        "id" : null,
-        "titre" : "Colle",
-        "description" : "colle",
-        "etat" : true,
-        "dateCreation" : null,
-        "dateModification" : null,
-        "type" : "Double"
-      },
-      "obligatoire" : true,
-      "ordre" : 1
+      "id" : null,
+      "titre" : "png-08-colle",
+      "description" : "png-08-colle",
+      "etat" : true,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "Double"
     }, {
-      "attributAssocier" : {
-        "id" : null,
-        "titre" : "SEXES",
-        "description" : "SEXE",
-        "etat" : true,
-        "dateCreation" : null,
-        "dateModification" : null,
-        "type" : "String"
-      },
-      "obligatoire" : false,
-      "ordre" : 2
+      "id" : null,
+      "titre" : "SEXES",
+      "description" : "SEXE",
+      "etat" : true,
+      "dateCreation" : null,
+      "dateModification" : null,
+      "type" : "String"
+    } ],
+    "categories" : [ {
+      "id" : null,
+      "ordre" : "19",
+      "libelle" : "Cuisine 19",
+      "attributsAssocier" : [ {
+        "attributAssocier" : {
+          "id" : null,
+          "titre" : "png-08-colle",
+          "description" : "png-08-colle",
+          "etat" : true,
+          "dateCreation" : null,
+          "dateModification" : null,
+          "type" : "Double"
+        },
+        "obligatoire" : false,
+        "ordre" : 0
+      }, {
+        "attributAssocier" : {
+          "id" : null,
+          "titre" : "Colle",
+          "description" : "colle",
+          "etat" : true,
+          "dateCreation" : null,
+          "dateModification" : null,
+          "type" : "Double"
+        },
+        "obligatoire" : true,
+        "ordre" : 1
+      }, {
+        "attributAssocier" : {
+          "id" : null,
+          "titre" : "SEXES",
+          "description" : "SEXE",
+          "etat" : true,
+          "dateCreation" : null,
+          "dateModification" : null,
+          "type" : "String"
+        },
+        "obligatoire" : false,
+        "ordre" : 2
+      } ]
     } ]
-  } ]
-}, {
+  }, {
   "id" : null,
   "titre" : "Fiche de Test 2345-png-03",
   "description" : "traite test 2345-png-03",

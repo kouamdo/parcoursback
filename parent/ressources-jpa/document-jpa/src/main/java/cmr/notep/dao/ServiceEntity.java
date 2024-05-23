@@ -11,8 +11,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "taches")
-public class TachesEntity {
+@Table(name = "service")
+public class ServiceEntity {
 
     @Id
     @Column(name = "id" , nullable = false)

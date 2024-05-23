@@ -44,5 +44,5 @@ public class MissionsEntity {
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_tache")
     @Mapping("tache")
-    private TachesEntity taches ;
+    private ServiceEntity taches ;
 }

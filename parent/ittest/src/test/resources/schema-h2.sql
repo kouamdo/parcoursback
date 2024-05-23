@@ -75,7 +75,7 @@ ALTER TABLE IF EXISTS constituer
     ADD CONSTRAINT id_attribut FOREIGN KEY (id_attribut)
     REFERENCES attributs (id) ;
 
-CREATE TABLE IF NOT EXISTS taches(
+CREATE TABLE IF NOT EXISTS service(
     id VARCHAR NOT NULL PRIMARY KEY,
     libelle VARCHAR(255) ,
     description VARCHAR(255) ,
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS mission (
     datecreation date,
     datemodification date,
     id_tache VARCHAR NOT NULL,
-    FOREIGN KEY (id_tache) REFERENCES taches(id)
+    FOREIGN KEY (id_tache) REFERENCES service(id)
 );
 
 CREATE TABLE IF NOT EXISTS ressources(
