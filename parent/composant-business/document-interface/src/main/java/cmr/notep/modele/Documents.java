@@ -1,5 +1,6 @@
 package cmr.notep.modele;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +25,7 @@ public class Documents {
 
     private Date dateModification;
 
-    private String type ;
+    private String typeMouvement ;
 
     private String afficherprix ;
 

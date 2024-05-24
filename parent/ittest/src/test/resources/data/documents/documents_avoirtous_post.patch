@@ -1,8 +1,0 @@
---- src/test/resources/data/documents/documents_avoirtous_post.json
-+++ src/test/resources/data/documents/documents_avoirtous_post.json
-@@ -172,1 +172,1 @@
--    "libelle" : "Économie et comptabilite",
-+    "libelle" : "Ã‰conomie et comptabilite",
-@@ -202,1 +202,1 @@
--    "libelle" : "Cinéma",
-+    "libelle" : "CinÃ©ma",

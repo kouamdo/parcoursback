@@ -21,7 +21,8 @@ CREATE TABLE IF NOT EXISTS precomouvements(
     etat boolean,
     datecreation date,
     datemodification date,
-    type VARCHAR(25)
+    type VARCHAR(25),
+    typemouvement VARCHAR
 );
 
 CREATE TABLE IF NOT EXISTS constituer
@@ -53,7 +54,9 @@ CREATE TABLE IF NOT EXISTS category (
     ordre VARCHAR(255),
     libelle VARCHAR(255),
     id_documents VARCHAR(255) NOT NULL,
-    FOREIGN KEY (id_documents) REFERENCES documents(id)
+    FOREIGN KEY (id_documents) REFERENCES documents(id),
+    datecreation date,
+    datemodification date
 );
 
 CREATE TABLE IF NOT EXISTS associer (

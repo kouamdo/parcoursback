@@ -6,6 +6,7 @@ import org.dozer.Mapping;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -45,10 +46,10 @@ public class DocumentsEntity {
     private Boolean contientRessources;
 
     @Column(name = "datecreation")
-    private LocalDate dateCreation;
+    private Date dateCreation;
 
     @Column(name = "datemodification")
-    private LocalDate dateModification;
+    private Date dateModification;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "constituer",
