@@ -52,17 +52,17 @@ INSERT INTO category (id_category, ordre, libelle, id_documents) VALUES
 ------attribut jdd
 
 INSERT INTO attributs (id, titre, description, etat, datecreation, datemodification, type, valeurpardefaut) VALUES
-('1000', 'taille', 'taille de l''individu', true, '2000-03-07', '1990-03-07', 'TypeTicket.String', '');
+('1000', 'taille', 'taille de l''individu', true, '2000-03-07', '1990-03-07', 'String', '');
 
 --Insertion dans la table 'associer'
 INSERT INTO associer (id_attribut, id_category, obligatoire, ordre) VALUES
-('1000', '100', false, 11);
---('4', '100', false, 12),
---('6', '100', false, 13),
---('5', '200', false, 1),
---('7', '200', false, 2),
---('8', '200', false, 3);
---
+('1000', '100', false, 11),
+('1000', '100', false, 12),
+('1000', '100', false, 13),
+('1000', '200', false, 1),
+('1000', '200', false, 2),
+('1000', '200', false, 3);
+
 --------precomouvement jdd
 --
 ---- Insertion dans la table precomouvements

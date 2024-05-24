@@ -36,7 +36,7 @@ public class AttributsEntity {
     private Date dateModification;
 
     @Column(name = "type", nullable = false)
-    private Types type;
+    private String type;
 
     @Column(name = "optionnel")
     private Boolean optionnel;

@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS attributs
     etat boolean,
     datecreation date,
     datemodification date,
-    type VARCHAR(255)  NOT NULL DEFAULT 'double, float, date, int, boolean,  String, ',
+    type character varying  NOT NULL DEFAULT 'double, float, date, int, boolean,  String, ',
     optionnel boolean,
     valeurpardefaut VARCHAR(255),
     CONSTRAINT attributs_pkey PRIMARY KEY (id)
@@ -64,7 +64,6 @@ CREATE TABLE IF NOT EXISTS associer (
     id_category VARCHAR NOT NULL,
     obligatoire boolean,
     ordre INT ,
-    PRIMARY KEY (id_attribut, id_category),
     FOREIGN KEY (id_attribut) REFERENCES attributs(id),
     FOREIGN KEY (id_category) REFERENCES category(id_category)
 );
