@@ -129,7 +129,7 @@
     ],
     "categories": [
       {
-        "id": "1",
+        "id": "100",
         "nom": "informations personelles",
         "ordre": 1,
         "listAttributsParCategories": [
@@ -181,7 +181,7 @@
         ]
       },
       {
-        "id": "2",
+        "id": "200",
         "nom": "informations de sante",
         "ordre": 2,
         "listAttributsParCategories": [

@@ -5,13 +5,13 @@ CREATE TABLE IF NOT EXISTS attributs
 (
     id VARCHAR(255)  NOT NULL,
     titre VARCHAR(255)  NOT NULL,
-    description VARCHAR(255) ,
+    description VARCHAR(255),
     etat boolean,
     datecreation date,
     datemodification date,
-    type character varying  NOT NULL DEFAULT 'double, float, date, int, boolean,  String, ',
+    type VARCHAR(255)  NOT NULL DEFAULT 'double, float, date, int, boolean,  String, ',
     optionnel boolean,
-    valeurpardefaut VARCHAR(255) ,
+    valeurpardefaut VARCHAR(255),
     CONSTRAINT attributs_pkey PRIMARY KEY (id)
 );
 

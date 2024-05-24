@@ -25,7 +25,7 @@ public class DocumentsEntity {
     private String description;
 
     @Column(name = "typemouvement")
-    private String typeMouvement ;
+    private String type ;
 
     @Column(name = "afficherprix")
     private String afficherPrix ;
