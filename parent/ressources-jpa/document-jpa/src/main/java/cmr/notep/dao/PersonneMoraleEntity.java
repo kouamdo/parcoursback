@@ -17,6 +17,6 @@ public class PersonneMoraleEntity extends PersonneEntity{
     private String raisonsociale ;
 
     @Column(name = "code")
-    private String code ;
+    private String code;
 
 }

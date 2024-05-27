@@ -54,6 +54,7 @@ INSERT INTO category (id_category, ordre, libelle, id_documents) VALUES
 INSERT INTO attributs (id, titre, description, etat, datecreation, datemodification, type, valeurpardefaut) VALUES
 ('1000', 'taille', 'taille de l''individu', true, '2000-03-07', '1990-03-07', 'String', '');
 
+
 --Insertion dans la table 'associer'
 INSERT INTO associer (id_attribut, id_category, obligatoire, ordre) VALUES
 ('1000', '100', false, 11),
@@ -63,33 +64,33 @@ INSERT INTO associer (id_attribut, id_category, obligatoire, ordre) VALUES
 ('1000', '200', false, 2),
 ('1000', '200', false, 3);
 
---------precomouvement jdd
---
----- Insertion dans la table precomouvements
---INSERT INTO precomouvements (id, libelle, etat, type) VALUES
---('1', 'rachat', true, 'neutre'),
---('2', 'vente', true, 'reduire'),
---('3', 'vente', true, 'reduire');
 
----- Insertion dans la table precomouvementsqte
+-- Insertion dans la table 'precomouvements'
+INSERT INTO precomouvements (id, libelle, etat, type) VALUES
+('1', 'rachat', true, 'neutre'),
+('2', 'vente', true, 'reduire'),
+('3', 'vente', true, 'reduire');
+--
+---- Insertion dans la table 'ressources'
+--INSERT INTO ressources (id, libelle, etat, quantite, unite, prix, id_familles) VALUES
+--('1', 'transfusion', true, 10, 'UnitesLitre', 1000, '1'),
+--('2', 'néonat', true, 20, 'UnitesLitre', 2000, '2'),
+--('3', 'pediatrie', true, 30, 'UnitesLitre', 3000, '3');
+--
+---- Insertion dans la table 'precomouvementsqte'
 --INSERT INTO precomouvementsqte (id, qteMin, qteMax, montantMin, montantMax, id_precomouvements, id_ressources) VALUES
 --('1', 10, 20, 1000, 7000, '1', '1'),
 --('2', 30, 40, 100, 7000, '1', '2'),
 --('3', 30, 40, 100, 7000, '1', '3'),
 --('4', 30, 40, 100, 7000, '1', '4');
 --
----- Insertion dans la table ressources
---INSERT INTO ressources (id, libelle, etat, quantite, unite, prix, id_familles) VALUES
---('1', 'transfusion', true, 10, 'UnitesLitre', 1000, '4'),
---('2', 'néonat', true, 20, 'UnitesLitre', 2000, '3'),
---('3', 'pediatrie', true, 30, 'UnitesLitre', 3000, '4');
---
----- Insertion dans la table familles
+---- Insertion dans la table 'familles'
 --INSERT INTO familles (id, libelle, description, etat, id_precomouvementsqte) VALUES
 --('1', 'trans', 'sang', true, '1'),
---('2', 'néonat', 'nouveau-né', false, '1'),
---('3', 'pediatrie', 'enfant', true, '1'),
---('4', 'néonat', 'nouveau-né', false, '1');
+--('2', 'néonat', 'nouveau-né', false, '2'),
+--('3', 'pediatrie', 'enfant', true, '3'),
+--('4', 'néonat', 'nouveau-né', false, '4');
+--
 
 
 ------service jdd
