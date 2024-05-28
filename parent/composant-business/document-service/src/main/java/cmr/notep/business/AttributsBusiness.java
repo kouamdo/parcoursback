@@ -16,11 +16,11 @@ import static cmr.notep.config.DocumentConfig.dozerMapperBean;
 @Component
 @Slf4j
 @Transactional
-public class AttributBusiness {
+public class AttributsBusiness {
 
     private final DaoAccessorService daoAccessorService ;
 
-    public AttributBusiness(DaoAccessorService daoAccessorService)
+    public AttributsBusiness(DaoAccessorService daoAccessorService)
     {
         this.daoAccessorService = daoAccessorService;
     }

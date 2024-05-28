@@ -17,42 +17,29 @@ public class AttributsEntity {
     //@GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private String id;
-
-    
     @Column(name = "titre", nullable = false)
     private String titre;
-
-    
     @Column(name = "description")
     private String description;
-
     @Column(name = "etat")
     private Boolean etat;
-
     @Column(name = "datecreation")
     private Date dateCreation;
-
     @Column(name = "datemodification")
     private Date dateModification;
-
     @Column(name = "type", nullable = false)
     private String type;
-
-    @Column(name = "optionnel")
-    private Boolean optionnel;
-
     @Column(name = "valeurpardefaut")
-    private String valeurpardefaut;
-
+    private String valeurParDefaut;
     @ManyToMany(mappedBy = "attributsEntities")
     @JsonIgnore
-    private List<DocumentsEntity> documents;
-
+    private List<DocumentsEntity> documentsEntities;
     //@ManyToMany(mappedBy = "attributsEntities")
     //@Mapping("categories")
     //@JsonIgnore
    // private List<CategoriesEntity> categories ;
 
-    @OneToMany(mappedBy = "attributAssocier", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    private List<AssocierEntity> attributsAssocier ;
+    @OneToMany(mappedBy = "attribut", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    //@Mapping("categories")
+    private List<AssocierEntity> categoriesEntities;
 }

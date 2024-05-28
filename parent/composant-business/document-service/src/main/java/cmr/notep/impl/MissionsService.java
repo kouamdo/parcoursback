@@ -1,62 +1,42 @@
 package cmr.notep.impl;
 
-import cmr.notep.api.IMissionApi;
-import cmr.notep.business.MissionBusiness;
-import cmr.notep.modele.Mission;
+import cmr.notep.api.IMissionsApi;
+import cmr.notep.business.MissionsBusiness;
+import cmr.notep.modele.Missions;
 import org.springframework.web.bind.annotation.RestController;
-import lombok.NonNull;
+
 import javax.transaction.Transactional;
 import java.util.List;
-import javax.transaction.Transactional;
 
 @RestController
 @Transactional
-public class MissionsService implements IMissionApi {
+public class MissionsService implements IMissionsApi {
 
-    private final MissionBusiness missionBusiness ;
+    private final MissionsBusiness missionsBusiness;
 
-    public MissionsService(MissionBusiness missionBusiness) {
-        this.missionBusiness = missionBusiness;
+    public MissionsService(MissionsBusiness missionsBusiness) {
+        this.missionsBusiness = missionsBusiness;
     }
 
 
     @Override
-    public Mission avoirMissions(String idMission) {
-        return missionBusiness.avoirMission(idMission);
+    public Missions avoirMissions(String idMission) {
+        return missionsBusiness.avoirMission(idMission);
     }
 
     @Override
-    public List<Mission> avoirToutMissions() {
-        return missionBusiness.avoirTousMission();
+    public List<Missions> avoirToutMissions() {
+        return missionsBusiness.avoirTousMission();
     }
 
     @Override
-    public void supprimerMissions(Mission missions) {
+    public void supprimerMissions(Missions missions) {
 
     }
 
     @Override
-    public Mission posterMissions(Mission mission) {
-        return missionBusiness.posterMission(mission);
+    public Missions posterMissions(Missions missions) {
+        return missionsBusiness.posterMission(missions);
     }
 
-//    @Override
-//    public Mission avoirMission(@NonNull String idMission) {
-//        return missionBusiness.avoirMission(idMission);
-//    }
-//
-//    @Override
-//    public List<Mission> avoirToutAttribut() {
-//        return missionBusiness.avoirTousMission();
-//    }
-//
-//    @Override
-//    public void supprimerMission(@NonNull Mission missions) {
-//
-//    }
-//
-//    @Override
-//    public Mission posterMission(@NonNull Mission mission) {
-//        return missionBusiness.posterMission(mission);
-//    }
 }

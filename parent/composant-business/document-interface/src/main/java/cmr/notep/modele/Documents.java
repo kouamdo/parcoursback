@@ -1,6 +1,6 @@
 package cmr.notep.modele;
 
-import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @ToString
+@EqualsAndHashCode
 public class Documents {
     private String id;
 
@@ -24,25 +25,24 @@ public class Documents {
 
     private Date dateModification;
 
-    private String type ;
+    private TypeMouvement typeMouvement ;
 
-    private String afficherprix ;
+    private String afficherPrix ;
 
-    private Boolean afficherunite;
+    private Boolean afficherUnite;
 
-    private Boolean afficherdistributeur;
+    private Boolean afficherDistributeur;
 
-    private Boolean prixeditable;
+    private Boolean prixEditable;
 
     private Boolean contientRessources;
 
-    public List<Mission> missionsEntities = new ArrayList<> ();
+    public List<Missions> missions ;
 
-    private List<PrecoMouvements> precomouvements = new ArrayList<>();
+    private List<PrecoMouvements> precoMouvements ;
 
-    private List<Attributs> attributs;
+    private List<Attributs> attributs ;
     private List<Categories> categories ;
 
-    //public List<Etats>  = new ArrayList<Etats> ();
 
 }

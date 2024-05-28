@@ -15,15 +15,15 @@ public class AssocierEntity {
     private AssocierEntityID id;
 
     @ManyToOne
-    @MapsId("id_category")
-    @JoinColumn(name = "id_category", referencedColumnName = "id_category")
-    private CategoriesEntity categoryAssocier ;
+    @MapsId("categoriesId")
+    @JoinColumn(name = "categories_id", referencedColumnName = "id")
+    private CategoriesEntity categorie ;
 
 
     @ManyToOne
-    @MapsId("id_attribut")
-    @JoinColumn(name = "id_attribut", referencedColumnName = "id")
-    private AttributsEntity attributAssocier ;
+    @MapsId("attributsId")
+    @JoinColumn(name = "attributs_id", referencedColumnName = "id")
+    private AttributsEntity attribut ;
 
     @Column(name="obligatoire")
     private boolean obligatoire ;

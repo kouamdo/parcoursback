@@ -5,13 +5,14 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "type" : null,
-  "afficherprix" : null,
-  "afficherunite" : null,
-  "afficherdistributeur" : null,
-  "prixeditable" : null,
-  "contientRessources" : null,
-  "precomouvements" : [ ],
+  "typeMouvement" : "Neutre",
+  "afficherPrix" : "TRUE",
+  "afficherUnite" : true,
+  "afficherDistributeur" : true,
+  "prixEditable" : true,
+  "contientRessources" : true,
+  "missions" : null,
+  "precoMouvements" : [ ],
   "attributs" : [ ],
   "categories" : [ ]
 }, {
@@ -21,13 +22,14 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "type" : null,
-  "afficherprix" : null,
-  "afficherunite" : null,
-  "afficherdistributeur" : null,
-  "prixeditable" : null,
-  "contientRessources" : null,
-  "precomouvements" : [ ],
+  "typeMouvement" : "Reduire",
+  "afficherPrix" : "TRUE",
+  "afficherUnite" : true,
+  "afficherDistributeur" : true,
+  "prixEditable" : true,
+  "contientRessources" : true,
+  "missions" : null,
+  "precoMouvements" : [ ],
   "attributs" : [ ],
   "categories" : [ ]
 }, {
@@ -37,13 +39,14 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "type" : null,
-  "afficherprix" : null,
-  "afficherunite" : null,
-  "afficherdistributeur" : null,
-  "prixeditable" : null,
-  "contientRessources" : null,
-  "precomouvements" : [ ],
+  "typeMouvement" : "Neutre",
+  "afficherPrix" : "TRUE",
+  "afficherUnite" : true,
+  "afficherDistributeur" : true,
+  "prixEditable" : true,
+  "contientRessources" : true,
+  "missions" : null,
+  "precoMouvements" : [ ],
   "attributs" : [ {
     "id" : null,
     "titre" : "Colle",
@@ -73,8 +76,8 @@
     "id" : null,
     "ordre" : "19",
     "libelle" : "Cuisine 19",
-    "attributsAssocier" : [ {
-      "attributAssocier" : {
+    "attributs" : [ {
+      "attribut" : {
         "id" : null,
         "titre" : "png-08-colle",
         "description" : "png-08-colle",
@@ -86,7 +89,7 @@
       "obligatoire" : false,
       "ordre" : 0
     }, {
-      "attributAssocier" : {
+      "attribut" : {
         "id" : null,
         "titre" : "Colle",
         "description" : "colle",
@@ -98,7 +101,7 @@
       "obligatoire" : true,
       "ordre" : 1
     }, {
-      "attributAssocier" : {
+      "attribut" : {
         "id" : null,
         "titre" : "SEXES",
         "description" : "SEXE",
@@ -118,13 +121,14 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "type" : null,
-  "afficherprix" : null,
-  "afficherunite" : null,
-  "afficherdistributeur" : null,
-  "prixeditable" : null,
-  "contientRessources" : null,
-  "precomouvements" : [ ],
+  "typeMouvement" : "Neutre",
+  "afficherPrix" : "TRUE",
+  "afficherUnite" : true,
+  "afficherDistributeur" : true,
+  "prixEditable" : true,
+  "contientRessources" : true,
+  "missions" : null,
+  "precoMouvements" : [ ],
   "attributs" : [ {
     "id" : null,
     "titre" : "Colle",
@@ -148,7 +152,7 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "Double"
+    "type" : "String"
   } ],
   "categories" : [ ]
 }, {
@@ -158,13 +162,14 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "type" : null,
-  "afficherprix" : null,
-  "afficherunite" : null,
-  "afficherdistributeur" : null,
-  "prixeditable" : null,
-  "contientRessources" : null,
-  "precomouvements" : [ ],
+  "typeMouvement" : "Neutre",
+  "afficherPrix" : "TRUE",
+  "afficherUnite" : true,
+  "afficherDistributeur" : true,
+  "prixEditable" : true,
+  "contientRessources" : true,
+  "missions" : null,
+  "precoMouvements" : [ ],
   "attributs" : [ {
     "id" : null,
     "titre" : "Colle",
@@ -190,13 +195,14 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "type" : null,
-  "afficherprix" : null,
-  "afficherunite" : null,
-  "afficherdistributeur" : null,
-  "prixeditable" : null,
-  "contientRessources" : null,
-  "precomouvements" : [ ],
+  "typeMouvement" : "Neutre",
+  "afficherPrix" : "TRUE",
+  "afficherUnite" : true,
+  "afficherDistributeur" : true,
+  "prixEditable" : true,
+  "contientRessources" : true,
+  "missions" : null,
+  "precoMouvements" : [ ],
   "attributs" : [ {
     "id" : null,
     "titre" : "TAILLE revisée",
@@ -218,15 +224,15 @@
     "id" : null,
     "ordre" : "1",
     "libelle" : "Fiche de traite Test",
-    "attributsAssocier" : [ {
-      "attributAssocier" : {
+    "attributs" : [ {
+      "attribut" : {
         "id" : null,
         "titre" : "TAILLE",
         "description" : "taille",
         "etat" : true,
         "dateCreation" : null,
         "dateModification" : null,
-        "type" : "Double"
+        "type" : "String"
       },
       "obligatoire" : true,
       "ordre" : 0
@@ -235,8 +241,8 @@
     "id" : null,
     "ordre" : "2",
     "libelle" : "Lit hopital",
-    "attributsAssocier" : [ {
-      "attributAssocier" : {
+    "attributs" : [ {
+      "attribut" : {
         "id" : null,
         "titre" : "teint",
         "description" : "teint du nouveau",
@@ -252,8 +258,8 @@
     "id" : null,
     "ordre" : "3",
     "libelle" : "Don organes",
-    "attributsAssocier" : [ {
-      "attributAssocier" : {
+    "attributs" : [ {
+      "attribut" : {
         "id" : null,
         "titre" : "SEXES",
         "description" : "SEXE",
@@ -271,15 +277,16 @@
   "titre" : "Fiche de traite",
   "description" : "traite",
   "etat" : true,
-  "dateCreation" : null,
+  "dateCreation" : 1680213600000,
   "dateModification" : null,
-  "type" : null,
-  "afficherprix" : null,
-  "afficherunite" : null,
-  "afficherdistributeur" : null,
-  "prixeditable" : null,
-  "contientRessources" : null,
-  "precomouvements" : [ ],
+  "typeMouvement" : "Neutre",
+  "afficherPrix" : "TRUE",
+  "afficherUnite" : true,
+  "afficherDistributeur" : true,
+  "prixEditable" : true,
+  "contientRessources" : true,
+  "missions" : null,
+  "precoMouvements" : [ ],
   "attributs" : [ {
     "id" : null,
     "titre" : "TAILLE",
@@ -287,14 +294,14 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "Double"
+    "type" : "String"
   } ],
   "categories" : [ {
     "id" : null,
     "ordre" : "4",
     "libelle" : "don de sang",
-    "attributsAssocier" : [ {
-      "attributAssocier" : {
+    "attributs" : [ {
+      "attribut" : {
         "id" : null,
         "titre" : "SEXES",
         "description" : "SEXE",
@@ -310,8 +317,8 @@
     "id" : null,
     "ordre" : "5",
     "libelle" : "Économie et comptabilité",
-    "attributsAssocier" : [ {
-      "attributAssocier" : {
+    "attributs" : [ {
+      "attribut" : {
         "id" : null,
         "titre" : "SEXES",
         "description" : "SEXE",
@@ -327,8 +334,8 @@
     "id" : null,
     "ordre" : "6",
     "libelle" : "Musique malade",
-    "attributsAssocier" : [ {
-      "attributAssocier" : {
+    "attributs" : [ {
+      "attribut" : {
         "id" : null,
         "titre" : "SEXES",
         "description" : "SEXE",
@@ -344,8 +351,8 @@
     "id" : null,
     "ordre" : "7",
     "libelle" : "Cinéma",
-    "attributsAssocier" : [ {
-      "attributAssocier" : {
+    "attributs" : [ {
+      "attribut" : {
         "id" : null,
         "titre" : "Colle",
         "description" : "colle",
@@ -361,8 +368,8 @@
     "id" : null,
     "ordre" : "8",
     "libelle" : "Sport",
-    "attributsAssocier" : [ {
-      "attributAssocier" : {
+    "attributs" : [ {
+      "attribut" : {
         "id" : null,
         "titre" : "Colle",
         "description" : "colle",
@@ -378,8 +385,8 @@
     "id" : null,
     "ordre" : "9",
     "libelle" : "Cuisine",
-    "attributsAssocier" : [ {
-      "attributAssocier" : {
+    "attributs" : [ {
+      "attribut" : {
         "id" : null,
         "titre" : "teint",
         "description" : "teint du nouveau",
@@ -395,8 +402,8 @@
     "id" : null,
     "ordre" : "10",
     "libelle" : "Voyage",
-    "attributsAssocier" : [ {
-      "attributAssocier" : {
+    "attributs" : [ {
+      "attribut" : {
         "id" : null,
         "titre" : "SEXES",
         "description" : "SEXE",
@@ -416,13 +423,14 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "type" : null,
-  "afficherprix" : null,
-  "afficherunite" : null,
-  "afficherdistributeur" : null,
-  "prixeditable" : null,
-  "contientRessources" : null,
-  "precomouvements" : [ ],
+  "typeMouvement" : "Ajout",
+  "afficherPrix" : "TRUE",
+  "afficherUnite" : true,
+  "afficherDistributeur" : true,
+  "prixEditable" : true,
+  "contientRessources" : true,
+  "missions" : null,
+  "precoMouvements" : [ ],
   "attributs" : [ {
     "id" : null,
     "titre" : "Colle",
@@ -456,13 +464,14 @@
   "etat" : true,
   "dateCreation" : null,
   "dateModification" : null,
-  "type" : null,
-  "afficherprix" : null,
-  "afficherunite" : null,
-  "afficherdistributeur" : null,
-  "prixeditable" : null,
+  "typeMouvement" : null,
+  "afficherPrix" : null,
+  "afficherUnite" : null,
+  "afficherDistributeur" : null,
+  "prixEditable" : null,
   "contientRessources" : null,
-  "precomouvements" : [ ],
+  "missions" : null,
+  "precoMouvements" : null,
   "attributs" : [ {
     "id" : null,
     "titre" : "SEXES",
@@ -478,7 +487,7 @@
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
-    "type" : "Double"
+    "type" : "String"
   } ],
   "categories" : null
 } ]

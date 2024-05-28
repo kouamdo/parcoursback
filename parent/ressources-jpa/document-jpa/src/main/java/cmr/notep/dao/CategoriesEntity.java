@@ -13,12 +13,12 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "category")
+@Table(name = "categories")
 public class CategoriesEntity {
 
     @Id
    // @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "id_category", nullable = false)
+    @Column(name = "id", nullable = false)
     private String id;
     @Column(name = "ordre")
     private String ordre;
@@ -37,12 +37,12 @@ public class CategoriesEntity {
     private List<AttributsEntity> attributsEntities ;*/
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_documents")
+    @JoinColumn(name = "documents_id")
     @Mapping("document")
     @JsonIgnore
     private DocumentsEntity documentsEntity ;
 
-    @OneToMany(mappedBy = "categoryAssocier", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("attributsAssocier")
-    private List<AssocierEntity> catogriesAssocier;
+    @OneToMany(mappedBy = "categorie", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @Mapping("attributs")
+    private List<AssocierEntity> attributsEntities;
 }

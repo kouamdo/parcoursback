@@ -1,0 +1,47 @@
+package cmr.notep.business;
+
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import cmr.notep.dao.MissionsEntity;
+import cmr.notep.modele.Missions;
+import cmr.notep.repository.MissionsRepository;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import cmr.notep.dao.DaoAccessorService;
+import lombok.extern.slf4j.Slf4j;
+
+import static cmr.notep.config.DocumentConfig.dozerMapperBean;
+
+@Component
+@Slf4j
+@Transactional
+
+public class MissionsBusiness {
+    private final DaoAccessorService daoAccessorService ;
+
+    public MissionsBusiness(DaoAccessorService daoAccessorService) { this.daoAccessorService = daoAccessorService ;}
+
+    public List <Missions> avoirTousMission()
+    {
+        return daoAccessorService.getRepository(MissionsRepository.class).findAll()
+                .stream().map(mission -> dozerMapperBean.map(mission, Missions.class))
+                .collect(Collectors.toList());
+    }
+
+    public Missions avoirMission(String idMission)
+    {
+        return dozerMapperBean.map(this.daoAccessorService.getRepository(MissionsRepository.class).findById(idMission)
+                .orElseThrow(()->new RuntimeException("Missions non enregistré")), Missions.class);
+    }
+
+    public Missions posterMission (Missions missions){
+        return dozerMapperBean.map(
+                this.daoAccessorService.getRepository(MissionsRepository.class)
+                        .save(dozerMapperBean.map(missions, MissionsEntity.class)),
+                Missions.class
+        );
+    }
+}

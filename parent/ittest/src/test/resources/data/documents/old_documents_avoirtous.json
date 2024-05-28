@@ -1,4 +1,4 @@
-[ {
+[{
   "id" : null,
   "titre" : "Fiche de Test",
   "description" : "traite test",
@@ -91,18 +91,6 @@
     }, {
       "attribut" : {
         "id" : null,
-        "titre" : "Colle",
-        "description" : "colle",
-        "etat" : true,
-        "dateCreation" : null,
-        "dateModification" : null,
-        "type" : "Double"
-      },
-      "obligatoire" : true,
-      "ordre" : 1
-    }, {
-      "attribut" : {
-        "id" : null,
         "titre" : "SEXES",
         "description" : "SEXE",
         "etat" : true,
@@ -112,6 +100,18 @@
       },
       "obligatoire" : false,
       "ordre" : 2
+    }, {
+      "attribut" : {
+        "id" : null,
+        "titre" : "Colle",
+        "description" : "colle",
+        "etat" : true,
+        "dateCreation" : null,
+        "dateModification" : null,
+        "type" : "Double"
+      },
+      "obligatoire" : true,
+      "ordre" : 1
     } ]
   } ]
 }, {
@@ -139,20 +139,20 @@
     "type" : "Double"
   }, {
     "id" : null,
-    "titre" : "SEXES",
-    "description" : "SEXE",
-    "etat" : true,
-    "dateCreation" : null,
-    "dateModification" : null,
-    "type" : "String"
-  }, {
-    "id" : null,
     "titre" : "TAILLES",
     "description" : "tailles",
     "etat" : true,
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Double"
+  }, {
+    "id" : null,
+    "titre" : "SEXES",
+    "description" : "SEXE",
+    "etat" : true,
+    "dateCreation" : null,
+    "dateModification" : null,
+    "type" : "String"
   } ],
   "categories" : [ ]
 }, {
@@ -205,39 +205,22 @@
   "precoMouvements" : [ ],
   "attributs" : [ {
     "id" : null,
-    "titre" : "TAILLE revisée",
-    "description" : "taille revisée",
-    "etat" : true,
-    "dateCreation" : null,
-    "dateModification" : null,
-    "type" : "Double"
-  }, {
-    "id" : null,
     "titre" : "teint",
     "description" : "teint du nouveau",
     "etat" : false,
     "dateCreation" : null,
     "dateModification" : null,
     "type" : "Int"
+  }, {
+    "id" : null,
+    "titre" : "TAILLE revisée",
+    "description" : "taille revisée",
+    "etat" : true,
+    "dateCreation" : null,
+    "dateModification" : null,
+    "type" : "Double"
   } ],
   "categories" : [ {
-    "id" : null,
-    "ordre" : "1",
-    "libelle" : "Fiche de traite Test",
-    "attributs" : [ {
-      "attribut" : {
-        "id" : null,
-        "titre" : "TAILLES",
-        "description" : "tailles",
-        "etat" : true,
-        "dateCreation" : null,
-        "dateModification" : null,
-        "type" : "Double"
-      },
-      "obligatoire" : true,
-      "ordre" : 0
-    } ]
-  }, {
     "id" : null,
     "ordre" : "2",
     "libelle" : "Lit hopital",
@@ -271,6 +254,23 @@
       "obligatoire" : false,
       "ordre" : 0
     } ]
+  }, {
+    "id" : null,
+    "ordre" : "1",
+    "libelle" : "Fiche de traite Test",
+    "attributs" : [ {
+      "attribut" : {
+        "id" : null,
+        "titre" : "TAILLES",
+        "description" : "tailles",
+        "etat" : true,
+        "dateCreation" : null,
+        "dateModification" : null,
+        "type" : "Double"
+      },
+      "obligatoire" : true,
+      "ordre" : 0
+    } ]
   } ]
 }, {
   "id" : null,
@@ -298,8 +298,8 @@
   } ],
   "categories" : [ {
     "id" : null,
-    "ordre" : "4",
-    "libelle" : "don de sang",
+    "ordre" : "10",
+    "libelle" : "Voyage",
     "attributs" : [ {
       "attribut" : {
         "id" : null,
@@ -311,23 +311,6 @@
         "type" : "String"
       },
       "obligatoire" : false,
-      "ordre" : 0
-    } ]
-  }, {
-    "id" : null,
-    "ordre" : "5",
-    "libelle" : "Économie et comptabilité",
-    "attributs" : [ {
-      "attribut" : {
-        "id" : null,
-        "titre" : "SEXES",
-        "description" : "SEXE",
-        "etat" : true,
-        "dateCreation" : null,
-        "dateModification" : null,
-        "type" : "String"
-      },
-      "obligatoire" : true,
       "ordre" : 0
     } ]
   }, {
@@ -366,17 +349,17 @@
     } ]
   }, {
     "id" : null,
-    "ordre" : "8",
-    "libelle" : "Sport",
+    "ordre" : "4",
+    "libelle" : "don de sang",
     "attributs" : [ {
       "attribut" : {
         "id" : null,
-        "titre" : "Colle",
-        "description" : "colle",
+        "titre" : "SEXES",
+        "description" : "SEXE",
         "etat" : true,
         "dateCreation" : null,
         "dateModification" : null,
-        "type" : "Double"
+        "type" : "String"
       },
       "obligatoire" : false,
       "ordre" : 0
@@ -400,8 +383,25 @@
     } ]
   }, {
     "id" : null,
-    "ordre" : "10",
-    "libelle" : "Voyage",
+    "ordre" : "8",
+    "libelle" : "Sport",
+    "attributs" : [ {
+      "attribut" : {
+        "id" : null,
+        "titre" : "Colle",
+        "description" : "colle",
+        "etat" : true,
+        "dateCreation" : null,
+        "dateModification" : null,
+        "type" : "Double"
+      },
+      "obligatoire" : false,
+      "ordre" : 0
+    } ]
+  }, {
+    "id" : null,
+    "ordre" : "5",
+    "libelle" : "Économie et comptabilité",
     "attributs" : [ {
       "attribut" : {
         "id" : null,
@@ -412,7 +412,7 @@
         "dateModification" : null,
         "type" : "String"
       },
-      "obligatoire" : false,
+      "obligatoire" : true,
       "ordre" : 0
     } ]
   } ]
@@ -457,4 +457,5 @@
     "type" : "String"
   } ],
   "categories" : [ ]
-} ]
+}
+]

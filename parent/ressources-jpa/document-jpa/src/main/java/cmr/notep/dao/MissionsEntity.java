@@ -6,13 +6,13 @@ import lombok.Setter;
 import org.dozer.Mapping;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "mission")
+@Table(name = "missions")
 public class MissionsEntity {
     @Id
     @Column(name="id", nullable = false)
@@ -28,21 +28,21 @@ public class MissionsEntity {
     private boolean etat ;
 
     @Column(name = "datecreation",nullable = false)
-    private LocalDate dateCreation ;
+    private Date dateCreation ;
 
     @Column(name="datemodification")
-    private LocalDate dateModification ;
+    private Date dateModification ;
 
     @ManyToMany(fetch = FetchType.LAZY , cascade = {CascadeType.ALL} )
     @JoinTable(name = "traiter",
-        joinColumns = @JoinColumn(name = "id_mission"),
-            inverseJoinColumns = @JoinColumn(name="id_document")
+        joinColumns = @JoinColumn(name = "missions_id"),
+            inverseJoinColumns = @JoinColumn(name="documents_id")
     )
     @Mapping("documents")
     private List<DocumentsEntity> documentsEntities ;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_tache")
-    @Mapping("tache")
-    private TachesEntity taches ;
+    @JoinColumn(name = "services_id")
+    @Mapping("service")
+    private ServicesEntity service ;
 }

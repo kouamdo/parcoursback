@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.dozer.Mapping;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -16,24 +16,23 @@ public class FamillesEntity {
     @Id
     @Column(name = "id" , nullable = false)
     private String id ;
-
     @Column(name = "libelle")
     private String libelle;
-
     @Column(name = "description")
     private String description;
-
     @Column(name = "etat")
     private Boolean etat ;
     @Column(name = "datecreation")
-    private LocalDate dateCreation;
+    private Date dateCreation;
     @Column(name = "datemodification")
-    private LocalDate dateModification;
+    private Date dateModification;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_precomouvementsqte")
-    @Mapping("precomouvementsqte")
-    private PrecoMouvementsQteEntity precoMouvementsQteEntity ;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "sapplique",
+            joinColumns = @JoinColumn(name = "familles_id"),
+            inverseJoinColumns = @JoinColumn(name = "precomouvementsqtes_id"))
+    @Mapping("precoMouvementsQte")
+    private List<PrecoMouvementsQtesEntity> precoMouvementsQtesEntities;
 
     @OneToMany(mappedBy = "famillesEntity", fetch = FetchType.LAZY)
     @Mapping("ressources")

@@ -10,36 +10,30 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "precomouvementsqte")
-public class PrecoMouvementsQteEntity{
-
+@Table(name = "precomouvementsqtes")
+public class PrecoMouvementsQtesEntity {
     @Id
     @Column(name="id", nullable = false)
     private String id ;
-
     @Column(name ="qtemin")
     private int qteMin ;
-
     @Column(name ="qtemax")
     private int qteMax ;
-
     @Column(name =  "montantmin")
     private int montantMin ;
-
     @Column(name = "montantmax")
     private int montantMax ;
-
     @ManyToOne
-    @JoinColumn(name = "id_precomouvements" , nullable = false)
+    @JoinColumn(name = "precoMouvements_id" , nullable = false)
     @Mapping("precoMouvement")
     private PrecoMouvementsEntity precoMouvementsEntity ;
 
-    @OneToMany(mappedBy = "precoMouvementsQteEntity" , fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "precoMouvementsQtesEntities", fetch = FetchType.LAZY)
     @Mapping("familles")
     private List<FamillesEntity> famillesEntities ;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_ressources")
+    @JoinColumn(name = "ressources_id")
     @Mapping("ressources")
     private RessourcesEntity ressourcesEntity;
 

@@ -1,33 +1,33 @@
 package cmr.notep.api;
 
 import cmr.notep.modele.Documents;
+import cmr.notep.modele.Familles;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("document/documents")
-public interface IDocumentApi {
-
+@RequestMapping("famille")
+public interface IFamillesApi {
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Documents posterDocument(@NonNull @RequestBody Documents document);
+    Documents posterFamille(@NonNull @RequestBody Familles familles);
 
     @GetMapping(
-            path = "/{idDoc}",
+            path = "/{idFamille}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    Documents avoirDocument(@NonNull @RequestParam(name = "idDoc") String idDoc);
+    Documents avoirFamille(@NonNull @RequestParam(name = "idFamille") String idFamille);
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    List<Documents> avoirTousDocuments();
+    List<Documents> avoirTousFamilles();
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Boolean SupprimerDocument(@NonNull @RequestBody Documents document);
+    Boolean SupprimerFamilles(@NonNull @RequestBody Familles familles);
 }

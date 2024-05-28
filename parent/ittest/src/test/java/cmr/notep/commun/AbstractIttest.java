@@ -1,7 +1,7 @@
 package cmr.notep.commun;
 
-import cmr.notep.api.IAttributApi;
-import cmr.notep.api.IDocumentApi;
+import cmr.notep.api.IAttributsApi;
+import cmr.notep.api.IDocumentsApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 
@@ -9,8 +9,8 @@ import org.springframework.test.context.ActiveProfiles;
 public abstract class AbstractIttest {
 
   @Autowired
-  protected   IDocumentApi documentService;
+  protected IDocumentsApi documentService;
 
   @Autowired
-  protected IAttributApi attributService ;
+  protected IAttributsApi attributService ;
 }

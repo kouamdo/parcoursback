@@ -1,34 +1,34 @@
 package cmr.notep.api;
 
 
-import cmr.notep.modele.Mission;
+import cmr.notep.modele.Services;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("missions")
-public interface IMissionApi {
+@RequestMapping("services")
+public interface IServicesApi {
     @GetMapping(
-            path = "/{idMission}",
+            path = "/{idService}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    Mission avoirMissions (@NonNull @RequestParam(name="idMission") String idMission);
+    Services avoirServices (@NonNull @RequestParam(name="idService") String idService) throws Throwable;
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    List<Mission> avoirToutMissions();
+    List<Services> avoirToutServices();
 
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    void supprimerMissions(@NonNull @RequestBody Mission missions);
+    void supprimerServices(@NonNull @RequestBody Services service);
 
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Mission posterMissions(@NonNull @RequestBody Mission mission) ;
+    Services PosterServices(@NonNull @RequestBody Services service) ;
 }

@@ -6,7 +6,7 @@ import lombok.Setter;
 import org.dozer.Mapping;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -26,10 +26,10 @@ public class PrecoMouvementsEntity {
     private boolean etat ;
 
     @Column(name = "datecreation",nullable = false)
-    private LocalDate dateCreation ;
+    private Date dateCreation ;
 
     @Column(name="datemodification")
-    private LocalDate dateModification ;
+    private Date dateModification ;
 
     @Column(name="typemouvement")
     private String typeMouvement ;
@@ -38,6 +38,6 @@ public class PrecoMouvementsEntity {
     private List<DocumentsEntity> documentsEntities ;
 
     @OneToMany(mappedBy = "precoMouvementsEntity" , fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("precomouvementsqte")
-    private List<PrecoMouvementsQteEntity> precoMouvementsQteEntities;
+    @Mapping("precoMouvementsQte")
+    private List<PrecoMouvementsQtesEntity> precoMouvementsQtesEntities;
 }
