@@ -10,17 +10,17 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"documents"})
-@ToString(exclude = {"documents"})
-@EqualsAndHashCode(exclude = {"documents"})
-public class PrecoMouvements {
+@JsonIgnoreProperties({"documents,service"})
+@ToString(exclude = {"documents,service"})
+@EqualsAndHashCode(exclude = {"documents,service"})
+public class Missions {
 
     private String id ;
     private String libelle ;
+    private String description;
     private boolean etat ;
-    private TypeMouvement typeMouvement ;
     private Date dateCreation ;
     private Date dateModification ;
-    private List<Documents> documents ;
-    private List<PrecoMouvementsQtes> precoMouvementsQtes;
+    private List<Documents> documents;
+    private Services service;
 }

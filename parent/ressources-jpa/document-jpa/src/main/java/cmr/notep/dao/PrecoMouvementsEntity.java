@@ -39,8 +39,5 @@ public class PrecoMouvementsEntity {
 
     @OneToMany(mappedBy = "precoMouvementsEntity" , fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Mapping("precomouvementsqte")
-    private List<PrecoMouvementsQteEntity> precoMouvementsQteEntities;
-
-    @ManyToMany(mappedBy = "precoMouvementsEntityList")
-    private List<MouvementEntity> mouvementEntityList ;
+    private List<PrecoMouvementsQtesEntity> precoMouvementsQteEntities;
 }

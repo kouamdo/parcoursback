@@ -1,25 +1,21 @@
 package cmr.notep.impl;
 
-import cmr.notep.api.IAttributApi;
-import cmr.notep.business.AttributBusiness;
+import cmr.notep.api.IAttributsApi;
+import cmr.notep.business.AttributsBusiness;
 import cmr.notep.modele.Attributs;
-import cmr.notep.repository.AttributsRepository;
 import lombok.NonNull;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static cmr.notep.config.DocumentConfig.dozerMapperBean;
 
 @RestController
 @Transactional
-public class AttributService implements IAttributApi {
+public class AttributsService implements IAttributsApi {
 
-    private final AttributBusiness attribBusiness ;
+    private final AttributsBusiness attribBusiness ;
 
-    public AttributService(AttributBusiness attribBusiness) {
+    public AttributsService(AttributsBusiness attribBusiness) {
         this.attribBusiness = attribBusiness ;
     }
 

@@ -18,13 +18,13 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Slf4j
 @Transactional
-public class DocumentBusiness {
+public class DocumentsBusiness {
     private final DaoAccessorService daoAccessorService;
     
 
     //private final BusinessEntityHelper businessEntityHelper; , BusinessEntityHelper businessEntityHelper
 
-    public DocumentBusiness(DaoAccessorService daoAccessorService) {
+    public DocumentsBusiness(DaoAccessorService daoAccessorService) {
         this.daoAccessorService = daoAccessorService;
     }
 

@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "mission")
+@Table(name = "missions")
 public class MissionsEntity {
     @Id
     @Column(name="id", nullable = false)
@@ -42,7 +42,7 @@ public class MissionsEntity {
     private List<DocumentsEntity> documentsEntities ;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_service")
-    @Mapping("tache")
-    private ServiceEntity taches ;
+    @JoinColumn(name = "services_id")
+    @Mapping("services")
+    private ServicesEntity taches ;
 }

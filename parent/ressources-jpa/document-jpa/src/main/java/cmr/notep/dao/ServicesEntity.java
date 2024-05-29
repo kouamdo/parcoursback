@@ -5,41 +5,33 @@ import lombok.Setter;
 import org.dozer.Mapping;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "service")
-public class ServiceEntity {
+@Table(name = "services")
+public class ServicesEntity {
 
     @Id
     @Column(name = "id" , nullable = false)
     private String id ;
-
     @Column(name = "description")
     private String description;
-
     @Column(name = "libelle")
     private String libelle;
-
     @Column(name = "localisation")
     private String localisation;
-
     @Column(name = "etat")
     private Boolean etat;
-
     @Column(name = "datecreation")
-    private LocalDate datecreation;
-
+    private Date dateCreation;
     @Column(name = "datemodification")
-    private LocalDate datemodification;
-
-    @Column(name = "codeuniq", nullable = false , unique = true)
-    private String codeunique;
-
+    private Date dateModification;
+    @Column(name = "codeunique", nullable = false , unique = true)
+    private String codeUnique;
     @OneToMany(mappedBy = "taches", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("mission")
+    @Mapping("missions")
     private List<MissionsEntity> missionEntities ;
 }

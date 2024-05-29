@@ -1,6 +1,6 @@
 package cmr.notep.impl;
 
-import cmr.notep.business.CategoryBusiness;
+import cmr.notep.business.CategoriesBusiness;
 import cmr.notep.modele.Categories;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,19 +11,19 @@ import java.util.List;
 @RestController
 @Transactional
 public class CategoryService {
-    private final CategoryBusiness categoryBusiness ;
-    public CategoryService(CategoryBusiness categoryBusiness) {
-        this.categoryBusiness = categoryBusiness;
+    private final CategoriesBusiness categoriesBusiness;
+    public CategoryService(CategoriesBusiness categoriesBusiness) {
+        this.categoriesBusiness = categoriesBusiness;
     }
 
     public Categories avoirCategorie(String id) {
-        return categoryBusiness.avoirCategorie(id);
+        return categoriesBusiness.avoirCategorie(id);
     }
 
-    public List<Categories> avoirToutCategorie() { return categoryBusiness.avoirToutCategorie(); }
+    public List<Categories> avoirToutCategorie() { return categoriesBusiness.avoirToutCategorie(); }
 
-    public void supprimerCategorie(@NonNull Categories categories) { categoryBusiness.supprimerCategory(categories); }
+    public void supprimerCategorie(@NonNull Categories categories) { categoriesBusiness.supprimerCategory(categories); }
 
-    public Categories posterCategorie(@NonNull Categories categories){ return categoryBusiness.posterCategorie(categories);}
+    public Categories posterCategorie(@NonNull Categories categories){ return categoriesBusiness.posterCategorie(categories);}
 
 }

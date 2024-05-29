@@ -1,7 +1,7 @@
 package cmr.notep.api;
 
 
-import cmr.notep.modele.Mission;
+import cmr.notep.modele.Missions;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
@@ -9,26 +9,26 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequestMapping("missions")
-public interface IMissionApi {
+public interface IMissionsApi {
     @GetMapping(
             path = "/{idMission}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    Mission avoirMissions (@NonNull @RequestParam(name="idMission") String idMission);
+    Missions avoirMissions (@NonNull @RequestParam(name="idMission") String idMission);
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    List<Mission> avoirToutMissions();
+    List<Missions> avoirToutMissions();
 
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    void supprimerMissions(@NonNull @RequestBody Mission missions);
+    void supprimerMissions(@NonNull @RequestBody Missions missions);
 
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Mission posterMissions(@NonNull @RequestBody Mission mission) ;
+    Missions posterMissions(@NonNull @RequestBody Missions missions) ;
 }

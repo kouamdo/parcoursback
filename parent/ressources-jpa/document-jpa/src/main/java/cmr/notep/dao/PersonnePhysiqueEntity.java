@@ -12,7 +12,6 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "personnephysique")
 public class PersonnePhysiqueEntity extends PersonneEntity{
 
     @Column(name = "nom" , nullable = false)

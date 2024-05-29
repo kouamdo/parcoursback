@@ -73,7 +73,7 @@
         "etat": true,
         "dateCreation": "2000-03-07",
         "dateModification": "1990-03-07",
-        "type": "TypeTicket.String",
+        "type": "String",
         "valeursParDefaut": ""
       },
       {
@@ -83,7 +83,7 @@
         "etat": true,
         "dateCreation": "2000-03-07",
         "dateModification": "1990-03-07",
-        "type": "TypeTicket.Double",
+        "type": "Double",
         "valeursParDefaut": ""
       },
       {
@@ -93,7 +93,7 @@
         "etat": true,
         "dateCreation": "2000-03-07",
         "dateModification": "1990-03-07",
-        "type": "TypeTicket.String",
+        "type": "String",
         "valeursParDefaut": ""
       },
       {
@@ -103,7 +103,7 @@
         "etat": true,
         "dateCreation": "2000-03-07",
         "dateModification": "1990-03-07",
-        "type": "TypeTicket.String",
+        "type": "String",
         "valeursParDefaut": ""
       },
       {
@@ -113,7 +113,7 @@
         "etat": true,
         "dateCreation": "2000-03-07",
         "dateModification": "1990-03-07",
-        "type": "TypeTicket.Boolean",
+        "type": "Boolean",
         "valeursParDefaut": "A, A+, A-, B, B+, B-, AB, AB+, AB-, O, O+, O-"
       },
       {
@@ -123,7 +123,7 @@
         "etat": true,
         "dateCreation": "2000-03-07",
         "dateModification": "1990-03-07",
-        "type": "TypeTicket.Boolean",
+        "type": "Boolean",
         "valeursParDefaut": "true, false"
       }
     ],
@@ -144,7 +144,7 @@
               "etat": true,
               "dateCreation": "2000-03-07",
               "dateModification": "1990-03-07",
-              "type": "TypeTicket.String",
+              "type": "String",
               "valeursParDefaut": ""
             }
           },
@@ -159,7 +159,7 @@
               "etat": true,
               "dateCreation": "2000-03-07",
               "dateModification": "1990-03-07",
-              "type": "TypeTicket.Int",
+              "type": "Int",
               "valeursParDefaut": ""
             }
           },
@@ -174,7 +174,7 @@
               "etat": true,
               "dateCreation": "2000-03-07",
               "dateModification": "1990-03-07",
-              "type": "TypeTicket.String",
+              "type": "String",
               "valeursParDefaut": ""
             }
           }
@@ -196,7 +196,7 @@
               "etat": true,
               "dateCreation": "2000-03-07",
               "dateModification": "1990-03-07",
-              "type": "TypeTicket.String",
+              "type": "String",
               "valeursParDefaut": ""
             }
           },
@@ -211,7 +211,7 @@
               "etat": true,
               "dateCreation": "2000-03-07",
               "dateModification": "1990-03-07",
-              "type": "TypeTicket.Boolean",
+              "type": "Boolean",
               "valeursParDefaut": "A, A+, A-, B, B+, B-, AB, AB+, AB-, O, O+, O-"
             }
           },
@@ -226,7 +226,7 @@
               "etat": true,
               "dateCreation": "2000-03-07",
               "dateModification": "1990-03-07",
-              "type": "TypeTicket.Boolean",
+              "type": "Boolean",
               "valeursParDefaut": "true, false"
             }
           }

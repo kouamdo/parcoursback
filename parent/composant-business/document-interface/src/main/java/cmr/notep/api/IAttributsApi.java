@@ -1,36 +1,34 @@
 package cmr.notep.api;
 
-
-import cmr.notep.modele.Mission;
-import cmr.notep.modele.Ressource;
+import cmr.notep.modele.Attributs;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("ressources")
-public interface IRessourceApi {
+@RequestMapping("attributs")
+public interface IAttributsApi {
+
     @GetMapping(
-            path = "/{idRessource}",
+            path = "/{idAttrib}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    Mission avoirRessources (@NonNull @RequestParam(name="idRessource") String idRessource);
+    Attributs avoirAttribut (@NonNull @RequestParam(name = "idAttribut") String idAttributs);
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    List<Mission> avoirToutRessources();
+    List<Attributs> avoirToutAttribut();
 
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    void supprimerRessources(@NonNull @RequestBody Ressource ressource);
+    void supprimerAttribut(@NonNull @RequestBody Attributs attributs);
 
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Mission posterRessources(@NonNull @RequestBody Ressource ressource) ;
-
+    Attributs posterAttribut(@NonNull @RequestBody Attributs attributs);
 }

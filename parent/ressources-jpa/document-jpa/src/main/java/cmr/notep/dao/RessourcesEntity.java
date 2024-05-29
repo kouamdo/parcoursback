@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.dozer.Mapping;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -16,34 +16,31 @@ public class RessourcesEntity {
     @Id
     @Column(name = "id" , nullable = false)
     private String id ;
-
     @Column(name = "libelle")
     private String libelle;
-
     @Column(name = "etat")
     private Boolean etat;
-
     @Column(name = "datecreation")
-    private LocalDate dateCreation;
-
+    private Date dateCreation;
     @Column(name = "datemodification")
-    private LocalDate dateModification;
-
+    private Date dateModification;
     @Column(name = "quantite")
     private int quantite ;
-
-    @Column(name = "prix")
-    private double prix;
-
+    @Column(name = "seuilalerte")
+    private int seuilAlerte;
+    @Column(name = "prixentree")
+    private double prixEntree;
+    @Column(name = "prixsortie")
+    private double prixSortie;
     @Column(name = "unite")
     private Unite unite ;
 
-    @OneToMany(mappedBy = "ressourcesEntity", fetch = FetchType.LAZY)
-    @Mapping("precomouvementsqte")
-    private List<PrecoMouvementsQteEntity> precoMouvementsQteEntities;
+    @OneToMany(mappedBy = "ressourcesEntity",  fetch = FetchType.LAZY)
+    @Mapping("precoMouvementsQtes")
+    private List<PrecoMouvementsQtesEntity> precoMouvementsQtesEntities;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_familles")
+    @JoinColumn(name = "familles_id")
     @Mapping("familles")
     private FamillesEntity famillesEntity;
 

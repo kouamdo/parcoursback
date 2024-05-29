@@ -1,9 +1,8 @@
 package cmr.notep.impl;
 
-import cmr.notep.api.IDocumentApi;
-import cmr.notep.business.DocumentBusiness;
+import cmr.notep.api.IDocumentsApi;
+import cmr.notep.business.DocumentsBusiness;
 import cmr.notep.modele.Documents;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,27 +12,27 @@ import java.util.List;
 
 @RestController
 @Transactional
-public class DocumentService implements IDocumentApi {
+public class DocumentsService implements IDocumentsApi {
 
-    private final DocumentBusiness documentBusiness;
-    public DocumentService(DocumentBusiness documentBusiness) {
-        Assert.notNull(documentBusiness,"le composant documentBusiness est obligatoire");
-        this.documentBusiness = documentBusiness;
+    private final DocumentsBusiness documentsBusiness;
+    public DocumentsService(DocumentsBusiness documentsBusiness) {
+        Assert.notNull(documentsBusiness,"le composant documentBusiness est obligatoire");
+        this.documentsBusiness = documentsBusiness;
     }
 
     @Override
     public Documents posterDocument(@NonNull  Documents document) {
-        return documentBusiness.posterDocument(document);
+        return documentsBusiness.posterDocument(document);
     }
 
     @Override
     public Documents avoirDocument(@NonNull String idDoc) {
-        return documentBusiness.avoirDocument(idDoc);
+        return documentsBusiness.avoirDocument(idDoc);
     }
 
     @Override
     public List<Documents> avoirTousDocuments() {
-        return documentBusiness.avoirTousDocuments();
+        return documentsBusiness.avoirTousDocuments();
     }
 
     @Override

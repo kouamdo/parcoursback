@@ -15,6 +15,7 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -24,20 +25,24 @@ public class JsonComparator {
 
     public static final String SRC_TEST_RESOURCES = "src/test/resources/";
     public static final String STR_DELIMITATEUR = "\"";
+    public static final String INIT_FICHIER_JSON = "";
 
     private  static ObjectMapper objectMapper = addDefaultPrettyPrinterToObjectMapper();
 
     public static boolean CompareResultWithJson(String pathJson, String resultObtenu, Class clazz, Set<String> fieldsToExclude) throws IOException {
         try {
             String urlJSonAttendu = SRC_TEST_RESOURCES.concat(pathJson).concat(".json");
+            String StringJSonAttendu = getStringJSonAttendu(urlJSonAttendu);
             //ordonner les éléments à comparer puis exclure les champs spécifiés
            // ObjectMapper objectMapper = new ObjectMapper();
             JsonNode objetResultObtenu =  exclureChamps(objectMapper.writeValueAsString(
                     ordonnerElements(objectMapper.readValue(resultObtenu, clazz)))
                     , fieldsToExclude);
-            JsonNode objetResultAttendu =  exclureChamps(objectMapper.writeValueAsString(
-                    ordonnerElements(objectMapper.readValue(new File(urlJSonAttendu), clazz)))
-                    , fieldsToExclude);
+            JsonNode objetResultAttendu = StringJSonAttendu.equals(INIT_FICHIER_JSON) ?
+                    objectMapper.readTree(StringJSonAttendu) :
+                    exclureChamps(objectMapper.writeValueAsString(
+                                    ordonnerElements(objectMapper.readValue(new File(urlJSonAttendu), clazz)))
+                            , fieldsToExclude);;
 
             // Comparez les nodes Json en string et génération du patch
             boolean areEqual = compareJsonNode(objetResultAttendu, objetResultObtenu,pathJson, urlJSonAttendu,fieldsToExclude);
@@ -52,6 +57,15 @@ public class JsonComparator {
             e.printStackTrace();
             return false;
         }
+    }
+
+    private static String getStringJSonAttendu(String urlJSonAttendu) throws IOException {
+
+        Path path = Paths.get(urlJSonAttendu);
+        if(!Files.exists(path)){
+            Files.writeString(path, INIT_FICHIER_JSON);
+        }
+        return Files.readString(path, StandardCharsets.UTF_8);
     }
 
     private static Object ordonnerElements(Object objet) {

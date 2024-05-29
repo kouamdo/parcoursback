@@ -32,7 +32,7 @@ public class PrecomouvementsBusiness {
     public PrecoMouvements avoirPrecomouvements(String idPreco)
     {
         return dozerMapperBean.map(this.daoAccessorService.getRepository(PrecoMouvementsRepository.class).findById(idPreco)
-                .orElseThrow(()->new RuntimeException("Mission non enregistré")), PrecoMouvements.class);
+                .orElseThrow(()->new RuntimeException("Missions non enregistré")), PrecoMouvements.class);
     }
 
     public PrecoMouvements posterPrecomouvement (PrecoMouvements preco){

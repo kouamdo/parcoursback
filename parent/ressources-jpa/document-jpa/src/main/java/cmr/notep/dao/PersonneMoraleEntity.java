@@ -10,7 +10,6 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "personnemorale")
 public class PersonneMoraleEntity extends PersonneEntity{
 
     @Column(name = "raisonsociale")

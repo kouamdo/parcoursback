@@ -11,5 +11,5 @@ public class Mouvement {
     private LocalDate dateCreation ;
     private LocalDate datePeremption ;
     private List<PrecoMouvements> precoMouvementsEntityList;
-    private Ressource ressourcesEntity;
+    private Ressources ressourcesEntity;
 }
