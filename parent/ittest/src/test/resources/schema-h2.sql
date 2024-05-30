@@ -94,8 +94,8 @@ CREATE TABLE IF NOT EXISTS familles
     );
 
 CREATE TABLE IF NOT EXISTS ressources(
-     id VARCHAR NOT NULL PRIMARY KEY,
-     libelle VARCHAR(255) ,
+    id VARCHAR NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255) ,
     etat boolean,
     datecreation date,
     datemodification date,
@@ -107,8 +107,6 @@ CREATE TABLE IF NOT EXISTS ressources(
     familles_id VARCHAR NULL,
     FOREIGN KEY (familles_id) REFERENCES familles(id)
     );
-
-
 
 CREATE TABLE IF NOT EXISTS precomouvements(
     id VARCHAR(255) NOT NULL PRIMARY KEY,
@@ -160,4 +158,37 @@ CREATE TABLE IF NOT EXISTS traiter
     CONSTRAINT traiter_pkey PRIMARY KEY (id_document, id_mission),
     CONSTRAINT documents_missions_fk FOREIGN KEY (id_document)  REFERENCES documents(id),
     CONSTRAINT missions_documents_fk FOREIGN KEY (id_mission) REFERENCES missions(id)
+);
+
+CREATE TABLE IF NOT EXISTS personnemorale(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    adresse VARCHAR,
+    mail VARCHAR,
+    telephone VARCHAR ,
+    qrcodevalue VARCHAR,
+    raisonsociale VARCHAR,
+    code VARCHAR
+);
+
+CREATE TABLE IF NOT EXISTS personnephysique(
+    id VARCHAR NOT NULL PRIMARY KEY,
+        adresse VARCHAR,
+        mail VARCHAR,
+        telephone VARCHAR ,
+        qrcodevalue VARCHAR,
+        nom VARCHAR,
+        prenom VARCHAR,
+        sexe    VARCHAR,
+        datenaissance date
+);
+
+CREATE TABLE IF NOT EXISTS mouvement(
+    id VARCHAR NOT NULL PRIMARY KEY,
+    description VARCHAR(255) ,
+    qte int,
+    prix double,
+    datecreation date,
+    dateperemption date,
+    ressources_id VARCHAR(255)  NOT NULL,
+    FOREIGN KEY (ressources_id) REFERENCES ressources(id)
 );
