@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS traiter
     CONSTRAINT missions_documents_fk FOREIGN KEY (id_mission) REFERENCES missions(id)
 );
 
-CREATE TABLE IF NOT EXISTS personnemorale(
+CREATE TABLE IF NOT EXISTS personnesmorale(
     id VARCHAR NOT NULL PRIMARY KEY,
     adresse VARCHAR,
     mail VARCHAR,
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS personnemorale(
     code VARCHAR
 );
 
-CREATE TABLE IF NOT EXISTS personnephysique(
+CREATE TABLE IF NOT EXISTS personnesphysique(
     id VARCHAR NOT NULL PRIMARY KEY,
         adresse VARCHAR,
         mail VARCHAR,
@@ -182,7 +182,18 @@ CREATE TABLE IF NOT EXISTS personnephysique(
         datenaissance date
 );
 
-CREATE TABLE IF NOT EXISTS mouvement(
+CREATE TABLE IF NOT EXISTS distributeurs (
+    id VARCHAR NOT NULL PRIMARY KEY,
+    raisonSocial VARCHAR,
+    etat boolean,
+    adresse VARCHAR,
+    telephone VARCHAR,
+    mail VARCHAR,
+    precomouvementsqtes_id VARCHAR NOT NULL,
+    FOREIGN KEY (precomouvementsqtes_id) REFERENCES precomouvementsqtes(id)
+);
+
+CREATE TABLE IF NOT EXISTS mouvements(
     id VARCHAR NOT NULL PRIMARY KEY,
     description VARCHAR(255) ,
     qte int,
@@ -190,5 +201,8 @@ CREATE TABLE IF NOT EXISTS mouvement(
     datecreation date,
     dateperemption date,
     ressources_id VARCHAR(255)  NOT NULL,
+    distributeur_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY (distributeur_id) REFERENCES distributeurs(id),
     FOREIGN KEY (ressources_id) REFERENCES ressources(id)
 );
+

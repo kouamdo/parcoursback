@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "mouvement")
+@Table(name = "mouvements")
 public class MouvementEntity {
 
     @Id
@@ -45,4 +45,9 @@ public class MouvementEntity {
     @JoinColumn(name = "id_ressources")
     @Mapping("ressources")
     private RessourcesEntity ressourcesEntity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "distributeur_id")
+    @Mapping("distributeurs")
+    private DistributeursEntity distributeursEntity;
 }

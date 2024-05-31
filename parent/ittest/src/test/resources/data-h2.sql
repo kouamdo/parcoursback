@@ -56,13 +56,9 @@ INSERT INTO attributs (id, titre, description, etat, datecreation, datemodificat
 
 
 --Insertion dans la table 'associer'
---INSERT INTO associer (attributs_id, categories_id, obligatoire, ordre) VALUES
---('1000', '100', false, 11),
---('1000', '100', false, 12),
---('1000', '100', false, 13),
---('1000', '200', false, 1),
---('1000', '200', false, 2),
---('1000', '200', false, 3);
+INSERT INTO associer (attributs_id, categories_id, obligatoire, ordre) VALUES
+('1000', '100', false, 11),
+('1000', '200', false, 1);
 
 
 -- Insertion dans la table 'precomouvements'
@@ -83,7 +79,8 @@ INSERT INTO familles (id, libelle, description, etat) VALUES
 INSERT INTO ressources (id, libelle, etat, quantite, unite, prixentree, familles_id) VALUES
 ('1', 'transfusion', true, 10, 'UnitesLitre', 1000, '1'),
 ('2', 'néonat', true, 20, 'UnitesLitre', 2000, '2'),
-('3', 'pediatrie', true, 30, 'UnitesLitre', 3000, '3');
+('3', 'pediatrie', true, 30, 'UnitesLitre', 3000, '3'),
+('5', 'eau distillée', true, 20, 'UnitesLitre', 500,'3');
 --
 ---- Insertion dans la table 'precomouvementsqte'
 INSERT INTO precomouvementsqtes (id, qteMin, qteMax, montantMin, montantMax, precomouvements_id, ressources_id) VALUES
@@ -92,13 +89,25 @@ INSERT INTO precomouvementsqtes (id, qteMin, qteMax, montantMin, montantMax, pre
 ('3', 30, 40, 100, 7000, '1', '3');
 
 -- Insérer les données dans la table personnephysique
-INSERT INTO personnephysique (id, nom, prenom, mail, telephone, sexe, datenaissance, qrcodevalue)
+INSERT INTO personnesphysique (id, nom, prenom, mail, telephone, sexe, datenaissance, qrcodevalue)
 VALUES
     ('1', 'Tagne', 'Willy', 'tagnewillie@gmail.com', '655455487', 'M', '2000-04-10', 'hello'),
     ('2', 'Peter', 'Alan', 'peteralan@gmail.com', '655455487', 'M', '2004-08-10', 'hello'),
     ('3', 'Dombo', 'Gilles', 'dombogilles@gmail.com', '655455487', 'M', '2002-10-10', 'hello');
 
+INSERT INTO distributeurs (id, raisonSocial, etat, adresse, telephone, mail, precomouvementsqtes_id)
+VALUES
+    ('1', 'Brasserie', true, 'Dla', '655554488', 'ngong@yad.fr', '1'),
+    ('2', 'ENEO', true, 'Ydé', '655554481', 'ngong@yad.fr', '2'),
+    ('3', 'Total Distribution', true, 'Buéa', '655554486', 'ngong@yad.fr', '3');
 
+
+INSERT INTO mouvements (id, description, qte, prix, datecreation, dateperemption, ressources_id, distributeur_id)
+VALUES
+    ('1', 'Ici la description de ce mouvement', 20, 10000, NOW(), NOW(), '1', '1'),
+    ('2', 'Ici la description de ce mouvement', 50, 300, NOW(), NOW(), '5', '2'),
+    ('3', 'Ici la description de ce mouvement', 10, 5000, NOW(), NOW(), '3', '3'),
+    ('4', 'Ici la description de ce mouvement', 20, 2000, NOW(), NOW(), '2', '2');
 
 --fin insertion
 

@@ -21,4 +21,5 @@ public class PrecoMouvementsQtes {
     private PrecoMouvements precoMouvement ;
     private List<Familles> familles;
     private Ressources ressources;
+    private List<Distributeurs> distributeursEntities;
 }
