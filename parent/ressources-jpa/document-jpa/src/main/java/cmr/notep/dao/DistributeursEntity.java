@@ -11,7 +11,8 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "distributeurs")
-public class DistributeursEntity {
+@DiscriminatorValue(value = "Distributeur")
+public class DistributeursEntity extends PersonneMoraleEntity {
 
     @Id
     @Column(name = "id", nullable = false)
@@ -23,6 +24,6 @@ public class DistributeursEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "precomouvementsqtes_id")
-    @Mapping("precomouvementsqtes")
+    @Mapping("precomouvementqte")
     private PrecoMouvementsQtesEntity precoMouvementsQtesEntity;
 }

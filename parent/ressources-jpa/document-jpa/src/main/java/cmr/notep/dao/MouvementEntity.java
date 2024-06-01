@@ -43,11 +43,11 @@ public class MouvementEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_ressources")
-    @Mapping("ressources")
+    @Mapping("ressource")
     private RessourcesEntity ressourcesEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "distributeur_id")
-    @Mapping("distributeurs")
+    @JoinColumn(name = "distributeurs_id")
+    @Mapping("distributeur")
     private DistributeursEntity distributeursEntity;
 }

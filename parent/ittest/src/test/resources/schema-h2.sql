@@ -160,26 +160,29 @@ CREATE TABLE IF NOT EXISTS traiter
     CONSTRAINT missions_documents_fk FOREIGN KEY (id_mission) REFERENCES missions(id)
 );
 
-CREATE TABLE IF NOT EXISTS personnesmorale(
+CREATE TABLE IF NOT EXISTS personnes(
     id VARCHAR NOT NULL PRIMARY KEY,
     adresse VARCHAR,
     mail VARCHAR,
     telephone VARCHAR ,
     qrcodevalue VARCHAR,
+    Personnes_type VARCHAR(20) DEFAULT 'PersonnePhysique' NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS personnesmorale(
+    id VARCHAR NOT NULL PRIMARY KEY,
     raisonsociale VARCHAR,
-    code VARCHAR
+    code VARCHAR,
+    Personnes_type VARCHAR(20) DEFAULT 'PersonneMorale' NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS personnesphysique(
     id VARCHAR NOT NULL PRIMARY KEY,
-        adresse VARCHAR,
-        mail VARCHAR,
-        telephone VARCHAR ,
-        qrcodevalue VARCHAR,
         nom VARCHAR,
         prenom VARCHAR,
         sexe    VARCHAR,
-        datenaissance date
+        datenaissance date,
+        Personnes_type VARCHAR(20) DEFAULT 'PersonnePhysique' NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS distributeurs (

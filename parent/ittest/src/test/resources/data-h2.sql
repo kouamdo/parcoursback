@@ -89,11 +89,11 @@ INSERT INTO precomouvementsqtes (id, qteMin, qteMax, montantMin, montantMax, pre
 ('3', 30, 40, 100, 7000, '1', '3');
 
 -- Insérer les données dans la table personnephysique
-INSERT INTO personnesphysique (id, nom, prenom, mail, telephone, sexe, datenaissance, qrcodevalue)
+INSERT INTO personnesphysique (id, nom, prenom, sexe, datenaissance)
 VALUES
-    ('1', 'Tagne', 'Willy', 'tagnewillie@gmail.com', '655455487', 'M', '2000-04-10', 'hello'),
-    ('2', 'Peter', 'Alan', 'peteralan@gmail.com', '655455487', 'M', '2004-08-10', 'hello'),
-    ('3', 'Dombo', 'Gilles', 'dombogilles@gmail.com', '655455487', 'M', '2002-10-10', 'hello');
+    ('1', 'Tagne', 'Willy', 'M', '2000-04-10'),
+    ('2', 'Peter', 'Alan',  'M', '2004-08-10'),
+    ('3', 'Dombo', 'Gilles',   'M', '2002-10-10');
 
 INSERT INTO distributeurs (id, raisonSocial, etat, adresse, telephone, mail, precomouvementsqtes_id)
 VALUES

@@ -12,7 +12,10 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "personne")
+@Table(name = "personnes")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="Personnes_type",
+        discriminatorType = DiscriminatorType.STRING)
 public class PersonneEntity
 {
     @Id

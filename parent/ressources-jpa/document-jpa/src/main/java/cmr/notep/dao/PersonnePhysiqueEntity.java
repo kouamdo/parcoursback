@@ -12,6 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@DiscriminatorValue(value = "PersonnePhysique")
 public class PersonnePhysiqueEntity extends PersonneEntity{
 
     @Column(name = "nom" , nullable = false)

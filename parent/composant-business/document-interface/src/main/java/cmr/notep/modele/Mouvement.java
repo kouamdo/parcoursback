@@ -10,6 +10,7 @@ public class Mouvement {
     private double prix ;
     private LocalDate dateCreation ;
     private LocalDate datePeremption ;
-    private List<PrecoMouvements> precoMouvementsEntityList;
-    private Ressources ressourcesEntity;
+    private List<PrecoMouvements> precoMouvements;
+    private Ressources ressource;
+    private Distributeurs distributeur;
 }

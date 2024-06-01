@@ -13,6 +13,6 @@ import java.util.List;
 @Builder
 public class Distributeurs {
     private String id;
-    private List<Mouvement> mouvementEntities;
-    private PrecoMouvementsQtes precoMouvementsQtesEntity;
+    private List<Mouvement> mouvements;
+    private PrecoMouvementsQtes precomouvementqte;
 }
