@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "distributeurs")
 @DiscriminatorValue(value = "Distributeur")
-public class DistributeursEntity extends PersonneMoraleEntity {
+public class DistributeursEntity extends PersonneEntity {
 
     @Id
     @Column(name = "id", nullable = false)
