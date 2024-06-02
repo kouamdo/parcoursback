@@ -209,3 +209,34 @@ CREATE TABLE IF NOT EXISTS mouvements(
     FOREIGN KEY (ressources_id) REFERENCES ressources(id)
 );
 
+CREATE TABLE roles (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    titre VARCHAR(255),
+    description TEXT,
+    etat BOOLEAN,
+    datecreation DATE
+);
+
+CREATE TABLE personnels (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    dateentree DATE,
+    nom VARCHAR(255),
+    datenaissance DATE,
+    telephone VARCHAR(255),
+    datesortie DATE,
+    email VARCHAR(255),
+    prenom VARCHAR(255),
+    sexe VARCHAR(255)
+);
+
+CREATE TABLE jouerroles (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    etat BOOLEAN,
+    datecreation DATE,
+    datefin DATE,
+    datedebut DATE,
+    personnels_id VARCHAR(255),
+    roles_id VARCHAR(255),
+    FOREIGN KEY (personnels_id) REFERENCES personnels(id),
+    FOREIGN KEY (roles_id) REFERENCES roles(id)
+);

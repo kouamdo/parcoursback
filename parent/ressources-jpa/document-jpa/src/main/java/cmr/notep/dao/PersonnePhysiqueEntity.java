@@ -26,4 +26,7 @@ public class PersonnePhysiqueEntity extends PersonneEntity{
 
     @Column(name = "datenaissance",nullable = false)
     private LocalDate dateNaissance ;
+
+    @OneToMany
+    private List<PersonnePhysiqueEntity> personnesRatachees;
 }

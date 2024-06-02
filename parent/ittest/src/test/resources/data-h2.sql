@@ -175,4 +175,8 @@ INSERT INTO associer (attributs_id, categories_id, obligatoire, ordre)
             ('1234png', '19',true,1),
             ('3456', '19',false,2);
 
-
+INSERT INTO documents
+    (id, titre, description, typemouvement, etat, afficherunite, afficherdistributeur,
+     prixeditable, contientressources, afficherprix, datecreation, datemodification)
+VALUES
+    (100, 'Fiche de Test', 'traite test', 'Neutre', TRUE, TRUE, TRUE, TRUE, TRUE, 'TRUE', NULL, NULL);
