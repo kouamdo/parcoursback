@@ -31,7 +31,7 @@ public class ServicesEntity {
     private Date dateModification;
     @Column(name = "codeunique", nullable = false , unique = true)
     private String codeUnique;
-    @OneToMany(mappedBy = "taches", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "servicesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Mapping("missions")
     private List<MissionsEntity> missionEntities ;
 }

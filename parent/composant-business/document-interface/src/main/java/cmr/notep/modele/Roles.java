@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,5 +18,6 @@ public class Roles {
     private String description;
     private Boolean etat ;
     private Date dateCreation;
-    private JouerRoles jouerole;
+    private List<JouerRoles> joueroles;
+    private List<Remplir> remplirList;
 }

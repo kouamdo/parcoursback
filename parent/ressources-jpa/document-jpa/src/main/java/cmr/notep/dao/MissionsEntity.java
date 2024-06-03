@@ -43,6 +43,10 @@ public class MissionsEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinColumn(name = "services_id")
-    @Mapping("services")
-    private ServicesEntity taches ;
+    @Mapping("service")
+    private ServicesEntity servicesEntity ;
+
+    @OneToMany(mappedBy = "missionsEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @Mapping("remplirList")
+    List<RemplirEntity> remplirEntities;
 }

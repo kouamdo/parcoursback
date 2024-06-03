@@ -31,6 +31,10 @@ public class RolesEntity {
     private Date dateCreation;
 
     @OneToMany(mappedBy = "rolesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("jouerole")
+    @Mapping("joueroles")
     List<JouerRolesEntity> jouerRolesEntities;
+
+    @OneToMany(mappedBy = "rolesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @Mapping("remplirList")
+    List<RemplirEntity> remplirEntities;
 }

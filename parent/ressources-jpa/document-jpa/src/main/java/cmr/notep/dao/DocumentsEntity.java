@@ -63,6 +63,7 @@ public class DocumentsEntity {
     private List<CategoriesEntity> categoriesEntities;
 
     @ManyToMany(mappedBy = "documentsEntities")
+    @Mapping("missions")
     private List<MissionsEntity> missionsEntities ;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})

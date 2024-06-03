@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -21,5 +22,5 @@ public class Personnels {
     private String email;
     private String prenom;
     private String sexe ;
-    private JouerRoles jouerole;
+    private List<JouerRoles> jouerole;
 }

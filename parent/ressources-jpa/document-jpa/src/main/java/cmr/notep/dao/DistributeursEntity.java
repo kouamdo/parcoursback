@@ -10,7 +10,6 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "distributeurs")
 @DiscriminatorValue(value = "Distributeur")
 public class DistributeursEntity extends PersonneEntity {
 
