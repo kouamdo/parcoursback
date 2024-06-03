@@ -240,3 +240,44 @@ CREATE TABLE jouerroles (
     FOREIGN KEY (personnels_id) REFERENCES personnels(id),
     FOREIGN KEY (roles_id) REFERENCES roles(id)
 );
+
+CREATE TABLE etats (
+    id VARCHAR(255) NOT NULL,
+    libelle VARCHAR(255),
+    datecreation DATE,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE ordreetats (
+    id VARCHAR(255) NOT NULL,
+    datecreation DATE,
+    ordre INT,
+    etats_id VARCHAR(255),
+    PRIMARY KEY (id),
+    FOREIGN KEY (etats_id) REFERENCES etats(id)
+);
+CREATE TABLE validations (
+    id VARCHAR(255) NOT NULL,
+    code VARCHAR(255),
+    etat VARCHAR(255),
+    datecreation DATE,
+    roles_id VARCHAR(255),
+    PRIMARY KEY (id),
+    FOREIGN KEY (roles_id) REFERENCES roles(id)
+);
+
+
+CREATE TABLE docetats (
+    id VARCHAR(255) NOT NULL,
+    ordre INT,
+    datecreation DATE,
+    validations_id VARCHAR(255),
+    predecesseurDocEtat_id VARCHAR(255),
+    etats_id VARCHAR(255),
+    PRIMARY KEY (id),
+    FOREIGN KEY (validations_id) REFERENCES validations(id),
+    FOREIGN KEY (predecesseurDocEtat_id) REFERENCES docetats(id),
+    FOREIGN KEY (etats_id) REFERENCES etats(id)
+);
+
+

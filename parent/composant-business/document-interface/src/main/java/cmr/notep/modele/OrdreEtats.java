@@ -6,19 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Roles {
+public class OrdreEtats {
     private String id;
-    private String titre;
-    private String description;
-    private Boolean etat ;
     private Date dateCreation;
-    private List<JouerRoles> joueroles;
-    private List<Remplir> remplirList;
-    private List<Validations> validations;
+    private int ordre ;
+    private Etats etat;
 }

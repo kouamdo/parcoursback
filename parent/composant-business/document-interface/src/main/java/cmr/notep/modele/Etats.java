@@ -12,13 +12,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Roles {
+public class Etats {
     private String id;
-    private String titre;
-    private String description;
-    private Boolean etat ;
+    private String libelle;
     private Date dateCreation;
-    private List<JouerRoles> joueroles;
-    private List<Remplir> remplirList;
-    private List<Validations> validations;
+    private List<DocEtats> docetats;
+    private List<OrdreEtats> ordres;
 }

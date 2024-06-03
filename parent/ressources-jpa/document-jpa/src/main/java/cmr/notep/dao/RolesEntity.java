@@ -37,4 +37,8 @@ public class RolesEntity {
     @OneToMany(mappedBy = "rolesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Mapping("remplirList")
     List<RemplirEntity> remplirEntities;
+
+    @OneToMany(mappedBy = "roleEntity" , fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @Mapping("validations")
+    private List<ValidationsEntity> validationsEntities;
 }
