@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "raisonSocial": "Total Energie",
+    "etat": true,
+    "adresse": "Dla",
+    "telephone": "655554488",
+    "mail": "ngong@yad.fr"
+  },
+  {
+    "id": "2",
+    "raisonSocial": "Brasserie",
+    "etat": true,
+    "adresse": "Ydé",
+    "telephone": "655554481",
+    "mail": "ngong@yad.fr"
+  },
+  {
+    "id": "3",
+    "raisonSocial": "Eneo",
+    "etat": true,
+    "adresse": "Buéa",
+    "telephone": "655554486",
+    "mail": "ngong@yad.fr"
+  }
+]

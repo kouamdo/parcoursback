@@ -20,6 +20,9 @@ public class EtatsEntity {
     @Column(name = "libelle")
     private String libelle;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "datecreation")
     private Date dateCreation;
 

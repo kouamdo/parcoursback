@@ -245,6 +245,7 @@ CREATE TABLE etats (
     id VARCHAR(255) NOT NULL,
     libelle VARCHAR(255),
     datecreation DATE,
+    description TEXT,
     PRIMARY KEY (id)
 );
 

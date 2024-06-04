@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "code": "azerty",
+    "etat": false,
+    "libelle": "bon",
+    "typeVote": "Unanime",
+    "dureeVote": 5,
+    "role": {
+      "id": "1",
+      "titre": "vendeur",
+      "description": "personnel au contact du client",
+      "etat": true,
+      "dateCreation": "2000-07-03"
+    },
+    "dateCreation": "2023-02-10"
+  },
+  {
+    "id": "2",
+    "code": "qwerty",
+    "etat": true,
+    "libelle": "passable",
+    "typeVote": "Majoritaire",
+    "dureeVote": 10,
+    "role": {
+      "id": "2",
+      "titre": "traiteur",
+      "description": "Personnel administratif",
+      "etat": true,
+      "dateCreation": "2000-07-03"
+    },
+    "dateCreation": "2014-04-01"
+  },
+  {
+    "id": "3",
+    "code": "qsdfghj",
+    "etat": true,
+    "libelle": "RAS",
+    "typeVote": "Unanime",
+    "dureeVote": 5,
+    "role": {
+      "id": "3",
+      "titre": "marcheur",
+      "description": "commercial sur le terrain",
+      "etat": true,
+      "dateCreation": "2000-07-03"
+    },
+    "dateCreation": "2015-10-10"
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "1",
+    "nom": "Tagne",
+    "prenom": "Willy",
+    "email": "tagnewillie@gmail.com",
+    "telephone": "655455487",
+    "sexe": "M",
+    "dateNaissance": "2000-10-04",
+    "dateEntree": "2024-06-04T06:52:33.000Z",
+    "dateSortie": null,
+    "roles": null,
+    "qrCodeValue": "hello"
+  },
+  {
+    "id": "2",
+    "nom": "Peter",
+    "prenom": "Alan",
+    "email": "peteralan@gmail.com",
+    "telephone": "655455487",
+    "sexe": "M",
+    "dateNaissance": "2004-08-10",
+    "dateEntree": "2024-06-04T06:52:33.000Z",
+    "dateSortie": null,
+    "roles": null,
+    "qrCodeValue": "hello"
+  },
+  {
+    "id": "3",
+    "nom": "Dombo",
+    "prenom": "Gilles",
+    "email": "dombogilles@gmail.com",
+    "telephone": "655455487",
+    "sexe": "M",
+    "dateNaissance": "2002-10-10",
+    "dateEntree": "2024-06-04T06:52:33.000Z",
+    "dateSortie": null,
+    "roles": null,
+    "qrCodeValue": "hello"
+  }
+]

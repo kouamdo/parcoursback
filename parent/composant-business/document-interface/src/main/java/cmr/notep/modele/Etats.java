@@ -18,4 +18,5 @@ public class Etats {
     private Date dateCreation;
     private List<DocEtats> docetats;
     private List<OrdreEtats> ordres;
+    private String description;
 }

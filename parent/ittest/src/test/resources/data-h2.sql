@@ -88,6 +88,8 @@ INSERT INTO precomouvementsqtes (id, qteMin, qteMax, montantMin, montantMax, pre
 ('2', 30, 40, 100, 7000, '1', '2'),
 ('3', 30, 40, 100, 7000, '1', '3');
 
+
+
 -- Insérer les données dans la table personnephysique
 INSERT INTO personnesphysique (id, nom, prenom, sexe, datenaissance)
 VALUES
@@ -109,6 +111,67 @@ VALUES
     ('3', 'Ici la description de ce mouvement', 10, 5000, NOW(), NOW(), '3', '3'),
     ('4', 'Ici la description de ce mouvement', 20, 2000, NOW(), NOW(), '2', '2');
 
+INSERT INTO etats (id, libelle, datecreation)
+VALUES ('1', 'etat 1', '2024-07-21'),
+       ('2', 'etat 2', '2024-07-21'),
+       ('3', 'etat 3', '2024-07-21'),
+       ('4', 'etat 4', '2024-07-21');
+
+INSERT INTO ordreetats (id, datecreation, ordre, etats_id)
+VALUES ('1', '2024-07-21', 1, '1'),
+       ('2', '2024-07-21', 2, '2'),
+       ('3', '2024-07-21', 3, '3'),
+       ('4', '2024-07-21', 4, '4');
+
+INSERT INTO validations (id, code, etat, datecreation, roles_id)
+VALUES ('1', NULL, NULL, '2024-07-21', NULL),
+       ('2', NULL, NULL, '2024-07-21', NULL),
+       ('3', NULL, NULL, '2024-07-21', NULL),
+       ('4', NULL, NULL, '2024-07-21', NULL);
+
+INSERT INTO docetats (id, ordre, datecreation, validations_id, predecesseurDocEtat_id, etats_id)
+VALUES ('1', 1, '2024-07-21', NULL, NULL, '1'),
+       ('2', 2, '2024-07-21', NULL, NULL, '2'),
+       ('3', 3, '2024-07-21', NULL, NULL, '3'),
+       ('4', 4, '2024-07-21', NULL, NULL, '4');
+
+
+INSERT INTO precomouvementsqtes (id, qtemin, qtemax, montantmin, montantmax, precomouvements_id, ressources_id, datecreation, datemodification)
+VALUES
+    ('11', 10, 100, 500, 5000, '1', '1', '2024-06-04', '2024-06-04'),
+    ('22', 20, 200, 1000, 10000, '2', '2', '2024-06-04', '2024-06-04'),
+    ('33', 5, 50, 200, 2000, '3', '3', '2024-06-04', '2024-06-04');
+
+INSERT INTO distributeurs (id, raisonSocial, etat, adresse, telephone, mail, precomouvementsqtes_id)
+VALUES
+    ('11', 'Total Energie', true, 'Dla', '655554488', 'ngong@yad.fr', '11'),
+    ('22', 'Brasserie', true, 'Ydé', '655554481', 'ngong@yad.fr', '22'),
+    ('33', 'Eneo', true, 'Buéa', '655554486', 'ngong@yad.fr', '33');
+
+INSERT INTO roles (id, titre, description, etat, datecreation)
+VALUES
+    ('1', 'vendeur', 'personnel au contact du client', true, '2000-07-03'),
+    ('2', 'traiteur', 'Personnel administratif', true, '2000-07-03'),
+    ('3', 'marcheur', 'commercial sur le terrain', true, '2000-07-03');
+
+INSERT INTO personnels (id, dateentree, nom, datenaissance, telephone, datesortie, email, prenom, sexe)
+VALUES
+    ('1', CURRENT_DATE, 'Tagne', '2000-04-10', '655455487', NULL, 'tagnewillie@gmail.com', 'Willy', 'M'),
+    ('2', CURRENT_DATE, 'Peter', '2004-08-10', '655455487', NULL, 'peteralan@gmail.com', 'Alan', 'M'),
+    ('3', CURRENT_DATE, 'Dombo', '2002-10-10', '655455487', NULL, 'dombogilles@gmail.com', 'Gilles', 'M');
+
+INSERT INTO etats (id, libelle, datecreation, description)
+VALUES
+    ('11', 'etat 1', '2024-07-21', 'premièr état du document'),
+    ('21', 'etat 2', '2024-07-21', 'deuxième état du document'),
+    ('31', 'etat 3', '2024-07-21', 'troisième état du document'),
+    ('41', 'etat 4', '2024-07-21', 'quatrième état du document');
+
+INSERT INTO validations (id, code, etat, datecreation, roles_id)
+VALUES
+    ('11', 'azerty', 'false', '2023-02-10', '1'),
+    ('21', 'qwerty', 'true', '2014-04-01', '2'),
+    ('31', 'qsdfghj', 'true', '2015-10-10', '3');
 --fin insertion
 
 

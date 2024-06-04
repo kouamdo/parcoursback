@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "titre": "vendeur",
+    "description": "personnel au contact du client",
+    "etat": true,
+    "dateCreation": "2000-07-03"
+  },
+  {
+    "id": "2",
+    "titre": "traiteur",
+    "description": "Personnel administratif",
+    "etat": true,
+    "dateCreation": "2000-07-03"
+  },
+  {
+    "id": "3",
+    "titre": "marcheur",
+    "description": "commercial sur le terrain",
+    "etat": true,
+    "dateCreation": "2000-07-03"
+  }
+]

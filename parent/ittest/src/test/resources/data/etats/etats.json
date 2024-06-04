@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "libelle": "etat 1",
+    "description": "premièr état du document",
+    "dateCreation": "2024-07-21"
+  },
+  {
+    "id": "2",
+    "libelle": "etat 2",
+    "description": "deuxième état du document",
+    "dateCreation": "2024-07-21"
+  },
+  {
+    "id": "3",
+    "libelle": "etat 3",
+    "description": "troisième état du document",
+    "dateCreation": "2024-07-21"
+  },
+  {
+    "id": "4",
+    "libelle": "etat 4",
+    "description": "quatrième état du document",
+    "dateCreation": "2024-07-21"
+  }
+]
