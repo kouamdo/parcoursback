@@ -12,8 +12,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@DiscriminatorValue(value = "PersonnePhysique")
-public class PersonnePhysiqueEntity extends PersonneEntity{
+@DiscriminatorValue(value = "personnesphysique")
+public class PersonnesPhysiqueEntity extends PersonnesEntity{
 
     @Column(name = "nom" , nullable = false)
     private String nom ;
@@ -26,7 +26,4 @@ public class PersonnePhysiqueEntity extends PersonneEntity{
 
     @Column(name = "datenaissance",nullable = false)
     private LocalDate dateNaissance ;
-
-    @OneToMany
-    private List<PersonnePhysiqueEntity> personnesRatachees;
 }

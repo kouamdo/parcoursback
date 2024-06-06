@@ -1,6 +1,6 @@
 package cmr.notep.modele;
 
-public class PersonneMorale extends Personne{
+public class PersonnesMorale extends Personnes{
     private String raisonsociale ;
     private String code ;
 }

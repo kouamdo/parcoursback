@@ -38,4 +38,9 @@ public class DocEtatsEntity {
     @Mapping("etat")
     private EtatsEntity etatsEntity;
 
+    @ManyToOne
+    @JoinColumn(name = "documents_id")
+    @Mapping("document")
+    private DocumentsEntity documentsEntity;
+
 }

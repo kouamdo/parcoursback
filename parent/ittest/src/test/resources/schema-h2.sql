@@ -192,6 +192,8 @@ CREATE TABLE IF NOT EXISTS distributeurs (
     adresse VARCHAR,
     telephone VARCHAR,
     mail VARCHAR,
+    code VARCHAR,
+    raisonsociale VARCHAR,
     precomouvementsqtes_id VARCHAR NOT NULL,
     FOREIGN KEY (precomouvementsqtes_id) REFERENCES precomouvementsqtes(id)
 );
@@ -273,9 +275,11 @@ CREATE TABLE docetats (
     ordre INT,
     datecreation DATE,
     validations_id VARCHAR(255),
+    documents_id VARCHAR(255),
     predecesseurDocEtat_id VARCHAR(255),
     etats_id VARCHAR(255),
     PRIMARY KEY (id),
+    FOREIGN KEY (documents_id) REFERENCES documents(id),
     FOREIGN KEY (validations_id) REFERENCES validations(id),
     FOREIGN KEY (predecesseurDocEtat_id) REFERENCES docetats(id),
     FOREIGN KEY (etats_id) REFERENCES etats(id)

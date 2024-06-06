@@ -37,7 +37,7 @@ public class PrecoMouvementsQtesEntity {
     @Mapping("ressources")
     private RessourcesEntity ressourcesEntity;
 
-    @OneToMany(mappedBy = "precoMouvementsQtesEntity" , fetch = FetchType.LAZY , cascade = {CascadeType.ALL})
+    @ManyToMany(mappedBy = "precoMouvementsQtesEntities" , fetch = FetchType.LAZY)
     @Mapping("distributeurs")
     private List<DistributeursEntity> distributeursEntities;
 }

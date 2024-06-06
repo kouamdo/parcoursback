@@ -10,8 +10,8 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 @Entity
-@DiscriminatorValue(value = "PersonneMorale")
-public class PersonneMoraleEntity extends PersonneEntity{
+@DiscriminatorValue(value = "personnesmorale")
+public class PersonnesMoraleEntity extends PersonnesEntity{
 
     @Column(name = "raisonsociale")
     private String raisonsociale ;

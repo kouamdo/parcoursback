@@ -14,5 +14,7 @@ import java.util.List;
 public class Distributeurs {
     private String id;
     private List<Mouvement> mouvements;
-    private PrecoMouvementsQtes precomouvementqte;
+    private List<PrecoMouvementsQtes> precomouvementsqtes;
+    private String raisonSociale;
+    private String code ;
 }

@@ -1,5 +1,7 @@
 package cmr.notep.dao;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
@@ -14,9 +16,9 @@ import java.util.List;
 @Entity
 @Table(name = "personnes")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="Personnes_type",
+@DiscriminatorColumn(name="personnes_type",
         discriminatorType = DiscriminatorType.STRING)
-public class PersonneEntity
+public class PersonnesEntity
 {
     @Id
     @Column(name="id", nullable = false)
@@ -35,6 +37,8 @@ public class PersonneEntity
     private  String qrcodevalue ;
 
     @ManyToMany
-    private List<PersonneEntity> personneRatache = new ArrayList<>();
+    @JoinColumn(referencedColumnName = "id")
+    @JsonBackReference
+    private List<PersonnesEntity> personneRatache = new ArrayList<>();
 
 }

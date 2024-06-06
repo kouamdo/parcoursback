@@ -19,4 +19,5 @@ public class DocEtats {
     private Validations validationsEntity;
     private List<DocEtats> predecesseursDocEtat;
     private Etats etat;
+    private Documents document;
 }

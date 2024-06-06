@@ -72,4 +72,8 @@ public class DocumentsEntity {
             inverseJoinColumns = @JoinColumn(name = "precomouvements_id"))
     @Mapping("precoMouvements")
     private List<PrecoMouvementsEntity> precoMouvementsEntities ;
+
+    @OneToMany(mappedBy = "documentsEntity" , fetch = FetchType.LAZY , cascade = {CascadeType.ALL})
+    @Mapping("docetats")
+    private List<DocEtatsEntity> docEtatsEntities;
 }
