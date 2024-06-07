@@ -166,37 +166,51 @@ CREATE TABLE IF NOT EXISTS personnes(
     mail VARCHAR,
     telephone VARCHAR ,
     qrcodevalue VARCHAR,
-    Personnes_type VARCHAR(20) DEFAULT 'PersonnePhysique' NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS personnesmorale(
+--    Pour personne physique
+    nom VARCHAR,
+    prenom VARCHAR,
+    sexe    VARCHAR,
+    datenaissance date,
+--    pour personne morale
     id VARCHAR NOT NULL PRIMARY KEY,
     raisonsociale VARCHAR,
     code VARCHAR,
-    Personnes_type VARCHAR(20) DEFAULT 'PersonneMorale' NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS personnesphysique(
-    id VARCHAR NOT NULL PRIMARY KEY,
-        nom VARCHAR,
-        prenom VARCHAR,
-        sexe    VARCHAR,
-        datenaissance date,
-        Personnes_type VARCHAR(20) DEFAULT 'PersonnePhysique' NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS distributeurs (
-    id VARCHAR NOT NULL PRIMARY KEY,
+--     pour distributeur
     raisonSocial VARCHAR,
     etat boolean,
     adresse VARCHAR,
     telephone VARCHAR,
     mail VARCHAR,
     code VARCHAR,
-    raisonsociale VARCHAR,
-    precomouvementsqtes_id VARCHAR NOT NULL,
-    FOREIGN KEY (precomouvementsqtes_id) REFERENCES precomouvementsqtes(id)
+    raisonsociale VARCHAR
 );
+
+--CREATE TABLE IF NOT EXISTS personnesmorale(
+--    id VARCHAR NOT NULL PRIMARY KEY,
+--    raisonsociale VARCHAR,
+--    code VARCHAR,
+--    Personnes_type VARCHAR(20) DEFAULT 'PersonneMorale' NOT NULL
+--);
+
+--CREATE TABLE IF NOT EXISTS personnesphysique(
+--    id VARCHAR NOT NULL PRIMARY KEY,
+--        nom VARCHAR,
+--        prenom VARCHAR,
+--        sexe    VARCHAR,
+--        datenaissance date,
+--        Personnes_type VARCHAR(20) DEFAULT 'PersonnePhysique' NOT NULL
+--);
+
+--CREATE TABLE IF NOT EXISTS distributeurs (
+--    id VARCHAR NOT NULL PRIMARY KEY,
+--    raisonSocial VARCHAR,
+--    etat boolean,
+--    adresse VARCHAR,
+--    telephone VARCHAR,
+--    mail VARCHAR,
+--    code VARCHAR,
+--    raisonsociale VARCHAR
+--);
 
 CREATE TABLE IF NOT EXISTS mouvements(
     id VARCHAR NOT NULL PRIMARY KEY,
@@ -268,7 +282,6 @@ CREATE TABLE validations (
     PRIMARY KEY (id),
     FOREIGN KEY (roles_id) REFERENCES roles(id)
 );
-
 
 CREATE TABLE docetats (
     id VARCHAR(255) NOT NULL,
