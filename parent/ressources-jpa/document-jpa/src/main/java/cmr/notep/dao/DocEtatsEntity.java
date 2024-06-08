@@ -43,4 +43,9 @@ public class DocEtatsEntity {
     @Mapping("document")
     private DocumentsEntity documentsEntity;
 
+    @ManyToOne
+    @JoinColumn(name = "etapes_id")
+    @Mapping("etape")
+    private EtapesEntity etapesEntity;
+
 }

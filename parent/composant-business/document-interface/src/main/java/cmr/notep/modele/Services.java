@@ -21,4 +21,5 @@ public class Services {
     private String codeUnique;
     private String localisation;
     private List<Missions> missions;
+    private FilesAttentes fileAttente;
 }

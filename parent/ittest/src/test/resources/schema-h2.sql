@@ -162,7 +162,6 @@ CREATE TABLE IF NOT EXISTS traiter
 
 CREATE TABLE IF NOT EXISTS personnes(
     id VARCHAR NOT NULL PRIMARY KEY,
-    adresse VARCHAR,
     mail VARCHAR,
     telephone VARCHAR ,
     qrcodevalue VARCHAR,
@@ -172,17 +171,11 @@ CREATE TABLE IF NOT EXISTS personnes(
     sexe    VARCHAR,
     datenaissance date,
 --    pour personne morale
-    id VARCHAR NOT NULL PRIMARY KEY,
-    raisonsociale VARCHAR,
-    code VARCHAR,
 --     pour distributeur
     raisonSocial VARCHAR,
     etat boolean,
     adresse VARCHAR,
-    telephone VARCHAR,
-    mail VARCHAR,
-    code VARCHAR,
-    raisonsociale VARCHAR
+    code VARCHAR
 );
 
 --CREATE TABLE IF NOT EXISTS personnesmorale(
@@ -201,16 +194,18 @@ CREATE TABLE IF NOT EXISTS personnes(
 --        Personnes_type VARCHAR(20) DEFAULT 'PersonnePhysique' NOT NULL
 --);
 
---CREATE TABLE IF NOT EXISTS distributeurs (
---    id VARCHAR NOT NULL PRIMARY KEY,
---    raisonSocial VARCHAR,
---    etat boolean,
---    adresse VARCHAR,
---    telephone VARCHAR,
---    mail VARCHAR,
---    code VARCHAR,
---    raisonsociale VARCHAR
---);
+CREATE TABLE IF NOT EXISTS distributeurs (
+    id VARCHAR NOT NULL PRIMARY KEY,
+    raisonSocial VARCHAR,
+    etat boolean,
+    adresse VARCHAR,
+    telephone VARCHAR,
+    mail VARCHAR,
+    code VARCHAR,
+    raisonsociale VARCHAR,
+    precomouvementsqtes_id VARCHAR NOT NULL,
+    FOREIGN KEY (precomouvementsqtes_id) REFERENCES precomouvementsqtes(id)
+);
 
 CREATE TABLE IF NOT EXISTS mouvements(
     id VARCHAR NOT NULL PRIMARY KEY,
@@ -283,6 +278,22 @@ CREATE TABLE validations (
     FOREIGN KEY (roles_id) REFERENCES roles(id)
 );
 
+CREATE TABLE parcours (
+    id VARCHAR(255) NOT NULL,
+    libelle VARCHAR(255),
+    datecreation DATE,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE etapes (
+    id VARCHAR(255) NOT NULL,
+    libelle VARCHAR(255),
+    etat VARCHAR(255),
+    PRIMARY KEY (id),
+    parcours_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY (parcours_id) REFERENCES parcours(id)
+);
+
 CREATE TABLE docetats (
     id VARCHAR(255) NOT NULL,
     ordre INT,
@@ -291,11 +302,14 @@ CREATE TABLE docetats (
     documents_id VARCHAR(255),
     predecesseurDocEtat_id VARCHAR(255),
     etats_id VARCHAR(255),
+    etapes_id VARCHAR(255) ,
     PRIMARY KEY (id),
     FOREIGN KEY (documents_id) REFERENCES documents(id),
     FOREIGN KEY (validations_id) REFERENCES validations(id),
     FOREIGN KEY (predecesseurDocEtat_id) REFERENCES docetats(id),
-    FOREIGN KEY (etats_id) REFERENCES etats(id)
+    FOREIGN KEY (etats_id) REFERENCES etats(id),
+    FOREIGN KEY (etapes_id) REFERENCES etapes(id)
 );
+
 
 

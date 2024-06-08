@@ -32,11 +32,11 @@ public class RolesEntity {
 
     @OneToMany(mappedBy = "rolesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Mapping("joueroles")
-    List<JouerRolesEntity> jouerRolesEntities;
+    private List<JouerRolesEntity> jouerRolesEntities;
 
     @OneToMany(mappedBy = "rolesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Mapping("remplirList")
-    List<RemplirEntity> remplirEntities;
+    private List<RemplirEntity> remplirEntities;
 
     @OneToMany(mappedBy = "roleEntity" , fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Mapping("validations")

@@ -34,4 +34,9 @@ public class ServicesEntity {
     @OneToMany(mappedBy = "servicesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Mapping("missions")
     private List<MissionsEntity> missionEntities ;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "filesattentes_id" , referencedColumnName = "id")
+    @Mapping("fileAttente")
+    private FilesAttentesEntity filesAttentesEntity;
 }
