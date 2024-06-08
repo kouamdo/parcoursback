@@ -97,11 +97,11 @@ INSERT INTO precomouvementsqtes (id, qteMin, qteMax, montantMin, montantMax, pre
 --    ('2', 'Peter', 'Alan',  'M', '2004-08-10'),
 --    ('3', 'Dombo', 'Gilles',   'M', '2002-10-10');
 
-INSERT INTO distributeurs (id, raisonSocial, etat, adresse, telephone, mail, precomouvementsqtes_id)
+INSERT INTO distributeurs (id, raisonSocial, etat, adresse, telephone, mail)
 VALUES
-    ('1', 'Brasserie', true, 'Dla', '655554488', 'ngong@yad.fr', '1'),
-    ('2', 'ENEO', true, 'Ydé', '655554481', 'ngong@yad.fr', '2'),
-    ('3', 'Total Distribution', true, 'Buéa', '655554486', 'ngong@yad.fr', '3');
+    ('1', 'Brasserie', true, 'Dla', '655554488', 'ngong@yad.fr'),
+    ('2', 'ENEO', true, 'Ydé', '655554481', 'ngong@yad.fr'),
+    ('3', 'Total Distribution', true, 'Buéa', '655554486', 'ngong@yad.fr');
 
 
 INSERT INTO mouvements (id, description, qte, prix, datecreation, dateperemption, ressources_id, distributeur_id)
@@ -142,11 +142,11 @@ VALUES
     ('22', 20, 200, 1000, 10000, '2', '2', '2024-06-04', '2024-06-04'),
     ('33', 5, 50, 200, 2000, '3', '3', '2024-06-04', '2024-06-04');
 
-INSERT INTO distributeurs (id, raisonSocial, etat, adresse, telephone, mail, precomouvementsqtes_id)
+INSERT INTO distributeurs (id, raisonSocial, etat, adresse, telephone, mail)
 VALUES
-    ('11', 'Total Energie', true, 'Dla', '655554488', 'ngong@yad.fr', '11'),
-    ('22', 'Brasserie', true, 'Ydé', '655554481', 'ngong@yad.fr', '22'),
-    ('33', 'Eneo', true, 'Buéa', '655554486', 'ngong@yad.fr', '33');
+    ('11', 'Total Energie', true, 'Dla', '655554488', 'ngong@yad.fr'),
+    ('22', 'Brasserie', true, 'Ydé', '655554481', 'ngong@yad.fr'),
+    ('33', 'Eneo', true, 'Buéa', '655554486', 'ngong@yad.fr');
 
 INSERT INTO roles (id, titre, description, etat, datecreation)
 VALUES

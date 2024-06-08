@@ -202,9 +202,7 @@ CREATE TABLE IF NOT EXISTS distributeurs (
     telephone VARCHAR,
     mail VARCHAR,
     code VARCHAR,
-    raisonsociale VARCHAR,
-    precomouvementsqtes_id VARCHAR NOT NULL,
-    FOREIGN KEY (precomouvementsqtes_id) REFERENCES precomouvementsqtes(id)
+    raisonsociale VARCHAR
 );
 
 CREATE TABLE IF NOT EXISTS mouvements(
