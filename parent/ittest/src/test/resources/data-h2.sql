@@ -91,20 +91,25 @@ INSERT INTO precomouvementsqtes (id, qteMin, qteMax, montantMin, montantMax, pre
 
 
 -- Insérer les données dans la table personnephysique
---INSERT INTO personnesphysique (id, nom, prenom, sexe, datenaissance)
+--INSERT INTO personnes (id, nom, prenom, sexe, datenaissance)
 --VALUES
 --    ('1', 'Tagne', 'Willy', 'M', '2000-04-10'),
 --    ('2', 'Peter', 'Alan',  'M', '2004-08-10'),
 --    ('3', 'Dombo', 'Gilles',   'M', '2002-10-10');
-
-INSERT INTO distributeurs (id, raisonSocial, etat, adresse, telephone, mail)
+INSERT INTO personnes (id,  adresse, telephone, mail)
 VALUES
-    ('1', 'Brasserie', true, 'Dla', '655554488', 'ngong@yad.fr'),
-    ('2', 'ENEO', true, 'Ydé', '655554481', 'ngong@yad.fr'),
-    ('3', 'Total Distribution', true, 'Buéa', '655554486', 'ngong@yad.fr');
+    ('1', 'Total Energie', '655554488', 'ngong@yad.fr'),
+    ('2', 'Brasserie', '655554481', 'ngong@yad.fr'),
+    ('3', 'Eneo', '655554486', 'ngong@yad.fr');
+
+INSERT INTO distributeurs (distributeurs_id, raisonsociale,code)
+VALUES
+    ('1', 'Brasserie', 'Dla'),
+    ('2', 'ENEO',  'Ydé'),
+    ('3', 'Total Distribution',  'Buéa');
 
 
-INSERT INTO mouvements (id, description, qte, prix, datecreation, dateperemption, ressources_id, distributeur_id)
+INSERT INTO mouvements (id, description, qte, prix, datecreation, dateperemption, ressources_id, distributeurs_id)
 VALUES
     ('1', 'Ici la description de ce mouvement', 20, 10000, NOW(), NOW(), '1', '1'),
     ('2', 'Ici la description de ce mouvement', 50, 300, NOW(), NOW(), '5', '2'),
@@ -142,11 +147,7 @@ VALUES
     ('22', 20, 200, 1000, 10000, '2', '2', '2024-06-04', '2024-06-04'),
     ('33', 5, 50, 200, 2000, '3', '3', '2024-06-04', '2024-06-04');
 
-INSERT INTO distributeurs (id, raisonSocial, etat, adresse, telephone, mail)
-VALUES
-    ('11', 'Total Energie', true, 'Dla', '655554488', 'ngong@yad.fr'),
-    ('22', 'Brasserie', true, 'Ydé', '655554481', 'ngong@yad.fr'),
-    ('33', 'Eneo', true, 'Buéa', '655554486', 'ngong@yad.fr');
+
 
 INSERT INTO roles (id, titre, description, etat, datecreation)
 VALUES

@@ -10,12 +10,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@DiscriminatorValue(value = "distributeurs")
+@PrimaryKeyJoinColumn(name = "distributeurs_id")
 public class DistributeursEntity extends PersonnesEntity {
-
-    @Id
-    @Column(name = "id", nullable = false)
-    private String id;
 
     @Column(name = "code")
     private String code ;
@@ -28,7 +24,7 @@ public class DistributeursEntity extends PersonnesEntity {
     private List<MouvementEntity> mouvementEntities;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "livre",
+    @JoinTable(name = "livrer",
     joinColumns = @JoinColumn(name = "precomouvementsqtes_id"),
     inverseJoinColumns = @JoinColumn(name = "distributeurs_id"))
     @Mapping("precomouvementsqtes")

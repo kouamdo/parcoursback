@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@DiscriminatorValue(value = "personnesphysique")
+@PrimaryKeyJoinColumn(name = "personnesphysique_id")
 public class PersonnesPhysiqueEntity extends PersonnesEntity{
 
     @Column(name = "nom" , nullable = false)

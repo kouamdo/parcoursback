@@ -160,49 +160,39 @@ CREATE TABLE IF NOT EXISTS traiter
     CONSTRAINT missions_documents_fk FOREIGN KEY (id_mission) REFERENCES missions(id)
 );
 
-CREATE TABLE IF NOT EXISTS personnes(
-    id VARCHAR NOT NULL PRIMARY KEY,
-    mail VARCHAR,
-    telephone VARCHAR ,
-    qrcodevalue VARCHAR,
---    Pour personne physique
-    nom VARCHAR,
-    prenom VARCHAR,
-    sexe    VARCHAR,
-    datenaissance date,
---    pour personne morale
---     pour distributeur
-    raisonSocial VARCHAR,
-    etat boolean,
-    adresse VARCHAR,
-    code VARCHAR
+CREATE TABLE personnes (
+    id VARCHAR(255) NOT NULL,
+    adresse VARCHAR(255),
+    mail VARCHAR(255),
+    telephone VARCHAR(255),
+    qrcodevalue VARCHAR(255),
+    PRIMARY KEY (id)
 );
 
---CREATE TABLE IF NOT EXISTS personnesmorale(
---    id VARCHAR NOT NULL PRIMARY KEY,
---    raisonsociale VARCHAR,
---    code VARCHAR,
---    Personnes_type VARCHAR(20) DEFAULT 'PersonneMorale' NOT NULL
---);
+CREATE TABLE personnes_morale (
+    personnesmorale_id VARCHAR(255) NOT NULL,
+    raisonsociale VARCHAR(255),
+    code VARCHAR(255),
+    PRIMARY KEY (personnesmorale_id),
+    FOREIGN KEY (personnesmorale_id) REFERENCES personnes(id)
+);
 
---CREATE TABLE IF NOT EXISTS personnesphysique(
---    id VARCHAR NOT NULL PRIMARY KEY,
---        nom VARCHAR,
---        prenom VARCHAR,
---        sexe    VARCHAR,
---        datenaissance date,
---        Personnes_type VARCHAR(20) DEFAULT 'PersonnePhysique' NOT NULL
---);
+CREATE TABLE personnes_physique (
+    personnesphysique_id VARCHAR(255) NOT NULL,
+    nom VARCHAR(255) NOT NULL,
+    prenom VARCHAR(255),
+    sexe VARCHAR(255),
+    datenaissance DATE NOT NULL,
+    PRIMARY KEY (personnesphysique_id),
+    FOREIGN KEY (personnesphysique_id) REFERENCES personnes(id)
+);
 
-CREATE TABLE IF NOT EXISTS distributeurs (
-    id VARCHAR NOT NULL PRIMARY KEY,
-    raisonSocial VARCHAR,
-    etat boolean,
-    adresse VARCHAR,
-    telephone VARCHAR,
-    mail VARCHAR,
-    code VARCHAR,
-    raisonsociale VARCHAR
+CREATE TABLE distributeurs (
+    distributeurs_id VARCHAR(255) NOT NULL,
+    code VARCHAR(255),
+    raisonsociale VARCHAR(255),
+    PRIMARY KEY (distributeurs_id),
+    FOREIGN KEY (distributeurs_id) REFERENCES personnes(id)
 );
 
 CREATE TABLE IF NOT EXISTS mouvements(
@@ -213,8 +203,8 @@ CREATE TABLE IF NOT EXISTS mouvements(
     datecreation date,
     dateperemption date,
     ressources_id VARCHAR(255)  NOT NULL,
-    distributeur_id VARCHAR(255) NOT NULL,
-    FOREIGN KEY (distributeur_id) REFERENCES distributeurs(id),
+    distributeurs_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY (distributeurs_id) REFERENCES distributeurs(distributeurs_id),
     FOREIGN KEY (ressources_id) REFERENCES ressources(id)
 );
 
