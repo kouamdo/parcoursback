@@ -1,10 +1,12 @@
 package cmr.notep.dao;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +33,9 @@ public class DocEtatsEntity {
 
     @OneToMany
     @Mapping("predecesseurDocEtat")
-    private List<DocEtatsEntity> predecesseursDocEtat;
+    @JoinColumn(referencedColumnName = "id")
+    @JsonBackReference
+    private List<DocEtatsEntity> predecesseursDocEtat = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "etats_id")
