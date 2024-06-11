@@ -37,7 +37,7 @@ public class MouvementEntity {
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "mouvpreco" ,
     joinColumns = @JoinColumn(name = "id_precomouvements"),
-    inverseJoinColumns = @JoinColumn(name = "id_mouvement"))
+    inverseJoinColumns = @JoinColumn(name = "id_mouvements"))
     @Mapping("precomouvements")
     private List<PrecoMouvementsEntity> precoMouvementsEntityList;
 

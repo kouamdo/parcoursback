@@ -208,7 +208,7 @@ CREATE TABLE IF NOT EXISTS mouvements(
     FOREIGN KEY (ressources_id) REFERENCES ressources(id)
 );
 
-CREATE TABLE roles (
+CREATE TABLE IF NOT EXISTS roles (
     id VARCHAR(255) NOT NULL PRIMARY KEY,
     titre VARCHAR(255),
     description TEXT,
@@ -216,7 +216,7 @@ CREATE TABLE roles (
     datecreation DATE
 );
 
-CREATE TABLE personnels (
+CREATE TABLE IF NOT EXISTS personnels (
     id VARCHAR(255) NOT NULL PRIMARY KEY,
     dateentree DATE,
     nom VARCHAR(255),
@@ -228,7 +228,7 @@ CREATE TABLE personnels (
     sexe VARCHAR(255)
 );
 
-CREATE TABLE jouerroles (
+CREATE TABLE IF NOT EXISTS jouerroles (
     id VARCHAR(255) NOT NULL PRIMARY KEY,
     etat BOOLEAN,
     datecreation DATE,
@@ -240,7 +240,7 @@ CREATE TABLE jouerroles (
     FOREIGN KEY (roles_id) REFERENCES roles(id)
 );
 
-CREATE TABLE etats (
+CREATE TABLE IF NOT EXISTS etats (
     id VARCHAR(255) NOT NULL,
     libelle VARCHAR(255),
     datecreation DATE,
@@ -248,7 +248,7 @@ CREATE TABLE etats (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE ordreetats (
+CREATE TABLE IF NOT EXISTS ordreetats (
     id VARCHAR(255) NOT NULL,
     datecreation DATE,
     ordre INT,
@@ -256,7 +256,7 @@ CREATE TABLE ordreetats (
     PRIMARY KEY (id),
     FOREIGN KEY (etats_id) REFERENCES etats(id)
 );
-CREATE TABLE validations (
+CREATE TABLE IF NOT EXISTS validations (
     id VARCHAR(255) NOT NULL,
     code VARCHAR(255),
     etat VARCHAR(255),
@@ -266,14 +266,14 @@ CREATE TABLE validations (
     FOREIGN KEY (roles_id) REFERENCES roles(id)
 );
 
-CREATE TABLE parcours (
+CREATE TABLE IF NOT EXISTS parcours (
     id VARCHAR(255) NOT NULL,
     libelle VARCHAR(255),
     datecreation DATE,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE etapes (
+CREATE TABLE IF NOT EXISTS etapes (
     id VARCHAR(255) NOT NULL,
     libelle VARCHAR(255),
     etat VARCHAR(255),
@@ -282,7 +282,7 @@ CREATE TABLE etapes (
     FOREIGN KEY (parcours_id) REFERENCES parcours(id)
 );
 
-CREATE TABLE docetats (
+CREATE TABLE IF NOT EXISTS docetats (
     id VARCHAR(255) NOT NULL,
     ordre INT,
     datecreation DATE,
@@ -299,5 +299,47 @@ CREATE TABLE docetats (
     FOREIGN KEY (etapes_id) REFERENCES etapes(id)
 );
 
+CREATE TABLE IF NOT EXISTS mouvpreco (
+    id_precomouvements VARCHAR(255)  NOT NULL,
+    id_mouvements VARCHAR(255)  NOT NULL,
+    CONSTRAINT mouvpreco_pkey PRIMARY KEY (id_precomouvements, id_mouvements),
+    CONSTRAINT precomouvements_mouvements_fk FOREIGN KEY (id_precomouvements)  REFERENCES precomouvements(id),
+    CONSTRAINT mouvements_precomouvements_fk FOREIGN KEY (id_mouvements) REFERENCES mouvements(id)
+);
+
+CREATE TABLE IF NOT EXISTS livrer (
+    precomouvementsqtes_id VARCHAR(255)  NOT NULL,
+    distributeurs_id VARCHAR(255)  NOT NULL,
+    CONSTRAINT livrer_pkey PRIMARY KEY (precomouvementsqtes_id, distributeurs_id),
+    CONSTRAINT precomouvementsqtes_distributeurs_fk FOREIGN KEY (precomouvementsqtes_id)  REFERENCES precomouvementsqtes(id),
+    CONSTRAINT distributeurs_precomouvementsqtes_fk FOREIGN KEY (distributeurs_id) REFERENCES distributeurs(distributeurs_id)
+);
+
+CREATE TABLE IF NOT EXISTS filesattentes
+(
+    id VARCHAR(255) NOT NULL,
+    datecreation DATE,
+    etat boolean,
+    services_id VARCHAR(255),
+    CONSTRAINT filesattentes_pk PRIMARY KEY (id),
+    CONSTRAINT services_fk FOREIGN KEY (services_id) REFERENCES services(id)
+);
+
+CREATE TABLE IF NOT EXISTS tickets (
+    id VARCHAR(255) NOT NULL,
+    codecourt VARCHAR(255),
+    CONSTRAINT tickets_pk PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS ticketsfilesattentes (
+    id VARCHAR(255) NOT NULL,
+    etat boolean,
+    dateaffectation DATE,
+    tickets_id VARCHAR(255) NOT NULL ,
+    filesattentes_id VARCHAR(255) NOT NULL ,
+    CONSTRAINT ticket_fk FOREIGN KEY (tickets_id) REFERENCES tickets(id),
+    CONSTRAINT filesattentes_fk FOREIGN KEY (filesattentes_id) REFERENCES filesattentes(id),
+    CONSTRAINT ticketsfilesattentes_pk PRIMARY KEY (id)
+);
 
 
