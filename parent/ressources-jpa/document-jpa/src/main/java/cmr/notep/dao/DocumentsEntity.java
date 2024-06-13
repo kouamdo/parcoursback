@@ -33,19 +33,19 @@ public class DocumentsEntity {
     private Date dateModification;
 
     @Column(name = "typemouvement")
-    private TypeMouvement typemouvement ;
+    private TypeMouvement typeMouvement ;
 
     @Column(name = "afficherprix")
-    private String afficherprix ;
+    private String afficherPrix ;
 
     @Column(name = "afficherunite")
-    private Boolean afficherunite;
+    private Boolean afficherUnite;
 
     @Column(name="afficherdistributeur")
-    private Boolean afficherdistributeur;
+    private Boolean afficherDistributeur;
 
     @Column(name="prixeditable")
-    private Boolean prixeditable;
+    private Boolean prixEditable;
 
     @Column(name="contientressources")
     private Boolean contientRessources;
