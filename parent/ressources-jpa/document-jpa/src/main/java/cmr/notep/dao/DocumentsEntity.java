@@ -41,7 +41,7 @@ public class DocumentsEntity {
     @Column(name = "afficherunite")
     private Boolean afficherunite;
 
-    @Column(name="afficherddistributeur")
+    @Column(name="afficherdistributeur")
     private Boolean afficherdistributeur;
 
     @Column(name="prixeditable")
