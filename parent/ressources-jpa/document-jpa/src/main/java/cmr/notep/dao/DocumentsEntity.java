@@ -23,32 +23,32 @@ public class DocumentsEntity {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "typemouvement")
-    private String typeMouvement ;
-
-    @Column(name = "afficherprix")
-    private String afficherPrix ;
-
     @Column(name = "etat")
     private Boolean etat;
-
-    @Column(name = "afficherunite")
-    private Boolean afficherUnite;
-
-    @Column(name="afficherdistributeur")
-    private Boolean afficherDistributeur;
-
-    @Column(name="prixeditable")
-    private Boolean prixEditable;
-
-    @Column(name="contientressources")
-    private Boolean contientRessources;
 
     @Column(name = "datecreation")
     private Date dateCreation;
 
     @Column(name = "datemodification")
     private Date dateModification;
+
+    @Column(name = "typemouvement")
+    private TypeMouvement typemouvement ;
+
+    @Column(name = "afficherprix")
+    private String afficherprix ;
+
+    @Column(name = "afficherunite")
+    private Boolean afficherunite;
+
+    @Column(name="afficherddistributeur")
+    private Boolean afficherdistributeur;
+
+    @Column(name="prixeditable")
+    private Boolean prixeditable;
+
+    @Column(name="contientressources")
+    private Boolean contientRessources;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "constituer",
