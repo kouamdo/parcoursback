@@ -27,9 +27,9 @@ public class Documents {
 
     private TypeMouvement typemouvement ;
 
-    private String afficherPrix ;
+    private String afficherprix ;
 
-    private Boolean afficherUnite;
+    private Boolean afficherunite;
 
     private Boolean afficherdistributeur;
 
