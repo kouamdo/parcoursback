@@ -7,6 +7,7 @@ import org.dozer.Mapping;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -28,10 +29,10 @@ public class MissionsEntity {
     private boolean etat ;
 
     @Column(name = "datecreation",nullable = false)
-    private LocalDate dateCreation ;
+    private Date dateCreation ;
 
     @Column(name="datemodification")
-    private LocalDate dateModification ;
+    private Date dateModification ;
 
     @ManyToMany(fetch = FetchType.LAZY , cascade = {CascadeType.ALL} )
     @JoinTable(name = "traiter",

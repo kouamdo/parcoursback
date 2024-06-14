@@ -344,7 +344,7 @@ CREATE TABLE IF NOT EXISTS ticketsfilesattentes (
 
 ALTER TABLE services ADD CONSTRAINT filesattentes_service_fk FOREIGN KEY (filesattentes_id) REFERENCES filesattentes(id);
 
-CREATE TABLE remplir (
+CREATE TABLE IF NOT EXISTS remplir (
     roles_id VARCHAR(255),
     missions_id VARCHAR,
     datefin DATE,
