@@ -1,6 +1,5 @@
 package cmr.notep.api;
 
-import cmr.notep.modele.Documents;
 import cmr.notep.modele.Familles;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
@@ -8,24 +7,25 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("famille")
+@RequestMapping("familles")
 public interface IFamillesApi {
+
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Documents posterFamille(@NonNull @RequestBody Familles familles);
+    Familles posterFamille(@NonNull @RequestBody Familles familles);
 
     @GetMapping(
             path = "/{idFamille}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    Documents avoirFamille(@NonNull @RequestParam(name = "idFamille") String idFamille);
+    Familles avoirFamille(@NonNull @RequestParam(name = "idFamille") String idFamille);
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    List<Documents> avoirTousFamilles();
+    List<Familles> avoirTousFamilles();
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
