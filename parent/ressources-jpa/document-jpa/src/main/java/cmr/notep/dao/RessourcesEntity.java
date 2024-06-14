@@ -46,5 +46,5 @@ public class RessourcesEntity {
 
     @OneToMany(mappedBy = "ressourcesEntity" , fetch = FetchType.LAZY)
     @Mapping("mouvement")
-    private List<MouvementEntity> mouvementEntityList;
+    private List<MouvementsEntity> mouvementsEntityList;
 }

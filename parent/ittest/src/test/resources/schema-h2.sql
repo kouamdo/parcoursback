@@ -14,7 +14,6 @@ CREATE TABLE IF NOT EXISTS attributs
     CONSTRAINT attributs_pkey PRIMARY KEY (id)
 );
 
-
 CREATE TABLE IF NOT EXISTS documents
 (
     id VARCHAR(255) NOT NULL,
@@ -69,7 +68,8 @@ CREATE TABLE IF NOT EXISTS services (
     localisation VARCHAR(255) ,
     etat boolean,
     datecreation date,
-    datemodification date
+    datemodification date,
+    filesattentes_id VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS missions (
@@ -342,4 +342,4 @@ CREATE TABLE IF NOT EXISTS ticketsfilesattentes (
     CONSTRAINT ticketsfilesattentes_pk PRIMARY KEY (id)
 );
 
-
+ALTER TABLE services ADD CONSTRAINT filesattentes_service_fk FOREIGN KEY (filesattentes_id) REFERENCES filesattentes(id);

@@ -6,14 +6,13 @@ import org.dozer.Mapping;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "mouvements")
-public class MouvementEntity {
+public class MouvementsEntity {
 
     @Id
     @Column(name = "id" , nullable = false)

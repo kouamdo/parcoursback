@@ -18,26 +18,26 @@ public class DistributeursBusiness {
         this.daoAccessorService = daoAccessorService;
     }
 
-    public Distributeurs avoirCategorie(String id) {
+    public Distributeurs avoirDistributeur(String id) {
         return dozerMapperBean.map(
                 this.daoAccessorService.getRepository(DistributeursRepository.class)
                         .findById(id)
                         .orElseThrow(()->new RuntimeException("Categorie inexistante")), Distributeurs.class);
     }
 
-    public List<Distributeurs> avoirToutCategorie() {
+    public List<Distributeurs> avoirToutDistributeurs() {
         return daoAccessorService.getRepository(DistributeursRepository.class).findAll()
                 .stream().map(cat ->dozerMapperBean.map(cat, Distributeurs.class))
                 .collect(Collectors.toList());
     }
 
-    public void supprimerCategory(Distributeurs Distributeurs)
+    public void supprimerDistributeur(Distributeurs Distributeurs)
     {
         daoAccessorService.getRepository(DistributeursRepository.class)
                 .deleteById(Distributeurs.getId());
     }
 
-    public Distributeurs posterCategorie(Distributeurs Distributeurs) {
+    public Distributeurs posterDistributeur(Distributeurs Distributeurs) {
         return dozerMapperBean.map( this.daoAccessorService.getRepository(DistributeursRepository.class)
                 .save(dozerMapperBean.map(Distributeurs, DistributeursEntity.class)), Distributeurs.class);
     }

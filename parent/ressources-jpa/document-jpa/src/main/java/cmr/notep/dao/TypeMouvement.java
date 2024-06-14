@@ -1,13 +1,13 @@
 package cmr.notep.dao;
 
-public enum typeMvt {
+public enum TypeMouvement {
     Neutre("Neutre"),
     Ajout("Ajout"),
     Reduire("Reduire");
 
     private final String typemvt;
 
-    typeMvt(String typeMvt) {
+    TypeMouvement(String typeMvt) {
         this.typemvt = typeMvt;
     }
 }

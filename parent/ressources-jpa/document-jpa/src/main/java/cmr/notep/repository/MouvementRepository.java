@@ -1,8 +1,8 @@
 package cmr.notep.repository;
 
 
-import cmr.notep.dao.MouvementEntity;
+import cmr.notep.dao.MouvementsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MouvementRepository extends JpaRepository<MouvementEntity, String> {
+public interface MouvementRepository extends JpaRepository<MouvementsEntity, String> {
 }

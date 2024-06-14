@@ -21,7 +21,7 @@ public class DistributeursEntity extends PersonnesEntity {
 
     @OneToMany(mappedBy = "distributeursEntity" , fetch = FetchType.LAZY , cascade = {CascadeType.ALL})
     @Mapping("mouvements")
-    private List<MouvementEntity> mouvementEntities;
+    private List<MouvementsEntity> mouvementEntities;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "livrer",
