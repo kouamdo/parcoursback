@@ -21,21 +21,21 @@ public class Documents {
 
     private boolean etat;
 
-    private Date datecreation;
+    private Date dateCreation;
 
-    private Date datemodification;
+    private Date dateModification;
 
-    private TypeMouvement typemouvement ;
+    private TypeMouvement typeMouvement ;
 
-    private String afficherprix ;
+    private String afficherPrix ;
 
-    private Boolean afficherunite;
+    private Boolean afficherUnite;
 
-    private Boolean afficherdistributeur;
+    private Boolean afficherDistributeur;
 
-    private Boolean prixeditable;
+    private Boolean prixEditable;
 
-    private Boolean contientressources;
+    private Boolean contientRessources;
 
     public List<Missions> missions ;
 

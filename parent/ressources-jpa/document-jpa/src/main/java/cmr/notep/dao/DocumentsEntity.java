@@ -33,7 +33,7 @@ public class DocumentsEntity {
     private Date dateModification;
 
     @Column(name = "typemouvement")
-    private TypeMouvement typeMouvement ;
+    private String typeMouvement ;
 
     @Column(name = "afficherprix")
     private String afficherPrix ;
