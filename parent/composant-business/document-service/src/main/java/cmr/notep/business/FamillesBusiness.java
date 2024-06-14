@@ -4,12 +4,18 @@ import cmr.notep.dao.DaoAccessorService;
 import cmr.notep.dao.FamillesEntity;
 import cmr.notep.modele.Familles;
 import cmr.notep.repository.FamillesRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static cmr.notep.config.DocumentConfig.dozerMapperBean;
 
+@Component
+@Slf4j
+@Transactional
 public class FamillesBusiness {
 
     private final DaoAccessorService daoAccessorService ;

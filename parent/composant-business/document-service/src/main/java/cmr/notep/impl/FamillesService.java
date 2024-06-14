@@ -3,6 +3,7 @@ package cmr.notep.impl;
 import cmr.notep.api.IFamillesApi;
 import cmr.notep.business.FamillesBusiness;
 import cmr.notep.modele.Familles;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
@@ -19,12 +20,12 @@ public class FamillesService implements IFamillesApi {
     }
 
     @Override
-    public Familles posterFamille(Familles familles) {
+    public Familles posterFamille(@NonNull Familles familles) {
         return famillesBusiness.posterFamille(familles);
     }
 
     @Override
-    public Familles avoirFamille(String idFamille) {
+    public Familles avoirFamille(@NonNull String idFamille) {
         return famillesBusiness.avoirFamille(idFamille);
     }
 
@@ -35,7 +36,7 @@ public class FamillesService implements IFamillesApi {
     }
 
     @Override
-    public Boolean SupprimerFamilles(Familles familles) {
+    public Boolean SupprimerFamilles(@NonNull Familles familles) {
         return null;
     }
 }
