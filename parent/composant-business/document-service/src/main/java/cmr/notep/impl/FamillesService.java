@@ -3,9 +3,13 @@ package cmr.notep.impl;
 import cmr.notep.api.IFamillesApi;
 import cmr.notep.business.FamillesBusiness;
 import cmr.notep.modele.Familles;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@RestController
+@Transactional
 public class FamillesService implements IFamillesApi {
 
     private final FamillesBusiness famillesBusiness;
