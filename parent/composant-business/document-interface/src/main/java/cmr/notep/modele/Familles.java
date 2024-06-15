@@ -20,6 +20,7 @@ public class Familles {
     private String description;
     private String etat ;
     private Date dateCreation;
-    private PrecoMouvementsQtes precoMouvementsQte;
+    private Date dateModification;
+    private List<PrecoMouvementsQtes> precoMouvementsQte;
     private List<Ressources> ressources;
 }

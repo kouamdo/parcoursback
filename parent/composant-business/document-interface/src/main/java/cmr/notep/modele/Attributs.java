@@ -28,6 +28,9 @@ public class Attributs {
     private Date dateModification;
 
     Types type;
+
+    private String valeurParDefaut;
+
     private List<Documents> documents;
     //private List<Categories> categories ;
 

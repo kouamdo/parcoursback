@@ -36,12 +36,12 @@ VALUES ('1', 'Note intervention', 'Document delivre par le medecin ou un infirmi
 
 ---- Insertion dans la table 'attributs'
 INSERT INTO attributs (id, titre, description, etat, datecreation, datemodification, type) VALUES
-('1', 'taille', 'taille de l''individu', true, '2000-03-07', '1990-03-07', 'TypeTicket.String'),
-('4', 'age', 'age de l''individu', true, '2000-03-07', '1990-03-07', 'TypeTicket.Double'),
-('5', 'allergies', 'allergies de l''individu', true, '2000-03-07', '1990-03-07', 'TypeTicket.String'),
-('6', 'teint', 'teint de l''individu', true, '2000-03-07', '1990-03-07', 'TypeTicket.String'),
-('7', 'Groupe sangin', 'Groupe sangin de l''individu', true, '2000-03-07', '1990-03-07', 'TypeTicket.Boolean'),
-('8', 'cicatrice', 'cicatrice de l''individu', true, '2000-03-07', '1990-03-07', 'TypeTicket.Boolean');
+('1', 'taille', 'taille de l''individu', true, '2000-03-07', '1990-03-07', 'String'),
+('4', 'age', 'age de l''individu', true, '2000-03-07', '1990-03-07', 'Double'),
+('5', 'allergies', 'allergies de l''individu', true, '2000-03-07', '1990-03-07', 'String'),
+('6', 'teint', 'teint de l''individu', true, '2000-03-07', '1990-03-07', 'String'),
+('7', 'Groupe sangin', 'Groupe sangin de l''individu', true, '2000-03-07', '1990-03-07', 'Boolean'),
+('8', 'cicatrice', 'cicatrice de l''individu', true, '2000-03-07', '1990-03-07', 'Boolean');
 --
 -- Insertion dans la table 'category'
 INSERT INTO categories (id, ordre, libelle, documents_id) VALUES
