@@ -18,17 +18,17 @@ public interface IDistributeursApi {
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    List<Distributeurs> avoirToutDistributeur();
+    List<Distributeurs> avoirToutDistributeurs();
 
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    void supprimerDistributeurs(@NonNull @RequestBody Distributeurs Distributeurs);
+    void supprimerDistributeur(@NonNull @RequestBody Distributeurs Distributeurs);
 
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Distributeurs posterDistributeurs(@NonNull @RequestBody Distributeurs Distributeurs) ;
+    Distributeurs posterDistributeur(@NonNull @RequestBody Distributeurs Distributeurs) ;
 
 }

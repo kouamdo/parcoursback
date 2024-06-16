@@ -3,9 +3,14 @@ package cmr.notep.impl;
 import cmr.notep.api.IDistributeursApi;
 import cmr.notep.business.DistributeursBusiness;
 import cmr.notep.modele.Distributeurs;
+import lombok.NonNull;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@RestController
+@Transactional
 public class DistributeursService implements IDistributeursApi {
 
     private final DistributeursBusiness distributeursBusiness ;
@@ -15,22 +20,23 @@ public class DistributeursService implements IDistributeursApi {
     }
 
     @Override
-    public Distributeurs avoirDistributeur(String idDistributeurs) {
+    public Distributeurs avoirDistributeur(@NonNull String idDistributeurs) {
         return distributeursBusiness.avoirDistributeur(idDistributeurs);
     }
 
     @Override
-    public List<Distributeurs> avoirToutDistributeur() {
+    public List<Distributeurs> avoirToutDistributeurs() {
+        System.out.println("calling avoir tout distributeur");
         return distributeursBusiness.avoirToutDistributeurs();
     }
 
     @Override
-    public void supprimerDistributeurs(Distributeurs Distributeurs) {
+    public void supprimerDistributeur(@NonNull Distributeurs Distributeurs) {
             distributeursBusiness.supprimerDistributeur(Distributeurs);
     }
 
     @Override
-    public Distributeurs posterDistributeurs(Distributeurs Distributeurs) {
+    public Distributeurs posterDistributeur(@NonNull Distributeurs Distributeurs) {
         return distributeursBusiness.posterDistributeur(Distributeurs);
     }
 }
