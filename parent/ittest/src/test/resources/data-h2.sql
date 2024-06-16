@@ -77,10 +77,10 @@ INSERT INTO familles (id, libelle, description, etat) VALUES
 --
 ---- Insertion dans la table 'ressources'
 INSERT INTO ressources (id, libelle, etat, quantite, unite, prixentree, familles_id) VALUES
-('1', 'transfusion', true, 10, 'UnitesLitre', 1000, '1'),
-('2', 'néonat', true, 20, 'UnitesLitre', 2000, '2'),
-('3', 'pediatrie', true, 30, 'UnitesLitre', 3000, '3'),
-('5', 'eau distillée', true, 20, 'UnitesLitre', 500,'3');
+('1', 'transfusion', true, 10, 'Litre', 1000, '1'),
+('2', 'néonat', true, 20, 'Litre', 2000, '2'),
+('3', 'pediatrie', true, 30, 'Litre', 3000, '3'),
+('5', 'eau distillée', true, 20, 'Litre', 500,'3');
 --
 ---- Insertion dans la table 'precomouvementsqte'
 INSERT INTO precomouvementsqtes (id, qteMin, qteMax, montantMin, montantMax, precomouvements_id, ressources_id) VALUES
@@ -88,7 +88,11 @@ INSERT INTO precomouvementsqtes (id, qteMin, qteMax, montantMin, montantMax, pre
 ('2', 30, 40, 100, 7000, '1', '2'),
 ('3', 30, 40, 100, 7000, '1', '3');
 
-
+--insertion dans la table sapplique
+INSERT INTO sapplique(familles_id,precomouvementsqtes_id) VALUES
+('1','1'),
+('2','2'),
+('3','3');
 
 -- Insérer les données dans la table personnephysique
 --INSERT INTO personnes (id, nom, prenom, sexe, datenaissance)

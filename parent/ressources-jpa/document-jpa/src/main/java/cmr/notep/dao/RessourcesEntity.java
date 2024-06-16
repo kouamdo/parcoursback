@@ -25,15 +25,15 @@ public class RessourcesEntity {
     @Column(name = "datemodification")
     private Date dateModification;
     @Column(name = "quantite")
-    private int quantite ;
+    private Integer quantite ;
     @Column(name = "seuilalerte")
-    private int seuilAlerte;
+    private Integer seuilAlerte;
     @Column(name = "prixentree")
-    private double prixEntree;
+    private Double prixEntree;
     @Column(name = "prixsortie")
-    private double prixSortie;
+    private Double prixSortie;
     @Column(name = "unite")
-    private Unite unite ;
+    private String unites ;
 
     @OneToMany(mappedBy = "ressourcesEntity",  fetch = FetchType.LAZY)
     @Mapping("precoMouvementsQtes")
@@ -41,10 +41,10 @@ public class RessourcesEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "familles_id")
-    @Mapping("familles")
+    @Mapping("famille")
     private FamillesEntity famillesEntity;
 
     @OneToMany(mappedBy = "ressourcesEntity" , fetch = FetchType.LAZY)
-    @Mapping("mouvement")
+    @Mapping("mouvements")
     private List<MouvementsEntity> mouvementsEntityList;
 }

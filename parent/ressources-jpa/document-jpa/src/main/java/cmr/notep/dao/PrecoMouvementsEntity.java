@@ -39,6 +39,6 @@ public class PrecoMouvementsEntity {
     private List<DocumentsEntity> documentsEntities ;
 
     @OneToMany(mappedBy = "precoMouvementsEntity" , fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("precomouvementsqte")
+    @Mapping("precoMouvementsQtes")
     private List<PrecoMouvementsQtesEntity> precoMouvementsQteEntities;
 }

@@ -24,7 +24,7 @@ public class PrecoMouvementsQtesEntity {
     @Column(name = "montantmax")
     private int montantMax ;
     @ManyToOne
-    @JoinColumn(name = "precoMouvements_id" , nullable = false)
+    @JoinColumn(name = "precomouvements_id" , nullable = false)
     @Mapping("precoMouvement")
     private PrecoMouvementsEntity precoMouvementsEntity ;
 

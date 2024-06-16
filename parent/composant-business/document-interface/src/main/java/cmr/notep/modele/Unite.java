@@ -1,5 +1,8 @@
 package cmr.notep.modele;
 
+import lombok.Getter;
+
+@Getter
 public enum Unite {
 
     LITRE("Litre"),
@@ -13,7 +16,4 @@ public enum Unite {
         this.unite = unite;
     }
 
-    public String getUnite() {
-        return unite;
-    }
 }

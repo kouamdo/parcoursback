@@ -3,7 +3,7 @@ package cmr.notep.modele;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Mouvement {
+public class Mouvements {
     private  String id ;
     private  String description ;
     private int qte ;

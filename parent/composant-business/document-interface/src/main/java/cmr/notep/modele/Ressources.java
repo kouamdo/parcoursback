@@ -22,7 +22,8 @@ public class Ressources {
     private Integer seuilAlerte;
     private Double prixEntree;
     private Double prixSortie;
-    Unite unites;
+    private Unite unites;
     private List<PrecoMouvementsQtes> precoMouvementsQtes;
     private Familles famille;
+    private List<Mouvements> mouvements;
 }
