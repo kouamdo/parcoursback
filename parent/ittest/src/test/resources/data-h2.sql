@@ -63,9 +63,9 @@ INSERT INTO associer (attributs_id, categories_id, obligatoire, ordre) VALUES
 
 -- Insertion dans la table 'precomouvements'
 INSERT INTO precomouvements (id, libelle, etat, typemouvement) VALUES
-('1', 'rachat', true, 'neutre'),
-('2', 'vente', true, 'reduire'),
-('3', 'vente', true, 'reduire');
+('1', 'rachat', true, 'Neutre'),
+('2', 'vente', true, 'Reduire'),
+('3', 'vente', true, 'Reduire');
 
 ---- Insertion dans la table 'familles'
 INSERT INTO familles (id, libelle, description, etat) VALUES

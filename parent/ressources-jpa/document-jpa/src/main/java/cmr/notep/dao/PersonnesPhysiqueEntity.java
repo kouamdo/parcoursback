@@ -13,6 +13,7 @@ import java.util.List;
 @Setter
 @Entity
 @PrimaryKeyJoinColumn(name = "personnesphysique_id")
+@Table(name = "personnes_physique")
 public class PersonnesPhysiqueEntity extends PersonnesEntity{
 
     @Column(name = "nom" , nullable = false)

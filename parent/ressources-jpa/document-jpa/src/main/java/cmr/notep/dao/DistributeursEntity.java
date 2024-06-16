@@ -11,6 +11,7 @@ import java.util.List;
 @Setter
 @Entity
 @PrimaryKeyJoinColumn(name = "distributeurs_id")
+@Table(name = "distributeurs")
 public class DistributeursEntity extends PersonnesEntity {
 
     @Column(name = "code")

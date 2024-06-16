@@ -37,11 +37,11 @@ public class MouvementsEntity {
     @JoinTable(name = "mouvpreco" ,
     joinColumns = @JoinColumn(name = "id_precomouvements"),
     inverseJoinColumns = @JoinColumn(name = "id_mouvements"))
-    @Mapping("precomouvements")
+    @Mapping("precoMouvements")
     private List<PrecoMouvementsEntity> precoMouvementsEntityList;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_ressources")
+    @JoinColumn(name = "ressources_id")
     @Mapping("ressource")
     private RessourcesEntity ressourcesEntity;
 

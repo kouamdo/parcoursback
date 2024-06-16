@@ -135,12 +135,12 @@ ALTER TABLE ressources ADD CONSTRAINT ressources_familles_fk FOREIGN KEY (famill
 
 CREATE TABLE IF NOT EXISTS sapplique
 (
-    familles_id VARCHAR(255)  NOT NULL,
+    familles_id VARCHAR(255) NOT NULL,
     precomouvementsqtes_id VARCHAR NOT NULL,
     CONSTRAINT sapplique_pkey PRIMARY KEY (familles_id, precomouvementsqtes_id),
     CONSTRAINT familles_precomouvements_fk FOREIGN KEY (familles_id)  REFERENCES familles(id),
     CONSTRAINT precomouvementsqtes_familles_fk FOREIGN KEY (precomouvementsqtes_id) REFERENCES precomouvementsqtes(id)
-    );
+);
 
 CREATE TABLE IF NOT EXISTS suivre
 (
@@ -198,7 +198,7 @@ CREATE TABLE distributeurs (
 CREATE TABLE IF NOT EXISTS mouvements(
     id VARCHAR NOT NULL PRIMARY KEY,
     description VARCHAR(255) ,
-    qte int,
+    quantite int,
     prix double,
     datecreation date,
     dateperemption date,
