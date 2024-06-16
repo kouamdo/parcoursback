@@ -30,6 +30,6 @@ public interface IPersonnelsApi {
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Boolean SupprimerPersonnel(@NonNull @RequestBody Personnels personnel);
+    void SupprimerPersonnel(@NonNull @RequestBody Personnels personnel);
 
 }

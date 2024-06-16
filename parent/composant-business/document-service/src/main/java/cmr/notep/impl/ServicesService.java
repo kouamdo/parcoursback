@@ -27,31 +27,16 @@ public class ServicesService implements IServicesApi {
 
     @Override
     public List<Services> avoirToutServices() {
-        return List.of();
+        return servicesBusiness.avoirToutServices();
     }
 
     @Override
     public void supprimerServices(Services service) {
-
+        servicesBusiness.supprimerService(service);
     }
 
     @Override
     public Services PosterServices(Services service) {
-        return null;
+        return servicesBusiness.posterService(service);
     }
-
-//    @Override
-//    public List<Services> avoirToutServices() {
-//        return servicesBusiness.avoirToutServices();
-//    }
-//
-//    @Override
-//    public void supprimerServices(@NonNull Services service) {
-//        servicesBusiness.supprimerService(service);
-//    }
-//
-//    @Override
-//    public Services PosterServices(Services service) {
-//        return servicesBusiness.posterService(service);
-//    }
 }

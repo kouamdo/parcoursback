@@ -1,28 +1,41 @@
 package cmr.notep.impl;
 
 import cmr.notep.api.IPersonnelsApi;
+import cmr.notep.business.PersonnelsBusiness;
 import cmr.notep.modele.Personnels;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@RestController
+@Transactional
 public class PersonnelsService implements IPersonnelsApi {
+
+    private final PersonnelsBusiness personnelsBusiness;
+
+    public PersonnelsService(PersonnelsBusiness personnelsBusiness) {
+        this.personnelsBusiness = personnelsBusiness;
+    }
+
     @Override
     public Personnels posterPersonnel(Personnels Personnel) {
-        return null;
+        return personnelsBusiness.posterPersonnel(Personnel);
     }
 
     @Override
     public Personnels avoirPersonnel(String idPersonnel) {
-        return null;
+        return personnelsBusiness.avoirPersonnel(idPersonnel);
     }
 
     @Override
     public List<Personnels> avoirTousPersonnels() {
-        return List.of();
+        System.out.println("calling avoir tout personnels");
+        return personnelsBusiness.avoirToutPersonnels();
     }
 
     @Override
-    public Boolean SupprimerPersonnel(Personnels personnel) {
-        return null;
+    public void SupprimerPersonnel(Personnels personnel) {
+        personnelsBusiness.supprimerPersonnel(personnel);
     }
 }

@@ -29,7 +29,7 @@ public interface IRolesApi {
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Boolean SupprimerRole(@NonNull @RequestBody Roles Role);
+    void SupprimerRole(@NonNull @RequestBody Roles Role);
 
 
 }
