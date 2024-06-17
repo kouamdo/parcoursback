@@ -1,36 +1,35 @@
 package cmr.notep.api;
 
-
-import cmr.notep.modele.Ressources;
-import cmr.notep.modele.Ressources;
+import cmr.notep.modele.Promotions;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("ressources")
-public interface IRessourcesApi {
+@RequestMapping("promotions")
+public interface IPromotionsApi {
+
     @GetMapping(
-            path = "/{idRessource}",
+            path = "/{idPromotions}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    Ressources avoirRessource (@NonNull @RequestParam(name="idRessource") String idRessource);
+    Promotions avoirPromotion (@NonNull @RequestParam(name="idPromotions") String idPromotions);
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    List<Ressources> avoirToutRessources();
+    List<Promotions> avoirToutPromotions();
 
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    void supprimerRessources(@NonNull @RequestBody Ressources ressources);
+    void supprimerPromotion(@NonNull @RequestBody Promotions Promotions);
 
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Ressources posterRessources(@NonNull @RequestBody Ressources ressources) ;
-
+    Promotions posterPromotion(@NonNull @RequestBody Promotions Promotions) ;
+    
 }

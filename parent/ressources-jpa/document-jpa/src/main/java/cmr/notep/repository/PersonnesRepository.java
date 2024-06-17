@@ -4,5 +4,5 @@ import cmr.notep.dao.PersonnesEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface PersonneRepository extends JpaRepository<PersonnesEntity, String> {
+public interface PersonnesRepository extends JpaRepository<PersonnesEntity, String> {
 }

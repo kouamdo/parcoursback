@@ -113,7 +113,7 @@ VALUES
     ('3', 'Total Distribution',  'Buéa');
 
 
-INSERT INTO mouvements (id, description, qte, prix, datecreation, dateperemption, ressources_id, distributeurs_id)
+INSERT INTO mouvements (id, description, quantite, prix, datecreation, dateperemption, ressources_id, distributeurs_id)
 VALUES
     ('1', 'Ici la description de ce mouvement', 20, 10000, NOW(), NOW(), '1', '1'),
     ('2', 'Ici la description de ce mouvement', 50, 300, NOW(), NOW(), '5', '2'),
@@ -177,6 +177,14 @@ VALUES
     ('11', 'azerty', 'false', '2023-02-10', '1'),
     ('21', 'qwerty', 'true', '2014-04-01', '2'),
     ('31', 'qsdfghj', 'true', '2015-10-10', '3');
+
+INSERT INTO promotions (id, datedebut, datefin, codeunique, montantremise, pourcentageremise, datecreation, distributeurs_id)
+VALUES
+('1', '2024-06-01', '2024-06-30', 'CODE1', 50.0, 10.0, '2024-06-01', '1'),
+('2', '2024-07-01', '2024-07-31', 'CODE2', 60.0, 15.0, '2024-07-01', '2'),
+('3', '2024-08-01', '2024-08-31', 'CODE3', 70.0, 20.0, '2024-08-01', '3'),
+('4', '2024-09-01', '2024-09-30', 'CODE4', 80.0, 25.0, '2024-09-01', '3');
+
 --fin insertion
 
 

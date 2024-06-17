@@ -47,5 +47,4 @@ public class DistributeursBusiness {
         return dozerMapperBean.map( this.daoAccessorService.getRepository(DistributeursRepository.class)
                 .save(dozerMapperBean.map(Distributeurs, DistributeursEntity.class)), Distributeurs.class);
     }
-
 }

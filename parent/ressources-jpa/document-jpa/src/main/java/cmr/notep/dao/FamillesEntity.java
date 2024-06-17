@@ -37,4 +37,9 @@ public class FamillesEntity {
     @OneToMany(mappedBy = "famillesEntity", fetch = FetchType.LAZY)
     @Mapping("ressources")
     private List<RessourcesEntity> ressourceEntities;
+
+    @ManyToOne
+    @JoinColumn(name = "promotions_id")
+    @Mapping("promotion")
+    private PromotionsEntity promotionsEntity;
 }

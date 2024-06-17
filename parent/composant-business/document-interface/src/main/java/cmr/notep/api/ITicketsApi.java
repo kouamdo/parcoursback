@@ -1,36 +1,34 @@
 package cmr.notep.api;
 
-
-import cmr.notep.modele.Ressources;
-import cmr.notep.modele.Ressources;
+import cmr.notep.modele.Tickets;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("ressources")
-public interface IRessourcesApi {
+@RequestMapping("tickets")
+public interface ITicketsApi {
+
     @GetMapping(
-            path = "/{idRessource}",
+            path = "/{idTickets}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    Ressources avoirRessource (@NonNull @RequestParam(name="idRessource") String idRessource);
+    Tickets avoirTicket (@NonNull @RequestParam(name="idTickets") String idTickets);
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    List<Ressources> avoirToutRessources();
+    List<Tickets> avoirToutTickets();
 
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    void supprimerRessources(@NonNull @RequestBody Ressources ressources);
+    void supprimerTicket(@NonNull @RequestBody Tickets Tickets);
 
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Ressources posterRessources(@NonNull @RequestBody Ressources ressources) ;
-
+    Tickets posterTicket(@NonNull @RequestBody Tickets Tickets) ;
 }

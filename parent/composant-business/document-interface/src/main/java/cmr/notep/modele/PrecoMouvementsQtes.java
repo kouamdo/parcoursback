@@ -20,6 +20,6 @@ public class PrecoMouvementsQtes {
     private int montantMax ;
     private PrecoMouvements precoMouvement ;
     private List<Familles> familles;
-    private Ressources ressources;
+    private Ressources ressource;
     private List<Distributeurs> distributeurs;
 }

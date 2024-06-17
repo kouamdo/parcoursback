@@ -34,7 +34,7 @@ public class PrecoMouvementsQtesEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ressources_id")
-    @Mapping("ressources")
+    @Mapping("ressource")
     private RessourcesEntity ressourcesEntity;
 
     @ManyToMany(mappedBy = "precoMouvementsQtesEntities" , fetch = FetchType.LAZY)

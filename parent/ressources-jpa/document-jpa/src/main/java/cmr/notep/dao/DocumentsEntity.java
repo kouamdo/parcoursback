@@ -76,4 +76,8 @@ public class DocumentsEntity {
     @OneToMany(mappedBy = "documentsEntity" , fetch = FetchType.LAZY , cascade = {CascadeType.ALL})
     @Mapping("docetats")
     private List<DocEtatsEntity> docEtatsEntities;
+
+    @ManyToMany(mappedBy = "documentsEntities")
+    @Mapping("promotions")
+    private List<PromotionsEntity> promotionsEntities;
 }

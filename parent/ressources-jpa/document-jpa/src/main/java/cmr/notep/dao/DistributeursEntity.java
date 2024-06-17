@@ -30,4 +30,10 @@ public class DistributeursEntity extends PersonnesEntity {
     inverseJoinColumns = @JoinColumn(name = "distributeurs_id"))
     @Mapping("precomouvementsqtes")
     private List<PrecoMouvementsQtesEntity> precoMouvementsQtesEntities;
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "promotions_id" , referencedColumnName = "id")
+    @Mapping("promotion")
+    private PromotionsEntity promotion;
 }

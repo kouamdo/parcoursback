@@ -23,4 +23,5 @@ public class Familles {
     private Date dateModification;
     private List<PrecoMouvementsQtes> precoMouvementsQte;
     private List<Ressources> ressources;
+    private Promotions promotion;
 }

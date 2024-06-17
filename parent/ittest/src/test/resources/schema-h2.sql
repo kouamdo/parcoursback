@@ -31,6 +31,18 @@ CREATE TABLE IF NOT EXISTS documents
     CONSTRAINT documents_pkey PRIMARY KEY (id)
 );
 
+CREATE TABLE IF NOT EXISTS promotions
+(
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    datedebut date,
+    datefin date,
+    codeunique VARCHAR(255) UNIQUE,
+    montantremise float,
+    pourcentageremise float,
+    datecreation date,
+    distributeurs_id VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS constituer
 (
     documents_id VARCHAR(255)  NOT NULL,
@@ -90,7 +102,9 @@ CREATE TABLE IF NOT EXISTS familles
     description VARCHAR(255) ,
     etat boolean,
     datecreation date,
-    datemodification date
+    datemodification date,
+    promotions_id VARCHAR(255),
+    FOREIGN KEY (promotions_id) REFERENCES promotions(id)
     );
 
 CREATE TABLE IF NOT EXISTS ressources(
@@ -101,11 +115,13 @@ CREATE TABLE IF NOT EXISTS ressources(
     datemodification date,
     quantite int,
     seuilalerte int,
-    prixentree double,
-    prixsortie double,
+    prixentree float,
+    prixsortie float,
     unite VARCHAR(15),
     familles_id VARCHAR NULL,
-    FOREIGN KEY (familles_id) REFERENCES familles(id)
+    FOREIGN KEY (familles_id) REFERENCES familles(id),
+    promotions_id VARCHAR(255),
+    FOREIGN KEY (promotions_id) REFERENCES promotions(id)
     );
 
 CREATE TABLE IF NOT EXISTS precomouvements(
@@ -192,14 +208,18 @@ CREATE TABLE distributeurs (
     code VARCHAR(255),
     raisonsociale VARCHAR(255),
     PRIMARY KEY (distributeurs_id),
-    FOREIGN KEY (distributeurs_id) REFERENCES personnes(id)
+    FOREIGN KEY (distributeurs_id) REFERENCES personnes(id),
+    promotions_id VARCHAR(255)
 );
+
+ALTER TABLE distributeurs ADD CONSTRAINT distributeur_promotion_fk FOREIGN KEY (promotions_id) REFERENCES promotions(id);
+ALTER TABLE promotions ADD CONSTRAINT promotion_distributeur_fk FOREIGN KEY (distributeurs_id) REFERENCES distributeurs(distributeurs_id);
 
 CREATE TABLE IF NOT EXISTS mouvements(
     id VARCHAR NOT NULL PRIMARY KEY,
     description VARCHAR(255) ,
     quantite int,
-    prix double,
+    prix float,
     datecreation date,
     dateperemption date,
     ressources_id VARCHAR(255)  NOT NULL,
@@ -358,4 +378,12 @@ CREATE TABLE IF NOT EXISTS remplir (
     PRIMARY KEY (roles_id, missions_id),
     FOREIGN KEY (roles_id) REFERENCES roles(id),
     FOREIGN KEY (missions_id) REFERENCES missions(id)
+);
+
+CREATE TABLE IF NOT EXISTS documentpromotion (
+    promotions_id VARCHAR(255)  NOT NULL,
+    documents_id VARCHAR(255)  NOT NULL,
+    CONSTRAINT documentpromotion_pkey PRIMARY KEY (promotions_id, documents_id),
+    CONSTRAINT documents_promotions_fk FOREIGN KEY (promotions_id)  REFERENCES promotions(id),
+    CONSTRAINT promotions_doculents_fk FOREIGN KEY (documents_id) REFERENCES documents(id)
 );
