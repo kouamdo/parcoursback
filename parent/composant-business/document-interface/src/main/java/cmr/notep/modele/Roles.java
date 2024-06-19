@@ -19,6 +19,6 @@ public class Roles {
     private Boolean etat ;
     private Date dateCreation;
     private List<JouerRoles> joueroles;
-    private List<Remplir> remplirList;
+    private List<Remplir> missions;
     private List<Validations> validations;
 }

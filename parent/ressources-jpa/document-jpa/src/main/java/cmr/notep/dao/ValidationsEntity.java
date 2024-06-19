@@ -26,6 +26,14 @@ public class ValidationsEntity {
 
     @Column(name = "datecreation")
     private Date dateCreation;
+    @Column(name = "datemodification")
+    private Date dateModification;
+    @Column(name = "typevote")
+    private String typeVote ;
+    @Column(name = "dureevote")
+    private int dureeVote ;
+    @Column(name = "typevalidation")
+    private String typeValidation ;
 
     @ManyToOne
     @JoinColumn(name = "roles_id")

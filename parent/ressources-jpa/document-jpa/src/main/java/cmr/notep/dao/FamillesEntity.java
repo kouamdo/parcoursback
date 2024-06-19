@@ -31,15 +31,15 @@ public class FamillesEntity {
     @JoinTable(name = "sapplique",
             joinColumns = @JoinColumn(name = "familles_id"),
             inverseJoinColumns = @JoinColumn(name = "precomouvementsqtes_id"))
-    @Mapping("precoMouvementsQte")
+    @Mapping("precoMouvementsQtes")
     private List<PrecoMouvementsQtesEntity> precoMouvementsQtesEntities;
 
     @OneToMany(mappedBy = "famillesEntity", fetch = FetchType.LAZY)
     @Mapping("ressources")
     private List<RessourcesEntity> ressourceEntities;
 
-    @ManyToOne
+    @ManyToMany(mappedBy = "famillesEntities", fetch = FetchType.LAZY)
     @JoinColumn(name = "promotions_id")
-    @Mapping("promotion")
-    private PromotionsEntity promotionsEntity;
+    @Mapping("promotions")
+    private List<PromotionsEntity> promotionsEntities;
 }

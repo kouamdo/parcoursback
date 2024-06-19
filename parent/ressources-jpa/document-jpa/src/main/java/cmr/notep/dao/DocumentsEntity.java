@@ -74,7 +74,7 @@ public class DocumentsEntity {
     private List<PrecoMouvementsEntity> precoMouvementsEntities ;
 
     @OneToMany(mappedBy = "documentsEntity" , fetch = FetchType.LAZY , cascade = {CascadeType.ALL})
-    @Mapping("docetats")
+    @Mapping("docEtats")
     private List<DocEtatsEntity> docEtatsEntities;
 
     @ManyToMany(mappedBy = "documentsEntities")

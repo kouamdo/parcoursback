@@ -14,6 +14,8 @@ import java.util.Date;
 public class OrdreEtats {
     private String id;
     private Date dateCreation;
+    private Date dateModification;
+    private Date dateFinVote;
     private int ordre ;
     private Etats etat;
 }

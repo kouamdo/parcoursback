@@ -36,8 +36,8 @@ public class MissionsEntity {
 
     @ManyToMany(fetch = FetchType.LAZY , cascade = {CascadeType.ALL} )
     @JoinTable(name = "traiter",
-        joinColumns = @JoinColumn(name = "id_mission"),
-            inverseJoinColumns = @JoinColumn(name="id_document")
+        joinColumns = @JoinColumn(name = "missions_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name="documents_id", referencedColumnName = "id")
     )
     @Mapping("documents")
     private List<DocumentsEntity> documentsEntities ;
@@ -48,6 +48,6 @@ public class MissionsEntity {
     private ServicesEntity servicesEntity ;
 
     @OneToMany(mappedBy = "missionsEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("remplirList")
+    @Mapping("roles")
     List<RemplirEntity> remplirEntities;
 }

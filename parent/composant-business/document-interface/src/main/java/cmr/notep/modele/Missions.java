@@ -23,5 +23,5 @@ public class Missions {
     private Date dateModification ;
     private List<Documents> documents;
     private Services service;
-    private List<Remplir> remplirList;
+    private List<Remplir> roles;
 }

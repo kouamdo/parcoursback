@@ -34,33 +34,6 @@ INSERT INTO documents (id, titre, description, etat, datecreation, datemodificat
 VALUES ('1', 'Note intervention', 'Document delivre par le medecin ou un infirmier de l''etablissement', true, '2000-03-07', '1990-03-07');
 
 
----- Insertion dans la table 'attributs'
-INSERT INTO attributs (id, titre, description, etat, datecreation, datemodification, type) VALUES
-('1', 'taille', 'taille de l''individu', true, '2000-03-07', '1990-03-07', 'String'),
-('4', 'age', 'age de l''individu', true, '2000-03-07', '1990-03-07', 'Double'),
-('5', 'allergies', 'allergies de l''individu', true, '2000-03-07', '1990-03-07', 'String'),
-('6', 'teint', 'teint de l''individu', true, '2000-03-07', '1990-03-07', 'String'),
-('7', 'Groupe sangin', 'Groupe sangin de l''individu', true, '2000-03-07', '1990-03-07', 'Boolean'),
-('8', 'cicatrice', 'cicatrice de l''individu', true, '2000-03-07', '1990-03-07', 'Boolean');
---
--- Insertion dans la table 'category'
-INSERT INTO categories (id, ordre, libelle, documents_id) VALUES
-('100', '1', 'informations personelles', '1'),
-('200', '2', 'informations de sante', '1');
-
-
-------attribut jdd
-
-INSERT INTO attributs (id, titre, description, etat, datecreation, datemodification, type, valeurpardefaut) VALUES
-('1000', 'taille', 'taille de l''individu', true, '2000-03-07', '1990-03-07', 'String', '');
-
-
---Insertion dans la table 'associer'
-INSERT INTO associer (attributs_id, categories_id, obligatoire, ordre) VALUES
-('1000', '100', false, 11),
-('1000', '200', false, 1);
-
-
 -- Insertion dans la table 'precomouvements'
 INSERT INTO precomouvements (id, libelle, etat, typemouvement) VALUES
 ('1', 'rachat', true, 'Neutre'),
@@ -251,8 +224,3 @@ INSERT INTO associer (attributs_id, categories_id, obligatoire, ordre)
             ('1234png', '19',true,1),
             ('3456', '19',false,2);
 
-INSERT INTO documents
-    (id, titre, description, typemouvement, etat, afficherunite, afficherdistributeur,
-     prixeditable, contientressources, afficherprix, datecreation, datemodification)
-VALUES
-    (100, 'Fiche de Test', 'traite test', 'Neutre', TRUE, TRUE, TRUE, TRUE, TRUE, 'TRUE', NULL, NULL);

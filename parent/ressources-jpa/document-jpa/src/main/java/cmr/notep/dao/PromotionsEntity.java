@@ -36,16 +36,19 @@ public class PromotionsEntity {
     @Column(name = "datecreation")
     private Date dateCreation;
 
-    @OneToOne(mappedBy = "promotion")
+    @ManyToOne()
     @PrimaryKeyJoinColumn
-    @Mapping("distributeur")
-    private DistributeursEntity distributeur ;
+    @Mapping("distributeursEntity")
+    private DistributeursEntity distributeursEntity ;
 
     @OneToMany(mappedBy = "promotionsEntity" , fetch = FetchType.LAZY)
     @Mapping("ressources")
     private List<RessourcesEntity> ressourcesEntities;
 
-    @OneToMany(mappedBy = "promotionsEntity" , fetch = FetchType.LAZY)
+    @ManyToMany
+    @JoinTable(name = "famillepromotion" ,
+            joinColumns = @JoinColumn(name = "promotions_id"),
+            inverseJoinColumns = @JoinColumn(name = "familles_id"))
     @Mapping("familles")
     private List<FamillesEntity> famillesEntities;
 

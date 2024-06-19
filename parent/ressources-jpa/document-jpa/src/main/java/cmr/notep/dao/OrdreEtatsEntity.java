@@ -18,7 +18,10 @@ public class OrdreEtatsEntity {
 
     @Column(name = "datecreation")
     private Date dateCreation;
-
+    @Column(name = "datemodification")
+    private Date dateModification;
+    @Column(name = "datefinvote")
+    private Date dateFinVote;
     @Column(name = "ordre")
     private int ordre ;
 

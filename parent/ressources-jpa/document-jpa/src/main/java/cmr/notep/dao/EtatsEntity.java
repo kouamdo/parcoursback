@@ -27,10 +27,11 @@ public class EtatsEntity {
     private Date dateCreation;
 
     @OneToMany(mappedBy = "etatsEntity")
-    @Mapping("docetats")
+    @Mapping("docEtats")
     private List<DocEtatsEntity> docEtatsEntities;
 
     @OneToMany(mappedBy = "etatsEntity")
-    @Mapping("ordres")
+    @Mapping("ordresEtat")
     private List<OrdreEtatsEntity> ordreEtatsEntities;
+    //ajouter EtatsValidationsEntity avec ManyToOne sur EtatsEntity, PersonnelsEntity et OrdreEtatsEntity
 }

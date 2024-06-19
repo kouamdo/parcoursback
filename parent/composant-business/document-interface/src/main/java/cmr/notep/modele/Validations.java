@@ -18,5 +18,9 @@ public class Validations {
     private String etat ;
     private Date dateCreation;
     private Roles role;
+    private Date dateModification;
+    private String typeVote ;
+    private int dureeVote ;
+    private String typeValidation ;
     private List<DocEtats> docetats;
 }

@@ -21,7 +21,7 @@ public class Familles {
     private String etat ;
     private Date dateCreation;
     private Date dateModification;
-    private List<PrecoMouvementsQtes> precoMouvementsQte;
+    private List<PrecoMouvementsQtes> precoMouvementsQtes;
     private List<Ressources> ressources;
-    private Promotions promotion;
+    private List<Promotions> promotions;
 }

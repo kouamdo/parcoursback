@@ -35,7 +35,7 @@ public class RolesEntity {
     private List<JouerRolesEntity> jouerRolesEntities;
 
     @OneToMany(mappedBy = "rolesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("remplirList")
+    @Mapping("missions")
     private List<RemplirEntity> remplirEntities;
 
     @OneToMany(mappedBy = "roleEntity" , fetch = FetchType.LAZY, cascade = {CascadeType.ALL})

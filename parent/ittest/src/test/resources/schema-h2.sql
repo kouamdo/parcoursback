@@ -327,10 +327,10 @@ CREATE TABLE IF NOT EXISTS mouvpreco (
     CONSTRAINT mouvements_precomouvements_fk FOREIGN KEY (id_mouvements) REFERENCES mouvements(id)
 );
 
-CREATE TABLE IF NOT EXISTS livrer (
+CREATE TABLE IF NOT EXISTS concerner (
     precomouvementsqtes_id VARCHAR(255)  NOT NULL,
     distributeurs_id VARCHAR(255)  NOT NULL,
-    CONSTRAINT livrer_pkey PRIMARY KEY (precomouvementsqtes_id, distributeurs_id),
+    CONSTRAINT concerner_pkey PRIMARY KEY (precomouvementsqtes_id, distributeurs_id),
     CONSTRAINT precomouvementsqtes_distributeurs_fk FOREIGN KEY (precomouvementsqtes_id)  REFERENCES precomouvementsqtes(id),
     CONSTRAINT distributeurs_precomouvementsqtes_fk FOREIGN KEY (distributeurs_id) REFERENCES distributeurs(distributeurs_id)
 );

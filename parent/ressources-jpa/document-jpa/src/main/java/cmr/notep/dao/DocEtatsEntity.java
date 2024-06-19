@@ -31,11 +31,13 @@ public class DocEtatsEntity {
     @Mapping("validation")
     private ValidationsEntity validationsEntity;
 
-    @OneToMany
+    @OneToMany(mappedBy = "docEtatsCourantEntity", fetch = FetchType.LAZY)
     @Mapping("predecesseurDocEtat")
-    @JoinColumn(referencedColumnName = "id")
-    @JsonBackReference
     private List<DocEtatsEntity> predecesseursDocEtat = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "docEtatsCourantEntity_id")
+    private DocEtatsEntity docEtatsCourantEntity;
 
     @ManyToOne
     @JoinColumn(name = "etats_id")

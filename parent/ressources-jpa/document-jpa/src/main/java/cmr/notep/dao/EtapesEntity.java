@@ -25,11 +25,11 @@ public class EtapesEntity {
 
     @ManyToOne
     @JoinColumn(name = "parcours_id")
-    @Mapping("parcour")
+    @Mapping("parcours")
     private ParcoursEntity parcoursEntity;
 
     @OneToMany(mappedBy = "etapesEntity" , fetch = FetchType.LAZY ,  cascade = {CascadeType.ALL})
     @Mapping("docEtats")
-    private List<DocEtatsEntity> docEtatsEntityList;
+    private List<DocEtatsEntity> docEtatsEntities;
 
 }
