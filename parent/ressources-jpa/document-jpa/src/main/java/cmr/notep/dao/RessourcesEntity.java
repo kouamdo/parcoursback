@@ -46,10 +46,10 @@ public class RessourcesEntity {
 
     @OneToMany(mappedBy = "ressourcesEntity" , fetch = FetchType.LAZY)
     @Mapping("mouvements")
-    private List<MouvementsEntity> mouvementsEntityList;
+    private List<MouvementsEntity> mouvementsEntities;
 
     @ManyToOne
     @JoinColumn(name = "promotions_id")
     @Mapping("promotion")
-    private PromotionsEntity promotionsEntity;
+    private PromotionsEntity promotionsEntities;
 }

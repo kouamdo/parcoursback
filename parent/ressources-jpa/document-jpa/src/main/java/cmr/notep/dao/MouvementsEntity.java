@@ -6,6 +6,7 @@ import org.dozer.Mapping;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -22,23 +23,30 @@ public class MouvementsEntity {
     private  String description ;
 
     @Column(name = "quantite")
-    private int qte ;
+    private int quantite ;
 
     @Column(name = "prix")
     private double prix ;
 
     @Column(name = "datecreation",nullable = false)
-    private LocalDate dateCreation ;
+    private Date dateCreation ;
 
     @Column(name = "dateperemption",nullable = false)
-    private LocalDate datePeremption ;
+    private Date datePeremption ;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @JoinTable(name = "mouvpreco" ,
-    joinColumns = @JoinColumn(name = "id_precomouvements"),
-    inverseJoinColumns = @JoinColumn(name = "id_mouvements"))
-    @Mapping("precoMouvements")
-    private List<PrecoMouvementsEntity> precoMouvementsEntityList;
+    @JoinTable(name = "respecter" ,
+    joinColumns = @JoinColumn(name = "mouvements_id"),
+    inverseJoinColumns = @JoinColumn(name = "precomouvements_id"))
+    @Mapping("precoMouvementsRespecter")
+    private List<PrecoMouvementsEntity> precoMouvementsRespecterEntityties;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @JoinTable(name = "violer" ,
+            joinColumns = @JoinColumn(name = "mouvements_id"),
+            inverseJoinColumns = @JoinColumn(name = "precomouvements_id"))
+    @Mapping("precoMouvementsVioler")
+    private List<PrecoMouvementsEntity> precoMouvementsViolerEntityties;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ressources_id")
