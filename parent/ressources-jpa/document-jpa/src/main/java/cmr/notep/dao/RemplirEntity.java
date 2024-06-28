@@ -31,7 +31,7 @@ public class RemplirEntity{
     @Column(name = "datefin")
     private Date dateFin ;
 
-    @Column(name = "datecreation")
+    @Column(name = "datecreation", updatable = false)
     private Date dateCreation;
 
     @Column(name = "datedebut")

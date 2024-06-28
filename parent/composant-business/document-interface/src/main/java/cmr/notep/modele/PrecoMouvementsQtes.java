@@ -16,8 +16,8 @@ public class PrecoMouvementsQtes {
     private String id ;
     private int qteMin ;
     private int qteMax ;
-    private int montantMin ;
-    private int montantMax ;
+    private double montantMin ;
+    private double montantMax ;
     private PrecoMouvements precoMouvement ;
     private List<Familles> familles;
     private Ressources ressource;

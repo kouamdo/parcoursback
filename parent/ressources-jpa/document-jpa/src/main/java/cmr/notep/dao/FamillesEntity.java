@@ -14,7 +14,8 @@ import java.util.List;
 @Table(name = "familles")
 public class FamillesEntity {
     @Id
-    @Column(name = "id" , nullable = false)
+    @GeneratedValue
+    @Column(name = "id" , nullable = false, updatable = false, columnDefinition = "UUID")
     private String id ;
     @Column(name = "libelle")
     private String libelle;
@@ -22,7 +23,7 @@ public class FamillesEntity {
     private String description;
     @Column(name = "etat")
     private Boolean etat ;
-    @Column(name = "datecreation")
+    @Column(name = "datecreation", updatable = false)
     private Date dateCreation;
     @Column(name = "datemodification")
     private Date dateModification;

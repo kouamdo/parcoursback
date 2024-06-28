@@ -16,7 +16,8 @@ import java.util.List;
 @Table(name = "missions")
 public class MissionsEntity {
     @Id
-    @Column(name="id", nullable = false)
+    @GeneratedValue
+    @Column(name="id", nullable = false, updatable = false, columnDefinition = "UUID")
     private String id ;
 
     @Column(name="libelle",nullable = false)
@@ -28,7 +29,7 @@ public class MissionsEntity {
     @Column(name = "etat")
     private boolean etat ;
 
-    @Column(name = "datecreation",nullable = false)
+    @Column(name = "datecreation", updatable = false,nullable = false)
     private Date dateCreation ;
 
     @Column(name="datemodification")

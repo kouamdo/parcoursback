@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -16,8 +17,9 @@ import java.util.List;
 public class MouvementsEntity {
 
     @Id
-    @Column(name = "id" , nullable = false)
-    private  String id ;
+    @GeneratedValue
+    @Column(name = "id" , nullable = false, updatable = false, columnDefinition = "UUID")
+    private UUID id ;
 
     @Column(name = "description" , nullable = false)
     private  String description ;
@@ -28,12 +30,13 @@ public class MouvementsEntity {
     @Column(name = "prix")
     private double prix ;
 
-    @Column(name = "datecreation",nullable = false)
+    @Column(name = "datecreation", updatable = false,nullable = false)
     private Date dateCreation ;
 
     @Column(name = "dateperemption",nullable = false)
     private Date datePeremption ;
-
+    @Column(name = "datemodification")
+    private Date dateModification;
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "respecter" ,
     joinColumns = @JoinColumn(name = "mouvements_id"),

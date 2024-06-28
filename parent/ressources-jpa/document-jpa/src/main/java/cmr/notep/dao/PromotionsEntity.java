@@ -7,6 +7,7 @@ import org.dozer.Mapping;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -15,8 +16,9 @@ import java.util.List;
 public class PromotionsEntity {
 
     @Id
-    @Column(name = "id", nullable = false)
-    private String id;
+    @GeneratedValue
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private UUID id;
 
     @Column(name = "datedebut")
     private Date dateDebut;
@@ -27,33 +29,34 @@ public class PromotionsEntity {
     @Column(name = "codeunique", unique = true)
     private String codeUnique;
 
-    @Column(name = "montantremise")
-    private Double montantRemise;
+    @Column(name = "typeremise")
+    private String typeRemise;
 
-    @Column(name = "pourcentageremise")
-    private Double pourcentageRemise;
+    @Column(name = "valeurremise")
+    private Double valeurRemise;
 
-    @Column(name = "datecreation")
+    @Column(name = "datecreation", updatable = false)
     private Date dateCreation;
-
-    @ManyToOne()
+    @Column(name = "datemodification")
+    private Date dateModification;
+    @ManyToOne
     @PrimaryKeyJoinColumn
-    @Mapping("distributeursEntity")
+    @Mapping("distributeur")
     private DistributeursEntity distributeursEntity ;
 
-    @OneToMany(mappedBy = "promotionsEntity" , fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "promotionsEntities" , fetch = FetchType.LAZY)
     @Mapping("ressources")
     private List<RessourcesEntity> ressourcesEntities;
 
     @ManyToMany
-    @JoinTable(name = "famillepromotion" ,
+    @JoinTable(name = "famillespromotions" ,
             joinColumns = @JoinColumn(name = "promotions_id"),
             inverseJoinColumns = @JoinColumn(name = "familles_id"))
     @Mapping("familles")
     private List<FamillesEntity> famillesEntities;
 
     @ManyToMany
-    @JoinTable(name = "documentpromotion" ,
+    @JoinTable(name = "documentspromotions" ,
         joinColumns = @JoinColumn(name = "promotions_id"),
         inverseJoinColumns = @JoinColumn(name = "documents_id"))
     @Mapping("documents")

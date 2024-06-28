@@ -16,7 +16,8 @@ import java.util.List;
 public class PrecoMouvementsEntity {
 
     @Id
-    @Column(name="id", nullable = false)
+    @GeneratedValue
+    @Column(name="id", nullable = false, updatable = false, columnDefinition = "UUID")
     private String id ;
 
     @Column(name="libelle",nullable = false)
@@ -25,9 +26,8 @@ public class PrecoMouvementsEntity {
     @Column(name = "etat")
     private boolean etat ;
 
-    @Column(name = "datecreation",nullable = false)
+    @Column(name = "datecreation", updatable = false,nullable = false)
     private LocalDate dateCreation ;
-
     @Column(name="datemodification")
     private LocalDate dateModification ;
 
