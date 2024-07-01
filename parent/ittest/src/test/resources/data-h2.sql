@@ -1,23 +1,23 @@
 INSERT INTO documents(
 	id, titre, description, etat,typemouvement,afficherunite,afficherdistributeur,prixeditable,contientressources,afficherprix, datecreation, datemodification)
 	VALUES 
-('1234','Fiche de soin avec poids avec teint','fiche de soin',True,'Neutre',true,true,true,true,true,NULL,NULL),
-('2345','Fiche de traite','traite',True,'Neutre',true,true,true,true,true,'2023-03-31','2023-03-31'),
-('2345png','Fiche de traite Test','traite test',True,'Ajout',true,true,true,true,true,NULL,NULL),
-('2345png01','Fiche de Test','traite test',True,'Neutre',true,true,true,true,true,NULL,NULL),
-('2345png02','Fiche de Test 2345-png-02','traite test 2345-png-02',True,'Neutre',true,true,true,true,true,NULL,NULL),
-('2345png03','Fiche de Test 2345-png-03','traite test 2345-png-03',True,'Neutre',true,true,true,true,true,NULL,NULL),
-('nom01','Fiche de Test','traite test',True,'Reduire',true,true,true,true,true,NULL,NULL),
-('png04','Fiche de Test 4','traite test',True,'Neutre',true,true,true,true,true,NULL,NULL);
+('0190615e-1101-7209-9932-7020bbd556f1', 'Note intervention', 'Document delivre par le medecin ou un infirmier de l''etablissement', true, 'Ajout', true, true, true, true,true,'2023-03-31','2023-03-31'),
+('0190615e-1101-7209-9932-7020bbd556f2','Fiche de suivi','Document delivre par le medecin ou un infirmier de l''etablissement',True,'Neutre',true,true,true,true,true,'2023-03-31','2023-03-31'),
+('0190615e-1101-7209-9932-7020bbd556f3','Fiche de soin','Document delivre par le medecin ou un infirmier de l''etablissement',True,'Ajout',true,true,true,true,true,NULL,NULL),
+('0190615e-1101-7209-9932-7020bbd556f4','Formulaire de sortie','Document delivre par le medecin ou un infirmier de l''etablissement',True,'Neutre',true,true,true,true,true,NULL,NULL),
+('0190615e-1101-7209-9932-7020bbd556f5','ordonnance','Document delivre par le medecin ou un infirmier de l''etablissement',True,'Neutre',true,true,true,true,true,NULL,NULL),
+('0190615e-1101-7209-9932-7020bbd556f6','Bon de commande','Document delivre par le chef service',True,'Neutre',true,true,true,true,true,NULL,NULL),
+('0190615e-1101-7209-9932-7020bbd556f7','Bon de livraison','Document delivre par ',True,'Reduire',true,true,true,true,true,NULL,NULL),
+('0190615e-1101-7209-9932-7020bbd556f8','Fiche de selection','Document delivre par le magasinier',True,'Neutre',true,true,true,true,true,NULL,NULL);
 
 --insertion du jdd
 
 -- Insertion dans la table service
-INSERT INTO services (id, libelle, description, codeunique, etat, datecreation, datemodification)
+INSERT INTO services (id, libelle, description, codeunique, etat,localisation, datecreation, datemodification,filesattentes_id)
 VALUES
-('3', 'Consultation', 'bien', '3', true, '1972-06-12', '1990-03-07'),
-('2', 'Laboratoire', 'bien', '2', true, '1990-08-06', '1990-03-07'),
-('1', 'Pharmacie', 'bien', 'code_unique', true, '2000-03-07', '1990-03-07');
+('s190615e-1101-7209-9932-7020bbd556f1', 'Consultation', 'bien', 'S1', true, 'douala', '1972-06-12', '1990-03-07','f190615e-1101-7209-9932-7020bbd556f1'),
+('s190615e-1101-7209-9932-7020bbd556f2', 'Laboratoire', 'bien', 'S2', true, 'douala', '1990-08-06', '1990-03-07','f190615e-1101-7209-9932-7020bbd556f2'),
+('s190615e-1101-7209-9932-7020bbd556f3', 'Pharmacie', 'bien', 'S3', true, 'douala', '2000-03-07', '1990-03-07','f190615e-1101-7209-9932-7020bbd556f3');
 
 -- Insertion dans la table mission
 INSERT INTO missions (id, libelle, description, etat, datecreation, datemodification, services_id)
