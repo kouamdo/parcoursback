@@ -10,6 +10,11 @@ INSERT INTO documents(
 ('nom01','Fiche de Test','traite test',True,'Reduire',true,true,true,true,true,NULL,NULL),
 ('png04','Fiche de Test 4','traite test',True,'Neutre',true,true,true,true,true,NULL,NULL);
 
+insert into documentpromotion (promotions_id, documents_id) values
+('1','1234'),
+('2','2345'),
+('3','2345png'),
+('4','2345png01');
 --insertion du jdd
 
 -- Insertion dans la table service
@@ -106,6 +111,10 @@ VALUES
     ('2', 'Brasserie', '655554481', 'ngong@yad.fr'),
     ('3', 'Eneo', '655554486', 'ngong@yad.fr');
 
+INSERT INTO personneRatache (personne_id,personneratache_id) VALUES
+('1','2'),
+('2','3');
+
 INSERT INTO distributeurs (distributeurs_id, raisonsociale,code)
 VALUES
     ('1', 'Brasserie', 'Dla'),
@@ -185,12 +194,13 @@ VALUES
 ('3', '2024-08-01', '2024-08-31', 'CODE3', 70.0, 20.0, '2024-08-01', '3'),
 ('4', '2024-09-01', '2024-09-30', 'CODE4', 80.0, 25.0, '2024-09-01', '3');
 
+INSERT INTO filesattentes () VALUES
+('1','2024-06-01',true,'1');
+
+INSERT INTO ticketsfilesattentes(id,etat,dateaffectation,tickets_id,filesattentes_id) VALUES
+('1',true,'2024-06-30','1','1');
+
 --fin insertion
-
-
-
-
-
 
 INSERT INTO attributs(
 	id, titre, description, etat, datecreation, datemodification, type, valeurpardefaut)

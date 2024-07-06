@@ -35,8 +35,14 @@ public class PersonnesEntity
     private  String qrcodevalue ;
 
     @ManyToMany
+    @JoinTable(
+            name = "personneratache",
+            joinColumns = @JoinColumn(name = "personne_id"),
+            inverseJoinColumns = @JoinColumn(name = "personneratache_id")
+    )
     @JoinColumn(referencedColumnName = "id")
     @JsonBackReference
-    private List<PersonnesEntity> personneRatache = new ArrayList<>();
+    @Mapping("personnesratache")
+    private List<PersonnesEntity> personnesratache;
 
 }

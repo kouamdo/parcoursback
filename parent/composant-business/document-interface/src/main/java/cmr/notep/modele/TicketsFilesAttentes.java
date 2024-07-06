@@ -3,7 +3,6 @@ package cmr.notep.modele;
 import lombok.*;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -11,10 +10,10 @@ import java.util.List;
 @Builder
 @ToString
 @EqualsAndHashCode
-public class FilesAttentes {
+public class TicketsFilesAttentes {
     private String id;
-    private Date dateCreation;
     private Boolean etat ;
-    private Services service;
-    private List<TicketsFilesAttentes> ticketsfilesattentes;
+    private Date dateAffectation;
+    private Tickets ticket;
+    private FilesAttentes fileAttente;
 }

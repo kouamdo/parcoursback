@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -18,5 +17,8 @@ public class Personnes {
     private String mail ;
     private  String telephone ;
     private  String qrcodevalue ;
-    private List<Personnes> personneRatache = new ArrayList<>();
+    private List<Mouvements> mouvements;
+    private List<PrecoMouvementsQtes> precomouvementsqtes;
+    private Promotions promotion;
+    private List<Personnes> personnesratache;
 }

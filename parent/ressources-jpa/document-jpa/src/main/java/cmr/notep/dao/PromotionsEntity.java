@@ -36,10 +36,10 @@ public class PromotionsEntity {
     @Column(name = "datecreation")
     private Date dateCreation;
 
-    @OneToOne(mappedBy = "promotion")
+    @OneToOne(mappedBy = "promotionsEntity" ,cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     @Mapping("distributeur")
-    private DistributeursEntity distributeur ;
+    private DistributeursEntity distributeursEntity ;
 
     @OneToMany(mappedBy = "promotionsEntity" , fetch = FetchType.LAZY)
     @Mapping("ressources")

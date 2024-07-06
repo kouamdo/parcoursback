@@ -176,7 +176,7 @@ CREATE TABLE IF NOT EXISTS traiter
     CONSTRAINT missions_documents_fk FOREIGN KEY (id_mission) REFERENCES missions(id)
 );
 
-CREATE TABLE personnes (
+CREATE TABLE IF NOT EXISTS personnes (
     id VARCHAR(255) NOT NULL,
     adresse VARCHAR(255),
     mail VARCHAR(255),
@@ -185,7 +185,7 @@ CREATE TABLE personnes (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE personnes_morale (
+CREATE TABLE IF NOT EXISTS personnes_morale (
     personnesmorale_id VARCHAR(255) NOT NULL,
     raisonsociale VARCHAR(255),
     code VARCHAR(255),
@@ -193,7 +193,7 @@ CREATE TABLE personnes_morale (
     FOREIGN KEY (personnesmorale_id) REFERENCES personnes(id)
 );
 
-CREATE TABLE personnes_physique (
+CREATE TABLE IF NOT EXISTS personnes_physique (
     personnesphysique_id VARCHAR(255) NOT NULL,
     nom VARCHAR(255) NOT NULL,
     prenom VARCHAR(255),
@@ -203,7 +203,7 @@ CREATE TABLE personnes_physique (
     FOREIGN KEY (personnesphysique_id) REFERENCES personnes(id)
 );
 
-CREATE TABLE distributeurs (
+CREATE TABLE IF NOT EXISTS distributeurs (
     distributeurs_id VARCHAR(255) NOT NULL,
     code VARCHAR(255),
     raisonsociale VARCHAR(255),
@@ -211,6 +211,7 @@ CREATE TABLE distributeurs (
     FOREIGN KEY (distributeurs_id) REFERENCES personnes(id),
     promotions_id VARCHAR(255)
 );
+
 
 ALTER TABLE distributeurs ADD CONSTRAINT distributeur_promotion_fk FOREIGN KEY (promotions_id) REFERENCES promotions(id);
 ALTER TABLE promotions ADD CONSTRAINT promotion_distributeur_fk FOREIGN KEY (distributeurs_id) REFERENCES distributeurs(distributeurs_id);
@@ -386,4 +387,12 @@ CREATE TABLE IF NOT EXISTS documentpromotion (
     CONSTRAINT documentpromotion_pkey PRIMARY KEY (promotions_id, documents_id),
     CONSTRAINT documents_promotions_fk FOREIGN KEY (promotions_id)  REFERENCES promotions(id),
     CONSTRAINT promotions_doculents_fk FOREIGN KEY (documents_id) REFERENCES documents(id)
+);
+
+CREATE TABLE IF NOT EXISTS personneratache(
+    personne_id VARCHAR(255) NOT NULL,
+    personneratache_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY (personne_id) REFERENCES personnes(id),
+    FOREIGN KEY (personneratache_id) REFERENCES personnes(id),
+    CONSTRAINT personnes_ratache PRIMARY KEY (personne_id ,personneratache_id )
 );

@@ -1,21 +1,15 @@
 package cmr.notep.modele;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Distributeurs {
-    private String id;
-    private List<Mouvements> mouvements;
-    private List<PrecoMouvementsQtes> precomouvementsqtes;
+public class Distributeurs extends Personnes{
+    private String distributeurs_id;
     private String raisonSociale;
     private String code ;
-    private Promotions promotion;
 }

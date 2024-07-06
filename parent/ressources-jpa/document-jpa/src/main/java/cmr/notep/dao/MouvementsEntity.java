@@ -6,6 +6,7 @@ import org.dozer.Mapping;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -28,10 +29,10 @@ public class MouvementsEntity {
     private double prix ;
 
     @Column(name = "datecreation",nullable = false)
-    private LocalDate dateCreation ;
+    private Date dateCreation ;
 
     @Column(name = "dateperemption",nullable = false)
-    private LocalDate datePeremption ;
+    private Date datePeremption ;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "mouvpreco" ,

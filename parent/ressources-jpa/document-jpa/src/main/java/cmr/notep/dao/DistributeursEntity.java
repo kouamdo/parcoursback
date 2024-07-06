@@ -35,5 +35,5 @@ public class DistributeursEntity extends PersonnesEntity {
     @MapsId
     @JoinColumn(name = "promotions_id" , referencedColumnName = "id")
     @Mapping("promotion")
-    private PromotionsEntity promotion;
+    private PromotionsEntity promotionsEntity;
 }
