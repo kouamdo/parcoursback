@@ -35,6 +35,8 @@ public class PersonnesEntity
 
     @Column(name = "qrcodevalue")
     private  String qrcodevalue ;
+    @Column(name = "datecreation")
+    private Date dateCreation;
     @Column(name = "datemodification")
     private Date dateModification;
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})

@@ -22,76 +22,169 @@ VALUES
 -- Insertion dans la table mission
 INSERT INTO missions (id, libelle, description, etat, datecreation, datemodification, services_id)
 VALUES
-('4', 'Encaissement', 'recu de paiement lié à une mission', true, '2000-03-07', '1990-03-07', '1'),
-('5', 'Resultat Labo', 'Communiquer les résultats du labo aux patients', true, '2000-03-07', '1990-03-07', '3'),
-('6', 'Hospitalisation', 'bon d''entrée et de sortie est une mission', true, '2000-03-07', '1990-03-07', '1'),
-('3', 'Prelevement Labo', 'Prélévement fait par laboratoire', true, '2000-03-07', '1990-03-07', '3'),
-('2', 'Consultation Spécialiste', 'Consultation faite par un médecin', true, '2000-03-07', '1990-03-07', '2'),
-('1', 'Consultation', 'Consultation faite par une infirmière', true, '2000-03-07', '1990-03-07', '1');
+('m190615e-1101-7209-9932-7020bbd556f1', 'Encaissement', 'recu de paiement lié à une mission', true, '2000-03-07', '1990-03-07', 's190615e-1101-7209-9932-7020bbd556f1'),
+('m190615e-1101-7209-9932-7020bbd556f2', 'Resultat Labo', 'Communiquer les résultats du labo aux patients', true, '2000-03-07', '1990-03-07', 's190615e-1101-7209-9932-7020bbd556f1'),
+('m190615e-1101-7209-9932-7020bbd556f3', 'Hospitalisation', 'bon d''entrée et de sortie est une mission', true, '2000-03-07', '1990-03-07', 's190615e-1101-7209-9932-7020bbd556f2'),
+('m190615e-1101-7209-9932-7020bbd556f4', 'Prelevement Labo', 'Prélévement fait par laboratoire', true, '2000-03-07', '1990-03-07', 's190615e-1101-7209-9932-7020bbd556f2'),
+('m190615e-1101-7209-9932-7020bbd556f5', 'Consultation Spécialiste', 'Consultation faite par un médecin', true, '2000-03-07', '1990-03-07', 's190615e-1101-7209-9932-7020bbd556f3'),
+('m190615e-1101-7209-9932-7020bbd556f6', 'Consultation', 'Consultation faite par une infirmière', true, '2000-03-07', '1990-03-07', 's190615e-1101-7209-9932-7020bbd556f3');
 
--- Insertion dans la table documents
-INSERT INTO documents (id, titre, description, etat, datecreation, datemodification)
-VALUES ('1', 'Note intervention', 'Document delivre par le medecin ou un infirmier de l''etablissement', true, '2000-03-07', '1990-03-07');
+INSERT INTO attributs (id, titre, description, etat, datecreation, datemodification, type, valeurpardefaut)
+VALUES
+('a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'Taille', 'Description Taille', TRUE, '2022-01-01', '2022-01-02', 'String', null),
+('a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 'Poids', 'Description Poids', TRUE, '2022-01-01', '2022-01-02', 'Double', null),
+('a3eebc99-9c0b-4ef8-bb6d-6bb9bd380a13', 'Age', 'Description age', TRUE, '2022-01-01', '2022-01-02', 'Int', null),
+('a4eebc99-9c0b-4ef8-bb6d-6bb9bd380a14', 'Sexe', 'Sexe ', TRUE, '2022-01-01', '2022-01-02', 'String', null),
+('a5eebc99-9c0b-4ef8-bb6d-6bb9bd380a15', 'Teint', 'Coloration', TRUE, '2022-01-01', '2022-01-02', 'String', 'Noir'),
+('a6eebc99-9c0b-4ef8-bb6d-6bb9bd380a16', 'Groupe sangin', 'Groupe sangin', TRUE, '2022-01-01', '2022-01-02', 'String', 'A, A+, A-, B, B+, B-, AB, AB+, AB-, O, O+, O-'),
+('a7eebc99-9c0b-4ef8-bb6d-6bb9bd380a17', 'Allergies', 'Allergies connues ', TRUE, '2022-01-01', '2022-01-02', 'String', null),
+('a8eebc99-9c0b-4ef8-bb6d-6bb9bd380a18', 'Nom', 'Nom de la personne', TRUE, '2022-01-01', '2022-01-02', 'String', null),
+('a9eebc99-9c0b-4ef8-bb6d-6bb9bd380a19', 'Adresse', 'Adresse postale', TRUE, '2022-01-01', '2022-01-02', 'String', null),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a20', 'Date de naissance', 'Date de naissance', TRUE, '2022-01-01', '2022-01-02', 'Date', null);
 
+-- Insertion dans la table 'categories'
+INSERT INTO categories (id, libelle, description, etat, datecreation, datemodification,documents_id)
+VALUES
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a1', 'Informations Personnelles', 'Informations Personnelles', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f1'),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a2', 'Informations Primaires', 'Informations Primaires', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f1'),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a3', 'Conditions Générales', 'Conditions Générales', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f2'),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a4', 'Conditions Particulières', 'Particulières', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f2');
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a5', 'Informations Personnelles', 'Informations Personnelles', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f3'),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a6', 'Informations Primaires', 'Informations Primaires', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f4'),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a7', 'Conditions Générales', 'Conditions Générales', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f5'),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a8', 'Conditions Générales', 'Conditions Générales', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f6'),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a9', 'Catégorie par Defaut', 'Catégorie par Defaut', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f7');
+
+-- Insertion dans la table 'associer'
+INSERT INTO associer (categories_id, attributs_id,ordre,obligatoire)
+VALUES
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a1', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',1,true),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a1', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a13',2,true),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a1', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a15',3,false),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a2', 'a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a12',1,true),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a2', 'a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a19',2,false),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a2', 'a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a20',3,true),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a3', 'a3eebc99-9c0b-4ef8-bb6d-6bb9bd380a13',1,true),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a4', 'a4eebc99-9c0b-4ef8-bb6d-6bb9bd380a14',1,true),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a5', 'a5eebc99-9c0b-4ef8-bb6d-6bb9bd380a15',1,true),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a6', 'a6eebc99-9c0b-4ef8-bb6d-6bb9bd380a16',1,true),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a7', 'a7eebc99-9c0b-4ef8-bb6d-6bb9bd380a17',1,true),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a8', 'a8eebc99-9c0b-4ef8-bb6d-6bb9bd380a18',1,true),
+('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a9', 'a9eebc99-9c0b-4ef8-bb6d-6bb9bd380a19',1,true);
+
+-- Insertion dans la table 'constituer'
+INSERT INTO constituer (documents_id, attributs_id)
+VALUES
+('0190615e-1101-7209-9932-7020bbd556f1', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a11'),
+('0190615e-1101-7209-9932-7020bbd556f1', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a13'),
+('0190615e-1101-7209-9932-7020bbd556f1', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a15'),
+('0190615e-1101-7209-9932-7020bbd556f1', 'a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a12'),
+('0190615e-1101-7209-9932-7020bbd556f1', 'a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a19'),
+('0190615e-1101-7209-9932-7020bbd556f1', 'a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a20'),
+('0190615e-1101-7209-9932-7020bbd556f2', 'a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a13'),
+('0190615e-1101-7209-9932-7020bbd556f2', 'a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a14'),
+('0190615e-1101-7209-9932-7020bbd556f2', 'a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a20'),
+('0190615e-1101-7209-9932-7020bbd556f3', 'a3eebc99-9c0b-4ef8-bb6d-6bb9bd380a15'),
+('0190615e-1101-7209-9932-7020bbd556f4', 'a4eebc99-9c0b-4ef8-bb6d-6bb9bd380a16'),
+('0190615e-1101-7209-9932-7020bbd556f5', 'a5eebc99-9c0b-4ef8-bb6d-6bb9bd380a17'),
+('0190615e-1101-7209-9932-7020bbd556f6', 'a6eebc99-9c0b-4ef8-bb6d-6bb9bd380a18'),
+('0190615e-1101-7209-9932-7020bbd556f7', 'a7eebc99-9c0b-4ef8-bb6d-6bb9bd380a19'),
+('0190615e-1101-7209-9932-7020bbd556f8', 'a8eebc99-9c0b-4ef8-bb6d-6bb9bd380a20');
 
 -- Insertion dans la table 'precomouvements'
-INSERT INTO precomouvements (id, libelle, etat, typemouvement) VALUES
-('1', 'rachat', true, 'Neutre'),
-('2', 'vente', true, 'Reduire'),
-('3', 'vente', true, 'Reduire');
+INSERT INTO precomouvements (id, libelle, etat, typemouvement, datecreation, datemodification) VALUES
+('pm90615e-1101-7209-9932-7020bbd556f1', 'Inventaire', true, 'Neutre', '2022-01-01', '2022-01-02'),
+('pm90615e-1101-7209-9932-7020bbd556f2', 'Vente', true, 'Reduire', '2022-01-01', '2022-01-02'),
+('pm90615e-1101-7209-9932-7020bbd556f3', 'Achat', true, 'Ajout', '2022-01-01', '2022-01-02')
+('pm90615e-1101-7209-9932-7020bbd556f4', 'interdiction Infirmière', true, 'Neutre', '2022-01-01', '2022-01-02')
+('pm90615e-1101-7209-9932-7020bbd556f5', 'Don', true, 'Neutre', '2022-01-01', '2022-01-02')
+('pm90615e-1101-7209-9932-7020bbd556f6', 'Perte', true, 'Reduire', '2022-01-01', '2022-01-02')
+('pm90615e-1101-7209-9932-7020bbd556f7', 'Retour', true, 'Ajout', '2022-01-01', '2022-01-02')
+('pm90615e-1101-7209-9932-7020bbd556f8', 'Sortie magasin', true, 'Reduire', '2022-01-01', '2022-01-02');
 
 ---- Insertion dans la table 'familles'
-INSERT INTO familles (id, libelle, description, etat) VALUES
-('1', 'trans', 'sang', true),
-('2', 'néonat', 'nouveau-né', false),
-('3', 'pediatrie', 'enfant', true),
-('4', 'néonat', 'nouveau-né', false);
+INSERT INTO familles (id, libelle, description, etat, datecreation, datemodification) VALUES
+('f190615e-1101-7209-9932-7020bbd556f1', 'Medicaments', 'Medicaments', true, '2022-01-01', '2022-01-02'),
+('f190615e-1101-7209-9932-7020bbd556f2', 'Consommables Informatiques', 'Consommables Informatiques', true, '2022-01-01', '2022-01-02'),
+('f190615e-1101-7209-9932-7020bbd556f3', 'BioMedical', 'BioMedical', true, '2022-01-01', '2022-01-02'),
+('f190615e-1101-7209-9932-7020bbd556f4', 'Accessoires', 'Accessoires', true, '2022-01-01', '2022-01-02');
 
 --
 ---- Insertion dans la table 'ressources'
-INSERT INTO ressources (id, libelle, etat, quantite, unite, prixentree, familles_id) VALUES
-('1', 'transfusion', true, 10, 'Litre', 1000, '1'),
-('2', 'néonat', true, 20, 'Litre', 2000, '2'),
-('3', 'pediatrie', true, 30, 'Litre', 3000, '3'),
-('5', 'eau distillée', true, 20, 'Litre', 500,'3');
---
----- Insertion dans la table 'precomouvementsqte'
-INSERT INTO precomouvementsqtes (id, qteMin, qteMax, montantMin, montantMax, precomouvements_id, ressources_id) VALUES
-('1', 10, 20, 1000, 7000, '1', '1'),
-('2', 30, 40, 100, 7000, '1', '2'),
-('3', 30, 40, 100, 7000, '1', '3');
+INSERT INTO ressources (id, libelle, description, etat, datecreation, datemodification,quantite, prixentree,prixsortie,seuilalerte,unite, familles_id) VALUES
+('r190615e-1101-7209-9932-7020bbd556f1', 'Paracetamol', 'Paracetamol', true, '2022-01-01', '2022-01-02',4,1200,2000,20,'Boite', 'f190615e-1101-7209-9932-7020bbd556f1'),
+('r190615e-1101-7209-9932-7020bbd556f2', 'Cartouche d''encre', 'Cartouche d''encre', true, '2022-01-01', '2022-01-02',4,2000,3000,10,'Boite', 'f190615e-1101-7209-9932-7020bbd556f2'),
+('r190615e-1101-7209-9932-7020bbd556f3', 'Scanner', 'Scanner', true, '2022-01-01', '2022-01-02',4,12000,20000,2,'Packs', 'f190615e-1101-7209-9932-7020bbd556f2'),
+('r190615e-1101-7209-9932-7020bbd556f4', 'Imprimante', 'Imprimante', true, '2022-01-01', '2022-01-02',4,12000,20000,2,'Packs', 'f190615e-1101-7209-9932-7020bbd556f2'),
+('r190615e-1101-7209-9932-7020bbd556f5', 'Souris', 'Souris', true, '2022-01-01', '2022-01-02',40,25,20,12,'Packs', 'f190615e-1101-7209-9932-7020bbd556f2'),
+('r190615e-1101-7209-9932-7020bbd556f6', 'Stylet', 'Stylet', true, '2022-01-01', '2022-01-02',24,20,20000,9,'Packs', 'f190615e-1101-7209-9932-7020bbd556f2'),
+('r190615e-1101-7209-9932-7020bbd556f7', 'Doliprane', 'Doliprane', true, '  2022-01-01', '2022-01-02',90,1200,2000,40,'Boite', 'f190615e-1101-7209-9932-7020bbd556f1'),
+('r190615e-1101-7209-9932-7020bbd556f8', 'Pommade', 'Pommade', true, '2022-01-01', '2022-01-02',20,200,210,20,'Litre', 'f190615e-1101-7209-9932-7020bbd556f1'),
+('r190615e-1101-7209-9932-7020bbd556f9', 'Seringue', 'Seringue', true, '2022-01-01', '2022-01-02',42,100,200,20,'Boite', 'f190615e-1101-7209-9932-7020bbd556f3'),
+('r190615e-1101-7209-9932-7020bbd556f0', 'Perfuseur', 'Perfuseur', true, '2022-01-01', '2022-01-02',5,90,230,20,'Boite', 'f190615e-1101-7209-9932-7020bbd556f3'),
+('r190615e-1101-7209-9932-7020bbd556f11', 'Gants', 'Gants', true, '2022-01-01', '2022-01-02',4,1200,2000,20,'Boite', 'f190615e-1101-7209-9932-7020bbd556f3'),
+('r190615e-1101-7209-9932-7020bbd556f12', 'Masque', 'Masque', true, '2022-01-01', '2022-01-02',4,1200,2000,20,'Boite', 'f190615e-1101-7209-9932-7020bbd556f3'),
+('r190615e-1101-7209-9932-7020bbd556f13', 'Gel Hydroalcoolique', 'Gel Hydroalcoolique', true,54,1200,2000,200,'Litre', '2022-01-01', '2022-01-02', 'f190615e-1101-7209-9932-7020bbd556f3'),
+('r190615e-1101-7209-9932-7020bbd556f14', 'Coton', 'Coton', true, '2022-01-01', '2022-01-02',44,1200,2000,230,'Boite', 'f190615e-1101-7209-9932-7020bbd556f3'),
+('r190615e-1101-7209-9932-7020bbd556f15', 'Papier', 'Papier', true, '2022-01-01', '2022-01-02',24,1200,2000,20,'Packs', 'f190615e-1101-7209-9932-7020bbd556f4'),
+('r190615e-1101-7209-9932-7020bbd556f16', 'Encre', 'Encre', true, '2022-01-01', '2022-01-02',4,1200,2000,20,'Boite', 'f190615e-1101-7209-9932-7020bbd556f4'),
+('r190615e-1101-7209-9932-7020bbd556f17', 'Toner', 'Toner', true, '2022-01-01', '2022-01-02',4,1200,2000,20,'Boite', 'f190615e-1101-7209-9932-7020bbd556f4'),
+('r190615e-1101-7209-9932-7020bbd556f18', 'Cahier', 'Cahier', true, '2022-01-01', '2022-01-02',4,1200,2000,20,'Packs', 'f190615e-1101-7209-9932-7020bbd556f4');
 
---insertion dans la table sapplique
-INSERT INTO sapplique(familles_id,precomouvementsqtes_id) VALUES
-('1','1'),
-('2','2'),
-('3','3');
+---- Insertion dans la table 'precomouvementsqtes'
+INSERT INTO precomouvementsqtes (id, qtemin, qtemax, montantmin, montantmax, precomouvements_id, ressources_id, datecreation, datemodification) VALUES
+('pq190615e-1101-7209-9932-7020bbd556f1', 10, 100, 500, 5000, 'pm90615e-1101-7209-9932-7020bbd556f1', 'r190615e-1101-7209-9932-7020bbd556f1', '2022-01-01', '2022-01-02'),
+('pq190615e-1101-7209-9932-7020bbd556f2', 20, 200, 1000, 10000, 'pm90615e-1101-7209-9932-7020bbd556f2', 'r190615e-1101-7209-9932-7020bbd556f2', '2022-01-01', '2022-01-02'),
+('pq190615e-1101-7209-9932-7020bbd556f3', 5, 50, 200, 2000, 'pm90615e-1101-7209-9932-7020bbd556f3', 'r190615e-1101-7209-9932-7020bbd556f3', '2022-01-01', '2022-01-02'),
+('pq190615e-1101-7209-9932-7020bbd556f4', 5, 50, 200, 2000, 'pm90615e-1101-7209-9932-7020bbd556f4', 'r190615e-1101-7209-9932-7020bbd556f4', '2022-01-01', '2022-01-02'),
+('pq190615e-1101-7209-9932-7020bbd556f5', 5, 50, 200, 2000, 'pm90615e-1101-7209-9932-7020bbd556f5', 'r190615e-1101-7209-9932-7020bbd556f5', '2022-01-01', '2022-01-02'),
+('pq190615e-1101-7209-9932-7020bbd556f6', 5, 50, 200, 2000, 'pm90615e-1101-7209-9932-7020bbd556f6', null, '2022-01-01', '2022-01-02'),
+('pq190615e-1101-7209-9932-7020bbd556f7', 5, 50, 200, 2000, 'pm90615e-1101-7209-9932-7020bbd556f7', null, '2022-01-01', '2022-01-02'),
+('pq190615e-1101-7209-9932-7020bbd556f8', 5, 50, 200, 2000, 'pm90615e-1101-7209-9932-7020bbd556f8', null '2022-01-01', '2022-01-02'),
+('pq190615e-1101-7209-9932-7020bbd556f9', 5, 50, 200, 2000, 'pm90615e-1101-7209-9932-7020bbd556f9', null, '2022-01-01', '2022-01-02');
 
--- Insérer les données dans la table personnephysique
---INSERT INTO personnes (id, nom, prenom, sexe, datenaissance)
---VALUES
---    ('1', 'Tagne', 'Willy', 'M', '2000-04-10'),
---    ('2', 'Peter', 'Alan',  'M', '2004-08-10'),
---    ('3', 'Dombo', 'Gilles',   'M', '2002-10-10');
-INSERT INTO personnes (id,  adresse, telephone, mail)
+-- Insertion dans la table sapplique
+INSERT INTO sapplique (precomouvementsqtes_id,familles_id)
 VALUES
-    ('1', 'Total Energie', '655554488', 'ngong@yad.fr'),
-    ('2', 'Brasserie', '655554481', 'ngong@yad.fr'),
-    ('3', 'Eneo', '655554486', 'ngong@yad.fr');
+('pq190615e-1101-7209-9932-7020bbd556f6', 'f190615e-1101-7209-9932-7020bbd556f1'),
+('pq190615e-1101-7209-9932-7020bbd556f7', 'f190615e-1101-7209-9932-7020bbd556f2'),
+('pq190615e-1101-7209-9932-7020bbd556f8', 'f190615e-1101-7209-9932-7020bbd556f3'),
+('pq190615e-1101-7209-9932-7020bbd556f9', 'f190615e-1101-7209-9932-7020bbd556f4'),
+('pq190615e-1101-7209-9932-7020bbd556f7', 'f190615e-1101-7209-9932-7020bbd556f1'),
+('pq190615e-1101-7209-9932-7020bbd556f6', 'f190615e-1101-7209-9932-7020bbd556f2'),
+('pq190615e-1101-7209-9932-7020bbd556f7', 'f190615e-1101-7209-9932-7020bbd556f3'),
+('pq190615e-1101-7209-9932-7020bbd556f8', 'f190615e-1101-7209-9932-7020bbd556f4'),
+('pq190615e-1101-7209-9932-7020bbd556f9', 'f190615e-1101-7209-9932-7020bbd556f1');
+
+--insertion dans la table suivre
+INSERT INTO suivre (precomouvements_id, documents_id)
+VALUES
+('pm90615e-1101-7209-9932-7020bbd556f1', '0190615e-1101-7209-9932-7020bbd556f1'),
+('pm90615e-1101-7209-9932-7020bbd556f2', '0190615e-1101-7209-9932-7020bbd556f2'),
+('pm90615e-1101-7209-9932-7020bbd556f3', '0190615e-1101-7209-9932-7020bbd556f3'),
+('pm90615e-1101-7209-9932-7020bbd556f4', '0190615e-1101-7209-9932-7020bbd556f4'),
+('pm90615e-1101-7209-9932-7020bbd556f5', '0190615e-1101-7209-9932-7020bbd556f5'),
+('pm90615e-1101-7209-9932-7020bbd556f6', '0190615e-1101-7209-9932-7020bbd556f6'),
+('pm90615e-1101-7209-9932-7020bbd556f7', '0190615e-1101-7209-9932-7020bbd556f7'),
+('pm90615e-1101-7209-9932-7020bbd556f8', '0190615e-1101-7209-9932-7020bbd556f8');
+
+-- Insertion dans la table 'mouvemnts'
+INSERT INTO mouvements (id, date, quantite, montant, precomouvementsqtes_id, precomouvements_id, ressources_id, datecreation, datemodification) VALUES
+('m190615e-1101-7209-9932-7020bbd556f1', '2022-01-01', 10, 500, 5000, 'pm90615e-1101-7209-9932-7020bbd556f1', 'r190615e-1101-7209-9932-7020bbd556f1', '2022-01-01', '2022-01-02'),
+('m190615e-1101-7209-9932-7020bbd556f2', '2022-01-01', 20, 1000, 10000, 'pm90615e-1101-7209-9932-7020bbd556f2', 'r190615e-1101-7209-9932-7020bbd556f2', '2022-01-01', '2022-01-02'),
+('m190615e-1101-7209-9932-7020bbd556f3', '2022-01-01', 5, 200, 2000, 'pm90615e-1101-7209-9932-7020bbd556f3', 'r190615e-1101-7209-9932-7020bbd556f3', '2022-01-01', '2022-01-02'),
+('m190615e-1101-7209-9932-7020bbd556f4', '2022-01-01', 5, 200, 2000, 'pm90615e-1101-7209-9932-7020bbd556f4', 'r190615e-1101-7209-9932-7020bbd556f4', '2022-01-01', '2022-01-02');
+
+-- Insérer les données dans la table 'personnes' en se basant sur la classe PersonnesEntity
+INSERT INTO personnes (id,adresse,mail,telephone,qrcode,etat,datecreation,datemodification) VALUES
+('p190615e-1101-7209-9932-7020bbd556f1','Bastos','
+
 
 INSERT INTO distributeurs (distributeurs_id, raisonsociale,code)
 VALUES
     ('1', 'Brasserie', 'Dla'),
     ('2', 'ENEO',  'Ydé'),
     ('3', 'Total Distribution',  'Buéa');
-
-
-INSERT INTO mouvements (id, description, quantite, prix, datecreation, dateperemption, ressources_id, distributeurs_id)
-VALUES
-    ('1', 'Ici la description de ce mouvement', 20, 10000, NOW(), NOW(), '1', '1'),
-    ('2', 'Ici la description de ce mouvement', 50, 300, NOW(), NOW(), '5', '2'),
-    ('3', 'Ici la description de ce mouvement', 10, 5000, NOW(), NOW(), '3', '3'),
-    ('4', 'Ici la description de ce mouvement', 20, 2000, NOW(), NOW(), '2', '2');
 
 INSERT INTO etats (id, libelle, datecreation)
 VALUES ('1', 'etat 1', '2024-07-21'),
@@ -116,13 +209,6 @@ VALUES ('1', 1, '2024-07-21', NULL, NULL, '1'),
        ('2', 2, '2024-07-21', NULL, NULL, '2'),
        ('3', 3, '2024-07-21', NULL, NULL, '3'),
        ('4', 4, '2024-07-21', NULL, NULL, '4');
-
-
-INSERT INTO precomouvementsqtes (id, qtemin, qtemax, montantmin, montantmax, precomouvements_id, ressources_id, datecreation, datemodification)
-VALUES
-    ('11', 10, 100, 500, 5000, '1', '1', '2024-06-04', '2024-06-04'),
-    ('22', 20, 200, 1000, 10000, '2', '2', '2024-06-04', '2024-06-04'),
-    ('33', 5, 50, 200, 2000, '3', '3', '2024-06-04', '2024-06-04');
 
 
 
@@ -158,69 +244,5 @@ VALUES
 ('3', '2024-08-01', '2024-08-31', 'CODE3', 70.0, 20.0, '2024-08-01', '3'),
 ('4', '2024-09-01', '2024-09-30', 'CODE4', 80.0, 25.0, '2024-09-01', '3');
 
---fin insertion
 
-
-
-
-
-
-INSERT INTO attributs(
-	id, titre, description, etat, datecreation, datemodification, type, valeurpardefaut)
-	VALUES
-('1234','TAILLES','tailles',True,NULL,NULL,'Double',NULL),
-('1234de','TAILLE revisée','taille revisée',True,NULL,NULL,'Double',NULL),
-('1234png','Colle','colle',True,NULL,NULL,'Double',NULL),
-('1234png08','png-08-colle','png-08-colle',True,NULL,NULL,'Double',NULL),
-('2345','teint','teint du nouveau',False,NULL,NULL,'Int',NULL),
-('3456','SEXES','SEXE',True,NULL,NULL,'String',NULL);
-
-INSERT INTO constituer(
-	documents_id, attributs_id)
-	VALUES 
-('1234','1234de'),
-('1234','2345'),
-('2345','1234'),
-('2345png','1234png'),
-('2345png','1234png08'),
-('2345png','3456'),
-('2345png02','1234png'),
-('2345png02','1234png08'),
-('2345png02','3456'),
-('2345png03','1234'),
-('2345png03','1234png'),
-('2345png03','3456'),
-('png04','1234png'),
-('png04','3456');
-
--- Insertions pour la table 'category'
-INSERT INTO categories (id,ordre, libelle, documents_id)
-    VALUES  ('1','1', 'Fiche de traite Test', '1234'),
-            ('2','2', 'Lit hopital', '1234'),
-            ('3','3', 'Don organes', '1234'),
-            ('4','4', 'don de sang', '2345'),
-            ('5','5', 'Économie et comptabilité', '2345'),
-            ('6','6', 'Musique malade', '2345'),
-            ('7','7', 'Cinéma', '2345'),
-            ('8','8', 'Sport', '2345'),
-            ('9','9', 'Cuisine', '2345'),
-            ('19','19', 'Cuisine 19', '2345png02'),
-            ('10','10', 'Voyage', '2345');
-
-
-
-INSERT INTO associer (attributs_id, categories_id, obligatoire, ordre)
-    VALUES ('1234', '1',true,0),
-            ('2345', '2',false,0),
-            ('3456', '3',false,0),
-            ('3456', '4',false,0),
-            ('3456', '5',true,0),
-            ('3456', '6',false,0),
-            ('1234png', '7',false,0),
-            ('1234png', '8',false,0),
-            ('2345', '9',false,0),
-            ('3456', '10',false,0),
-            ('1234png08', '19',false,0),
-            ('1234png', '19',true,1),
-            ('3456', '19',false,2);
 
