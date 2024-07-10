@@ -9,9 +9,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"ticket"})
-@ToString(exclude = {"ticket"})
-@EqualsAndHashCode(exclude = {"ticket"})
+@JsonIgnoreProperties({"fileAttente","ticket"})
+@ToString(exclude = {"fileAttente","ticket"})
+@EqualsAndHashCode(exclude = {"fileAttente","ticket"})
 public class TicketsFilesAttentes {
     private String id;
     private Boolean etat ;

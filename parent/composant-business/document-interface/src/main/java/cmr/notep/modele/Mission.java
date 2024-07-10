@@ -22,4 +22,5 @@ public class Mission {
     private LocalDate dateModification ;
     private List<Documents> documents ;
     private Services service ;
+    private Remplir remplirList;
 }
