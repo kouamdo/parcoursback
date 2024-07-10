@@ -1,5 +1,6 @@
 package cmr.notep.modele;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -9,8 +10,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonIgnoreProperties({"service"})
+@ToString(exclude = {"service"})
+@EqualsAndHashCode(exclude = {"service"})
 public class Mission {
-
     private String id ;
     private String libelle ;
     private String description;

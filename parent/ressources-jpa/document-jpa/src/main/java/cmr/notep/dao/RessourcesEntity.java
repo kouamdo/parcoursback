@@ -1,5 +1,6 @@
 package cmr.notep.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;

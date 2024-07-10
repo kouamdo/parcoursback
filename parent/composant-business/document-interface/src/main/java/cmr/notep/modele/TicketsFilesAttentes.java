@@ -1,5 +1,6 @@
 package cmr.notep.modele;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import java.util.Date;
@@ -8,8 +9,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
-@EqualsAndHashCode
+@JsonIgnoreProperties({"ticket"})
+@ToString(exclude = {"ticket"})
+@EqualsAndHashCode(exclude = {"ticket"})
 public class TicketsFilesAttentes {
     private String id;
     private Boolean etat ;

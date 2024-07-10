@@ -1,9 +1,8 @@
 package cmr.notep.modele;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
+
 import java.util.List;
 import java.util.Date;
 
@@ -11,8 +10,10 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonIgnoreProperties({"distributeur","documents"})
+@ToString(exclude = {"distributeur","documents"})
+@EqualsAndHashCode(exclude = {"distributeur","documents"})
 public class Promotions {
-
     private String id;
     private Date dateDebut;
     private Date dateFin;

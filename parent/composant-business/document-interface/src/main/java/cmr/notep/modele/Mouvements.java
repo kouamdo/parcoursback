@@ -1,9 +1,7 @@
 package cmr.notep.modele;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -13,6 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonIgnoreProperties({"ressource","distributeur"})
+@ToString(exclude = {"ressource","distributeur"})
+@EqualsAndHashCode(exclude = {"ressource","distributeur"})
 public class Mouvements {
     private  String id ;
     private  String description ;

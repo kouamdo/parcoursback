@@ -11,9 +11,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"precoMouvementsQte"})
-@ToString(exclude = {"precoMouvementsQte"})
-@EqualsAndHashCode(exclude = {"precoMouvementsQte"})
 public class Familles {
     private String id ;
     private String libelle;
