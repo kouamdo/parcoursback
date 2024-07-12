@@ -15,6 +15,7 @@ import java.util.List;
 @ToString(exclude = {"documents"})
 @EqualsAndHashCode(exclude = {"documents"})
 public class Attributs {
+
     private String id;
     private String titre;
 

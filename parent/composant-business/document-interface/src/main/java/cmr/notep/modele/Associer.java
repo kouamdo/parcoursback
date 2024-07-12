@@ -12,6 +12,8 @@ public class Associer {
 
     private  Attributs attribut ;
 
+    private Categories categorie;
+
     private boolean obligatoire ;
 
     private int ordre ;

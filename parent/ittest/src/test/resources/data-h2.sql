@@ -141,11 +141,17 @@ VALUES ('1', '2024-07-21', 1, '1'),
        ('3', '2024-07-21', 3, '3'),
        ('4', '2024-07-21', 4, '4');
 
+INSERT INTO roles (id, titre, description, etat, datecreation)
+VALUES
+    ('1', 'vendeur', 'personnel au contact du client', true, '2000-07-03'),
+    ('2', 'traiteur', 'Personnel administratif', true, '2000-07-03'),
+    ('3', 'marcheur', 'commercial sur le terrain', true, '2000-07-03');
+
 INSERT INTO validations (id, code, etat, datecreation, roles_id)
-VALUES ('1', NULL, NULL, '2024-07-21', NULL),
-       ('2', NULL, NULL, '2024-07-21', NULL),
-       ('3', NULL, NULL, '2024-07-21', NULL),
-       ('4', NULL, NULL, '2024-07-21', NULL);
+VALUES ('1', NULL, NULL, '2024-07-21', 1),
+       ('2', NULL, NULL, '2024-07-21', 1),
+       ('3', NULL, NULL, '2024-07-21', 3),
+       ('4', NULL, NULL, '2024-07-21', 2);
 
 INSERT INTO docetats (id, ordre, datecreation, validations_id, predecesseurDocEtat_id, etats_id)
 VALUES ('1', 1, '2024-07-21', NULL, NULL, '1'),
@@ -162,11 +168,7 @@ VALUES
 
 
 
-INSERT INTO roles (id, titre, description, etat, datecreation)
-VALUES
-    ('1', 'vendeur', 'personnel au contact du client', true, '2000-07-03'),
-    ('2', 'traiteur', 'Personnel administratif', true, '2000-07-03'),
-    ('3', 'marcheur', 'commercial sur le terrain', true, '2000-07-03');
+
 
 INSERT INTO personnels (id, dateentree, nom, datenaissance, telephone, datesortie, email, prenom, sexe)
 VALUES
