@@ -9,9 +9,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"famille"})
-@ToString(exclude = {"famille"})
-@EqualsAndHashCode(exclude = {"famille"})
+@JsonIgnoreProperties({"famille","promotion"})
+@ToString(exclude = {"famille","promotion"})
+@EqualsAndHashCode(exclude = {"famille","promotion"})
 public class Ressources {
     private String id ;
     private String libelle;

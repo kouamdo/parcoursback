@@ -11,9 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"ressource","distributeur"})
-@ToString(exclude = {"ressource","distributeur"})
-@EqualsAndHashCode(exclude = {"ressource","distributeur"})
+@JsonIgnoreProperties({"ressource","distributeur","precoMouvements"})
+@ToString(exclude = {"ressource","distributeur","precoMouvements"})
+@EqualsAndHashCode(exclude = {"ressource","distributeur","precoMouvements"})
 public class Mouvements {
     private  String id ;
     private  String description ;

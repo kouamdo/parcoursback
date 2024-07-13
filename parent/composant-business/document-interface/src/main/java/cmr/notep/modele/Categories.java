@@ -26,6 +26,6 @@ public class Categories {
     private String id;
     private String ordre;
     private String libelle;
-    private List<Associer> attributs;
+    private List<Associer> associer_attributs;
     private Documents document ;
 }

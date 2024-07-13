@@ -20,6 +20,7 @@ public class PrecoMouvements {
     private TypeMouvement typeMouvement ;
     private Date dateCreation ;
     private Date dateModification ;
+    private List<Mouvements> mouvements ;
     private List<Documents> documents ;
     private List<PrecoMouvementsQtes> precoMouvementsQtes;
 }

@@ -32,6 +32,7 @@ public class Attributs {
     private String valeurParDefaut;
 
     private List<Documents> documents;
-    //private List<Categories> categories ;
+
+    private List<Associer> assoicier_categorie ;
 
 }

@@ -309,13 +309,11 @@ CREATE TABLE IF NOT EXISTS docetats (
     datecreation DATE,
     validations_id VARCHAR(255),
     documents_id VARCHAR(255),
-    predecesseurDocEtat_id VARCHAR(255),
     etats_id VARCHAR(255),
     etapes_id VARCHAR(255) ,
     PRIMARY KEY (id),
     FOREIGN KEY (documents_id) REFERENCES documents(id),
     FOREIGN KEY (validations_id) REFERENCES validations(id),
-    FOREIGN KEY (predecesseurDocEtat_id) REFERENCES docetats(id),
     FOREIGN KEY (etats_id) REFERENCES etats(id),
     FOREIGN KEY (etapes_id) REFERENCES etapes(id)
 );
@@ -395,4 +393,12 @@ CREATE TABLE IF NOT EXISTS personneratache(
     FOREIGN KEY (personne_id) REFERENCES personnes(id),
     FOREIGN KEY (personneratache_id) REFERENCES personnes(id),
     CONSTRAINT personnes_ratache PRIMARY KEY (personne_id ,personneratache_id )
+);
+
+CREATE TABLE IF NOT EXISTS predecesseurdocetat(
+    docetat_id VARCHAR(255) NOT NULL,
+    predecesseurdocetat_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY (docetat_id) REFERENCES docetats(id),
+    FOREIGN KEY (predecesseurdocetat_id) REFERENCES docetats(id),
+    CONSTRAINT docetat_predecesseur PRIMARY KEY (docetat_id ,predecesseurdocetat_id )
 );
