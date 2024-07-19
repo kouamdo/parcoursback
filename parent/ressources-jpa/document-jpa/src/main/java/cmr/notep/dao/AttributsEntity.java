@@ -3,6 +3,7 @@ package cmr.notep.dao;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
+import org.dozer.Mapping;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -31,7 +32,9 @@ public class AttributsEntity {
     private String type;
     @Column(name = "valeurpardefaut")
     private String valeurParDefaut;
+
     @ManyToMany(mappedBy = "attributsEntities")
+    @Mapping("documents")
     @JsonIgnore
     private List<DocumentsEntity> documentsEntities;
     //@ManyToMany(mappedBy = "attributsEntities")
@@ -40,6 +43,6 @@ public class AttributsEntity {
    // private List<CategoriesEntity> categories ;
 
     @OneToMany(mappedBy = "attribut", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    //@Mapping("categories")
+    @Mapping("assoicier_categorie")
     private List<AssocierEntity> categoriesEntities;
 }

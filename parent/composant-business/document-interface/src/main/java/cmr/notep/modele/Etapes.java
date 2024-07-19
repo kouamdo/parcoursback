@@ -11,11 +11,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Distributeurs {
+public class Etapes {
     private String id;
-    private List<Mouvements> mouvements;
-    private List<PrecoMouvementsQtes> precomouvementsqtes;
-    private String raisonSociale;
-    private String code ;
-    private Promotions promotion;
+    private String libelle;
+    private String etat;
+    private Parcours parcour;
+    private List<DocEtats> docEtats;
 }

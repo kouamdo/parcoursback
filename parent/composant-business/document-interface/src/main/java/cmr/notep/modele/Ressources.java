@@ -9,9 +9,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"famille, precoMouvementsQtes, mouvements, promotions"})
-@ToString(exclude = {"famille, precoMouvementsQtes, mouvements, promotions"})
-@EqualsAndHashCode(exclude = {"famille, precoMouvementsQtes, mouvements, promotions"})
+@JsonIgnoreProperties({"famille","promotion"})
+@ToString(exclude = {"famille","promotion"})
+@EqualsAndHashCode(exclude = {"famille","promotion"})
 public class Ressources {
     private String id ;
     private String libelle;
@@ -26,5 +26,5 @@ public class Ressources {
     private List<PrecoMouvementsQtes> precoMouvementsQtes;
     private Familles famille;
     private List<Mouvements> mouvements;
-    private List<Promotions> promotions;
+    private Promotions promotion;
 }

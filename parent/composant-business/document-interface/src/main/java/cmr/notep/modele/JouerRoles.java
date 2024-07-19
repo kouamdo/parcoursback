@@ -1,9 +1,7 @@
 package cmr.notep.modele;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
 import java.util.Date;
 
@@ -11,6 +9,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonIgnoreProperties({"role","personnel"})
+@ToString(exclude = {"role","personnel"})
+@EqualsAndHashCode(exclude = {"role","personnel"})
 public class JouerRoles {
     private String id;
     private Boolean etat ;

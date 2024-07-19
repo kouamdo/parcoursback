@@ -5,17 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Distributeurs {
+public class Parcours {
     private String id;
-    private List<Mouvements> mouvements;
-    private List<PrecoMouvementsQtes> precomouvementsqtes;
-    private String raisonSociale;
-    private String code ;
-    private Promotions promotion;
+    private String libelle;
+    private Date dateCreation;
+    private List<Etapes> etapes;
 }

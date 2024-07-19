@@ -28,7 +28,7 @@ public class PrecoMouvementsQtesEntity {
     @Mapping("precoMouvement")
     private PrecoMouvementsEntity precoMouvementsEntity ;
 
-    @ManyToMany(mappedBy = "precoMouvementsQtesEntities", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "precoMouvementsQtesEntities")
     @Mapping("familles")
     private List<FamillesEntity> famillesEntities ;
 

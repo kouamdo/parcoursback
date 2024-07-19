@@ -10,11 +10,10 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"documents,distributeur"})
-@ToString(exclude = {"documents,distributeur"})
-@EqualsAndHashCode(exclude = {"documents,distributeur"})
+@JsonIgnoreProperties({"distributeur","documents"})
+@ToString(exclude = {"distributeur","documents"})
+@EqualsAndHashCode(exclude = {"distributeur","documents"})
 public class Promotions {
-
     private String id;
     private Date dateDebut;
     private Date dateFin;

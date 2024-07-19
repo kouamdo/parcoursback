@@ -1,5 +1,6 @@
 package cmr.notep.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
@@ -27,7 +28,7 @@ public class FamillesEntity {
     @Column(name = "datemodification")
     private Date dateModification;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(name = "sapplique",
             joinColumns = @JoinColumn(name = "familles_id"),
             inverseJoinColumns = @JoinColumn(name = "precomouvementsqtes_id"))

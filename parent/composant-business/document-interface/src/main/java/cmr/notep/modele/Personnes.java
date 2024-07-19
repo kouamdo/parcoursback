@@ -1,22 +1,25 @@
 package cmr.notep.modele;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonIgnoreProperties({"precomouvementsqtes","personnesratache","promotion"})
+@ToString(exclude = {"precomouvementsqtes","personnesratache","promotion"})
+@EqualsAndHashCode(exclude = {"precomouvementsqtes","personnesratache","promotion"})
 public class Personnes {
     private String id ;
     private String adresse ;
     private String mail ;
     private  String telephone ;
     private  String qrcodevalue ;
-    private List<Personnes> personneRatache = new ArrayList<>();
+    private List<Mouvements> mouvements;
+    private List<PrecoMouvementsQtes> precomouvementsqtes;
+    private Promotions promotion;
+    private List<Personnes> personnesratache;
 }

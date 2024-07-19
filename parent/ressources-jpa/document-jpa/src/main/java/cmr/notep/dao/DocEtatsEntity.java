@@ -31,13 +31,16 @@ public class DocEtatsEntity {
     @Mapping("validation")
     private ValidationsEntity validationsEntity;
 
-    @OneToMany(mappedBy = "docEtatsCourantEntity", fetch = FetchType.LAZY)
+    @ManyToMany
     @Mapping("predecesseurDocEtat")
-    private List<DocEtatsEntity> predecesseursDocEtat = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "docEtatsCourantEntity_id")
-    private DocEtatsEntity docEtatsCourantEntity;
+    @JoinTable(
+            name = "predecesseurdocetat",
+            joinColumns = @JoinColumn(name = "docetat_id"),
+            inverseJoinColumns = @JoinColumn(name = "predecesseurdocetat_id")
+    )
+    @JoinColumn(referencedColumnName = "id")
+    @JsonBackReference
+    private List<DocEtatsEntity> predecesseursDocEtat ;
 
     @ManyToOne
     @JoinColumn(name = "etats_id")

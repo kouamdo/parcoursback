@@ -36,19 +36,16 @@ public class PromotionsEntity {
     @Column(name = "datecreation")
     private Date dateCreation;
 
-    @ManyToOne()
+    @OneToOne(mappedBy = "promotionsEntity" ,cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
-    @Mapping("distributeursEntity")
+    @Mapping("distributeur")
     private DistributeursEntity distributeursEntity ;
 
     @OneToMany(mappedBy = "promotionsEntity" , fetch = FetchType.LAZY)
     @Mapping("ressources")
     private List<RessourcesEntity> ressourcesEntities;
 
-    @ManyToMany
-    @JoinTable(name = "famillepromotion" ,
-            joinColumns = @JoinColumn(name = "promotions_id"),
-            inverseJoinColumns = @JoinColumn(name = "familles_id"))
+    @OneToMany(mappedBy = "promotionsEntity" , fetch = FetchType.LAZY)
     @Mapping("familles")
     private List<FamillesEntity> famillesEntities;
 

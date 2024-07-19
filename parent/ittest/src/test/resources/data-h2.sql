@@ -10,6 +10,11 @@ INSERT INTO documents(
 ('nom01','Fiche de Test','traite test',True,'Reduire',true,true,true,true,true,NULL,NULL),
 ('png04','Fiche de Test 4','traite test',True,'Neutre',true,true,true,true,true,NULL,NULL);
 
+insert into documentpromotion (promotions_id, documents_id) values
+('1','1234'),
+('2','2345'),
+('3','2345png'),
+('4','2345png01');
 --insertion du jdd
 
 -- Insertion dans la table service
@@ -79,6 +84,10 @@ VALUES
     ('2', 'Brasserie', '655554481', 'ngong@yad.fr'),
     ('3', 'Eneo', '655554486', 'ngong@yad.fr');
 
+INSERT INTO personneRatache (personne_id,personneratache_id) VALUES
+('1','2'),
+('2','3');
+
 INSERT INTO distributeurs (distributeurs_id, raisonsociale,code)
 VALUES
     ('1', 'Brasserie', 'Dla'),
@@ -105,11 +114,17 @@ VALUES ('1', '2024-07-21', 1, '1'),
        ('3', '2024-07-21', 3, '3'),
        ('4', '2024-07-21', 4, '4');
 
+INSERT INTO roles (id, titre, description, etat, datecreation)
+VALUES
+    ('1', 'vendeur', 'personnel au contact du client', true, '2000-07-03'),
+    ('2', 'traiteur', 'Personnel administratif', true, '2000-07-03'),
+    ('3', 'marcheur', 'commercial sur le terrain', true, '2000-07-03');
+
 INSERT INTO validations (id, code, etat, datecreation, roles_id)
-VALUES ('1', NULL, NULL, '2024-07-21', NULL),
-       ('2', NULL, NULL, '2024-07-21', NULL),
-       ('3', NULL, NULL, '2024-07-21', NULL),
-       ('4', NULL, NULL, '2024-07-21', NULL);
+VALUES ('1', NULL, NULL, '2024-07-21', 1),
+       ('2', NULL, NULL, '2024-07-21', 1),
+       ('3', NULL, NULL, '2024-07-21', 3),
+       ('4', NULL, NULL, '2024-07-21', 2);
 
 INSERT INTO docetats (id, ordre, datecreation, validations_id, predecesseurDocEtat_id, etats_id)
 VALUES ('1', 1, '2024-07-21', NULL, NULL, '1'),
@@ -126,11 +141,7 @@ VALUES
 
 
 
-INSERT INTO roles (id, titre, description, etat, datecreation)
-VALUES
-    ('1', 'vendeur', 'personnel au contact du client', true, '2000-07-03'),
-    ('2', 'traiteur', 'Personnel administratif', true, '2000-07-03'),
-    ('3', 'marcheur', 'commercial sur le terrain', true, '2000-07-03');
+
 
 INSERT INTO personnels (id, dateentree, nom, datenaissance, telephone, datesortie, email, prenom, sexe)
 VALUES
@@ -158,12 +169,13 @@ VALUES
 ('3', '2024-08-01', '2024-08-31', 'CODE3', 70.0, 20.0, '2024-08-01', '3'),
 ('4', '2024-09-01', '2024-09-30', 'CODE4', 80.0, 25.0, '2024-09-01', '3');
 
+INSERT INTO filesattentes () VALUES
+('1','2024-06-01',true,'1');
+
+INSERT INTO ticketsfilesattentes(id,etat,dateaffectation,tickets_id,filesattentes_id) VALUES
+('1',true,'2024-06-30','1','1');
+
 --fin insertion
-
-
-
-
-
 
 INSERT INTO attributs(
 	id, titre, description, etat, datecreation, datemodification, type, valeurpardefaut)

@@ -40,6 +40,10 @@ public class PrecoMouvementsEntity {
     @Mapping("mouvementsIncorrects")
     private List<MouvementsEntity> mouvementsIncorrectsEntities ;
 
+    @ManyToMany(mappedBy = "precoMouvementsEntityList")
+    @Mapping("mouvements")
+    private List<MouvementsEntity> mouvementsEntities ;
+
     @ManyToMany(mappedBy = "precoMouvementsEntities")
     @Mapping("documents")
     private List<DocumentsEntity> documentsEntities ;

@@ -6,22 +6,22 @@ import lombok.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties
-@ToString
-@EqualsAndHashCode
+@JsonIgnoreProperties({"ressource","distributeur","precoMouvements"})
+@ToString(exclude = {"ressource","distributeur","precoMouvements"})
+@EqualsAndHashCode(exclude = {"ressource","distributeur","precoMouvements"})
 public class Mouvements {
     private  String id ;
     private  String description ;
-    private int quantite ;
+    private int qte ;
     private double prix ;
     private Date dateCreation ;
     private Date datePeremption ;
-    private List<PrecoMouvements> precoMouvementsRespecter;
-    private List<PrecoMouvements> precoMouvementsVioler;
+    private List<PrecoMouvements> precoMouvements;
     private Ressources ressource;
     private Distributeurs distributeur;
 }

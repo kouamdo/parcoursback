@@ -14,13 +14,13 @@ import java.util.List;
 @ToString(exclude = {"documents,mouvementsCorrects,mouvementsIncorrects"})
 @EqualsAndHashCode(exclude = {"documents,mouvementsCorrects,mouvementsIncorrects"})
 public class PrecoMouvements {
-
     private String id ;
     private String libelle ;
     private boolean etat ;
     private TypeMouvement typeMouvement ;
     private Date dateCreation ;
     private Date dateModification ;
+    private List<Mouvements> mouvements ;
     private List<Documents> documents ;
     private List<Mouvements> mouvementsCorrects ;
     private List<Mouvements> mouvementsIncorrects ;
