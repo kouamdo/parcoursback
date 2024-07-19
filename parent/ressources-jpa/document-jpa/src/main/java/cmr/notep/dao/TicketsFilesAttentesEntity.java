@@ -6,6 +6,7 @@ import org.dozer.Mapping;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,8 +15,9 @@ import java.util.Date;
 public class TicketsFilesAttentesEntity {
 
     @Id
-    @Column(name = "id", nullable = false)
-    private String id;
+    @GeneratedValue
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private UUID id;
 
     @Column(name = "etat")
     private Boolean etat ;

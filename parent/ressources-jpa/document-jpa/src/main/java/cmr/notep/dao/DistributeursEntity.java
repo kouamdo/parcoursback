@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.dozer.Mapping;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -14,9 +15,10 @@ import java.util.List;
 @Table(name = "distributeurs")
 public class DistributeursEntity extends PersonnesEntity {
 
+    @Column(name = "datemodification")
+    private Date dateModification;
     @Column(name = "code")
     private String code ;
-
     @Column(name = "raisonsociale")
     private String raisonSociale;
 

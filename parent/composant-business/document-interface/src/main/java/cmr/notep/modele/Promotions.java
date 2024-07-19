@@ -18,8 +18,8 @@ public class Promotions {
     private Date dateDebut;
     private Date dateFin;
     private String codeUnique;
-    private Double montantRemise;
-    private Double pourcentageRemise;
+    private String typeRemise;
+    private Double valeurRemise;
     private Date dateCreation;
     private Distributeurs distributeur;
     private List<Ressources> ressources;

@@ -7,6 +7,7 @@ import org.dozer.Mapping;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,8 +15,9 @@ import java.util.List;
 @Table(name = "documents")
 public class DocumentsEntity {
     @Id
-    @Column(name = "id", nullable = false)
-    private String id;
+    @GeneratedValue
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private UUID id;
 
     @Column(name = "titre", nullable = false)
     private String titre;
@@ -26,7 +28,7 @@ public class DocumentsEntity {
     @Column(name = "etat")
     private Boolean etat;
 
-    @Column(name = "datecreation")
+    @Column(name = "datecreation", updatable = false)
     private Date dateCreation;
 
     @Column(name = "datemodification")

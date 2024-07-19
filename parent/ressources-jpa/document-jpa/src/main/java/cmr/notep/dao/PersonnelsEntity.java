@@ -7,6 +7,7 @@ import org.dozer.Mapping;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,6 +15,10 @@ import java.util.List;
 @Table(name = "personnels")
 public class PersonnelsEntity {
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private UUID id;
     @Column(name = "dateentree")
     private Date dateEntree ;
 
@@ -37,12 +42,10 @@ public class PersonnelsEntity {
 
     @Column(name = "sexe")
     private String sexe ;
-
-    @Id
-    @Column(name = "id", nullable = false)
-    private String id;
+    @Column(name = "datemodification")
+    private Date dateModification;
 
     @OneToMany(mappedBy = "personnelsEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("jouerole")
+    @Mapping("roles")
     List<JouerRolesEntity> jouerRolesEntities;
 }

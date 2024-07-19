@@ -14,13 +14,14 @@ import java.util.List;
 @Table(name = "ressources")
 public class RessourcesEntity {
     @Id
-    @Column(name = "id" , nullable = false)
+    @GeneratedValue
+    @Column(name = "id" , nullable = false, updatable = false, columnDefinition = "UUID")
     private String id ;
     @Column(name = "libelle")
     private String libelle;
     @Column(name = "etat")
     private Boolean etat;
-    @Column(name = "datecreation")
+    @Column(name = "datecreation", updatable = false)
     private Date dateCreation;
     @Column(name = "datemodification")
     private Date dateModification;
@@ -48,8 +49,10 @@ public class RessourcesEntity {
     @Mapping("mouvements")
     private List<MouvementsEntity> mouvementsEntities;
 
-    @ManyToOne
-    @JoinColumn(name = "promotions_id")
-    @Mapping("promotion")
-    private PromotionsEntity promotionsEntities;
+    @ManyToMany
+    @JoinTable(name = "ressourcespromotions" ,
+            joinColumns = @JoinColumn(name = "ressources_id"),
+            inverseJoinColumns = @JoinColumn(name = "promotions_id"))
+    @Mapping("promotions")
+    private List<PromotionsEntity> promotionsEntities;
 }

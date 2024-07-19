@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -17,14 +18,15 @@ import java.util.List;
 public class DocEtatsEntity {
 
     @Id
-    @Column(name = "id", nullable = false)
-    private String id;
-
+    @GeneratedValue
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private UUID id;
     @Column(name = "ordre")
     private int ordre;
-
-    @Column(name = "datecreation")
+    @Column(name = "datecreation", updatable = false)
     private Date dateCreation ;
+    @Column(name = "datemodification")
+    private Date dateModification;
 
     @ManyToOne
     @JoinColumn(name = "validations_id")
