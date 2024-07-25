@@ -3,6 +3,7 @@ package cmr.notep.modele;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import lombok.*;
 
@@ -13,7 +14,7 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 public class Documents {
-    private String id;
+    private UUID id;
 
     private String titre;
 

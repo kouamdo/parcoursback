@@ -29,7 +29,7 @@ public class EtapesEntity {
     private Date dateModification;
     @ManyToOne
     @JoinColumn(name = "parcours_id")
-    @Mapping("parcours")
+    @Mapping("parcour")
     private ParcoursEntity parcoursEntity;
 
     @OneToMany(mappedBy = "etapesEntity" , fetch = FetchType.LAZY ,  cascade = {CascadeType.ALL})

@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -15,7 +16,7 @@ import java.util.List;
 @EqualsAndHashCode(exclude = {"service","documents"})
 public class Missions {
 
-    private String id ;
+    private UUID id ;
     private String libelle ;
     private String description;
     private boolean etat ;

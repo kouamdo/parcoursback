@@ -7,6 +7,7 @@ import org.dozer.Mapping;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -16,7 +17,7 @@ public class RessourcesEntity {
     @Id
     @GeneratedValue
     @Column(name = "id" , nullable = false, updatable = false, columnDefinition = "UUID")
-    private String id ;
+    private UUID id ;
     @Column(name = "libelle")
     private String libelle;
     @Column(name = "etat")
@@ -53,6 +54,6 @@ public class RessourcesEntity {
     @JoinTable(name = "ressourcespromotions" ,
             joinColumns = @JoinColumn(name = "ressources_id"),
             inverseJoinColumns = @JoinColumn(name = "promotions_id"))
-    @Mapping("promotions")
+    @Mapping("promotion")
     private List<PromotionsEntity> promotionsEntities;
 }

@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -17,7 +18,7 @@ public class PrecoMouvementsQtesEntity {
     @Id
     @GeneratedValue
     @Column(name="id", nullable = false, updatable = false, columnDefinition = "UUID")
-    private String id ;
+    private UUID id ;
     @Column(name ="qtemin")
     private int qteMin ;
     @Column(name ="qtemax")

@@ -5,6 +5,8 @@ import lombok.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,7 +15,7 @@ import java.util.List;
 @ToString(exclude = {"famille","promotion"})
 @EqualsAndHashCode(exclude = {"famille","promotion"})
 public class Ressources {
-    private String id ;
+    private UUID id ;
     private String libelle;
     private Boolean etat;
     private Date dateCreation;

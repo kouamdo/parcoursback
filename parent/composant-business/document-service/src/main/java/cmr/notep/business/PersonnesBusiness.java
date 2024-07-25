@@ -39,7 +39,7 @@ public class PersonnesBusiness {
     public void supprimerPersonne(Personnes Personnes)
     {
         daoAccessorService.getRepository(PersonnesRepository.class)
-                .deleteById(Personnes.getId());
+                .deleteById(Personnes.getId().toString());
     }
 
     public Personnes posterPersonne(Personnes Personnes) {

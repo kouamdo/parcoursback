@@ -6,21 +6,25 @@ import lombok.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"ressource","distributeur","precoMouvements"})
-@ToString(exclude = {"ressource","distributeur","precoMouvements"})
-@EqualsAndHashCode(exclude = {"ressource","distributeur","precoMouvements"})
+@JsonIgnoreProperties({"ressource","distributeur","precoMouvements","precoMouvementsRespecter","precoMouvementsVioler"})
+@ToString(exclude = {"ressource","distributeur","precoMouvements","precoMouvementsRespecter","precoMouvementsVioler"})
+@EqualsAndHashCode(exclude = {"ressource","distributeur","precoMouvements","precoMouvementsRespecter","precoMouvementsVioler"})
 public class Mouvements {
-    private  String id ;
+    private UUID id ;
     private  String description ;
-    private int qte ;
+    private int quantite ;
     private double prix ;
     private Date dateCreation ;
     private Date datePeremption ;
+    private Date dateModification;
+    private List<PrecoMouvements> precoMouvementsRespecter;
+    private List<PrecoMouvements> precoMouvementsVioler;
     private List<PrecoMouvements> precoMouvements;
     private Ressources ressource;
     private Distributeurs distributeur;

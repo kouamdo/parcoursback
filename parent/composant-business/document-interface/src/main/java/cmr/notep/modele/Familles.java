@@ -3,6 +3,7 @@ package cmr.notep.modele;
 import java.util.Date;
 import java.util.List;
 import java.util.List;
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
@@ -15,7 +16,7 @@ import lombok.*;
 @ToString(exclude = {"precoMouvementsQte","promotion"})
 @EqualsAndHashCode(exclude = {"precoMouvementsQte","promotion"})
 public class Familles {
-    private String id ;
+    private UUID id ;
     private String libelle;
     private String description;
     private String etat ;

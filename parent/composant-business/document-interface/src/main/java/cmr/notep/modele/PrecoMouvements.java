@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +15,7 @@ import java.util.List;
 @ToString(exclude = {"documents,mouvementsCorrects,mouvementsIncorrects"})
 @EqualsAndHashCode(exclude = {"documents,mouvementsCorrects,mouvementsIncorrects"})
 public class PrecoMouvements {
-    private String id ;
+    private UUID id ;
     private String libelle ;
     private boolean etat ;
     private TypeMouvement typeMouvement ;

@@ -7,6 +7,7 @@ import org.dozer.Mapping;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -17,7 +18,7 @@ public class ServicesEntity {
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
-    private String id ;
+    private UUID id ;
     @Column(name = "description")
     private String description;
     @Column(name = "libelle")

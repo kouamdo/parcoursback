@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +15,7 @@ import java.util.List;
 @ToString(exclude = {"fileAttente"})
 @EqualsAndHashCode(exclude = {"fileAttente"})
 public class Services {
-    private String id ;
+    private UUID id ;
     private String description;
     private String libelle;
     private Boolean etat;

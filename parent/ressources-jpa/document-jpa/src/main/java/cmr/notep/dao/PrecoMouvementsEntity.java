@@ -8,6 +8,7 @@ import org.dozer.Mapping;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -18,7 +19,7 @@ public class PrecoMouvementsEntity {
     @Id
     @GeneratedValue
     @Column(name="id", nullable = false, updatable = false, columnDefinition = "UUID")
-    private String id ;
+    private UUID id ;
 
     @Column(name="libelle",nullable = false)
     private String libelle ;
@@ -43,6 +44,7 @@ public class PrecoMouvementsEntity {
     @ManyToMany(mappedBy = "precoMouvementsEntityList")
     @Mapping("mouvements")
     private List<MouvementsEntity> mouvementsEntities ;
+
 
     @ManyToMany(mappedBy = "precoMouvementsEntities")
     @Mapping("documents")

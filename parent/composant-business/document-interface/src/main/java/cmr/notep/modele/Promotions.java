@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.List;
 import java.util.Date;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -14,13 +15,14 @@ import java.util.Date;
 @ToString(exclude = {"distributeur","documents"})
 @EqualsAndHashCode(exclude = {"distributeur","documents"})
 public class Promotions {
-    private String id;
+    private UUID id;
     private Date dateDebut;
     private Date dateFin;
     private String codeUnique;
     private String typeRemise;
     private Double valeurRemise;
     private Date dateCreation;
+    private Date dateModification;
     private Distributeurs distributeur;
     private List<Ressources> ressources;
     private List <Familles> familles;

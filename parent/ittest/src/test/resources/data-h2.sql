@@ -1,6 +1,7 @@
+
 INSERT INTO documents(
 	id, titre, description, etat,typemouvement,afficherunite,afficherdistributeur,prixeditable,contientressources,afficherprix, datecreation, datemodification)
-	VALUES 
+	VALUES
 ('0190615e-1101-7209-9932-7020bbd556f1', 'Note intervention', 'Document delivre par le medecin ou un infirmier de l''etablissement', true, 'Ajout', true, true, true, true,true,'2023-03-31','2023-03-31'),
 ('0190615e-1101-7209-9932-7020bbd556f2','Fiche de suivi','Document delivre par le medecin ou un infirmier de l''etablissement',True,'Neutre',true,true,true,true,true,'2023-03-31','2023-03-31'),
 ('0190615e-1101-7209-9932-7020bbd556f3','Fiche de soin','Document delivre par le medecin ou un infirmier de l''etablissement',True,'Ajout',true,true,true,true,true,NULL,NULL),
@@ -46,18 +47,20 @@ VALUES
 ('a9eebc99-9c0b-4ef8-bb6d-6bb9bd380a19', 'Adresse', 'Adresse postale', TRUE, '2022-01-01', '2022-01-02', 'String', null),
 ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a20', 'Date de naissance', 'Date de naissance', TRUE, '2022-01-01', '2022-01-02', 'Date', null);
 
+
+
 -- Insertion dans la table 'categories'
-INSERT INTO categories (id, libelle, description, etat, datecreation, datemodification,documents_id)
+INSERT INTO categories (id, libelle, datecreation, datemodification,documents_id)
 VALUES
-('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a1', 'Informations Personnelles', 'Informations Personnelles', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f1'),
-('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a2', 'Informations Primaires', 'Informations Primaires', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f1'),
-('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a3', 'Conditions Générales', 'Conditions Générales', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f2'),
-('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a4', 'Conditions Particulières', 'Particulières', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f2');
-('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a5', 'Informations Personnelles', 'Informations Personnelles', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f3'),
-('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a6', 'Informations Primaires', 'Informations Primaires', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f4'),
-('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a7', 'Conditions Générales', 'Conditions Générales', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f5'),
-('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a8', 'Conditions Générales', 'Conditions Générales', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f6'),
-('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a9', 'Catégorie par Defaut', 'Catégorie par Defaut', true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f7');
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd740a20', 'Informations Personnelles', '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f1'),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd750a20', 'Informations Primaires',  '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f1'),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd760a20', 'Conditions Générales',  '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f2'),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd770a20', 'Conditions Particulières',  '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f2'),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd780a20', 'Informations Personnelles',  '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f3'),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd790a20', 'Informations Primaires',  '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f4'),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd800a20', 'Conditions Générales', '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f5'),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd710a20', 'Conditions Générales',  '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f6'),
+('a0eebc99-9c0b-4ef8-bb6d-6bb9bd720a20', 'Catégorie par Defaut',  '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f7');
 
 -- Insertion dans la table 'associer'
 INSERT INTO associer (categories_id, attributs_id,ordre,obligatoire)
@@ -99,11 +102,11 @@ VALUES
 INSERT INTO precomouvements (id, libelle, etat, typemouvement, datecreation, datemodification) VALUES
 ('61290615e-1101-7209-9932-7020bbd556f1', 'Inventaire', true, 'Neutre', '2022-01-01', '2022-01-02'),
 ('61290615e-1101-7209-9932-7020bbd556f2', 'Vente', true, 'Reduire', '2022-01-01', '2022-01-02'),
-('61290615e-1101-7209-9932-7020bbd556f3', 'Achat', true, 'Ajout', '2022-01-01', '2022-01-02')
-('61290615e-1101-7209-9932-7020bbd556f4', 'interdiction Infirmière', true, 'Neutre', '2022-01-01', '2022-01-02')
-('61290615e-1101-7209-9932-7020bbd556f5', 'Don', true, 'Neutre', '2022-01-01', '2022-01-02')
-('61290615e-1101-7209-9932-7020bbd556f6', 'Perte', true, 'Reduire', '2022-01-01', '2022-01-02')
-('61290615e-1101-7209-9932-7020bbd556f7', 'Retour', true, 'Ajout', '2022-01-01', '2022-01-02')
+('61290615e-1101-7209-9932-7020bbd556f3', 'Achat', true, 'Ajout', '2022-01-01', '2022-01-02'),
+('61290615e-1101-7209-9932-7020bbd556f4', 'interdiction Infirmière', true, 'Neutre', '2022-01-01', '2022-01-02'),
+('61290615e-1101-7209-9932-7020bbd556f5', 'Don', true, 'Neutre', '2022-01-01', '2022-01-02'),
+('61290615e-1101-7209-9932-7020bbd556f6', 'Perte', true, 'Reduire', '2022-01-01', '2022-01-02'),
+('61290615e-1101-7209-9932-7020bbd556f7', 'Retour', true, 'Ajout', '2022-01-01', '2022-01-02'),
 ('61290615e-1101-7209-9932-7020bbd556f8', 'Sortie magasin', true, 'Reduire', '2022-01-01', '2022-01-02');
 
 ---- Insertion dans la table 'familles'
@@ -144,7 +147,7 @@ INSERT INTO precomouvementsqtes (id, qtemin, qtemax, montantmin, montantmax, pre
 ('42190615e-1101-7209-9932-7020bbd556f5', 5, 50, 200, 2000, '61290615e-1101-7209-9932-7020bbd556f5', '6190615e-1101-7209-9932-7020bbd556f5', '2022-01-01', '2022-01-02'),
 ('42190615e-1101-7209-9932-7020bbd556f6', 5, 50, 200, 2000, '61290615e-1101-7209-9932-7020bbd556f6', null, '2022-01-01', '2022-01-02'),
 ('42190615e-1101-7209-9932-7020bbd556f7', 5, 50, 200, 2000, '61290615e-1101-7209-9932-7020bbd556f7', null, '2022-01-01', '2022-01-02'),
-('42190615e-1101-7209-9932-7020bbd556f8', 5, 50, 200, 2000, '61290615e-1101-7209-9932-7020bbd556f8', null '2022-01-01', '2022-01-02'),
+('42190615e-1101-7209-9932-7020bbd556f8', 5, 50, 200, 2000, '61290615e-1101-7209-9932-7020bbd556f8', null, '2022-01-01', '2022-01-02'),
 ('42190615e-1101-7209-9932-7020bbd556f9', 5, 50, 200, 2000, '61290615e-1101-7209-9932-7020bbd556f8', null, '2022-01-01', '2022-01-02');
 
 -- Insertion dans la table sapplique

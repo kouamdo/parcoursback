@@ -1,7 +1,7 @@
 -- DROP DATABASE IF EXISTS parcours;
 CREATE SCHEMA parcours AUTHORIZATION sa;
 -- generate tables from entities
-CREATE TABLE IF NOT EXISTS  attributs
+CREATE TABLE IF NOT EXISTS attributs
 (
     id               UUID         NOT NULL,
     titre            VARCHAR(255) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS  attributs
     valeurpardefaut  VARCHAR(255),
     CONSTRAINT pk_attributs PRIMARY KEY (id)
 );
-CREATE TABLE categories
+CREATE TABLE IF NOT EXISTS categories
 (
     id               UUID NOT NULL,
     ordre            VARCHAR(255),
@@ -23,21 +23,21 @@ CREATE TABLE categories
     documents_id     UUID,
     CONSTRAINT pk_categories PRIMARY KEY (id)
 );
-CREATE TABLE associer
+CREATE TABLE IF NOT EXISTS associer
 (
     obligatoire   BOOLEAN,
     ordre         INTEGER,
-    attributs_id  VARCHAR(255) NOT NULL,
-    categories_id VARCHAR(255) NOT NULL,
+    attributs_id  UUID NOT NULL,
+    categories_id UUID NOT NULL,
     CONSTRAINT pk_associer PRIMARY KEY (attributs_id, categories_id)
 );
-CREATE TABLE concerner
+CREATE TABLE IF NOT EXISTS concerner
 (
     distributeurs_id       UUID NOT NULL,
     precomouvementsqtes_id UUID NOT NULL
 );
 
-CREATE TABLE distributeurs
+CREATE TABLE IF NOT EXISTS distributeurs
 (
     distributeurs_id UUID NOT NULL,
     datemodification TIMESTAMP WITHOUT TIME ZONE,
@@ -46,13 +46,13 @@ CREATE TABLE distributeurs
     CONSTRAINT pk_distributeurs PRIMARY KEY (distributeurs_id)
 );
 
-CREATE TABLE constituer
+CREATE TABLE IF NOT EXISTS constituer
 (
     attributs_id UUID NOT NULL,
     documents_id UUID NOT NULL
 );
 
-CREATE TABLE documents
+CREATE TABLE IF NOT EXISTS documents
 (
     id                   UUID         NOT NULL,
     titre                VARCHAR(255) NOT NULL,
@@ -68,12 +68,12 @@ CREATE TABLE documents
     contientressources   BOOLEAN,
     CONSTRAINT pk_documents PRIMARY KEY (id)
 );
-CREATE TABLE suivre
+CREATE TABLE IF NOT EXISTS suivre
 (
     documents_id       UUID NOT NULL,
     precomouvements_id UUID NOT NULL
 );
-CREATE TABLE etats
+CREATE TABLE IF NOT EXISTS etats
 (
     id               UUID NOT NULL,
     libelle          VARCHAR(255),
@@ -82,7 +82,7 @@ CREATE TABLE etats
     datemodification TIMESTAMP WITHOUT TIME ZONE,
     CONSTRAINT pk_etats PRIMARY KEY (id)
 );
-CREATE TABLE etapes
+CREATE TABLE IF NOT EXISTS etapes
 (
     id               UUID NOT NULL,
     libelle          VARCHAR(255),
@@ -91,7 +91,7 @@ CREATE TABLE etapes
     parcours_id      UUID,
     CONSTRAINT pk_etapes PRIMARY KEY (id)
 );
-CREATE TABLE familles
+CREATE TABLE IF NOT EXISTS familles
 (
     id               UUID NOT NULL,
     libelle          VARCHAR(255),
@@ -102,12 +102,12 @@ CREATE TABLE familles
     CONSTRAINT pk_familles PRIMARY KEY (id)
 );
 
-CREATE TABLE sapplique
+CREATE TABLE IF NOT EXISTS sapplique
 (
     familles_id            UUID NOT NULL,
     precomouvementsqtes_id UUID NOT NULL
 );
-CREATE TABLE filesattentes
+CREATE TABLE IF NOT EXISTS filesattentes
 (
     id               UUID NOT NULL,
     datecreation     TIMESTAMP WITHOUT TIME ZONE,
@@ -116,7 +116,7 @@ CREATE TABLE filesattentes
     services_id      UUID,
     CONSTRAINT pk_filesattentes PRIMARY KEY (id)
 );
-CREATE TABLE jouerroles
+CREATE TABLE IF NOT EXISTS jouerroles
 (
     id               UUID NOT NULL,
     etat             BOOLEAN,
@@ -128,7 +128,7 @@ CREATE TABLE jouerroles
     roles_id         UUID,
     CONSTRAINT pk_jouerroles PRIMARY KEY (id)
 );
-CREATE TABLE missions
+CREATE TABLE IF NOT EXISTS missions
 (
     id               UUID                        NOT NULL,
     libelle          VARCHAR(255)                NOT NULL,
@@ -140,12 +140,12 @@ CREATE TABLE missions
     CONSTRAINT pk_missions PRIMARY KEY (id)
 );
 
-CREATE TABLE traiter
+CREATE TABLE IF NOT EXISTS traiter
 (
     documents_id UUID NOT NULL,
     missions_id  UUID NOT NULL
 );
-CREATE TABLE mouvements
+CREATE TABLE IF NOT EXISTS mouvements
 (
     id               UUID                        NOT NULL,
     description      VARCHAR(255)                NOT NULL,
@@ -159,18 +159,18 @@ CREATE TABLE mouvements
     CONSTRAINT pk_mouvements PRIMARY KEY (id)
 );
 
-CREATE TABLE respecter
+CREATE TABLE IF NOT EXISTS respecter
 (
     mouvements_id      UUID NOT NULL,
     precomouvements_id UUID NOT NULL
 );
 
-CREATE TABLE violer
+CREATE TABLE IF NOT EXISTS violer
 (
     mouvements_id      UUID NOT NULL,
     precomouvements_id UUID NOT NULL
 );
-CREATE TABLE ordreetats
+CREATE TABLE IF NOT EXISTS ordreetats
 (
     id               UUID NOT NULL,
     datecreation     TIMESTAMP WITHOUT TIME ZONE,
@@ -180,7 +180,7 @@ CREATE TABLE ordreetats
     etats_id         UUID,
     CONSTRAINT pk_ordreetats PRIMARY KEY (id)
 );
-CREATE TABLE parcours
+CREATE TABLE IF NOT EXISTS parcours
 (
     id               UUID NOT NULL,
     libelle          VARCHAR(255),
@@ -188,7 +188,7 @@ CREATE TABLE parcours
     datemodification TIMESTAMP WITHOUT TIME ZONE,
     CONSTRAINT pk_parcours PRIMARY KEY (id)
 );
-CREATE TABLE personnels
+CREATE TABLE IF NOT EXISTS personnels
 (
     id               UUID NOT NULL,
     dateentree       TIMESTAMP WITHOUT TIME ZONE,
@@ -202,7 +202,7 @@ CREATE TABLE personnels
     datemodification TIMESTAMP WITHOUT TIME ZONE,
     CONSTRAINT pk_personnels PRIMARY KEY (id)
 );
-CREATE TABLE personnes
+CREATE TABLE IF NOT EXISTS personnes
 (
     id               UUID NOT NULL,
     adresse          VARCHAR(255),
@@ -213,11 +213,11 @@ CREATE TABLE personnes
     CONSTRAINT pk_personnes PRIMARY KEY (id)
 );
 
-CREATE TABLE rattacher
+CREATE TABLE IF NOT EXISTS rattacher
 (
     personnes_id UUID NOT NULL
 );
-CREATE TABLE personnesmorales
+CREATE TABLE IF NOT EXISTS personnesmorales
 (
     personnesmorales_id UUID NOT NULL,
     raisonsociale       VARCHAR(255),
@@ -225,7 +225,7 @@ CREATE TABLE personnesmorales
     datemodification    TIMESTAMP WITHOUT TIME ZONE,
     CONSTRAINT pk_personnesmorales PRIMARY KEY (personnesmorales_id)
 );
-CREATE TABLE personnesphysique
+CREATE TABLE IF NOT EXISTS personnesphysique
 (
     personnesphysique_id UUID         NOT NULL,
     nom                  VARCHAR(255) NOT NULL,
@@ -235,7 +235,7 @@ CREATE TABLE personnesphysique
     datemodification     TIMESTAMP WITHOUT TIME ZONE,
     CONSTRAINT pk_personnesphysique PRIMARY KEY (personnesphysique_id)
 );
-CREATE TABLE precomouvements
+CREATE TABLE IF NOT EXISTS precomouvements
 (
     id               UUID         NOT NULL,
     libelle          VARCHAR(255) NOT NULL,
@@ -245,7 +245,7 @@ CREATE TABLE precomouvements
     typemouvement    VARCHAR(255),
     CONSTRAINT pk_precomouvements PRIMARY KEY (id)
 );
-CREATE TABLE precomouvementsqtes
+CREATE TABLE IF NOT EXISTS precomouvementsqtes
 (
     id                 UUID NOT NULL,
     qtemin             INTEGER,
@@ -258,19 +258,19 @@ CREATE TABLE precomouvementsqtes
     ressources_id      UUID,
     CONSTRAINT pk_precomouvementsqtes PRIMARY KEY (id)
 );
-CREATE TABLE documentspromotions
+CREATE TABLE IF NOT EXISTS documentspromotions
 (
     documents_id  UUID NOT NULL,
     promotions_id UUID NOT NULL
 );
 
-CREATE TABLE famillespromotions
+CREATE TABLE IF NOT EXISTS famillespromotions
 (
     familles_id   UUID NOT NULL,
     promotions_id UUID NOT NULL
 );
 
-CREATE TABLE promotions
+CREATE TABLE IF NOT EXISTS promotions
 (
     id                      UUID NOT NULL,
     datedebut               TIMESTAMP WITHOUT TIME ZONE,
@@ -283,7 +283,7 @@ CREATE TABLE promotions
     distributeurs_entity_id UUID,
     CONSTRAINT pk_promotions PRIMARY KEY (id)
 );
-CREATE TABLE remplir
+CREATE TABLE IF NOT EXISTS remplir
 (
     datefin        TIMESTAMP WITHOUT TIME ZONE,
     datecreation   TIMESTAMP WITHOUT TIME ZONE,
@@ -293,11 +293,11 @@ CREATE TABLE remplir
     droitmodifier  BOOLEAN,
     droitconsulter BOOLEAN,
     droitvalider   BOOLEAN,
-    roles_id       VARCHAR(255) NOT NULL,
-    missions_id    VARCHAR(255) NOT NULL,
+    roles_id       UUID NOT NULL,
+    missions_id    UUID NOT NULL,
     CONSTRAINT pk_remplir PRIMARY KEY (roles_id, missions_id)
 );
-CREATE TABLE ressources
+CREATE TABLE IF NOT EXISTS ressources
 (
     id               UUID NOT NULL,
     libelle          VARCHAR(255),
@@ -313,12 +313,12 @@ CREATE TABLE ressources
     CONSTRAINT pk_ressources PRIMARY KEY (id)
 );
 
-CREATE TABLE ressourcespromotions
+CREATE TABLE IF NOT EXISTS ressourcespromotions
 (
     promotions_id UUID NOT NULL,
     ressources_id UUID NOT NULL
 );
-CREATE TABLE roles
+CREATE TABLE IF NOT EXISTS roles
 (
     id               UUID NOT NULL,
     titre            VARCHAR(255),
@@ -328,7 +328,7 @@ CREATE TABLE roles
     datemodification TIMESTAMP WITHOUT TIME ZONE,
     CONSTRAINT pk_roles PRIMARY KEY (id)
 );
-CREATE TABLE services
+CREATE TABLE IF NOT EXISTS services
 (
     id               UUID         NOT NULL,
     description      VARCHAR(255),
@@ -341,7 +341,7 @@ CREATE TABLE services
     filesattentes_id UUID,
     CONSTRAINT pk_services PRIMARY KEY (id)
 );
-CREATE TABLE tickets
+CREATE TABLE IF NOT EXISTS tickets
 (
     id               UUID NOT NULL,
     codecourt        VARCHAR(255),
@@ -349,7 +349,7 @@ CREATE TABLE tickets
     datemodification TIMESTAMP WITHOUT TIME ZONE,
     CONSTRAINT pk_tickets PRIMARY KEY (id)
 );
-CREATE TABLE ticketsfilesattentes
+CREATE TABLE IF NOT EXISTS ticketsfilesattentes
 (
     id               UUID NOT NULL,
     etat             BOOLEAN,
@@ -358,7 +358,7 @@ CREATE TABLE ticketsfilesattentes
     filesattentes_id UUID,
     CONSTRAINT pk_ticketsfilesattentes PRIMARY KEY (id)
 );
-CREATE TABLE validations
+CREATE TABLE IF NOT EXISTS validations
 (
     id               UUID NOT NULL,
     code             VARCHAR(255),
@@ -371,7 +371,7 @@ CREATE TABLE validations
     roles_id         UUID,
     CONSTRAINT pk_validations PRIMARY KEY (id)
 );
-CREATE TABLE docetats
+CREATE TABLE IF NOT EXISTS docetats
 (
     id                          UUID NOT NULL,
     ordre                       INTEGER,

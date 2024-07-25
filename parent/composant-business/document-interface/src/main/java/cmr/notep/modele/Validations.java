@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +15,7 @@ import java.util.List;
 @ToString(exclude = {"role"})
 @EqualsAndHashCode(exclude = {"role"})
 public class Validations {
-    private String id;
+    private UUID id;
     private String code ;
     private String etat ;
     private Date dateCreation;

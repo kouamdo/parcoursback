@@ -6,16 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Distributeurs {
-    private String id;
-    private List<Mouvements> mouvements;
-    private List<PrecoMouvementsQtes> precomouvementsqtes;
+public class Distributeurs extends Personnes {
+    private UUID distributeurs_id;
     private String raisonSociale;
     private String code ;
-    private Promotions promotion;
 }
