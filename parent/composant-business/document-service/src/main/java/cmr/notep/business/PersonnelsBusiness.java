@@ -41,7 +41,7 @@ public class PersonnelsBusiness  {
     public void supprimerPersonnel(Personnels Personnels)
     {
         daoAccessorService.getRepository(PersonnelsRepository.class)
-                .deleteById(Personnels.getId());
+                .deleteById(Personnels.getId().toString());
     }
 
     public Personnels posterPersonnel(Personnels Personnels) {

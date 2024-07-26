@@ -40,7 +40,7 @@ public class PromotionsBusiness {
     public void supprimerPromotion(Promotions Promotions)
     {
         daoAccessorService.getRepository(PromotionsRepository.class)
-                .deleteById(Promotions.getId());
+                .deleteById(Promotions.getId().toString());
     }
 
     public Promotions posterPromotion(Promotions Promotions) {

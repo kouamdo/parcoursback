@@ -33,8 +33,7 @@ public class DistributeursEntity extends PersonnesEntity {
     @Mapping("precomouvementsqtes")
     private List<PrecoMouvementsQtesEntity> precoMouvementsQtesEntities;
 
-    @OneToMany(mappedBy = "distributeursEntity" )
-    @JoinColumn(name = "promotions_id" , referencedColumnName = "id")
+    @OneToMany(mappedBy = "distributeursEntity")
     @Mapping("promotions")
     private List<PromotionsEntity> promotionsEntities;
 }

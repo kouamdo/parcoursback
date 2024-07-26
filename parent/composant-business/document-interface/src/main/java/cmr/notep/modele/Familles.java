@@ -1,19 +1,18 @@
 package cmr.notep.modele;
 
-import java.util.Date;
-import java.util.List;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+
+import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"precoMouvementsQte"})
-@ToString(exclude = {"precoMouvementsQte"})
-@EqualsAndHashCode(exclude = {"precoMouvementsQte"})
+@JsonIgnoreProperties({"precoMouvementsQtes"})
+@ToString(exclude = {"precoMouvementsQtes"})
+@EqualsAndHashCode(exclude = {"precoMouvementsQtes"})
 public class Familles {
     private String id ;
     private String libelle;

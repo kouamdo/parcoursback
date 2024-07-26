@@ -4,9 +4,10 @@ package cmr.notep.dao;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -16,10 +17,10 @@ import java.util.List;
 public class PrecoMouvementsEntity {
 
     @Id
-    @GeneratedValue
-    @Column(name="id", nullable = false, updatable = false, columnDefinition = "UUID")
-    private String id ;
-
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private String id;
     @Column(name="libelle",nullable = false)
     private String libelle ;
 
@@ -27,9 +28,9 @@ public class PrecoMouvementsEntity {
     private boolean etat ;
 
     @Column(name = "datecreation", updatable = false,nullable = false)
-    private LocalDate dateCreation ;
+    private Date dateCreation ;
     @Column(name="datemodification")
-    private LocalDate dateModification ;
+    private Date dateModification ;
 
     @Column(name="typemouvement")
     private String typeMouvement ;

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Date;
 import java.util.List;
@@ -18,9 +19,10 @@ import java.util.UUID;
 public class CategoriesEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
-    private UUID id;
+    private String id;
     @Column(name = "ordre")
     private String ordre;
     @Column(name = "libelle")

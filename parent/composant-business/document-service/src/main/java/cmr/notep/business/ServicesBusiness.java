@@ -38,7 +38,7 @@ public class ServicesBusiness {
     public void supprimerService(Services tache)
     {
         daoAccessorService.getRepository(ServicesRepository.class)
-                .deleteById(tache.getId());
+                .deleteById(tache.getId().toString());
     }
 
     public Services posterService(Services tache) {

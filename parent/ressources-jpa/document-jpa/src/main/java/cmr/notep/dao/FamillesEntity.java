@@ -3,10 +3,12 @@ package cmr.notep.dao;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,9 +16,10 @@ import java.util.List;
 @Table(name = "familles")
 public class FamillesEntity {
     @Id
-    @GeneratedValue
-    @Column(name = "id" , nullable = false, updatable = false, columnDefinition = "UUID")
-    private String id ;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private String id;
     @Column(name = "libelle")
     private String libelle;
     @Column(name = "description")
@@ -40,7 +43,6 @@ public class FamillesEntity {
     private List<RessourcesEntity> ressourceEntities;
 
     @ManyToMany(mappedBy = "famillesEntities", fetch = FetchType.LAZY)
-    @JoinColumn(name = "promotions_id")
     @Mapping("promotions")
     private List<PromotionsEntity> promotionsEntities;
 }

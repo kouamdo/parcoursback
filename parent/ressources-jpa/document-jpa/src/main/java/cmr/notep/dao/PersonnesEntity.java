@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,10 +20,10 @@ import java.util.List;
 public class PersonnesEntity
 {
     @Id
-    @GeneratedValue
-    @Column(name="id", nullable = false, updatable = false, columnDefinition = "UUID")
-    private String id ;
-
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private String id;
     @Column(name = "adresse")
     private String adresse ;
 
@@ -39,10 +39,10 @@ public class PersonnesEntity
     private Date dateCreation;
     @Column(name = "datemodification")
     private Date dateModification;
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "rattacher" ,
             joinColumns = @JoinColumn(name = "personnes_id"),
-            inverseJoinColumns = @JoinColumn(name = "personnes_id"))
+            inverseJoinColumns = @JoinColumn(name = "rattacher_id"))
     @Mapping("personnesRatachees")
     private List<PersonnesEntity> personnesRatachees = new ArrayList<>();
 }

@@ -40,7 +40,7 @@ public class RolesBusiness {
     public void supprimerRole(Roles Roles)
     {
         daoAccessorService.getRepository(RolesRepository.class)
-                .deleteById(Roles.getId());
+                .deleteById(Roles.getId().toString());
     }
 
     public Roles posterRole(Roles Roles) {

@@ -10,9 +10,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"documents,mouvementsCorrects,mouvementsIncorrects"})
-@ToString(exclude = {"documents,mouvementsCorrects,mouvementsIncorrects"})
-@EqualsAndHashCode(exclude = {"documents,mouvementsCorrects,mouvementsIncorrects"})
+@ToString(exclude = {"documents"})
+@EqualsAndHashCode(exclude = {"documents"})
+@JsonIgnoreProperties({"documents"})
 public class PrecoMouvements {
 
     private String id ;

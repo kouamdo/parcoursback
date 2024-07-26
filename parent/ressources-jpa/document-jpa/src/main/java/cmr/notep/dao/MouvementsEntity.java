@@ -3,9 +3,10 @@ package cmr.notep.dao;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -17,9 +18,10 @@ import java.util.UUID;
 public class MouvementsEntity {
 
     @Id
-    @GeneratedValue
-    @Column(name = "id" , nullable = false, updatable = false, columnDefinition = "UUID")
-    private UUID id ;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private String id;
 
     @Column(name = "description" , nullable = false)
     private  String description ;
@@ -33,7 +35,7 @@ public class MouvementsEntity {
     @Column(name = "datecreation", updatable = false,nullable = false)
     private Date dateCreation ;
 
-    @Column(name = "dateperemption",nullable = false)
+    @Column(name = "dateperemption")
     private Date datePeremption ;
     @Column(name = "datemodification")
     private Date dateModification;

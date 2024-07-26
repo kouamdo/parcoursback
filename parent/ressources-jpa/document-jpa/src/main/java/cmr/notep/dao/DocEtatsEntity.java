@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,9 +19,10 @@ import java.util.UUID;
 public class DocEtatsEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
-    private UUID id;
+    private String id;
     @Column(name = "ordre")
     private int ordre;
     @Column(name = "datecreation", updatable = false)
@@ -33,13 +35,12 @@ public class DocEtatsEntity {
     @Mapping("validation")
     private ValidationsEntity validationsEntity;
 
-    @OneToMany(mappedBy = "docEtatsCourantEntity", fetch = FetchType.LAZY)
+    @ManyToMany
+    @JoinTable(name = "docetats_predecesseur",
+            joinColumns = @JoinColumn(name = "docetats_id"),
+            inverseJoinColumns = @JoinColumn(name = "predecesseur_id"))
     @Mapping("predecesseurDocEtat")
     private List<DocEtatsEntity> predecesseursDocEtat = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "docEtatsCourantEntity_id")
-    private DocEtatsEntity docEtatsCourantEntity;
 
     @ManyToOne
     @JoinColumn(name = "etats_id")
