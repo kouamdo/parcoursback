@@ -40,7 +40,7 @@ public class DistributeursBusiness {
     public void supprimerDistributeur(Distributeurs Distributeurs)
     {
         daoAccessorService.getRepository(DistributeursRepository.class)
-                .deleteById(Distributeurs.getId());
+                .deleteById(Distributeurs.getId().toString());
     }
 
     public Distributeurs posterDistributeur(Distributeurs Distributeurs) {

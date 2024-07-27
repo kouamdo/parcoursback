@@ -1,6 +1,5 @@
 package cmr.notep.modele;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -15,7 +14,6 @@ import java.util.List;
 @ToString(exclude = {"documents"})
 @EqualsAndHashCode(exclude = {"documents"})
 public class Attributs {
-
     private String id;
     private String titre;
 
@@ -32,7 +30,6 @@ public class Attributs {
     private String valeurParDefaut;
 
     private List<Documents> documents;
-
-    private List<Associer> assoicier_categorie ;
+    //private List<Categories> categories ;
 
 }

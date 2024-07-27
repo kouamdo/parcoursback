@@ -4,9 +4,10 @@ package cmr.notep.dao;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Date;
 import java.util.List;
 
@@ -16,8 +17,10 @@ import java.util.List;
 @Table(name = "missions")
 public class MissionsEntity {
     @Id
-    @Column(name="id", nullable = false)
-    private String id ;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private String id;
 
     @Column(name="libelle",nullable = false)
     private String libelle ;
@@ -28,7 +31,7 @@ public class MissionsEntity {
     @Column(name = "etat")
     private boolean etat ;
 
-    @Column(name = "datecreation",nullable = false)
+    @Column(name = "datecreation", updatable = false,nullable = false)
     private Date dateCreation ;
 
     @Column(name="datemodification")
@@ -36,8 +39,8 @@ public class MissionsEntity {
 
     @ManyToMany(fetch = FetchType.LAZY , cascade = {CascadeType.ALL} )
     @JoinTable(name = "traiter",
-        joinColumns = @JoinColumn(name = "id_mission"),
-            inverseJoinColumns = @JoinColumn(name="id_document")
+        joinColumns = @JoinColumn(name = "missions_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name="documents_id", referencedColumnName = "id")
     )
     @Mapping("documents")
     private List<DocumentsEntity> documentsEntities ;
@@ -48,6 +51,6 @@ public class MissionsEntity {
     private ServicesEntity servicesEntity ;
 
     @OneToMany(mappedBy = "missionsEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("remplirList")
+    @Mapping("roles")
     List<RemplirEntity> remplirEntities;
 }

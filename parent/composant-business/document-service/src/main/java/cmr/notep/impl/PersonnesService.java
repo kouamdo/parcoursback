@@ -17,8 +17,7 @@ public class PersonnesService implements IPersonnesApi {
     public PersonnesService(PersonnesBusiness personnesBusiness) {
         this.personnesBusiness = personnesBusiness;
     }
-
-    @Override
+@Override
     public Personnes avoirPersonne(String idPersonnes) {
         return personnesBusiness.avoirPersonne(idPersonnes);
     }

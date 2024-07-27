@@ -10,9 +10,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"documents"})
 @ToString(exclude = {"documents"})
 @EqualsAndHashCode(exclude = {"documents"})
+@JsonIgnoreProperties({"documents"})
 public class PrecoMouvements {
     private String id ;
     private String libelle ;
@@ -22,5 +22,7 @@ public class PrecoMouvements {
     private Date dateModification ;
     private List<Mouvements> mouvements ;
     private List<Documents> documents ;
+    private List<Mouvements> mouvementsCorrects ;
+    private List<Mouvements> mouvementsIncorrects ;
     private List<PrecoMouvementsQtes> precoMouvementsQtes;
 }

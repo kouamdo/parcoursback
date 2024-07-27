@@ -39,7 +39,7 @@ public class CategoriesBusiness {
     public void supprimerCategory(Categories categories)
     {
         daoAccessorService.getRepository(CategoriesRepository.class)
-                .deleteById(categories.getId());
+                .deleteById(categories.getId().toString());
     }
 
     public Categories posterCategorie(Categories categories) {

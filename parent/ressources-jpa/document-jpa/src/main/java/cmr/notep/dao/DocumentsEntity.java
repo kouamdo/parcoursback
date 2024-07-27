@@ -3,10 +3,12 @@ package cmr.notep.dao;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,7 +16,9 @@ import java.util.List;
 @Table(name = "documents")
 public class DocumentsEntity {
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
     private String id;
 
     @Column(name = "titre", nullable = false)
@@ -26,7 +30,7 @@ public class DocumentsEntity {
     @Column(name = "etat")
     private Boolean etat;
 
-    @Column(name = "datecreation")
+    @Column(name = "datecreation", updatable = false)
     private Date dateCreation;
 
     @Column(name = "datemodification")
@@ -74,7 +78,7 @@ public class DocumentsEntity {
     private List<PrecoMouvementsEntity> precoMouvementsEntities ;
 
     @OneToMany(mappedBy = "documentsEntity" , fetch = FetchType.LAZY , cascade = {CascadeType.ALL})
-    @Mapping("docetats")
+    @Mapping("docEtats")
     private List<DocEtatsEntity> docEtatsEntities;
 
     @ManyToMany(mappedBy = "documentsEntities")

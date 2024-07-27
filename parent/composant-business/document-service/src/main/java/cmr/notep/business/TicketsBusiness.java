@@ -40,7 +40,7 @@ public class TicketsBusiness {
     public void supprimerTicket(Tickets Tickets)
     {
         daoAccessorService.getRepository(TicketsRepository.class)
-                .deleteById(Tickets.getId());
+                .deleteById(String.valueOf(Tickets.getId()));
     }
 
     public Tickets posterTicket(Tickets Tickets) {

@@ -4,9 +4,10 @@ package cmr.notep.dao;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -16,23 +17,29 @@ import java.util.List;
 public class PrecoMouvementsEntity {
 
     @Id
-    @Column(name="id", nullable = false)
-    private String id ;
-
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private String id;
     @Column(name="libelle",nullable = false)
     private String libelle ;
 
     @Column(name = "etat")
     private boolean etat ;
 
-    @Column(name = "datecreation",nullable = false)
-    private LocalDate dateCreation ;
-
+    @Column(name = "datecreation", updatable = false,nullable = false)
+    private Date dateCreation ;
     @Column(name="datemodification")
-    private LocalDate dateModification ;
+    private Date dateModification ;
 
     @Column(name="typemouvement")
     private String typeMouvement ;
+    @ManyToMany(mappedBy = "precoMouvementsRespecterEntityties")
+    @Mapping("mouvementsCorrects")
+    private List<MouvementsEntity> mouvementsCorrectsEntities ;
+    @ManyToMany(mappedBy = "precoMouvementsViolerEntityties")
+    @Mapping("mouvementsIncorrects")
+    private List<MouvementsEntity> mouvementsIncorrectsEntities ;
 
     @ManyToMany(mappedBy = "precoMouvementsEntityList")
     @Mapping("mouvements")

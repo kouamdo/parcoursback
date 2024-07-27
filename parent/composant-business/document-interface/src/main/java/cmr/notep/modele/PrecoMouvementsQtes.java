@@ -1,5 +1,6 @@
 package cmr.notep.modele;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -16,8 +17,8 @@ public class PrecoMouvementsQtes {
     private String id ;
     private int qteMin ;
     private int qteMax ;
-    private int montantMin ;
-    private int montantMax ;
+    private double montantMin ;
+    private double montantMax ;
     private PrecoMouvements precoMouvement ;
     private List<Familles> familles;
     private Ressources ressource;

@@ -3,10 +3,12 @@ package cmr.notep.dao;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,12 +16,15 @@ import java.util.List;
 @Table(name = "filesattentes")
 public class FilesAttentesEntity {
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
     private String id;
 
-    @Column(name = "datecreation")
+    @Column(name = "datecreation", updatable = false)
     private Date dateCreation;
-
+    @Column(name = "datemodification")
+    private Date dateModification;
     @Column(name = "etat")
     private Boolean etat ;
 
@@ -27,7 +32,7 @@ public class FilesAttentesEntity {
     @Mapping("ticketsfilesattentes")
     private List<TicketsFilesAttentesEntity> ticketsFilesAttentesEntities;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "services_id" , referencedColumnName = "id")
     @Mapping("service")
     private ServicesEntity servicesEntity;

@@ -20,5 +20,5 @@ public class Personnels {
     private String email;
     private String prenom;
     private String sexe ;
-    private List<JouerRoles> jouerole;
+    private List<JouerRoles> roles;
 }

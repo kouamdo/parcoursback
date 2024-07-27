@@ -3,6 +3,7 @@ package cmr.notep.modele;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import lombok.*;
 
@@ -43,6 +44,6 @@ public class Documents {
 
     private List<Attributs> attributs ;
     private List<Categories> categories ;
-    private List<DocEtats> docetats;
+    private List<DocEtats> docEtats;
     private List<Promotions> promotions;
 }

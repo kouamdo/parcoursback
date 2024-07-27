@@ -4,10 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -15,15 +17,17 @@ import java.util.List;
 @Table(name = "familles")
 public class FamillesEntity {
     @Id
-    @Column(name = "id" , nullable = false)
-    private String id ;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private String id;
     @Column(name = "libelle")
     private String libelle;
     @Column(name = "description")
     private String description;
     @Column(name = "etat")
     private Boolean etat ;
-    @Column(name = "datecreation")
+    @Column(name = "datecreation", updatable = false)
     private Date dateCreation;
     @Column(name = "datemodification")
     private Date dateModification;
@@ -32,15 +36,14 @@ public class FamillesEntity {
     @JoinTable(name = "sapplique",
             joinColumns = @JoinColumn(name = "familles_id"),
             inverseJoinColumns = @JoinColumn(name = "precomouvementsqtes_id"))
-    @Mapping("precoMouvementsQte")
+    @Mapping("precoMouvementsQtes")
     private List<PrecoMouvementsQtesEntity> precoMouvementsQtesEntities;
 
     @OneToMany(mappedBy = "famillesEntity", fetch = FetchType.LAZY)
     @Mapping("ressources")
     private List<RessourcesEntity> ressourceEntities;
 
-    @ManyToOne
-    @JoinColumn(name = "promotions_id")
-    @Mapping("promotion")
-    private PromotionsEntity promotionsEntity;
+    @ManyToMany(mappedBy = "famillesEntities", fetch = FetchType.LAZY)
+    @Mapping("promotions")
+    private List<PromotionsEntity> promotionsEntities;
 }

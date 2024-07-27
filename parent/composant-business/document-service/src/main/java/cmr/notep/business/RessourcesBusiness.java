@@ -40,7 +40,7 @@ public class RessourcesBusiness {
     public void supprimerRessource(Ressources Ressources)
     {
         daoAccessorService.getRepository(RessourcesRepository.class)
-                .deleteById(Ressources.getId());
+                .deleteById(Ressources.getId().toString());
     }
 
     public Ressources posterRessource(Ressources Ressources) {
