@@ -11,7 +11,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class Roles {
-    private UUID id;
+    private String id;
     private String titre;
     private String description;
     private Boolean etat ;

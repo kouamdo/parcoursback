@@ -387,12 +387,23 @@ CREATE TABLE IF NOT EXISTS docetats
     etapes_id                   VARCHAR(255),
     CONSTRAINT pk_docetats PRIMARY KEY (id)
 );
-CREATE TABLE docetats_predecesseurs
+CREATE TABLE IF NOT EXISTS docetats_predecesseurs
 (
     docetats_id       VARCHAR(255) NOT NULL,
     predecesseur_id VARCHAR(255) NOT NULL,
     CONSTRAINT pk_docetats_predecesseurs PRIMARY KEY (docetats_id, predecesseur_id)
 );
+
+CREATE TABLE IF NOT EXISTS mouvpreco
+(
+    id_precomouvements VARCHAR(255) NOT NULL,
+    id_mouvements VARCHAR(255) NOT NULL,
+    CONSTRAINT pk_mouvpreco PRIMARY KEY (id_precomouvements,id_mouvements),
+    CONSTRAINT fk_mouvpreco_precomouvements FOREIGN KEY (id_precomouvements) REFERENCES precomouvements(id),
+    CONSTRAINT fk_mouvpreco_mouvements FOREIGN KEY (id_mouvements) REFERENCES mouvements(id)
+);
+
+
 
 ALTER TABLE docetats_predecesseurs
     ADD CONSTRAINT FK_DOCETATS_PREDECESSEURS_ON_DOCETATS FOREIGN KEY (docetats_id) REFERENCES docetats (id);

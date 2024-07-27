@@ -16,7 +16,7 @@ import java.util.UUID;
 @ToString(exclude = {"precoMouvement", "ressource"})
 @EqualsAndHashCode(exclude = {"precoMouvement", "ressource"})
 public class PrecoMouvementsQtes {
-    private UUID id ;
+    private String id ;
     private int qteMin ;
     private int qteMax ;
     private double montantMin ;

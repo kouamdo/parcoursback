@@ -15,7 +15,7 @@ import java.util.UUID;
 @EqualsAndHashCode(exclude = {"documents"})
 @JsonIgnoreProperties({"documents"})
 public class PrecoMouvements {
-    private UUID id ;
+    private String id ;
     private String libelle ;
     private boolean etat ;
     private TypeMouvement typeMouvement ;

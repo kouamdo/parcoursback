@@ -12,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Distributeurs extends Personnes {
-    private UUID distributeurs_id;
+    private String distributeurs_id;
     private String raisonSociale;
     private String code ;
 }

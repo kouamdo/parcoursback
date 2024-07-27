@@ -13,7 +13,7 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode
 public class FilesAttentes {
-    private UUID id;
+    private String id;
     private Date dateCreation;
     private Date dateModification;
     private Boolean etat ;

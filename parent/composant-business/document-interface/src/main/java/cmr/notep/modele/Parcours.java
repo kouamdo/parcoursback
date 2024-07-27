@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class Parcours {
-    private UUID id;
+    private String id;
     private String libelle;
     private Date dateCreation;
     private Date dateModification;

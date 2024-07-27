@@ -13,7 +13,7 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode
 public class Tickets {
-    private UUID id;
+    private String id;
     private String codecourt;
     private Date dateCreation;
     private Date dateModification;

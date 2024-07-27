@@ -15,15 +15,15 @@ import java.util.UUID;
 @ToString(exclude = {"personnesratache"})
 @EqualsAndHashCode(exclude = {"personnesratache"})
 public class Personnes {
-    private UUID id ;
+    private String id ;
     private String adresse ;
     private String mail ;
     private  String telephone ;
     private  String qrcodevalue ;
     private Date dateCreation;
     private Date dateModification;
-//    private List<Mouvements> mouvements;
-//    private List<PrecoMouvementsQtes> precomouvementsqtes;
-//    private Promotions promotion;
-    private List<Personnes> personnesratache;
+    private List<Mouvements> mouvements;
+    private List<PrecoMouvementsQtes> precomouvementsqtes;
+    private Promotions promotion;
+    private List<Personnes> personnesRatachees;
 }

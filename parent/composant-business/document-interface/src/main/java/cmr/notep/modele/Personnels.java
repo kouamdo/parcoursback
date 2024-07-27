@@ -12,7 +12,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class Personnels {
-    private UUID id;
+    private String id;
     private Date dateEntree ;
     private String nom;
     private  Date dateNaissance ;

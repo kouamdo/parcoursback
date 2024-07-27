@@ -15,7 +15,7 @@ import java.util.UUID;
 @ToString(exclude = {"validation","etape","etat","document"})
 @EqualsAndHashCode(exclude = {"validation","etape","etat","document"})
 public class DocEtats {
-    private UUID id;
+    private String id;
     private int ordre;
     private Date dateCreation ;
     private Date dateModification;

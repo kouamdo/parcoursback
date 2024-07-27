@@ -14,7 +14,7 @@ import java.util.UUID;
 @ToString(exclude = {"role","personnel"})
 @EqualsAndHashCode(exclude = {"role","personnel"})
 public class JouerRoles {
-    private UUID id;
+    private String id;
     private Boolean etat ;
     private Date dateCreation;
     private Date dateModification;

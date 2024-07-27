@@ -14,7 +14,7 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 public class Documents {
-    private UUID id;
+    private String id;
 
     private String titre;
 

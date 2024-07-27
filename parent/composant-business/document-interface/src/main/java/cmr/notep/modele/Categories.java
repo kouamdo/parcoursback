@@ -25,7 +25,7 @@ import java.util.UUID;
 @EqualsAndHashCode(exclude = {"document"})
 @JsonIgnoreProperties({"document"})
 public class Categories {
-    private UUID id;
+    private String id;
     private String ordre;
     private String libelle;
     private Date dateCreation;

@@ -224,7 +224,11 @@ INSERT INTO traiter (documents_id,missions_id) values
 ('0190615e-1101-7209-9932-7020bbd556f2','3190615e-1101-7209-9932-7020bbd556f2'),
 ('0190615e-1101-7209-9932-7020bbd556f3','3190615e-1101-7209-9932-7020bbd556f3');
 
-
+INSERT INTO mouvpreco (id_precomouvements, id_mouvements) VALUES
+('6290615e-1101-7209-9932-7020bbd556f1', '97d314f5-84ad-47cd-874d-9c55f0e45790'),
+('6290615e-1101-7209-9932-7020bbd556f2', 'bfee750d-9b8c-4475-9373-08eff9b3ccb7'),
+('17ee6932-2fcd-4b93-9c4c-0a4dbf659bff', '0e7cea07-d09e-4f79-be6c-6dd27aecbce6'),
+('77b8577f-6d26-4376-af30-a3c8f75a9194', 'decaedc8-a908-4cad-bdd6-0403a2614f22');
 
 
 

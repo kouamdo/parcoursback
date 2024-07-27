@@ -15,7 +15,7 @@ import java.util.UUID;
 @ToString(exclude = {"fileAttente"})
 @EqualsAndHashCode(exclude = {"fileAttente"})
 public class Services {
-    private UUID id ;
+    private String id ;
     private String description;
     private String libelle;
     private Boolean etat;

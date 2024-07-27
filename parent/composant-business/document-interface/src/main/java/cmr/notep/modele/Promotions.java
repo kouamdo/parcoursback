@@ -15,7 +15,7 @@ import java.util.UUID;
 @ToString(exclude = {"distributeur","documents"})
 @EqualsAndHashCode(exclude = {"distributeur","documents"})
 public class Promotions {
-    private UUID id;
+    private String id;
     private Date dateDebut;
     private Date dateFin;
     private String codeUnique;

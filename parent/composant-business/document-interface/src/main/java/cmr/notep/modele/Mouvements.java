@@ -16,7 +16,7 @@ import java.util.UUID;
 @ToString(exclude = {"ressource","distributeur","precoMouvements","precoMouvementsRespecter","precoMouvementsVioler"})
 @EqualsAndHashCode(exclude = {"ressource","distributeur","precoMouvements","precoMouvementsRespecter","precoMouvementsVioler"})
 public class Mouvements {
-    private UUID id ;
+    private String id ;
     private  String description ;
     private int quantite ;
     private double prix ;

@@ -13,7 +13,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class OrdreEtats {
-    private UUID id;
+    private String id;
     private Date dateCreation;
     private Date dateModification;
     private Date dateFinVote;

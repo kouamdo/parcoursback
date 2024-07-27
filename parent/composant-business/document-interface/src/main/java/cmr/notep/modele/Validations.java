@@ -15,7 +15,7 @@ import java.util.UUID;
 @ToString(exclude = {"role"})
 @EqualsAndHashCode(exclude = {"role"})
 public class Validations {
-    private UUID id;
+    private String id;
     private String code ;
     private String etat ;
     private Date dateCreation;

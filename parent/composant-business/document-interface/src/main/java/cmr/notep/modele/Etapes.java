@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 public class Etapes {
-    private UUID id;
+    private String id;
     private String libelle;
     private String etat;
     private Date dateModification;
