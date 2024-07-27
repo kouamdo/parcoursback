@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS associer
 (
     obligatoire   BOOLEAN,
     ordre         INTEGER,
-    attributs_id  UUID NOT NULL,
-    categories_id UUID NOT NULL,
+    attributs_id  VARCHAR(255) NOT NULL,
+    categories_id VARCHAR(255) NOT NULL,
     CONSTRAINT pk_associer PRIMARY KEY (attributs_id, categories_id)
 );
 CREATE TABLE IF NOT EXISTS concerner
@@ -296,8 +296,8 @@ CREATE TABLE IF NOT EXISTS remplir
     droitmodifier  BOOLEAN,
     droitconsulter BOOLEAN,
     droitvalider   BOOLEAN,
-    roles_id       UUID NOT NULL,
-    missions_id    UUID NOT NULL,
+    roles_id       VARCHAR(255) NOT NULL,
+    missions_id    VARCHAR(255) NOT NULL,
     CONSTRAINT pk_remplir PRIMARY KEY (roles_id, missions_id)
 );
 CREATE TABLE IF NOT EXISTS ressources
