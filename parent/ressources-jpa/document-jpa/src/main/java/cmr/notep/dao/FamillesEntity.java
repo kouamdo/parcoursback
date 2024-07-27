@@ -1,9 +1,9 @@
 package cmr.notep.dao;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,9 +16,10 @@ import java.util.UUID;
 @Table(name = "familles")
 public class FamillesEntity {
     @Id
-    @GeneratedValue
-    @Column(name = "id" , nullable = false, updatable = false, columnDefinition = "UUID")
-    private UUID id ;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private String id;
     @Column(name = "libelle")
     private String libelle;
     @Column(name = "description")
@@ -30,7 +31,7 @@ public class FamillesEntity {
     @Column(name = "datemodification")
     private Date dateModification;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "sapplique",
             joinColumns = @JoinColumn(name = "familles_id"),
             inverseJoinColumns = @JoinColumn(name = "precomouvementsqtes_id"))

@@ -1,12 +1,10 @@
 package cmr.notep.modele;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -16,8 +14,7 @@ import java.util.UUID;
 @ToString(exclude = {"documents"})
 @EqualsAndHashCode(exclude = {"documents"})
 public class Attributs {
-
-    private UUID id;
+    private String id;
     private String titre;
 
     private String description;
@@ -33,7 +30,6 @@ public class Attributs {
     private String valeurParDefaut;
 
     private List<Documents> documents;
-
-    private List<Associer> assoicier_categorie ;
+    //private List<Categories> categories ;
 
 }

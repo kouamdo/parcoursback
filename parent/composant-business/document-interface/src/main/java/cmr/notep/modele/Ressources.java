@@ -5,17 +5,15 @@ import lombok.*;
 
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"famille","promotion"})
-@ToString(exclude = {"famille","promotion"})
-@EqualsAndHashCode(exclude = {"famille","promotion"})
+@JsonIgnoreProperties({"famille"})
+@ToString(exclude = {"famille"})
+@EqualsAndHashCode(exclude = {"famille"})
 public class Ressources {
-    private UUID id ;
+    private String id ;
     private String libelle;
     private Boolean etat;
     private Date dateCreation;
@@ -28,5 +26,5 @@ public class Ressources {
     private List<PrecoMouvementsQtes> precoMouvementsQtes;
     private Familles famille;
     private List<Mouvements> mouvements;
-    private Promotions promotion;
+    private List<Promotions> promotions;
 }

@@ -3,11 +3,11 @@ package cmr.notep.dao;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -15,11 +15,14 @@ import java.util.UUID;
 @Table(name = "ressources")
 public class RessourcesEntity {
     @Id
-    @GeneratedValue
-    @Column(name = "id" , nullable = false, updatable = false, columnDefinition = "UUID")
-    private UUID id ;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private String id;
     @Column(name = "libelle")
     private String libelle;
+    @Column(name = "description")
+    private String description;
     @Column(name = "etat")
     private Boolean etat;
     @Column(name = "datecreation", updatable = false)
@@ -54,6 +57,6 @@ public class RessourcesEntity {
     @JoinTable(name = "ressourcespromotions" ,
             joinColumns = @JoinColumn(name = "ressources_id"),
             inverseJoinColumns = @JoinColumn(name = "promotions_id"))
-    @Mapping("promotion")
+    @Mapping("promotions")
     private List<PromotionsEntity> promotionsEntities;
 }

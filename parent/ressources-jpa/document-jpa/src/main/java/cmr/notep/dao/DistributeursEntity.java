@@ -27,15 +27,13 @@ public class DistributeursEntity extends PersonnesEntity {
     private List<MouvementsEntity> mouvementEntities;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "livrer",
+    @JoinTable(name = "concerner",
     joinColumns = @JoinColumn(name = "precomouvementsqtes_id"),
     inverseJoinColumns = @JoinColumn(name = "distributeurs_id"))
     @Mapping("precomouvementsqtes")
     private List<PrecoMouvementsQtesEntity> precoMouvementsQtesEntities;
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "promotions_id" , referencedColumnName = "id")
-    @Mapping("promotion")
-    private PromotionsEntity promotionsEntity;
+    @OneToMany(mappedBy = "distributeursEntity")
+    @Mapping("promotions")
+    private List<PromotionsEntity> promotionsEntities;
 }

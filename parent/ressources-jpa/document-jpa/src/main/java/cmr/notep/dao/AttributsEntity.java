@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,9 +17,10 @@ import java.util.UUID;
 @Table(name = "attributs")
 public class AttributsEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
-    private UUID id;
+    private String id;
     @Column(name = "titre", nullable = false)
     private String titre;
     @Column(name = "description")
@@ -33,9 +35,7 @@ public class AttributsEntity {
     private String type;
     @Column(name = "valeurpardefaut")
     private String valeurParDefaut;
-
     @ManyToMany(mappedBy = "attributsEntities")
-    @Mapping("documents")
     @JsonIgnore
     private List<DocumentsEntity> documentsEntities;
     //@ManyToMany(mappedBy = "attributsEntities")
@@ -44,6 +44,6 @@ public class AttributsEntity {
    // private List<CategoriesEntity> categories ;
 
     @OneToMany(mappedBy = "attribut", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("assoicier_categorie")
+    //@Mapping("categories")
     private List<AssocierEntity> categoriesEntities;
 }

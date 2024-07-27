@@ -3,6 +3,7 @@ package cmr.notep.dao;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,9 +17,10 @@ import java.util.UUID;
 public class PromotionsEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
-    private UUID id;
+    private String id;
 
     @Column(name = "datedebut")
     private Date dateDebut;
@@ -40,7 +42,8 @@ public class PromotionsEntity {
     @Column(name = "datemodification")
     private Date dateModification;
     @ManyToOne
-    @PrimaryKeyJoinColumn
+   // @PrimaryKeyJoinColumn(name = "distributeurs_id")
+    @JoinColumn(name = "distributeurs_id")
     @Mapping("distributeur")
     private DistributeursEntity distributeursEntity ;
 

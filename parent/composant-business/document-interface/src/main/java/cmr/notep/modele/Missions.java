@@ -5,18 +5,17 @@ import lombok.*;
 
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"service","documents"})
-@ToString(exclude = {"service","documents"})
-@EqualsAndHashCode(exclude = {"service","documents"})
+@JsonIgnoreProperties({"documents"})
+@ToString(exclude = {"documents"})
+@EqualsAndHashCode(exclude = {"documents"})
 public class Missions {
 
-    private UUID id ;
+    private String id ;
     private String libelle ;
     private String description;
     private boolean etat ;

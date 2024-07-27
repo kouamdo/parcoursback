@@ -3,6 +3,7 @@ package cmr.notep.dao;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,9 +15,10 @@ import java.util.UUID;
 @Table(name = "ordreetats")
 public class OrdreEtatsEntity {
     @Id
-    @GeneratedValue
-    @Column(name = "id",nullable = false, updatable = false, columnDefinition = "UUID")
-    private UUID id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private String id;
 
     @Column(name = "datecreation", updatable = false)
     private Date dateCreation;

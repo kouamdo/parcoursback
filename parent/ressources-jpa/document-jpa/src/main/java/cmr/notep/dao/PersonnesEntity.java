@@ -5,13 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -21,10 +20,10 @@ import java.util.UUID;
 public class PersonnesEntity
 {
     @Id
-    @GeneratedValue
-    @Column(name="id", nullable = false, updatable = false, columnDefinition = "UUID")
-    private UUID id ;
-
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
+    private String id;
     @Column(name = "adresse")
     private String adresse ;
 
@@ -40,16 +39,10 @@ public class PersonnesEntity
     private Date dateCreation;
     @Column(name = "datemodification")
     private Date dateModification;
-
-    @ManyToMany
-    @JoinTable(
-            name = "personneratache",
-            joinColumns = @JoinColumn(name = "personne_id"),
-            inverseJoinColumns = @JoinColumn(name = "personneratache_id")
-    )
-    @JoinColumn(referencedColumnName = "id")
-    @JsonBackReference
-    @Mapping("personnesratache")
-    private List<PersonnesEntity> personnesratache;
-
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "rattacher" ,
+            joinColumns = @JoinColumn(name = "personnes_id"),
+            inverseJoinColumns = @JoinColumn(name = "rattacher_id"))
+    @Mapping("personnesRatachees")
+    private List<PersonnesEntity> personnesRatachees = new ArrayList<>();
 }

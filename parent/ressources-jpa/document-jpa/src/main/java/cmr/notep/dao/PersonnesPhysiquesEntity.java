@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Date;
 
 @Getter
@@ -24,7 +24,7 @@ public class PersonnesPhysiquesEntity extends PersonnesEntity{
     private String sexe ;
 
     @Column(name = "datenaissance",nullable = false)
-    private LocalDate dateNaissance ;
+    private Date dateNaissance ;
     @Column(name = "datemodification")
     private Date dateModification;
 }
