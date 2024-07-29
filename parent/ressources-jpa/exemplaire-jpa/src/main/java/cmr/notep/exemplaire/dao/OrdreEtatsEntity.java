@@ -1,4 +1,4 @@
-package cmr.notep.dao;
+package cmr.notep.exemplaire.dao;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +12,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "ordreetats")
+@Table(name = "ordreetats", schema = "exemplaire")
 public class OrdreEtatsEntity {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -28,9 +28,9 @@ public class OrdreEtatsEntity {
     private Date dateFinVote;
     @Column(name = "ordre")
     private int ordre ;
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @JoinColumn(name = "etats_id")
-    @Mapping("etat")
-    private EtatsEntity etatsEntity;
+    private String etatsId;
+    @ManyToOne
+    @JoinColumn(name = "exemplaireid")
+    @Mapping("exemplaire")
+    private ExemplairesEntity exemplaireEntity;
 }

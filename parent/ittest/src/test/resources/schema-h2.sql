@@ -1,5 +1,5 @@
 -- DROP DATABASE IF EXISTS parcours;
-CREATE SCHEMA parcours AUTHORIZATION sa;
+CREATE SCHEMA document AUTHORIZATION sa;
 -- generate tables from entities
 CREATE TABLE IF NOT EXISTS  attributs
 (
@@ -146,41 +146,7 @@ CREATE TABLE traiter
     documents_id VARCHAR(255) NOT NULL,
     missions_id  VARCHAR(255) NOT NULL
 );
-CREATE TABLE mouvements
-(
-    id               VARCHAR(255)                        NOT NULL,
-    description      VARCHAR(255)                NOT NULL,
-    quantite         INTEGER,
-    prix             DOUBLE PRECISION,
-    datecreation     DATE NOT NULL,
-    dateperemption   DATE ,
-    datemodification DATE,
-    ressources_id    VARCHAR(255),
-    distributeurs_id VARCHAR(255),
-    CONSTRAINT pk_mouvements PRIMARY KEY (id)
-);
 
-CREATE TABLE respecter
-(
-    mouvements_id      VARCHAR(255) NOT NULL,
-    precomouvements_id VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE violer
-(
-    mouvements_id      VARCHAR(255) NOT NULL,
-    precomouvements_id VARCHAR(255) NOT NULL
-);
-CREATE TABLE ordreetats
-(
-    id               VARCHAR(255) NOT NULL,
-    datecreation     DATE,
-    datemodification DATE,
-    datefinvote      DATE,
-    ordre            INTEGER,
-    etats_id         VARCHAR(255),
-    CONSTRAINT pk_ordreetats PRIMARY KEY (id)
-);
 CREATE TABLE parcours
 (
     id               VARCHAR(255) NOT NULL,
@@ -476,25 +442,8 @@ ALTER TABLE personnesmorales
 --    ADD CONSTRAINT fk_rattacher_on_personnes FOREIGN KEY (personnes_id) REFERENCES personnes (id);
 --ALTER TABLE rattacher
 --    ADD CONSTRAINT fk_rattacher_on_personnes FOREIGN KEY (personnes_id) REFERENCES personnes (id);
-ALTER TABLE ordreetats
-    ADD CONSTRAINT FK_ORDREETATS_ON_ETATS FOREIGN KEY (etats_id) REFERENCES etats (id);
-ALTER TABLE mouvements
-    ADD CONSTRAINT FK_MOUVEMENTS_ON_DISTRIBUTEURS FOREIGN KEY (distributeurs_id) REFERENCES distributeurs (distributeurs_id);
-
-ALTER TABLE mouvements
-    ADD CONSTRAINT FK_MOUVEMENTS_ON_RESSOURCES FOREIGN KEY (ressources_id) REFERENCES ressources (id);
-
-ALTER TABLE respecter
-    ADD CONSTRAINT fk_respecter_on_mouvements_entity FOREIGN KEY (mouvements_id) REFERENCES mouvements (id);
-
-ALTER TABLE respecter
-    ADD CONSTRAINT fk_respecter_on_preco_mouvements_entity FOREIGN KEY (precomouvements_id) REFERENCES precomouvements (id);
-
-ALTER TABLE violer
-    ADD CONSTRAINT fk_violer_on_mouvements_entity FOREIGN KEY (mouvements_id) REFERENCES mouvements (id);
-
-ALTER TABLE violer
-    ADD CONSTRAINT fk_violer_on_preco_mouvements_entity FOREIGN KEY (precomouvements_id) REFERENCES precomouvements (id);
+--ALTER TABLE ordreetats
+--    ADD CONSTRAINT FK_ORDREETATS_ON_ETATS FOREIGN KEY (etats_id) REFERENCES etats (id);
 ALTER TABLE missions
     ADD CONSTRAINT FK_MISSIONS_ON_SERVICES FOREIGN KEY (services_id) REFERENCES services (id);
 

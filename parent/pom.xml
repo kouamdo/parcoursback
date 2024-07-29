@@ -36,6 +36,7 @@
         <module>commun-service</module>
         <module>composant-business</module>
         <module>ittest</module>
+        <module>ressources-jpa/exemplaire-jpa</module>
     </modules>
     <dependencyManagement>
         <dependencies>

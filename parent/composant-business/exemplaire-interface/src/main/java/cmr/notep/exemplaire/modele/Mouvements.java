@@ -1,5 +1,8 @@
-package cmr.notep.modele;
+package cmr.notep.exemplaire.modele;
 
+import cmr.notep.modele.Distributeurs;
+import cmr.notep.modele.PrecoMouvements;
+import cmr.notep.modele.Ressources;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -10,9 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties
-@ToString
-@EqualsAndHashCode
+@JsonIgnoreProperties({"exemplaire"})
+@ToString(exclude = {"exemplaire"})
+@EqualsAndHashCode(exclude = {"exemplaire"})
 public class Mouvements {
     private  String id ;
     private  String description ;
@@ -24,4 +27,5 @@ public class Mouvements {
     private List<PrecoMouvements> precoMouvementsVioler;
     private Ressources ressource;
     private Distributeurs distributeur;
+    private Exemplaires exemplaire;
 }

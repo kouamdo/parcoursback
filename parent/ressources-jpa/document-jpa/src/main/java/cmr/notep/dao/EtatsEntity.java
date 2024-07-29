@@ -34,9 +34,4 @@ public class EtatsEntity {
     @OneToMany(mappedBy = "etatsEntity")
     @Mapping("docEtats")
     private List<DocEtatsEntity> docEtatsEntities;
-
-    @OneToMany(mappedBy = "etatsEntity")
-    @Mapping("ordresEtat")
-    private List<OrdreEtatsEntity> ordreEtatsEntities;
-    //ajouter EtatsValidationsEntity avec ManyToOne sur EtatsEntity, PersonnelsEntity et OrdreEtatsEntity
 }

@@ -14,5 +14,6 @@
     <modules>
         <module>document-interface</module>
         <module>document-service</module>
+        <module>exemplaire-interface</module>
     </modules>
 </project>

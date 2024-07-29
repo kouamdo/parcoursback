@@ -1,11 +1,13 @@
-package cmr.notep.modele;
+package cmr.notep.exemplaire.modele;
 
+import cmr.notep.modele.Etats;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -18,4 +20,5 @@ public class OrdreEtats {
     private Date dateFinVote;
     private int ordre ;
     private Etats etat;
+    private List<EtatsValidations> etatsValidations;
 }
