@@ -1,5 +1,6 @@
 package cmr.notep.api;
 
+import cmr.notep.modele.MacroPersonnes;
 import cmr.notep.modele.Personnes;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
@@ -11,12 +12,20 @@ import java.util.List;
 public interface IPersonnesApi {
 
     @GetMapping(
-            path = "/{idPersonnes}",
+            path = "/find/",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     Personnes avoirPersonne (@NonNull @RequestParam(name="idPersonnes") String idPersonnes);
 
     @GetMapping(
+            path = "/find_macro/",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    MacroPersonnes avoirMacroPersonne (@NonNull @RequestParam(name="idPersonnes") String idPersonnes);
+
+
+    @GetMapping(
+            path = "/all",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     List<Personnes> avoirToutPersonnes();

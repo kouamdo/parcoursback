@@ -22,8 +22,8 @@ public class Personnes {
     private  String qrcodevalue ;
     private Date dateCreation;
     private Date dateModification;
+    private List<Personnes> personnesRatachees;
     private List<Mouvements> mouvements;
     private List<PrecoMouvementsQtes> precomouvementsqtes;
     private Promotions promotion;
-    private List<Personnes> personnesRatachees;
 }

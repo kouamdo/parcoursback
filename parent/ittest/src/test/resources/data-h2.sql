@@ -177,6 +177,7 @@ INSERT INTO personnes (id,adresse,mail,telephone,qrcodevalue,datecreation,datemo
 ('1979bd79-f71b-498b-b247-e7b9bbb3f600','Bastos','abd@yah.fr','655454545','qrcode1','2022-01-01','2022-01-02'),
 ('d301ff83-2a62-4e6d-aa23-57c7825bcd57','Bastos','dbc@yah.fr','655454545','qrcode2','2022-01-01','2022-01-02'),
 ('0618e585-f82a-4d5f-af1c-54f880d766d3','Bastos','pnj@gma.com','655454545','qrcode3','2022-01-01','2022-01-02'),
+('0618e585-f82a-4d5f-af2c-54f880d766d3','Bastos','pnjer@gma.com','655454545','qrcode893','2022-01-01','2022-01-02'),
 ('fdbff692-6b8d-43ab-a196-fcc3114b2daa','Bastos','sg@sg.fr','655454545','qrcode4','2022-01-01','2022-01-02');
 
 -- Insérer les données dans la table 'distributeur' en se basant sur la classe DistributeurEntity
@@ -231,4 +232,5 @@ INSERT INTO mouvpreco (id_precomouvements, id_mouvements) VALUES
 ('77b8577f-6d26-4376-af30-a3c8f75a9194', 'decaedc8-a908-4cad-bdd6-0403a2614f22');
 
 
-
+INSERT INTO personnes (id,adresse,mail,telephone,qrcodevalue,datecreation,datemodification) VALUES
+ ('0618e585-f82a-4d5f-af2c-54f880d766d3','Bastos','pnjer@gma.com','655454545','qrcode893','2022-01-01','2022-01-02');

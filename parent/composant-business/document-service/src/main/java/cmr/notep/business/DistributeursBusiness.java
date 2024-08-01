@@ -2,13 +2,17 @@ package cmr.notep.business;
 
 import cmr.notep.dao.DistributeursEntity;
 import cmr.notep.dao.DaoAccessorService;
+import cmr.notep.dao.PersonnesMoralesEntity;
 import cmr.notep.modele.Distributeurs;
+import cmr.notep.modele.PersonnesMorale;
 import cmr.notep.repository.DistributeursRepository;
+import cmr.notep.repository.PersonneMoraleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static cmr.notep.config.DocumentConfig.dozerMapperBean;
@@ -25,11 +29,12 @@ public class DistributeursBusiness {
     }
 
     public Distributeurs avoirDistributeur(String id) {
-        return dozerMapperBean.map(
-                this.daoAccessorService.getRepository(DistributeursRepository.class)
-                        .findById(id)
-                        .orElseThrow(()->new RuntimeException("Categorie inexistante")), Distributeurs.class);
+        System.out.println("Recherche de Distributeur");
+        Optional<DistributeursEntity> distributeur = this.daoAccessorService.getRepository(DistributeursRepository.class)
+                .findById(id);
+        return distributeur.isPresent() ? dozerMapperBean.map(distributeur.get(), Distributeurs.class) : null;
     }
+
 
     public List<Distributeurs> avoirToutDistributeurs() {
         return daoAccessorService.getRepository(DistributeursRepository.class).findAll()
