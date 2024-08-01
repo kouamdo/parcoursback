@@ -234,3 +234,6 @@ INSERT INTO mouvpreco (id_precomouvements, id_mouvements) VALUES
 
 INSERT INTO personnes (id,adresse,mail,telephone,qrcodevalue,datecreation,datemodification) VALUES
  ('0618e585-f82a-4d5f-af2c-54f880d766d3','Bastos','pnjer@gma.com','655454545','qrcode893','2022-01-01','2022-01-02');
+
+INSERT INTO personnesphysique (personnesphysique_id,nom,prenom,sexe,datenaissance,datemodification) VALUES
+ ('0618e585-f82a-4d5f-af2c-54f880d766d3','Bastos','pnjer@gma.com','Masculin','2022-01-01','2022-01-02');
