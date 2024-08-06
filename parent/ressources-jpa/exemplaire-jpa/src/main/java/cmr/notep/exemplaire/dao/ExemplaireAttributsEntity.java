@@ -11,8 +11,6 @@ import java.util.Date;
 @Setter
 @Embeddable
 public class ExemplaireAttributsEntity {
-   // @Column(name = "exemplaire_id")
-   // private String exemplaireId;
     @Column(name = "attribut_id")
     private String attributId;
     @Column(name = "valeur")

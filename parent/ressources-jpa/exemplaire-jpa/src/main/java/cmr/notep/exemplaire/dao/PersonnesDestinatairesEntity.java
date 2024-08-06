@@ -10,8 +10,6 @@ import java.util.Date;
 @Setter
 @Embeddable
 public class PersonnesDestinatairesEntity {
-   // @Column(name = "exemplaire_id")
-   // private String exemplaireId;
     @Column(name = "personneid")
     private String personneId;
     @Column(name = "dateenvoi")

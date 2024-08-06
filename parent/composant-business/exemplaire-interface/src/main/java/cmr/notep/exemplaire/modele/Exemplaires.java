@@ -22,6 +22,7 @@ public class Exemplaires extends Documents {
     private List<String> idExemplairesParents;
     private Date dateCreation;
     private Date dateModification;
+    private Personnes personneBeneficiaire;
     private Personnes personneRattachee;
     private List<OrdreEtats> ordreEtats;
     private List<Mouvements> mouvements;

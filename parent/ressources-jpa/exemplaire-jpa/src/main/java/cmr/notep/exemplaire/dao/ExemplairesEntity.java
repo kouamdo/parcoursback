@@ -24,16 +24,21 @@ public class ExemplairesEntity {
     private String codeBarre;
     @Column(name = "titre")
     private String titre;
+    @Column(name = "personnebeneficiaire")
+    private String personneBeneficiaire;
+    @Column(name = "personnerattachee")
+    private String personneRattachee;
+    @Column(name="documentid")
+    private String documentId;
+    @Column(name = "datecreation", updatable = false,nullable = false)
+    private Date dateCreation;
+    @Column(name = "datemodification")
+    private Date dateModification;
     //liste des id des exemplaires qui ont servi à la creation de cet exemplaire
     @ElementCollection
     @CollectionTable(name = "exemplairesparents", joinColumns = @JoinColumn(name = "exemplaires_id"))
     @Column(name = "id")
     private List<String> idExemplairesParents;
-    @Column(name = "datecreation", updatable = false,nullable = false)
-    private Date dateCreation;
-    @Column(name = "datemodification")
-    private Date dateModification;
-    private String personneRattachee;
     @OneToMany(mappedBy = "exemplaireEntity")
     @Mapping("ordreEtats")
     private List<OrdreEtatsEntity> ordreEtats;
@@ -41,7 +46,7 @@ public class ExemplairesEntity {
     @Mapping("mouvements")
     private List<MouvementsEntity> mouvementsEntities;
     @ElementCollection
-    @CollectionTable(name = "exemplairespersonnes", joinColumns = @JoinColumn(name = "exemplaires_id"))
+    @CollectionTable(name = "personnesdestinataires", joinColumns = @JoinColumn(name = "exemplaires_id"))
     @Column(name = "personneid")
     @Mapping("personnesDestinataires")
     private List<PersonnesDestinatairesEntity> personnesDestinatairesEntities;
