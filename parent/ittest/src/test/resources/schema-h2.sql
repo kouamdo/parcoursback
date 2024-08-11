@@ -267,7 +267,7 @@ CREATE TABLE IF NOT EXISTS documentspromotions
     promotions_id VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS famillespromotions
+    CREATE TABLE IF NOT EXISTS famillespromotions
 (
     familles_id   VARCHAR(255) NOT NULL,
     promotions_id VARCHAR(255) NOT NULL
@@ -402,8 +402,6 @@ CREATE TABLE IF NOT EXISTS mouvpreco
     CONSTRAINT fk_mouvpreco_precomouvements FOREIGN KEY (id_precomouvements) REFERENCES precomouvements(id),
     CONSTRAINT fk_mouvpreco_mouvements FOREIGN KEY (id_mouvements) REFERENCES mouvements(id)
 );
-
-
 
 ALTER TABLE docetats_predecesseurs
     ADD CONSTRAINT FK_DOCETATS_PREDECESSEURS_ON_DOCETATS FOREIGN KEY (docetats_id) REFERENCES docetats (id);
