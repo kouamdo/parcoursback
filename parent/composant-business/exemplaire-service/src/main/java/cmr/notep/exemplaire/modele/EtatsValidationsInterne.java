@@ -12,10 +12,10 @@ import lombok.*;
 @ToString(exclude = {"ordreEtat"})
 @EqualsAndHashCode(exclude = {"ordreEtat"})
 @JsonIgnoreProperties({"ordreEtat"})
-public class EtatsValidations {
+public class EtatsValidationsInterne {
     String id;
     String methode;
     Personnels personnel;
     OrdreEtats ordreEtat;
-    Validations validation;
+    String validation;
 }

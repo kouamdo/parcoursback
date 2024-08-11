@@ -12,12 +12,12 @@ import java.util.List;
 @Builder
 @ToString
 @EqualsAndHashCode
-public class OrdreEtats {
+public class OrdreEtatsInterne {
     private String id;
     private Date dateCreation;
     private Date dateModification;
     private Date dateFinVote;
     private int ordre ;
     private Etats etat;
-    private List<EtatsValidations> etatsValidations;
+    private List<EtatsValidationsInterne> etatsValidations;
 }

@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-
+    <groupId>cmr.notep.exemplaire</groupId>
     <artifactId>exemplaire-interface</artifactId>
     <version>1.0-SNAPSHOT</version>
     <description>interface des ressources relatives au schema exemplaire</description>
