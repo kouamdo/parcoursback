@@ -28,9 +28,10 @@ public class OrdreEtatsEntity {
     private Date dateFinVote;
     @Column(name = "ordre")
     private int ordre ;
+    @Column(name = "etats_id")
     private String etatsId;
     @ManyToOne
-    @JoinColumn(name = "exemplaireid")
+    @JoinColumn(name = "exemplaire_id")
     @Mapping("exemplaire")
     private ExemplairesEntity exemplaireEntity;
 }

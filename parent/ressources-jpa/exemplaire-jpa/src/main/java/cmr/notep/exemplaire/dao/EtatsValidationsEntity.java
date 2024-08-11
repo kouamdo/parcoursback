@@ -18,11 +18,11 @@ public class EtatsValidationsEntity {
     private String id;
     @Column(name = "methode")
     String methode;
-    @Column(name = "personnelid")
+    @Column(name = "personnel_id")
     String personnelId;
-    @Column(name = "ordreetatid")
+    @Column(name = "ordreetat_id")
     String ordreEtatId;
-    @Column(name = "validationid")
+    @Column(name = "validation_id")
     String validationId;
     @Column(name = "datecreation", updatable = false,nullable = false)
     Date dateCreation;

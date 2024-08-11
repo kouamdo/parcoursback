@@ -9,7 +9,7 @@ CREATE TABLE exemplaire.ordreetats
     datefinvote      Date,
     ordre            INTEGER,
     etats_id         VARCHAR(255),
-    exemplaireid     VARCHAR(255),
+    exemplaire_id     VARCHAR(255),
     CONSTRAINT pk_ordreetats PRIMARY KEY (id)
 );
 

@@ -186,13 +186,6 @@ INSERT INTO distributeurs (distributeurs_id, code, raisonsociale, datemodificati
 ('d301ff83-2a62-4e6d-aa23-57c7825bcd57','d190619','UCB','2022-01-01'),
 ('fdbff692-6b8d-43ab-a196-fcc3114b2daa','d190614','Pharmacam','2022-01-01');
 
--- Insertion dans la table 'mouvemnts'
-INSERT INTO mouvements (id,description, quantite, prix, distributeurs_id, ressources_id, dateperemption, datecreation, datemodification) VALUES
-('97d314f5-84ad-47cd-874d-9c55f0e45790', 'sur commande',  10, 5000,'1979bd79-f71b-498b-b247-e7b9bbb3f600',  '6190615e-1101-7209-9932-7020bbd556f1', null, '2022-01-01', '2022-01-02'),
-('bfee750d-9b8c-4475-9373-08eff9b3ccb7','vente à credit', 20, 10000, 'd301ff83-2a62-4e6d-aa23-57c7825bcd57', '6190615e-1101-7209-9932-7020bbd556f2', null, '2022-01-01', '2022-01-02'),
-('0e7cea07-d09e-4f79-be6c-6dd27aecbce6', 'achat express', 5, 2000,'fdbff692-6b8d-43ab-a196-fcc3114b2daa',  '6190615e-1101-7209-9932-7020bbd556f3', null, '2022-01-01', '2022-01-02'),
-('decaedc8-a908-4cad-bdd6-0403a2614f22','inventaire', 5, 2000, 'fdbff692-6b8d-43ab-a196-fcc3114b2daa',  '6190615e-1101-7209-9932-7020bbd556f4', null, '2022-01-01', '2022-01-02');
-
 INSERT INTO etats (id, libelle,description, datecreation, datemodification) VALUES
 ('e190615e-1101-7209-9932-7020bbd556f1','En cours','En cours', '2022-01-01', '2022-01-02'),
 ('e190615e-1101-7209-9932-7020bbd556f2','Valide','Valide', '2022-01-01', '2022-01-02'),

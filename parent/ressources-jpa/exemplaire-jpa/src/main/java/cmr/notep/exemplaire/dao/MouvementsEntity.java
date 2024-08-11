@@ -47,9 +47,9 @@ public class MouvementsEntity {
     @CollectionTable(name = "violerprecomouvement", joinColumns = @JoinColumn(name = "mouvements_id"))
     @Column(name = "precomouvements_id")
     private List<String> precoMouvementsViolerIds;
-
+    @Column(name = "ressources_id")
     private String ressourcesId;
-
+    @Column(name = "distributeurs_id")
     private String distributeursId;
     @ManyToOne
     @JoinColumn(name = "exemplaires_id")

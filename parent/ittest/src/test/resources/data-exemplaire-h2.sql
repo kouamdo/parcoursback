@@ -34,3 +34,36 @@ INSERT INTO exemplaire.exemplairesattributs (exemplaires_id, attribut_id, valeur
 ('5b777f4e-ac38-4637-a065-ef87af525e86', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a15', 'Noir', '2022-03-07', '2022-03-07'),
 ('6d5a9f88-704d-4715-9336-92835cf9e824', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a15', 'Noir', '2022-03-07', '2022-03-07'),
 ('e9eb182f-baf3-4c27-8179-a8b083c30e09', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a15', 'Brun', '2022-03-07', '2022-03-07');
+
+-- insertions des données dans la table exemplaire.personnesdestinataires
+INSERT INTO exemplaire.personnesdestinataires(exemplaires_id,personneid, dateenvoi,methodeenvoi) VALUES
+('3190615e-1101-7209-9932-7020bbd556f7','1979bd79-f71b-498b-b247-e7b9bbb3f600','2022-03-07','EMAIL'),
+('239d9d41-4850-4984-9d81-189cf44d867d','d301ff83-2a62-4e6d-aa23-57c7825bcd57','2022-03-07','EMAIL'),
+('14d6a6a5-e470-4a43-a33b-37c294974461','1979bd79-f71b-498b-b247-e7b9bbb3f600','2022-03-07','EMAIL'),
+('5b777f4e-ac38-4637-a065-ef87af525e86','0618e585-f82a-4d5f-af1c-54f880d766d3','2022-03-07','EMAIL'),
+('5b777f4e-ac38-4637-a065-ef87af525e86','fdbff692-6b8d-43ab-a196-fcc3114b2daa','2022-03-07','EMAIL'),
+('3190615e-1101-7209-9932-7020bbd556f7','fdbff692-6b8d-43ab-a196-fcc3114b2daa','2022-03-07','EMAIL');
+
+-- insertions des données dans la table exemplaire.exemplairesparents
+INSERT INTO exemplaire.exemplairesparents(exemplaires_id, parentid) VALUES
+('3190615e-1101-7209-9932-7020bbd556f7','239d9d41-4850-4984-9d81-189cf44d867d'),
+('14d6a6a5-e470-4a43-a33b-37c294974461','5b777f4e-ac38-4637-a065-ef87af525e86'),
+('14d6a6a5-e470-4a43-a33b-37c294974461','6d5a9f88-704d-4715-9336-92835cf9e824');
+
+-- insertions des données dans la table exemplaire.mouvements
+INSERT INTO exemplaire.mouvements (id,description, quantite, prix, distributeurs_id, ressources_id, dateperemption,exemplaires_id, datecreation, datemodification) VALUES
+('97d314f5-84ad-47cd-874d-9c55f0e45790', 'sur commande',  10, 5000,'1979bd79-f71b-498b-b247-e7b9bbb3f600',  '6190615e-1101-7209-9932-7020bbd556f1', '2025-01-01','3190615e-1101-7209-9932-7020bbd556f7', '2022-01-01', '2022-01-02'),
+('501a31c7-0543-4f24-8f10-b83d3dd96e40', 'sur commande',  20, 3000,'1979bd79-f71b-498b-b247-e7b9bbb3f600',  '6190615e-1101-7209-9932-7020bbd556f2', '2025-01-01','3190615e-1101-7209-9932-7020bbd556f7', '2022-01-01', '2022-01-02'),
+('bfee750d-9b8c-4475-9373-08eff9b3ccb7','vente à credit', 20, 10000, 'd301ff83-2a62-4e6d-aa23-57c7825bcd57', '6190615e-1101-7209-9932-7020bbd556f2', '2025-01-01','14d6a6a5-e470-4a43-a33b-37c294974461', '2022-01-01', '2022-01-02'),
+('0e7cea07-d09e-4f79-be6c-6dd27aecbce6', 'achat express', 5, 2000,'fdbff692-6b8d-43ab-a196-fcc3114b2daa',  '6190615e-1101-7209-9932-7020bbd556f3', null,'5b777f4e-ac38-4637-a065-ef87af525e86', '2022-01-01', '2022-01-02'),
+('decaedc8-a908-4cad-bdd6-0403a2614f22','inventaire', 5, 2000, 'fdbff692-6b8d-43ab-a196-fcc3114b2daa',  '6190615e-1101-7209-9932-7020bbd556f4', null,'6d5a9f88-704d-4715-9336-92835cf9e824', '2022-01-01', '2022-01-02');
+
+-- insertions des données dans la table exemplaire.respecterprecomouvement
+INSERT INTO exemplaire.respecterprecomouvement (mouvements_id, precomouvements_id) VALUES
+('97d314f5-84ad-47cd-874d-9c55f0e45790', '77b8577f-6d26-4376-af30-a3c8f75a9194'),
+('501a31c7-0543-4f24-8f10-b83d3dd96e40', '6290615e-1101-7209-9932-7020bbd556f2'),
+('bfee750d-9b8c-4475-9373-08eff9b3ccb7', '6290615e-1101-7209-9932-7020bbd556f2');
+
+-- insertions des données dans la table exemplaire.violerprecomouvement
+INSERT INTO exemplaire.violerprecomouvement (mouvements_id, precomouvements_id) VALUES
+('501a31c7-0543-4f24-8f10-b83d3dd96e40', '77b8577f-6d26-4376-af30-a3c8f75a9194');
