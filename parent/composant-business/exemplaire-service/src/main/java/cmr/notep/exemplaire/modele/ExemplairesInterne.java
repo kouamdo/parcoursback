@@ -18,6 +18,7 @@ public class ExemplairesInterne extends Documents {
     private String code;
     private String codeBarre;
     private String titre;
+    private String documentId;
     //liste des id des exemplaires qui ont servi à la creation de cet exemplaire
     private List<String> idExemplairesParents;
     private Date dateCreation;

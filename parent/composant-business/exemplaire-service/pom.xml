@@ -51,7 +51,7 @@
         </dependency>
         <dependency>
             <groupId>cmr.notep</groupId>
-            <artifactId>document-service</artifactId>
+            <artifactId>document-interface</artifactId>
             <version>${projet.version}</version>
         </dependency>
         <dependency>
@@ -60,8 +60,18 @@
             <version>${projet.version}</version>
         </dependency>
         <dependency>
+            <groupId>cmr.notep.exemplaire</groupId>
+            <artifactId>exemplaire-jpa</artifactId>
+            <version>${projet.version}</version>
+        </dependency>
+        <dependency>
             <groupId>cmr.notep</groupId>
             <artifactId>common-jpa</artifactId>
+            <version>${projet.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cmr.notep</groupId>
+            <artifactId>commun-service</artifactId>
             <version>${projet.version}</version>
         </dependency>
     </dependencies>
