@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,24 +45,42 @@ public class PersonnesBusiness {
                         .orElseThrow(()->new RuntimeException("Personne inexistante")), Personnes.class);
     }
 
-    public MacroPersonnes avoirPersonneType(String id)
+    public List<MacroPersonnes> avoirParElemnt(String value)
     {
-       Distributeurs indexdistributeurs = this.distributeursBusiness.avoirDistributeur(id) ;
-       PersonnesMorale indexpersonnemorale = this.personnesMoraleBusiness.avoirPersonneMorale(id);
-       PersonnesPhysique indexpersonnephysique = this.personnesPhysiqueBusiness.avoirPersonnePhysique(id);
+        List<MacroPersonnes> outputItem = new ArrayList<>();
 
-        if (indexdistributeurs != null)
+        List<Distributeurs> distributeurs = this.distributeursBusiness.findByRaisonSociale(value);
+        List<PersonnesMorale> personnesmorales = this.personnesMoraleBusiness.avoirListPersonnesMoraleByelmnt(value);
+        List<PersonnesPhysique> personnesphysique = this.personnesPhysiqueBusiness.avoirListPersonnePhysiquesByelmnt(value);
+
+        int i = 0;
+
+        while (!distributeurs.isEmpty() && i < distributeurs.size())
         {
-            return new MacroPersonnes("Distributeurs" , indexdistributeurs);
-        } else if (indexpersonnemorale != null) {
-            return new MacroPersonnes("Personne Morale" , indexpersonnemorale);
+            outputItem.add( new MacroPersonnes("Distributeurs",
+                    distributeurs.get(i) ));
+            i++;
         }
-        else if (indexpersonnephysique != null)
-            return new MacroPersonnes("Personnes Physique" , indexpersonnephysique);
 
-        else
-            return new MacroPersonnes("Personnes" , null);
+        i = 0 ;
 
+        while (!personnesmorales.isEmpty() && i < personnesmorales.size())
+        {
+            outputItem.add( new MacroPersonnes("Personnes morale",
+                    personnesmorales.get(i) ));
+            i++;
+        }
+
+        i = 0 ;
+
+        while (!personnesphysique.isEmpty() && i < personnesphysique.size())
+        {
+            outputItem.add( new MacroPersonnes("Personnes physique",
+                    personnesphysique.get(i) ));
+            i++;
+        }
+
+        return outputItem;
     }
 
     public List<Personnes> avoirToutPersonnes() {

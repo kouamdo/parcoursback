@@ -6,13 +6,14 @@ import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("personnes")
 public interface IPersonnesApi {
 
     @GetMapping(
-            path = "/find/",
+            path = "/find",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     Personnes avoirPersonne (@NonNull @RequestParam(name="idPersonnes") String idPersonnes);
@@ -21,7 +22,7 @@ public interface IPersonnesApi {
             path = "/find_macro/",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    MacroPersonnes avoirMacroPersonne (@NonNull @RequestParam(name="idPersonnes") String idPersonnes);
+    List<MacroPersonnes> avoirParElemnt (@NonNull @RequestParam(name="value") String value);
 
 
     @GetMapping(

@@ -25,5 +25,5 @@ public class Personnes {
     private List<Personnes> personnesRatachees;
     private List<Mouvements> mouvements;
     private List<PrecoMouvementsQtes> precomouvementsqtes;
-    private Promotions promotion;
+    private List<Promotions> promotions;
 }

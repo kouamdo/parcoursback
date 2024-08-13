@@ -17,6 +17,4 @@ public class Distributeurs extends Personnes {
     private Date dateModification;
     private String raisonSociale;
     private String code ;
-
-
 }

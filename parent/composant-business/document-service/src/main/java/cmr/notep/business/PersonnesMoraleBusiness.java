@@ -1,8 +1,6 @@
 package cmr.notep.business;
 
 import cmr.notep.dao.DaoAccessorService;
-import cmr.notep.dao.PersonnesMoralesEntity;
-import cmr.notep.dao.PersonnesPhysiquesEntity;
 import cmr.notep.modele.PersonnesMorale;
 import cmr.notep.modele.PersonnesPhysique;
 import cmr.notep.repository.PersonneMoraleRepository;
@@ -11,7 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static cmr.notep.config.DocumentConfig.dozerMapperBean;
 
@@ -27,9 +27,16 @@ public class PersonnesMoraleBusiness {
     }
 
     public PersonnesMorale avoirPersonneMorale(String id) {
-        System.out.println("Recherche de personnes morale");
-        Optional<PersonnesMoralesEntity> personneMorale = this.daoAccessorService.getRepository(PersonneMoraleRepository.class)
-                .findById(id);
-        return personneMorale.isPresent() ? dozerMapperBean.map(personneMorale.get(), PersonnesMorale.class) : null;
+        return dozerMapperBean.map(
+                this.daoAccessorService.getRepository(PersonneMoraleRepository.class)
+                        .findById(id)
+                        .orElseThrow(()->new RuntimeException("Personnes morales inexistante")), PersonnesMorale.class);}
+
+
+    public List<PersonnesMorale> avoirListPersonnesMoraleByelmnt(String value)
+    {
+        return daoAccessorService.getRepository(PersonneMoraleRepository.class).findByRaisonSociale(value)
+                .stream().map(cat ->dozerMapperBean.map(cat, PersonnesMorale.class))
+                .collect(Collectors.toList());
     }
 }

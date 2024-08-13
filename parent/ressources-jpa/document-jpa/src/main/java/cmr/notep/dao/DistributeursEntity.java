@@ -34,6 +34,6 @@ public class DistributeursEntity extends PersonnesEntity {
     private List<PrecoMouvementsQtesEntity> precoMouvementsQtesEntities;
 
     @OneToMany(mappedBy = "distributeursEntity")
-    @Mapping("promotion")
+    @Mapping("promotions")
     private List<PromotionsEntity> promotionsEntities;
 }

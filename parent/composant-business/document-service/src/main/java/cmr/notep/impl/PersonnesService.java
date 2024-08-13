@@ -26,8 +26,8 @@ public class PersonnesService implements IPersonnesApi {
     }
 
     @Override
-    public MacroPersonnes avoirMacroPersonne(@NonNull  String idPersonnes) {
-        return personnesBusiness.avoirPersonneType(idPersonnes);
+    public List<MacroPersonnes> avoirParElemnt(@NonNull String value) {
+        return personnesBusiness.avoirParElemnt(value);
     }
 
     @Override

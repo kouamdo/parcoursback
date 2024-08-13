@@ -1,6 +1,5 @@
 package cmr.notep.dao;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
@@ -10,7 +9,6 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -36,7 +34,7 @@ public class DocEtatsEntity {
     private ValidationsEntity validationsEntity;
 
     @ManyToMany
-    @JoinTable(name = "docetats_predecesseur",
+    @JoinTable(name = "docetats_predecesseurs",
             joinColumns = @JoinColumn(name = "docetats_id"),
             inverseJoinColumns = @JoinColumn(name = "predecesseur_id"))
     @Mapping("predecesseurDocEtat")

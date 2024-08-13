@@ -20,4 +20,5 @@ public class Etapes {
     private Date dateModification;
     private Parcours parcour;
     private List<DocEtats> docEtats;
+    private List<OrdreEtats> ordresEtats;
 }

@@ -11,9 +11,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"distributeur","documents"})
-@ToString(exclude = {"distributeur","documents"})
-@EqualsAndHashCode(exclude = {"distributeur","documents"})
+@JsonIgnoreProperties({"distributeur","documents","familles","ressources"})
+@ToString(exclude = {"distributeur","documents","familles","ressources"})
+@EqualsAndHashCode(exclude = {"distributeur","documents","familles","ressources"})
 public class Promotions {
     private String id;
     private Date dateDebut;

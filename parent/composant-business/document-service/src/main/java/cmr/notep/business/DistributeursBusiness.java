@@ -29,12 +29,17 @@ public class DistributeursBusiness {
     }
 
     public Distributeurs avoirDistributeur(String id) {
-        System.out.println("Recherche de Distributeur");
-        Optional<DistributeursEntity> distributeur = this.daoAccessorService.getRepository(DistributeursRepository.class)
-                .findById(id);
-        return distributeur.isPresent() ? dozerMapperBean.map(distributeur.get(), Distributeurs.class) : null;
-    }
+        return dozerMapperBean.map(
+                this.daoAccessorService.getRepository(DistributeursRepository.class)
+                        .findById(id)
+                        .orElseThrow(()->new RuntimeException("Distributeurs inexistants")), Distributeurs.class);}
 
+    public  List<Distributeurs> findByRaisonSociale(String value)
+    {
+        return daoAccessorService.getRepository(DistributeursRepository.class).findByRaisonSociale(value)
+                .stream().map(cat ->dozerMapperBean.map(cat, Distributeurs.class))
+                .collect(Collectors.toList());
+    }
 
     public List<Distributeurs> avoirToutDistributeurs() {
         return daoAccessorService.getRepository(DistributeursRepository.class).findAll()
