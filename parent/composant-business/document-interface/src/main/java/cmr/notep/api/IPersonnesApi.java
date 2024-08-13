@@ -26,7 +26,6 @@ public interface IPersonnesApi {
 
 
     @GetMapping(
-            path = "/all",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     List<Personnes> avoirToutPersonnes();
