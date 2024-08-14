@@ -53,31 +53,16 @@ public class PersonnesBusiness {
         List<PersonnesMorale> personnesmorales = this.personnesMoraleBusiness.avoirListPersonnesMoraleByelmnt(value);
         List<PersonnesPhysique> personnesphysique = this.personnesPhysiqueBusiness.avoirListPersonnePhysiquesByelmnt(value);
 
-        int i = 0;
-
-        while (!distributeurs.isEmpty() && i < distributeurs.size())
-        {
-            outputItem.add( new MacroPersonnes("Distributeurs",
-                    distributeurs.get(i) ));
-            i++;
+        for (Distributeurs distributeur : distributeurs) {
+            outputItem.add(new MacroPersonnes("Distributeurs", distributeur));
         }
 
-        i = 0 ;
-
-        while (!personnesmorales.isEmpty() && i < personnesmorales.size())
-        {
-            outputItem.add( new MacroPersonnes("Personnes morale",
-                    personnesmorales.get(i) ));
-            i++;
+        for (PersonnesMorale personneMorale : personnesmorales) {
+            outputItem.add(new MacroPersonnes("Personnes morale", personneMorale));
         }
 
-        i = 0 ;
-
-        while (!personnesphysique.isEmpty() && i < personnesphysique.size())
-        {
-            outputItem.add( new MacroPersonnes("Personnes physique",
-                    personnesphysique.get(i) ));
-            i++;
+        for (PersonnesPhysique personnePhysique : personnesphysique) {
+            outputItem.add(new MacroPersonnes("Personnes physique", personnePhysique));
         }
 
         return outputItem;

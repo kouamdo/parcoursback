@@ -9,10 +9,8 @@ import java.util.List;
 
 public interface DistributeursRepository extends JpaRepository<DistributeursEntity, String>  {
 
-    @Query(value = "SELECT d.distributeurs_id, d.datemodification, d.code, d.raisonsociale, "+
-            "p.id, p.adresse, p.mail, p.telephone, p.qrcodevalue, p.datecreation, p.datemodification "+
-            "FROM distributeurs d "+
-            "INNER JOIN personnes p ON d.distributeurs_id = p.id "+
-            "WHERE d.raisonsociale LIKE %:value%", nativeQuery = true)
+    @Query(value = "SELECT p.id, p.datemodification, p.code, p.raisonsociale "+
+            "FROM personnes_s p "+
+            "WHERE p.raisonsociale LIKE %:value% AND p.person_type = 'distributeurs'", nativeQuery = true)
     List<DistributeursEntity> findByRaisonSociale(@Param("value") String value);
 }

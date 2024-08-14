@@ -38,14 +38,7 @@ CREATE TABLE IF NOT EXISTS concerner
     precomouvementsqtes_id VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS distributeurs
-(
-    distributeurs_id VARCHAR(255) NOT NULL,
-    datemodification DATE,
-    code             VARCHAR(255),
-    raisonsociale    VARCHAR(255),
-    CONSTRAINT pk_distributeurs PRIMARY KEY (distributeurs_id)
-);
+
 
 CREATE TABLE IF NOT EXISTS constituer
 (
@@ -210,34 +203,52 @@ CREATE TABLE IF NOT EXISTS personnes
     mail             VARCHAR(255),
     telephone        VARCHAR(255),
     qrcodevalue      VARCHAR(255),
+    code             VARCHAR(255),
+    raisonsociale    VARCHAR(255),
+    nom                  VARCHAR(255) NOT NULL,
+    prenom               VARCHAR(255),
+    sexe                 VARCHAR(255),
+    datenaissance        date         NOT NULL,
     datecreation     DATE NOT NULL,
     datemodification DATE,
+    person_type VARCHAR(255) NOT NULL,
     CONSTRAINT pk_personnes PRIMARY KEY (id)
 );
+--
+--CREATE TABLE IF NOT EXISTS distributeurs
+--(
+--    distributeurs_id VARCHAR(255) NOT NULL,
+--    datemodification DATE,
+--    code             VARCHAR(255),
+--    raisonsociale    VARCHAR(255),
+--    CONSTRAINT pk_distributeurs PRIMARY KEY (distributeurs_id)
+--);
+--
+--CREATE TABLE IF NOT EXISTS personnesmorales
+--(
+--    personnesmorales_id VARCHAR(255) NOT NULL,
+--    raisonsociale       VARCHAR(255),
+--    code                VARCHAR(255),
+--    datemodification    DATE,
+--    CONSTRAINT pk_personnesmorales PRIMARY KEY (personnesmorales_id)
+--);
+--CREATE TABLE IF NOT EXISTS personnesphysique
+--(
+--    personnesphysique_id VARCHAR(255)         NOT NULL,
+--    nom                  VARCHAR(255) NOT NULL,
+--    prenom               VARCHAR(255),
+--    sexe                 VARCHAR(255),
+--    datenaissance        date         NOT NULL,
+--    datemodification     DATE,
+--    CONSTRAINT pk_personnesphysique PRIMARY KEY (personnesphysique_id)
+--);
 
 CREATE TABLE IF NOT EXISTS rattacher
 (
     personnes_id VARCHAR(255) NOT NULL,
     rattacher_id VARCHAR(255) NOT NULL
 );
-CREATE TABLE IF NOT EXISTS personnesmorales
-(
-    personnesmorales_id VARCHAR(255) NOT NULL,
-    raisonsociale       VARCHAR(255),
-    code                VARCHAR(255),
-    datemodification    DATE,
-    CONSTRAINT pk_personnesmorales PRIMARY KEY (personnesmorales_id)
-);
-CREATE TABLE IF NOT EXISTS personnesphysique
-(
-    personnesphysique_id VARCHAR(255)         NOT NULL,
-    nom                  VARCHAR(255) NOT NULL,
-    prenom               VARCHAR(255),
-    sexe                 VARCHAR(255),
-    datenaissance        date         NOT NULL,
-    datemodification     DATE,
-    CONSTRAINT pk_personnesphysique PRIMARY KEY (personnesphysique_id)
-);
+
 CREATE TABLE IF NOT EXISTS precomouvements
 (
     id               VARCHAR(255)         NOT NULL,
@@ -469,8 +480,8 @@ ALTER TABLE precomouvementsqtes
 
 ALTER TABLE precomouvementsqtes
     ADD CONSTRAINT FK_PRECOMOUVEMENTSQTES_ON_RESSOURCES FOREIGN KEY (ressources_id) REFERENCES ressources (id);
-ALTER TABLE personnesphysique
-    ADD CONSTRAINT FK_PERSONNESPHYSIQUE_ON_PERSONNESPHYSIQUE FOREIGN KEY (personnesphysique_id) REFERENCES personnes (id);
+--ALTER TABLE personnesphysique
+--    ADD CONSTRAINT FK_PERSONNESPHYSIQUE_ON_PERSONNESPHYSIQUE FOREIGN KEY (personnesphysique_id) REFERENCES personnes (id);
 
 ALTER TABLE rattacher
     ADD CONSTRAINT fk_rattacher_on_personnes FOREIGN KEY (personnes_id) REFERENCES personnes (id);
@@ -478,8 +489,8 @@ ALTER TABLE rattacher
 ALTER TABLE rattacher
     ADD CONSTRAINT fk_rattacher_on_personnes_bis FOREIGN KEY (rattacher_id) REFERENCES personnes (id);
 
-ALTER TABLE personnesmorales
-    ADD CONSTRAINT FK_PERSONNESMORALES_ON_PERSONNESMORALES FOREIGN KEY (personnesmorales_id) REFERENCES personnes (id);
+--ALTER TABLE personnesmorales
+--    ADD CONSTRAINT FK_PERSONNESMORALES_ON_PERSONNESMORALES FOREIGN KEY (personnesmorales_id) REFERENCES personnes (id);
 
 --ALTER TABLE rattacher
 --    ADD CONSTRAINT fk_rattacher_on_personnes FOREIGN KEY (personnes_id) REFERENCES personnes (id);
@@ -541,8 +552,8 @@ ALTER TABLE suivre
 
 ALTER TABLE suivre
     ADD CONSTRAINT fk_suivre_on_preco_mouvements_entity FOREIGN KEY (precomouvements_id) REFERENCES precomouvements (id);
-ALTER TABLE distributeurs
-    ADD CONSTRAINT FK_DISTRIBUTEURS_ON_DISTRIBUTEURS FOREIGN KEY (distributeurs_id) REFERENCES personnes (id);
+--ALTER TABLE distributeurs
+--    ADD CONSTRAINT FK_DISTRIBUTEURS_ON_DISTRIBUTEURS FOREIGN KEY (distributeurs_id) REFERENCES personnes (id);
 
 ALTER TABLE concerner
     ADD CONSTRAINT fk_concerner_on_distributeurs_entity FOREIGN KEY (precomouvementsqtes_id) REFERENCES distributeurs (distributeurs_id);

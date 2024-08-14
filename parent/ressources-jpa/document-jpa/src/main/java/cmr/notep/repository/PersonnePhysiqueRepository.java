@@ -9,11 +9,8 @@ import java.util.List;
 
 public interface PersonnePhysiqueRepository extends JpaRepository<PersonnesPhysiquesEntity, String> {
 
-    @Query(value = "SELECT pe.personnesphysique_id , pe.nom , pe.prenom , pe.sexe "+
-            ", pe.datenaissance , pe.datemodification , "+
-            "p.id, p.adresse, p.mail, p.telephone, p.qrcodevalue, p.datecreation, p.datemodification "+
-            "FROM personnesphysique pe INNER JOIN personnes p ON "+
-            " pe.personnesphysique_id = p.id "+
-            "WHERE pe.nom LIKE %:value% OR pe.prenom LIKE %:value%", nativeQuery = true)
+    @Query(value = "SELECT p.id, p.nom, p.prenom, p.sexe, p.datenaissance, p.datemodification " +
+            "FROM personnes_s p " +
+            "WHERE (p.nom LIKE %:value% OR p.prenom LIKE %:value%) AND p.person_type = 'personnesphysique'", nativeQuery = true)
     List<PersonnesPhysiquesEntity> findByNomOrByPrenom(@Param("value")String value);
 }

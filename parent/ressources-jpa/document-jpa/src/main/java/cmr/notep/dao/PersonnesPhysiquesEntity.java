@@ -10,7 +10,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@PrimaryKeyJoinColumn(name = "personnesphysique_id")
+@DiscriminatorValue("personnesphysique")
 @Table(name = "personnesphysique")
 public class PersonnesPhysiquesEntity extends PersonnesEntity{
 

@@ -1,7 +1,6 @@
 package cmr.notep.dao;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
@@ -15,8 +14,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "personnes")
-@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)
+@Table(name = "personnes_s")
 public class PersonnesEntity
 {
     @Id
