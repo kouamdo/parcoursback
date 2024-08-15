@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 @Entity
 @DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)
-@Table(name = "personnes_s")
+@Table(name = "personnes")
 public class PersonnesEntity
 {
     @Id

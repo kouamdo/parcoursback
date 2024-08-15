@@ -168,23 +168,32 @@ VALUES
 ('6290615e-1101-7209-9932-7020bbd556f8', '0190615e-1101-7209-9932-7020bbd556f8');
 
 -- Insérer les données dans la table 'personnes' en se basant sur la classe PersonnesEntity
-INSERT INTO personnes (id,adresse,mail,telephone,qrcodevalue,datecreation,datemodification) VALUES
-('1979bd79-f71b-498b-b247-e7b9bbb3f600','Bastos','abd@yah.fr','655454545','qrcode1','2022-01-01','2022-01-02'),
-('d301ff83-2a62-4e6d-aa23-57c7825bcd57','Bastos','dbc@yah.fr','655454545','qrcode2','2022-01-01','2022-01-02'),
-('0618e585-f82a-4d5f-af1c-54f880d766d3','Bastos','pnj@gma.com','655454545','qrcode3','2022-01-01','2022-01-02'),
-('0618e585-f82a-4d5f-af2c-54f880d766d3','Bastos','pnjer@gma.com','655454545','qrcode893','2022-01-01','2022-01-02'),
-('0618e585-f82a-4d5f-af2c-04f880d766d3','Nkoabang','pnjerrtt@gma.com','655454545','qrcode893','2022-01-01','2022-01-02'),
-('fdbff692-6b8d-43ab-a196-fcc3114b2daa','Bastos','sg@sg.fr','655454545','qrcode4','2022-01-01','2022-01-02'),
-('0079bd79-f71b-498b-b247-e7b9bbb3f600','@GOSPEL','der@yah.fr','655454545','qrcode22','2022-01-01','2022-01-02'),
-('0001ff83-2a62-4e6d-aa23-57c7825bcd57','@Sportif','erfd@yah.fr','655454545','qrcode12','2022-01-01','2022-01-02'),
-('0018e585-f82a-4d5f-af1c-54f880d766d3','@armee','agrt@yah.fr','655454545','qrcode32','2022-01-01','2022-01-02');
+--INSERT INTO personnes (id,adresse,mail,telephone,qrcodevalue,datecreation,datemodification) VALUES
+--('1979bd79-f71b-498b-b247-e7b9bbb3f600','Bastos','abd@yah.fr','655454545','qrcode1','2022-01-01','2022-01-02'),
+--('d301ff83-2a62-4e6d-aa23-57c7825bcd57','Bastos','dbc@yah.fr','655454545','qrcode2','2022-01-01','2022-01-02'),
+--('0618e585-f82a-4d5f-af1c-54f880d766d3','Bastos','pnj@gma.com','655454545','qrcode3','2022-01-01','2022-01-02'),
+--('0618e585-f82a-4d5f-af2c-54f880d766d3','Bastos','pnjer@gma.com','655454545','qrcode893','2022-01-01','2022-01-02'),
+--('0618e585-f82a-4d5f-af2c-04f880d766d3','Nkoabang','pnjerrtt@gma.com','655454545','qrcode893','2022-01-01','2022-01-02'),
+--('fdbff692-6b8d-43ab-a196-fcc3114b2daa','Bastos','sg@sg.fr','655454545','qrcode4','2022-01-01','2022-01-02'),
+--('0079bd79-f71b-498b-b247-e7b9bbb3f600','@GOSPEL','der@yah.fr','655454545','qrcode22','2022-01-01','2022-01-02'),
+--('0001ff83-2a62-4e6d-aa23-57c7825bcd57','@Sportif','erfd@yah.fr','655454545','qrcode12','2022-01-01','2022-01-02'),
+--('0018e585-f82a-4d5f-af1c-54f880d766d3','@armee','agrt@yah.fr','655454545','qrcode32','2022-01-01','2022-01-02');
+
+INSERT INTO personnes (id,nom,prenom,sexe,datenaissance,datemodification,person_type) VALUES
+('0618e585-f82a-4d5f-af2c-04f880d766d3','Nkoabang','pnjerrtt@gma.com','Masculin','2022-01-01','2022-01-02', 'personnesphysique'),
+('0618e585-f82a-4d5f-af2c-54f880d766d3','Essos','nayat@gma.com','Masculin','2022-01-01','2022-01-02', 'personnesphysique');
+
+INSERT INTO personnes (id,raisonsociale,code,datemodification,person_type) VALUES
+('0079bd79-f71b-498b-b247-e7b9bbb3f600','GOSPEL',43,'2022-01-01','personnesmorales'),
+('0001ff83-2a62-4e6d-aa23-57c7825bcd57','Sportif',47,'2022-01-01','personnesmorales'),
+('0018e585-f82a-4d5f-af1c-54f880d766d3','armee',45,'2022-01-01','personnesmorales');
 
 -- Insérer les données dans la table 'distributeur' en se basant sur la classe DistributeurEntity
-INSERT INTO distributeurs (distributeurs_id, code, raisonsociale, datemodification) VALUES
-('1979bd79-f71b-498b-b247-e7b9bbb3f600','d190615','ENEO','2022-01-01'),
-('0618e585-f82a-4d5f-af1c-54f880d766d3','d190616','Brasserie','2022-01-01'),
-('d301ff83-2a62-4e6d-aa23-57c7825bcd57','d190619','UCB','2022-01-01'),
-('fdbff692-6b8d-43ab-a196-fcc3114b2daa','d190614','Pharmacam','2022-01-01');
+INSERT INTO personnes (id, code, raisonsociale, datemodification,person_type) VALUES
+('1979bd79-f71b-498b-b247-e7b9bbb3f600','d190615','ENEO','2022-01-01','distributeurs'),
+('0618e585-f82a-4d5f-af1c-54f880d766d3','d190616','Brasserie','2022-01-01','distributeurs'),
+('d301ff83-2a62-4e6d-aa23-57c7825bcd57','d190619','UCB','2022-01-01','distributeurs'),
+('fdbff692-6b8d-43ab-a196-fcc3114b2daa','d190614','Pharmacam','2022-01-01','distributeurs');
 
 -- Insertion dans la table 'mouvemnts'
 INSERT INTO mouvements (id,description, quantite, prix, distributeurs_id, ressources_id, dateperemption, datecreation, datemodification) VALUES
@@ -224,19 +233,12 @@ INSERT INTO traiter (documents_id,missions_id) values
 ('0190615e-1101-7209-9932-7020bbd556f2','3190615e-1101-7209-9932-7020bbd556f2'),
 ('0190615e-1101-7209-9932-7020bbd556f3','3190615e-1101-7209-9932-7020bbd556f3');
 
-INSERT INTO mouvpreco (id_precomouvements, id_mouvements) VALUES
-('6290615e-1101-7209-9932-7020bbd556f1', '97d314f5-84ad-47cd-874d-9c55f0e45790'),
-('6290615e-1101-7209-9932-7020bbd556f2', 'bfee750d-9b8c-4475-9373-08eff9b3ccb7'),
-('17ee6932-2fcd-4b93-9c4c-0a4dbf659bff', '0e7cea07-d09e-4f79-be6c-6dd27aecbce6'),
-('77b8577f-6d26-4376-af30-a3c8f75a9194', 'decaedc8-a908-4cad-bdd6-0403a2614f22');
+--INSERT INTO mouvpreco (id_precomouvements, id_mouvements) VALUES
+--('6290615e-1101-7209-9932-7020bbd556f1', '97d314f5-84ad-47cd-874d-9c55f0e45790'),
+--('6290615e-1101-7209-9932-7020bbd556f2', 'bfee750d-9b8c-4475-9373-08eff9b3ccb7'),
+--('17ee6932-2fcd-4b93-9c4c-0a4dbf659bff', '0e7cea07-d09e-4f79-be6c-6dd27aecbce6'),
+--('77b8577f-6d26-4376-af30-a3c8f75a9194', 'decaedc8-a908-4cad-bdd6-0403a2614f22');
 
-
-INSERT INTO personnes (id,adresse,mail,telephone,qrcodevalue,datecreation,datemodification) VALUES
- ('0618e585-f82a-4d5f-af2c-54f880d766d3','Bastos','pnjer@gma.com','655454545','qrcode893','2022-01-01','2022-01-02');
-
-INSERT INTO personnesphysique (personnesphysique_id,nom,prenom,sexe,datenaissance,datemodification) VALUES
-('0618e585-f82a-4d5f-af2c-04f880d766d3','Nkoabang','pnjerrtt@gma.com','Masculin','2022-01-01','2022-01-02'),
-('0618e585-f82a-4d5f-af2c-54f880d766d3','Bastos','pnjer@gma.com','Masculin','2022-01-01','2022-01-02');
 
  INSERT INTO documentspromotions (documents_id,promotions_id) VALUES
  ('0190615e-1101-7209-9932-7020bbd556f1','1979bd79-f81b-498b-b247-e7b9bbb3f600'),
@@ -253,10 +255,6 @@ INSERT INTO personnesphysique (personnesphysique_id,nom,prenom,sexe,datenaissanc
  ('97d314a5-84ad-47cd-874d-9c55f0e45791','2022-01-01','2022-01-02','2022-01-02',5,'e190615e-1101-7209-9932-7020bbd556f2'),
  ('97d314a5-84ad-47cd-874d-9c55f0e45792','2022-01-01','2022-01-02','2022-01-02',8,'e190615e-1101-7209-9932-7020bbd556f1');
 
-INSERT INTO personnesmorales (personnesmorales_id,raisonsociale,code,datemodification) VALUES
-('0079bd79-f71b-498b-b247-e7b9bbb3f600','GOSPEL',43,'2022-01-01'),
-('0001ff83-2a62-4e6d-aa23-57c7825bcd57','Sportif',47,'2022-01-01'),
-('0018e585-f82a-4d5f-af1c-54f880d766d3','armee',45,'2022-01-01');
 
 INSERT INTO rattacher (personnes_id,rattacher_id) VALUES
 ('1979bd79-f71b-498b-b247-e7b9bbb3f600','d301ff83-2a62-4e6d-aa23-57c7825bcd57'),

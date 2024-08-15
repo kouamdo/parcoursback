@@ -11,7 +11,6 @@ import java.util.Date;
 @Setter
 @Entity
 @DiscriminatorValue("personnesphysique")
-@Table(name = "personnesphysique")
 public class PersonnesPhysiquesEntity extends PersonnesEntity{
 
     @Column(name = "nom" , nullable = false)

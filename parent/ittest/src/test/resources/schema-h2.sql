@@ -196,6 +196,7 @@ CREATE TABLE IF NOT EXISTS personnels
     datemodification DATE,
     CONSTRAINT pk_personnels PRIMARY KEY (id)
 );
+
 CREATE TABLE IF NOT EXISTS personnes
 (
     id               VARCHAR(255) NOT NULL,
@@ -205,13 +206,13 @@ CREATE TABLE IF NOT EXISTS personnes
     qrcodevalue      VARCHAR(255),
     code             VARCHAR(255),
     raisonsociale    VARCHAR(255),
-    nom                  VARCHAR(255) NOT NULL,
+    nom                  VARCHAR(255) ,
     prenom               VARCHAR(255),
     sexe                 VARCHAR(255),
-    datenaissance        date         NOT NULL,
-    datecreation     DATE NOT NULL,
+    datenaissance        date         ,
+    datecreation     DATE ,
     datemodification DATE,
-    person_type VARCHAR(255) NOT NULL,
+    person_type VARCHAR(255) NOT NULL CHECK (person_type IN ('personnesmorales', 'personnesphysique', 'distributeurs')),
     CONSTRAINT pk_personnes PRIMARY KEY (id)
 );
 --
@@ -405,14 +406,14 @@ CREATE TABLE IF NOT EXISTS docetats_predecesseurs
     CONSTRAINT pk_docetats_predecesseurs PRIMARY KEY (docetats_id, predecesseur_id)
 );
 
-CREATE TABLE IF NOT EXISTS mouvpreco
-(
-    id_precomouvements VARCHAR(255) NOT NULL,
-    id_mouvements VARCHAR(255) NOT NULL,
-    CONSTRAINT pk_mouvpreco PRIMARY KEY (id_precomouvements,id_mouvements),
-    CONSTRAINT fk_mouvpreco_precomouvements FOREIGN KEY (id_precomouvements) REFERENCES precomouvements(id),
-    CONSTRAINT fk_mouvpreco_mouvements FOREIGN KEY (id_mouvements) REFERENCES mouvements(id)
-);
+--CREATE TABLE IF NOT EXISTS mouvpreco
+--(
+--    id_precomouvements VARCHAR(255) NOT NULL,
+--    id_mouvements VARCHAR(255) NOT NULL,
+--    CONSTRAINT pk_mouvpreco PRIMARY KEY (id_precomouvements,id_mouvements),
+--    CONSTRAINT fk_mouvpreco_precomouvements FOREIGN KEY (id_precomouvements) REFERENCES precomouvements(id),
+--    CONSTRAINT fk_mouvpreco_mouvements FOREIGN KEY (id_mouvements) REFERENCES mouvements(id)
+--);
 
 ALTER TABLE docetats_predecesseurs
     ADD CONSTRAINT FK_DOCETATS_PREDECESSEURS_ON_DOCETATS FOREIGN KEY (docetats_id) REFERENCES docetats (id);

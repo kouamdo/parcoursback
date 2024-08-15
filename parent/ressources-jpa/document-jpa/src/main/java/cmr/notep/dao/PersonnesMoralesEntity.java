@@ -10,7 +10,6 @@ import java.util.Date;
 @Setter
 @Entity
 @DiscriminatorValue("personnesmorales")
-@Table(name = "personnesmorales")
 public class PersonnesMoralesEntity extends PersonnesEntity{
 
     @Column(name = "raisonsociale")

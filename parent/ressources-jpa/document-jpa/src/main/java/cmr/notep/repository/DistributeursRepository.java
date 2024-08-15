@@ -13,4 +13,5 @@ public interface DistributeursRepository extends JpaRepository<DistributeursEnti
             "FROM personnes_s p "+
             "WHERE p.raisonsociale LIKE %:value% AND p.person_type = 'distributeurs'", nativeQuery = true)
     List<DistributeursEntity> findByRaisonSociale(@Param("value") String value);
+
 }

@@ -53,12 +53,12 @@ public class MouvementsEntity {
     @Mapping("precoMouvementsVioler")
     private List<PrecoMouvementsEntity> precoMouvementsViolerEntityties;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @JoinTable(name = "mouvpreco" ,
-            joinColumns = @JoinColumn(name = "id_precomouvements"),
-            inverseJoinColumns = @JoinColumn(name = "id_mouvements"))
-    @Mapping("precoMouvements")
-    private List<PrecoMouvementsEntity> precoMouvementsEntityList;
+//    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+//    @JoinTable(name = "mouvpreco" ,
+//            joinColumns = @JoinColumn(name = "id_precomouvements"),
+//            inverseJoinColumns = @JoinColumn(name = "id_mouvements"))
+//    @Mapping("precoMouvements")
+//    private List<PrecoMouvementsEntity> precoMouvementsEntityList;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ressources_id")

@@ -5,6 +5,7 @@ import cmr.notep.dao.PersonnesEntity;
 import cmr.notep.modele.*;
 import cmr.notep.repository.PersonnesRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,21 +21,9 @@ import static cmr.notep.config.DocumentConfig.dozerMapperBean;
 public class PersonnesBusiness {
     private final DaoAccessorService daoAccessorService;
 
-    private final DistributeursBusiness distributeursBusiness ;
-    private final PersonnesPhysiqueBusiness personnesPhysiqueBusiness;
-    private final PersonnesMoraleBusiness personnesMoraleBusiness;
-
-    public PersonnesBusiness(
-            DaoAccessorService daoAccessorService ,
-            DistributeursBusiness distributeursBusiness,
-            PersonnesPhysiqueBusiness personnesPhysiqueBusiness,
-            PersonnesMoraleBusiness personnesMoraleBusiness)
+    public PersonnesBusiness(DaoAccessorService daoAccessorService)
     {
-
         this.daoAccessorService = daoAccessorService;
-        this.distributeursBusiness = distributeursBusiness;
-        this.personnesPhysiqueBusiness = personnesPhysiqueBusiness;
-        this.personnesMoraleBusiness = personnesMoraleBusiness;
     }
 
     public Personnes avoirPersonne(String id) {
@@ -49,9 +38,17 @@ public class PersonnesBusiness {
     {
         List<MacroPersonnes> outputItem = new ArrayList<>();
 
-        List<Distributeurs> distributeurs = this.distributeursBusiness.findByRaisonSociale(value);
-        List<PersonnesMorale> personnesmorales = this.personnesMoraleBusiness.avoirListPersonnesMoraleByelmnt(value);
-        List<PersonnesPhysique> personnesphysique = this.personnesPhysiqueBusiness.avoirListPersonnePhysiquesByelmnt(value);
+        List<Distributeurs> distributeurs = this.daoAccessorService.getRepository(PersonnesRepository.class).findByRaisonSocialeOnDistributeurs(value)
+                .stream().map(distibuteur ->dozerMapperBean.map(distibuteur, Distributeurs.class))
+                .toList();
+
+        List<PersonnesMorale> personnesmorales = this.daoAccessorService.getRepository(PersonnesRepository.class).findByRaisonSocialeOnPersonneMorale(value)
+                .stream().map(personnesmorale ->dozerMapperBean.map(personnesmorale, PersonnesMorale.class))
+                .toList();
+
+        List<PersonnesPhysique> personnesphysiques = this.daoAccessorService.getRepository(PersonnesRepository.class).findByNomOrByPrenomOnPersonnePhysique(value)
+                .stream().map(personnesphysique ->dozerMapperBean.map(personnesphysique, PersonnesPhysique.class))
+                .toList();
 
         for (Distributeurs distributeur : distributeurs) {
             outputItem.add(new MacroPersonnes("Distributeurs", distributeur));
@@ -61,11 +58,14 @@ public class PersonnesBusiness {
             outputItem.add(new MacroPersonnes("Personnes morale", personneMorale));
         }
 
-        for (PersonnesPhysique personnePhysique : personnesphysique) {
+        for (PersonnesPhysique personnePhysique : personnesphysiques) {
             outputItem.add(new MacroPersonnes("Personnes physique", personnePhysique));
         }
 
-        return outputItem;
+        if (outputItem.isEmpty())
+            throw new IllegalStateException("Entrée "+value+" non trouvé!");
+
+        else return outputItem;
     }
 
     public List<Personnes> avoirToutPersonnes() {
@@ -74,7 +74,7 @@ public class PersonnesBusiness {
                 .collect(Collectors.toList());
     }
 
-    public void supprimerPersonne(Personnes Personnes)
+    public void supprimerPersonne(@NotNull Personnes Personnes)
     {
         daoAccessorService.getRepository(PersonnesRepository.class)
                 .deleteById(String.valueOf(Personnes.getId()));

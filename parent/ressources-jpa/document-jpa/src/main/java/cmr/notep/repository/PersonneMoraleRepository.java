@@ -13,4 +13,5 @@ public interface PersonneMoraleRepository extends JpaRepository<PersonnesMorales
             "FROM personnes_s p "+
             "WHERE p.raisonsociale LIKE %:value% AND p.person_type = 'personnesmorales'", nativeQuery = true)
     List<PersonnesMoralesEntity> findByRaisonSociale(@Param("value")String value);
+
 }

@@ -13,4 +13,5 @@ public interface PersonnePhysiqueRepository extends JpaRepository<PersonnesPhysi
             "FROM personnes_s p " +
             "WHERE (p.nom LIKE %:value% OR p.prenom LIKE %:value%) AND p.person_type = 'personnesphysique'", nativeQuery = true)
     List<PersonnesPhysiquesEntity> findByNomOrByPrenom(@Param("value")String value);
+
 }

@@ -12,7 +12,6 @@ import java.util.List;
 @Setter
 @Entity
 @DiscriminatorValue("distributeurs")
-@Table(name = "distributeurs")
 public class DistributeursEntity extends PersonnesEntity {
 
     @Column(name = "datemodification")

@@ -13,8 +13,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Distributeurs extends Personnes {
-    private String distributeurs_id;
     private Date dateModification;
     private String raisonSociale;
     private String code ;
+    private List<Mouvements> mouvements;
+    private List<PrecoMouvementsQtes> precomouvementsqtes;
+    private List<Promotions> promotions;
 }
