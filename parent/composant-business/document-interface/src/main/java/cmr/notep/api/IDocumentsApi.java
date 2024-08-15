@@ -1,5 +1,6 @@
 package cmr.notep.api;
 
+import cmr.notep.exceptions.ParcoursException;
 import cmr.notep.modele.Documents;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
@@ -20,7 +21,7 @@ public interface IDocumentsApi {
             path = "/{idDoc}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    Documents avoirDocument(@NonNull @RequestParam(name = "idDoc") String idDoc);
+    Documents avoirDocument(@NonNull @RequestParam(name = "idDoc") String idDoc) throws ParcoursException;
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE

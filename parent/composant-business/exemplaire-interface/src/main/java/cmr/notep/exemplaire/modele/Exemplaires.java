@@ -28,4 +28,5 @@ public class Exemplaires extends Documents {
     private List<Mouvements> mouvements;
     private List<PersonnesDestinataires> personnesDestinataires;
     private List<ExemplaireAttributs> exemplaireAttributs;
+
 }

@@ -74,6 +74,11 @@
             <artifactId>commun-service</artifactId>
             <version>${projet.version}</version>
         </dependency>
+        <dependency>
+            <groupId>cmr.notep</groupId>
+            <artifactId>commun-outil</artifactId>
+            <version>${projet.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
