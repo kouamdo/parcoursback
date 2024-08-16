@@ -1,6 +1,7 @@
 package cmr.notep.api;
 
 
+import cmr.notep.exceptions.ParcoursException;
 import cmr.notep.modele.PrecoMouvements;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
@@ -14,7 +15,7 @@ public interface IPrecoMouvementsApi {
             path = "/{idPrecoMouvements}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    PrecoMouvements avoirPrecomouvement (@NonNull @RequestParam(name="idPrecomouvements") String idPrecomouvements);
+    PrecoMouvements avoirPrecomouvement (@NonNull @RequestParam(name="idPrecomouvements") String idPrecomouvements) throws ParcoursException;
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE

@@ -2,6 +2,7 @@ package cmr.notep.exemplaire.clientws;
 
 import cmr.notep.api.IDocumentsApi;
 import cmr.notep.exceptions.ParcoursException;
+import cmr.notep.exemplaire.config.ExemplaireConfig;
 import cmr.notep.modele.Documents;
 import cmr.notep.utile.serialiser.JacksonHelper;
 import cmr.notep.wstools.api.IGenericWsClientApi;
@@ -14,13 +15,13 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 @Component
 public class DocumentsClientWs implements IDocumentsApi {
-    public static final String URI_DOCUMENTS = "/document/documents/";
-    @Value("${url.document.api.service:http://localhost:8080}")
-    private String urlDocumentApiService;
+    public static final String URI_DOCUMENTS = "/documents/";
+    private final ExemplaireConfig exemplaireConfig;
 
     private final IGenericWsClientApi genericWsClientApi;
 
-    public DocumentsClientWs(IGenericWsClientApi genericWsClientApi) {
+    public DocumentsClientWs(ExemplaireConfig exemplaireConfig, IGenericWsClientApi genericWsClientApi) {
+        this.exemplaireConfig = exemplaireConfig;
         this.genericWsClientApi = genericWsClientApi;
     }
 
@@ -32,7 +33,7 @@ public class DocumentsClientWs implements IDocumentsApi {
     @Override
     public Documents avoirDocument(String idDoc) throws ParcoursException {
         GenericWsRequest request = GenericWsRequest.builder()
-                .url(urlDocumentApiService + URI_DOCUMENTS + idDoc)
+                .url(exemplaireConfig.getUrlDocumentApiService() + URI_DOCUMENTS + idDoc)
                 .method("GET")
                 .build();
         GenericWsResponse response = genericWsClientApi.sendRequest(request);

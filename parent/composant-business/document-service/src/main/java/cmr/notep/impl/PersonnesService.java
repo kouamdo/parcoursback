@@ -22,17 +22,17 @@ public class PersonnesService implements IPersonnesApi {
         return personnesBusiness.avoirPersonne(idPersonnes);
     }
 
-    @Override
+    //@Override
     public List<Personnes> avoirToutPersonnes() {
         return personnesBusiness.avoirToutPersonnes();
     }
 
-    @Override
+    //@Override
     public void supprimerPersonne(Personnes Personnes) {
         personnesBusiness.supprimerPersonne(Personnes);
     }
 
-    @Override
+    //@Override
     public Personnes posterPersonne(Personnes Personnes) {
         return personnesBusiness.posterPersonne(Personnes);
     }
