@@ -12,11 +12,11 @@ INSERT INTO documents(
 
 
 -- Insertion dans la table service
-INSERT INTO services (id, libelle, description, codeunique, etat,localisation, datecreation, datemodification,filesattentes_id)
+INSERT INTO services (id, libelle, description, codeunique, etat,localisation, datecreation, datemodification)
 VALUES
-('2190615e-1101-7209-9932-7020bbd556f1', 'Consultation', 'bien', 'S1', true, 'douala', '1972-06-12', '1990-03-07','f190615e-1101-7209-9932-7020bbd556f1'),
-('2190615e-1101-7209-9932-7020bbd556f2', 'Laboratoire', 'bien', 'S2', true, 'douala', '1990-08-06', '1990-03-07','f190615e-1101-7209-9932-7020bbd556f2'),
-('2190615e-1101-7209-9932-7020bbd556f3', 'Pharmacie', 'bien', 'S3', true, 'douala', '2000-03-07', '1990-03-07','f190615e-1101-7209-9932-7020bbd556f3');
+('2190615e-1101-7209-9932-7020bbd556f1', 'Consultation', 'bien', 'S1', true, 'douala', '1972-06-12', '1990-03-07'),
+('2190615e-1101-7209-9932-7020bbd556f2', 'Laboratoire', 'bien', 'S2', true, 'douala', '1990-08-06', '1990-03-07'),
+('2190615e-1101-7209-9932-7020bbd556f3', 'Pharmacie', 'bien', 'S3', true, 'douala', '2000-03-07', '1990-03-07');
 
 -- Insertion dans la table mission
 INSERT INTO missions (id, libelle, description, etat, datecreation, datemodification, services_id)

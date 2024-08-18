@@ -150,6 +150,10 @@ CREATE TABLE IF NOT EXISTS mouvements
     datemodification DATE,
     ressources_id    VARCHAR(255),
     distributeurs_id VARCHAR(255),
+    caisses_id  VARCHAR(255),
+    comptes_id  VARCHAR(255),
+    personnels_id   VARCHAR(255),
+    exemplaires_id  VARCHAR(255),
     CONSTRAINT pk_mouvements PRIMARY KEY (id)
 );
 
@@ -196,6 +200,42 @@ CREATE TABLE IF NOT EXISTS personnels
     datemodification DATE,
     CONSTRAINT pk_personnels PRIMARY KEY (id)
 );
+CREATE TABLE IF NOT EXISTS deltasoldes (
+    id               VARCHAR(255) NOT NULL,
+    montantavant             DOUBLE PRECISION,
+    montantapres             DOUBLE PRECISION,
+    datecreation               date,
+    typemouvement   VARCHAR(255),
+    comptes_id  VARCHAR(255),
+    exemplaires_id  VARCHAR(255),
+    CONSTRAINT pk_deltasoldes PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS comptes (
+    id               VARCHAR(255) NOT NULL,
+    solde               VARCHAR(255),
+    datecreation               date,
+    etat    VARCHAR(255),
+    montantdecouvertmax             DOUBLE PRECISION,
+    libelle VARCHAR(255),
+    personnes_id VARCHAR(255),
+    CONSTRAINT pk_comptes PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS caisses(
+    id               VARCHAR(255) NOT NULL,
+    libelle VARCHAR(255),
+    solde   DOUBLE PRECISION,
+    type VARCHAR(255),
+    detailJSON VARCHAR(255),
+    CONSTRAINT pk_caisses PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS exemplaires (
+    id               VARCHAR(255) NOT NULL,
+    personnes_id    VARCHAR(255),
+    CONSTRAINT pk_exemplaires PRIMARY KEY (id)
+);
 
 CREATE TABLE IF NOT EXISTS personnes
 (
@@ -212,6 +252,7 @@ CREATE TABLE IF NOT EXISTS personnes
     datenaissance        date         ,
     datecreation     DATE ,
     datemodification DATE,
+    comptes_id VARCHAR(255),
     person_type VARCHAR(255) NOT NULL CHECK (person_type IN ('personnesmorales', 'personnesphysique', 'distributeurs')),
     CONSTRAINT pk_personnes PRIMARY KEY (id)
 );
@@ -414,7 +455,24 @@ CREATE TABLE IF NOT EXISTS docetats_predecesseurs
 --    CONSTRAINT fk_mouvpreco_precomouvements FOREIGN KEY (id_precomouvements) REFERENCES precomouvements(id),
 --    CONSTRAINT fk_mouvpreco_mouvements FOREIGN KEY (id_mouvements) REFERENCES mouvements(id)
 --);
-
+ALTER TABLE mouvements
+    ADD CONSTRAINT FK_MOUVEMENTS_CAISSES FOREIGN KEY (caisses_id) REFERENCES caisses(id);
+ALTER TABLE mouvements
+    ADD CONSTRAINT FK_MOUVEMENTS_COMPTES FOREIGN KEY (comptes_id) REFERENCES comptes(id);
+ALTER TABLE mouvements
+    ADD CONSTRAINT FK_MOUVEMENTS_PERSONNELS FOREIGN KEY (personnels_id) REFERENCES personnels(id);
+ALTER TABLE mouvements
+    ADD CONSTRAINT FK_MOUVEMENTS_EXEMPLAIRES  FOREIGN KEY (exemplaires_id) REFERENCES exemplaires(id);
+ALTER TABLE exemplaires
+    ADD CONSTRAINT FK_EXEMPLAIRES_PERSONNES FOREIGN KEY (personnes_id) REFERENCES personnes(id);
+ALTER TABLE deltasoldes
+    ADD CONSTRAINT FK_DELTASOLDES_COMPTES FOREIGN KEY (comptes_id) REFERENCES comptes(id);
+ALTER TABLE deltasoldes
+    ADD CONSTRAINT FK_DELTASOLDES_EXEMPLAIRES FOREIGN KEY (exemplaires_id) REFERENCES exemplaires(id);
+ALTER TABLE comptes
+    ADD CONSTRAINT FK_COMPTES_PERSONNES FOREIGN KEY (personnes_id) REFERENCES personnes(id);
+ALTER TABLE personnes
+    ADD CONSTRAINT fk_personnes_comptes FOREIGN KEY (comptes_id) REFERENCES comptes(id);
 ALTER TABLE docetats_predecesseurs
     ADD CONSTRAINT FK_DOCETATS_PREDECESSEURS_ON_DOCETATS FOREIGN KEY (docetats_id) REFERENCES docetats (id);
 ALTER TABLE docetats_predecesseurs
@@ -462,8 +520,8 @@ ALTER TABLE remplir
 ALTER TABLE promotions
     ADD CONSTRAINT uc_promotions_codeunique UNIQUE (codeunique);
 
-ALTER TABLE promotions
-    ADD CONSTRAINT FK_PROMOTIONS_ON_DISTRIBUTEURS_ENTITY FOREIGN KEY (distributeurs_id) REFERENCES distributeurs (distributeurs_id);
+--ALTER TABLE promotions
+--    ADD CONSTRAINT FK_PROMOTIONS_ON_DISTRIBUTEURS_ENTITY FOREIGN KEY (distributeurs_id) REFERENCES distributeurs (distributeurs_id);
 
 ALTER TABLE documentspromotions
     ADD CONSTRAINT fk_doc_on_documents_entity FOREIGN KEY (documents_id) REFERENCES documents (id);
@@ -499,8 +557,8 @@ ALTER TABLE rattacher
 --    ADD CONSTRAINT fk_rattacher_on_personnes FOREIGN KEY (personnes_id) REFERENCES personnes (id);
 ALTER TABLE ordreetats
     ADD CONSTRAINT FK_ORDREETATS_ON_ETATS FOREIGN KEY (etats_id) REFERENCES etats (id);
-ALTER TABLE mouvements
-    ADD CONSTRAINT FK_MOUVEMENTS_ON_DISTRIBUTEURS FOREIGN KEY (distributeurs_id) REFERENCES distributeurs (distributeurs_id);
+--ALTER TABLE mouvements
+--    ADD CONSTRAINT FK_MOUVEMENTS_ON_DISTRIBUTEURS FOREIGN KEY (distributeurs_id) REFERENCES distributeurs (distributeurs_id);
 
 ALTER TABLE mouvements
     ADD CONSTRAINT FK_MOUVEMENTS_ON_RESSOURCES FOREIGN KEY (ressources_id) REFERENCES ressources (id);
@@ -556,11 +614,11 @@ ALTER TABLE suivre
 --ALTER TABLE distributeurs
 --    ADD CONSTRAINT FK_DISTRIBUTEURS_ON_DISTRIBUTEURS FOREIGN KEY (distributeurs_id) REFERENCES personnes (id);
 
-ALTER TABLE concerner
-    ADD CONSTRAINT fk_concerner_on_distributeurs_entity FOREIGN KEY (precomouvementsqtes_id) REFERENCES distributeurs (distributeurs_id);
-
-ALTER TABLE concerner
-    ADD CONSTRAINT fk_concerner_on_preco_mouvements_qtes_entity FOREIGN KEY (distributeurs_id) REFERENCES precomouvementsqtes (id);
+--ALTER TABLE concerner
+--    ADD CONSTRAINT fk_concerner_on_distributeurs_entity FOREIGN KEY (precomouvementsqtes_id) REFERENCES distributeurs (distributeurs_id);
+--
+--ALTER TABLE concerner
+--    ADD CONSTRAINT fk_concerner_on_preco_mouvements_qtes_entity FOREIGN KEY (distributeurs_id) REFERENCES precomouvementsqtes (id);
 
 ALTER TABLE associer
     ADD CONSTRAINT FK_ASSOCIER_ON_ATTRIBUTS FOREIGN KEY (attributs_id) REFERENCES attributs (id);

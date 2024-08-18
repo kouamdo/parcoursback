@@ -44,4 +44,13 @@ public class PersonnesEntity
             inverseJoinColumns = @JoinColumn(name = "rattacher_id"))
     @Mapping("personnesRatachees")
     private List<PersonnesEntity> personnesRatachees = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "comptes_id" , referencedColumnName = "id")
+    @Mapping("compte")
+    private ComptesEntity comptesEntity;
+
+    @OneToMany(mappedBy = "personnesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @Mapping("exemplaires")
+    private List<ExemplairesEntity> exemplaireEntities;
 }

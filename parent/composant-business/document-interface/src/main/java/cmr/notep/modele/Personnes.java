@@ -18,4 +18,6 @@ public class Personnes {
     private Date dateCreation;
     private Date dateModification;
     private List<Personnes> personnesRatachees;
+    private Comptes compte;
+    private List<Exemplaires> exemplaires;
 }
