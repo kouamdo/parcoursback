@@ -29,6 +29,7 @@ public class OrdreEtatsEntity {
     @Column(name = "ordre")
     private int ordre ;
     @Column(name = "etats_id")
+    @Mapping("etat")
     private String etatsId;
     @ManyToOne
     @JoinColumn(name = "exemplaire_id")

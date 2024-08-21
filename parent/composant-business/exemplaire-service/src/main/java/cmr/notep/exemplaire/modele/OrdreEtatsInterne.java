@@ -18,6 +18,6 @@ public class OrdreEtatsInterne {
     private Date dateModification;
     private Date dateFinVote;
     private int ordre ;
-    private Etats etat;
+    private String etat;
     private List<EtatsValidationsInterne> etatsValidations;
 }

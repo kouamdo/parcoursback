@@ -1,10 +1,10 @@
 package cmr.notep.exemplaire.clientws;
 
-import cmr.notep.api.IAttributsApi;
+import cmr.notep.api.IRessourcesApi;
 import cmr.notep.exceptions.ParcoursException;
 import cmr.notep.exemplaire.config.ExemplaireConfig;
 import cmr.notep.modele.Attributs;
-import cmr.notep.modele.Personnes;
+import cmr.notep.modele.Ressources;
 import cmr.notep.utile.serialiser.JacksonHelper;
 import cmr.notep.wstools.api.IGenericWsClientApi;
 import cmr.notep.wstools.modeles.GenericWsRequest;
@@ -14,40 +14,40 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class AttributsClientWs implements IAttributsApi {
-    public static final String URI_ATTRIBUTS = "/attributs/";
+public class RessourcesClientWs implements IRessourcesApi {
+    public static final String URI_RESSOURCES = "/ressources/";
     private final IGenericWsClientApi genericWsClientApi;
     private final ExemplaireConfig exemplaireConfig;
 
-    public AttributsClientWs(IGenericWsClientApi genericWsClientApi, ExemplaireConfig exemplaireConfig) {
+    public RessourcesClientWs(IGenericWsClientApi genericWsClientApi, ExemplaireConfig exemplaireConfig) {
         this.genericWsClientApi = genericWsClientApi;
         this.exemplaireConfig = exemplaireConfig;
     }
 
     @Override
-    public Attributs avoirAttribut(String idAttribut) throws ParcoursException {
+    public Ressources avoirRessource(String idRessource) throws ParcoursException {
         GenericWsRequest request = GenericWsRequest.builder()
-                .url(exemplaireConfig.getUrlDocumentApiService() + URI_ATTRIBUTS + idAttribut)
+                .url(exemplaireConfig.getUrlDocumentApiService() + URI_RESSOURCES + idRessource)
                 .method("GET")
                 .build();
         GenericWsResponse response = genericWsClientApi.sendRequest(request);
         if (response.getCode() == 200)
-            return JacksonHelper.objetFromJson(response.getReponse(), Attributs.class);
-        throw new ParcoursException("Erreur lors de la récupération  " + idAttribut + " code http : " + response.getReponse() + " reponse : " + response.getReponse());
+            return JacksonHelper.objetFromJson(response.getReponse(), Ressources.class);
+        throw new ParcoursException("Erreur lors de la récupération  " + idRessource + " code http : " + response.getReponse() + " reponse : " + response.getReponse());
     }
 
     @Override
-    public List<Attributs> avoirToutAttribut() {
+    public List<Ressources> avoirToutRessources() {
         return null;
     }
 
     @Override
-    public void supprimerAttribut(Attributs attributs) {
+    public void supprimerRessources(Ressources ressources) {
 
     }
 
     @Override
-    public Attributs posterAttribut(Attributs attributs) {
+    public Ressources posterRessources(Ressources ressources) {
         return null;
     }
 }
