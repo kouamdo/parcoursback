@@ -24,7 +24,7 @@ public class PrecoMouvementsClientWs implements IPrecoMouvementsApi {
     }
 
     @Override
-    public PrecoMouvements avoirPrecomouvement(String idPrecomouvement) throws ParcoursException {
+    public PrecoMouvements avoirPrecoMouvement(String idPrecomouvement) throws ParcoursException {
         GenericWsRequest request = GenericWsRequest.builder()
                 .url(exemplaireConfig.getUrlDocumentApiService() + URI_PRECOMOUVEMENTS + idPrecomouvement)
                 .method("GET")
@@ -37,17 +37,17 @@ public class PrecoMouvementsClientWs implements IPrecoMouvementsApi {
     }
 
     @Override
-    public List<PrecoMouvements> avoirToutPrecomouvement() {
+    public List<PrecoMouvements> avoirToutPrecoMouvement() {
         return null;
     }
 
     @Override
-    public void supprimerPrecomouvements(PrecoMouvements precoMouvements) {
+    public void supprimerPrecoMouvements(PrecoMouvements precoMouvements) {
 
     }
 
     @Override
-    public PrecoMouvements posterPrecomouvements(PrecoMouvements precoMouvements) {
+    public PrecoMouvements posterPrecoMouvements(PrecoMouvements precoMouvements) {
         return null;
     }
 }

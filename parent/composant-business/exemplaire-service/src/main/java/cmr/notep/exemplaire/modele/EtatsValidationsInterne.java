@@ -15,7 +15,7 @@ import lombok.*;
 public class EtatsValidationsInterne {
     String id;
     String methode;
-    Personnels personnel;
-    OrdreEtats ordreEtat;
+    String personnel;
+    OrdreEtatsInterne ordreEtat;
     String validation;
 }

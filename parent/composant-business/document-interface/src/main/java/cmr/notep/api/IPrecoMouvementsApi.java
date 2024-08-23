@@ -15,21 +15,21 @@ public interface IPrecoMouvementsApi {
             path = "/{idPrecoMouvements}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    PrecoMouvements avoirPrecomouvement (@NonNull @RequestParam(name="idPrecomouvements") String idPrecomouvements) throws ParcoursException;
+    PrecoMouvements avoirPrecoMouvement (@NonNull @RequestParam(name="idPrecomouvements") String idPrecomouvements) throws ParcoursException;
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    List<PrecoMouvements> avoirToutPrecomouvement();
+    List<PrecoMouvements> avoirToutPrecoMouvement();
 
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    void supprimerPrecomouvements(@NonNull @RequestBody PrecoMouvements precoMouvements);
+    void supprimerPrecoMouvements(@NonNull @RequestBody PrecoMouvements precoMouvements);
 
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    PrecoMouvements posterPrecomouvements(@NonNull @RequestBody PrecoMouvements precoMouvements) ;
+    PrecoMouvements posterPrecoMouvements(@NonNull @RequestBody PrecoMouvements precoMouvements) ;
 }

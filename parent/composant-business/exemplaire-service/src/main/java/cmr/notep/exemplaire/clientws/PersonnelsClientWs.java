@@ -1,8 +1,9 @@
 package cmr.notep.exemplaire.clientws;
 
-import cmr.notep.api.IRessourcesApi;
+import cmr.notep.api.IPersonnelsApi;
 import cmr.notep.exceptions.ParcoursException;
 import cmr.notep.exemplaire.config.ExemplaireConfig;
+import cmr.notep.modele.Personnels;
 import cmr.notep.modele.Ressources;
 import cmr.notep.utile.serialiser.JacksonHelper;
 import cmr.notep.wstools.api.IGenericWsClientApi;
@@ -13,40 +14,41 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class RessourcesClientWs implements IRessourcesApi {
-    public static final String URI_RESSOURCES = "/ressources/";
+public class PersonnelsClientWs implements IPersonnelsApi {
+    public static final String URI_PERSONNELS = "/personnels/";
     private final IGenericWsClientApi genericWsClientApi;
     private final ExemplaireConfig exemplaireConfig;
 
-    public RessourcesClientWs(IGenericWsClientApi genericWsClientApi, ExemplaireConfig exemplaireConfig) {
+    public PersonnelsClientWs(IGenericWsClientApi genericWsClientApi, ExemplaireConfig exemplaireConfig) {
         this.genericWsClientApi = genericWsClientApi;
         this.exemplaireConfig = exemplaireConfig;
     }
 
     @Override
-    public Ressources avoirRessource(String idRessource) throws ParcoursException {
+    public Personnels posterPersonnel(Personnels Personnel) {
+        return null;
+    }
+
+    @Override
+    public Personnels avoirPersonnel(String idPersonnel) throws ParcoursException {
         GenericWsRequest request = GenericWsRequest.builder()
-                .url(exemplaireConfig.getUrlDocumentApiService() + URI_RESSOURCES + idRessource)
+                .url(exemplaireConfig.getUrlDocumentApiService() + URI_PERSONNELS + idPersonnel)
                 .method("GET")
                 .build();
         GenericWsResponse response = genericWsClientApi.sendRequest(request);
         if (response.getCode() == 200)
-            return JacksonHelper.objetFromJson(response.getReponse(), Ressources.class);
-        throw new ParcoursException("Erreur lors de la récupération  " + idRessource + " code http : " + response.getReponse() + " reponse : " + response.getReponse());
+            return JacksonHelper.objetFromJson(response.getReponse(), Personnels.class);
+        throw new ParcoursException("Erreur lors de la récupération  " + idPersonnel + " code http : " + response.getReponse() + " reponse : " + response.getReponse());
+
     }
 
     @Override
-    public List<Ressources> avoirToutRessources() {
+    public List<Personnels> avoirTousPersonnels() {
         return null;
     }
 
     @Override
-    public void supprimerRessources(Ressources ressources) {
+    public void SupprimerPersonnel(Personnels personnel) {
 
-    }
-
-    @Override
-    public Ressources posterRessources(Ressources ressources) {
-        return null;
     }
 }

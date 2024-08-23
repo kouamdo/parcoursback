@@ -26,7 +26,7 @@ public class ExemplairesInterne extends Documents {
     private String personneBeneficiaire;
     private String personneRattachee;
     private List<OrdreEtatsInterne> ordreEtats;
-    private List<Mouvements> mouvements;
+    private List<MouvementsInterne> mouvements;
     private List<PersonnesDestinatairesInterne> personnesDestinataires;
     private List<ExemplaireAttributsInterne> exemplaireAttributs;
 }
