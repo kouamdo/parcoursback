@@ -13,19 +13,19 @@ import java.util.List;
 
 public interface PersonnesRepository extends JpaRepository<PersonnesEntity, String> {
 
-    @Query(value = "SELECT p.id, p.raisonsociale, p.code, p.datemodification, "+
+    @Query(value = "SELECT p.id, p.comptes_id,p.raisonsociale, p.code, p.datemodification, "+
             "p.adresse,p.mail,p.telephone,p.qrcodevalue,p.datecreation "+
             "FROM personnes p "+
             "WHERE p.raisonsociale LIKE %:value% AND p.person_type = 'personnesmorales'", nativeQuery = true)
     List<PersonnesMoralesEntity> findByRaisonSocialeOnPersonneMorale(@Param("value")String value);
 
-    @Query(value = "SELECT p.id, p.nom, p.prenom,p.adresse,p.datecreation,p.qrcodevalue ,"+
+    @Query(value = "SELECT p.id,p.comptes_id, p.nom, p.prenom,p.adresse,p.datecreation,p.qrcodevalue ,"+
             " p.sexe,p.mail,p.telephone, p.datenaissance, p.datemodification " +
             "FROM personnes p " +
             "WHERE (p.nom LIKE %:value% OR p.prenom LIKE %:value%) AND p.person_type = 'personnesphysique'", nativeQuery = true)
     List<PersonnesPhysiquesEntity> findByNomOrByPrenomOnPersonnePhysique(@Param("value")String value);
 
-    @Query(value = "SELECT p.id, p.datemodification,p.adresse,p.datecreation,p.mail,p.telephone,"+
+    @Query(value = "SELECT p.id,p.comptes_id, p.datemodification,p.adresse,p.datecreation,p.mail,p.telephone,"+
             " p.qrcodevalue ,p.code, p.raisonsociale "+
             "FROM personnes p "+
             "WHERE p.raisonsociale LIKE %:value% AND p.person_type = 'distributeurs'", nativeQuery = true)

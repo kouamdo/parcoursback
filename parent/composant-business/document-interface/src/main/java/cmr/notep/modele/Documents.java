@@ -36,6 +36,8 @@ public class Documents {
 
     private Boolean prixEditable;
 
+    private Boolean estEncaissable ;
+
     private Boolean contientRessources;
 
     public List<Missions> missions ;

@@ -179,9 +179,9 @@ VALUES
 --('0001ff83-2a62-4e6d-aa23-57c7825bcd57','@Sportif','erfd@yah.fr','655454545','qrcode12','2022-01-01','2022-01-02'),
 --('0018e585-f82a-4d5f-af1c-54f880d766d3','@armee','agrt@yah.fr','655454545','qrcode32','2022-01-01','2022-01-02');
 
-INSERT INTO personnes (id,nom,prenom,sexe,datenaissance,datemodification,person_type) VALUES
-('0618e585-f82a-4d5f-af2c-04f880d766d3','Nkoabang','pnjerrtt@gma.com','Masculin','2022-01-01','2022-01-02', 'personnesphysique'),
-('0618e585-f82a-4d5f-af2c-54f880d766d3','Essos','nayat@gma.com','Masculin','2022-01-01','2022-01-02', 'personnesphysique');
+INSERT INTO personnes (id,nom,prenom,sexe,datenaissance,datemodification,person_type,comptes_id) VALUES
+('0618e585-f82a-4d5f-af2c-04f880d766d3','Nkoabang','pnjerrtt@gma.com','Masculin','2022-01-01','2022-01-02', 'personnesphysique','d9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e'),
+('0618e585-f82a-4d5f-af2c-54f880d766d3','Essos','nayat@gma.com','Masculin','2022-01-01','2022-01-02', 'personnesphysique','a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f');
 
 INSERT INTO personnes (id,raisonsociale,code,datemodification,person_type) VALUES
 ('0079bd79-f71b-498b-b247-e7b9bbb3f600','GOSPEL',43,'2022-01-01','personnesmorales'),
@@ -189,18 +189,46 @@ INSERT INTO personnes (id,raisonsociale,code,datemodification,person_type) VALUE
 ('0018e585-f82a-4d5f-af1c-54f880d766d3','armee',45,'2022-01-01','personnesmorales');
 
 -- Insérer les données dans la table 'distributeur' en se basant sur la classe DistributeurEntity
+INSERT INTO personnes (id, code, raisonsociale, datemodification,person_type,comptes_id) VALUES
+('1979bd79-f71b-498b-b247-e7b9bbb3f600','d190615','ENEO','2022-01-01','distributeurs','b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d'),
+('0618e585-f82a-4d5f-af1c-54f880d766d3','d190616','Brasserie','2022-01-01','distributeurs','f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d');
 INSERT INTO personnes (id, code, raisonsociale, datemodification,person_type) VALUES
-('1979bd79-f71b-498b-b247-e7b9bbb3f600','d190615','ENEO','2022-01-01','distributeurs'),
-('0618e585-f82a-4d5f-af1c-54f880d766d3','d190616','Brasserie','2022-01-01','distributeurs'),
 ('d301ff83-2a62-4e6d-aa23-57c7825bcd57','d190619','UCB','2022-01-01','distributeurs'),
 ('fdbff692-6b8d-43ab-a196-fcc3114b2daa','d190614','Pharmacam','2022-01-01','distributeurs');
 
+INSERT INTO personnels (id, dateentree, nom, datenaissance, telephone, datesortie, email, prenom, sexe)
+VALUES
+    ('4390615e-1101-7209-9932-7020bbd556f1', CURRENT_DATE, 'Tagne', '2000-04-10', '655455487', NULL, 'tagnewillie@gmail.com', 'Willy', 'M'),
+    ('4390615e-1101-7209-9932-7020bbd556f2', CURRENT_DATE, 'Peter', '2004-08-10', '655455487', NULL, 'peteralan@gmail.com', 'Alan', 'M'),
+    ('4390615e-1101-7209-9932-7020bbd556f3', CURRENT_DATE, 'Dombo', '2002-10-10', '655455487', NULL, 'dombogilles@gmail.com', 'Gilles', 'M');
+
+INSERT INTO caisses (id, libelle, solde, type, detailJSON)
+VALUES
+    ('a1f8e3b0-4c6d-4e5e-ab7a-2a8b9b9c8d6f', 'Caisse principale', 10000.00, 'Caisse', '{"description": "Caisse principale"}'),
+    ('d9e2f1c2-8b3a-4f6c-bd5e-1a7b8a7c6d5e', 'Caisse secondaire', 5000.00, 'Caisse', '{"description": "Caisse secondaire"}'),
+    ('b3a7c8d6-1e2f-3d4c-cb6a-9e8f0a7b6c5d', 'Caisse en ligne', 7500.00, 'Caisse', '{"description": "Caisse en ligne"}'),
+    ('f0a7b6c5-d4e3f2a1-8d9c-7d6e-5f4a3b2c1e0d', 'Caisse mobile', 3000.00, 'Caisse', '{"description": "Caisse mobile"}');
+
+INSERT INTO comptes (id, solde, datecreation, etat, montantdecouvertmax, libelle,personnes_id)
+VALUES
+    ('a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f', '1000.00', '2024-08-19', 'actif', 500.00, 'Compte courant','0618e585-f82a-4d5f-af2c-54f880d766d3'),
+    ('d9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e', '2500.00', '2024-08-19', 'actif', 1000.00, 'Épargne','0618e585-f82a-4d5f-af2c-04f880d766d3'),
+    ('b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d', '500.00', '2024-08-19', 'inactif', 0.00, 'Compte jeunesse','1979bd79-f71b-498b-b247-e7b9bbb3f600'),
+    ('f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d', '7500.00', '2024-08-19', 'actif', 2000.00, 'Compte entreprise','0618e585-f82a-4d5f-af1c-54f880d766d3');
+
+INSERT INTO exemplaires (id,personnes_id) VALUES
+('a1f8e3b0-4c6d-4e5e-9b7a-2a8b9b9c8d6f','0618e585-f82a-4d5f-af2c-54f880d766d3'),
+('d9e2f1c2-8b3a-4f6c-9d5e-1a7b8a7c6d5e','0618e585-f82a-4d5f-af2c-04f880d766d3'),
+('b3a7c8d6-1e2f-3d4c-5b6a-9e8f0a7b6c5d','1979bd79-f71b-498b-b247-e7b9bbb3f600'),
+('f0a7b6c5-d4e3f2a1-8b9c-7d6e-5f4a3b2c1e0d','0618e585-f82a-4d5f-af1c-54f880d766d3');
+
 -- Insertion dans la table 'mouvemnts'
-INSERT INTO mouvements (id,description, quantite, prix, distributeurs_id, ressources_id, dateperemption, datecreation, datemodification) VALUES
-('97d314f5-84ad-47cd-874d-9c55f0e45790', 'sur commande',  10, 5000,'1979bd79-f71b-498b-b247-e7b9bbb3f600',  '6190615e-1101-7209-9932-7020bbd556f1', null, '2022-01-01', '2022-01-02'),
-('bfee750d-9b8c-4475-9373-08eff9b3ccb7','vente à credit', 20, 10000, 'd301ff83-2a62-4e6d-aa23-57c7825bcd57', '6190615e-1101-7209-9932-7020bbd556f2', null, '2022-01-01', '2022-01-02'),
-('0e7cea07-d09e-4f79-be6c-6dd27aecbce6', 'achat express', 5, 2000,'fdbff692-6b8d-43ab-a196-fcc3114b2daa',  '6190615e-1101-7209-9932-7020bbd556f3', null, '2022-01-01', '2022-01-02'),
-('decaedc8-a908-4cad-bdd6-0403a2614f22','inventaire', 5, 2000, 'fdbff692-6b8d-43ab-a196-fcc3114b2daa',  '6190615e-1101-7209-9932-7020bbd556f4', null, '2022-01-01', '2022-01-02');
+INSERT INTO mouvements (id,description, quantite, prix, distributeurs_id, ressources_id, dateperemption, datecreation, datemodification,caisses_id,personnels_id,exemplaires_id,comptes_id) VALUES
+('97d314f5-84ad-47cd-874d-9c55f0e45790', 'sur commande',  10, 5000,'1979bd79-f71b-498b-b247-e7b9bbb3f600',  '6190615e-1101-7209-9932-7020bbd556f1', null, '2022-01-01', '2022-01-02','a1f8e3b0-4c6d-4e5e-ab7a-2a8b9b9c8d6f','4390615e-1101-7209-9932-7020bbd556f1','a1f8e3b0-4c6d-4e5e-9b7a-2a8b9b9c8d6f','a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f'),
+('bfee750d-9b8c-4475-9373-08eff9b3ccb7','vente à credit', 20, 10000, 'd301ff83-2a62-4e6d-aa23-57c7825bcd57', '6190615e-1101-7209-9932-7020bbd556f2', null, '2022-01-01', '2022-01-02','d9e2f1c2-8b3a-4f6c-bd5e-1a7b8a7c6d5e','4390615e-1101-7209-9932-7020bbd556f2','d9e2f1c2-8b3a-4f6c-9d5e-1a7b8a7c6d5e','d9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e'),
+('0e7cea07-d09e-4f79-be6c-6dd27aecbce6', 'achat express', 5, 2000,'fdbff692-6b8d-43ab-a196-fcc3114b2daa',  '6190615e-1101-7209-9932-7020bbd556f3', null, '2022-01-01', '2022-01-02','b3a7c8d6-1e2f-3d4c-cb6a-9e8f0a7b6c5d','4390615e-1101-7209-9932-7020bbd556f3','b3a7c8d6-1e2f-3d4c-5b6a-9e8f0a7b6c5d','b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d'),
+('decaedc8-a908-4cad-bdd6-0403a2614f22','inventaire', 5, 2000, 'fdbff692-6b8d-43ab-a196-fcc3114b2daa',  '6190615e-1101-7209-9932-7020bbd556f4', null, '2022-01-01', '2022-01-02','f0a7b6c5-d4e3f2a1-8d9c-7d6e-5f4a3b2c1e0d','4390615e-1101-7209-9932-7020bbd556f3','f0a7b6c5-d4e3f2a1-8b9c-7d6e-5f4a3b2c1e0d','f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d');
+
 
 INSERT INTO etats (id, libelle,description, datecreation, datemodification) VALUES
 ('e190615e-1101-7209-9932-7020bbd556f1','En cours','En cours', '2022-01-01', '2022-01-02'),
@@ -213,12 +241,6 @@ INSERT INTO roles (id, titre, description, etat, datecreation,datemodification) 
 ('5190615e-1101-7209-9932-7020bbd556f1','vendeur','personnel au contact du client', true, '2022-01-01','2022-01-02'),
 ('6130615e-1101-7209-9932-7020bbd556f2','traiteur','Personnel administratif', true, '2022-01-01','2022-01-02'),
 ('6191615e-1101-7209-9932-7020bbd556f3','marcheur','commercial sur le terrain', true, '2022-01-01','2022-01-02');
-
-INSERT INTO personnels (id, dateentree, nom, datenaissance, telephone, datesortie, email, prenom, sexe)
-VALUES
-    ('4390615e-1101-7209-9932-7020bbd556f1', CURRENT_DATE, 'Tagne', '2000-04-10', '655455487', NULL, 'tagnewillie@gmail.com', 'Willy', 'M'),
-    ('4390615e-1101-7209-9932-7020bbd556f2', CURRENT_DATE, 'Peter', '2004-08-10', '655455487', NULL, 'peteralan@gmail.com', 'Alan', 'M'),
-    ('4390615e-1101-7209-9932-7020bbd556f3', CURRENT_DATE, 'Dombo', '2002-10-10', '655455487', NULL, 'dombogilles@gmail.com', 'Gilles', 'M');
 
 -- Insérer les données dans la table 'jouerRole' en se basant sur la classe JouerRoleEntity
 INSERT INTO jouerRoles (id,personnels_id, roles_id,datedebut,datefin, datecreation, datemodification) VALUES
@@ -343,4 +365,11 @@ INSERT INTO docetats(id,ordre,datecreation,datemodification,validations_id,etats
 INSERT INTO docetats_predecesseurs(docetats_id,predecesseur_id) VALUES
 ('be8ef4af-d5a2-4254-cd79-af860672553e','be8ef4af-d5a2-4254-cd79-af860672555e'),
 ('be8ef4af-d5a2-4254-cd79-af860672554e','be8ef4af-d5a2-4254-cd79-af860672556e');
+
+INSERT INTO deltasoldes (id,comptes_id,exemplaires_id, montantavant, montantapres, datecreation, typemouvement) VALUES
+('a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6','a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f','a1f8e3b0-4c6d-4e5e-9b7a-2a8b9b9c8d6f', 100.50, 120.75, '2024-08-19', 'Dépôt'),
+('b7c8d9e0-f1g2-3h4i-5b6k-7l8m9n0o1p21','d9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e','d9e2f1c2-8b3a-4f6c-9d5e-1a7b8a7c6d5e', 75.25, 60.00, '2024-08-20', 'Retrait'),
+('b7c8d9e0-f1g2-3h4i-5c6k-7c8m9n0o1p21','b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d','b3a7c8d6-1e2f-3d4c-5b6a-9e8f0a7b6c5d', 750.25, 740.00, '2024-08-20', 'Retrait'),
+('b7c8d9e0-f1g2-3h4i-5d6k-7l8m9n0o1p21','f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d','f0a7b6c5-d4e3f2a1-8b9c-7d6e-5f4a3b2c1e0d', 7.25, 640.00, '2024-08-20', 'Retrait');
+
 

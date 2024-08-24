@@ -1,9 +1,7 @@
 package cmr.notep.modele;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
 import java.util.Date;
 
@@ -11,12 +9,15 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonIgnoreProperties({"exemplaire","compte"})
+@ToString(exclude = {"exemplaire","compte"})
+@EqualsAndHashCode(exclude = {"exemplaire","compte"})
 public class DeltaSoldes {
     private String id;
     private double montantAvant ;
     private double montantApres ;
     private Date dateCreation ;
-    private TypeMouvement typeMvt ;
+    private String typeMvt ;
     private Comptes compte;
     private Exemplaires exemplaire;
 }

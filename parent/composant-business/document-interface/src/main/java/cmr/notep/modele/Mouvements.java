@@ -3,18 +3,16 @@ package cmr.notep.modele;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
+import java.util.*;
 import java.util.Date;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"ressource","distributeur","precoMouvementsRespecter","precoMouvementsVioler"})
-@ToString(exclude = {"ressource","distributeur","precoMouvementsRespecter","precoMouvementsVioler"})
-@EqualsAndHashCode(exclude = {"ressource","distributeur","precoMouvementsRespecter","precoMouvementsVioler"})
+@JsonIgnoreProperties({"caisse","compte","personnel","exemplaire","ressource","distributeur","precoMouvementsRespecter","precoMouvementsVioler"})
+@ToString(exclude = {"caisse","compte","personnel","exemplaire","ressource","distributeur","precoMouvementsRespecter","precoMouvementsVioler"})
+@EqualsAndHashCode(exclude = {"caisse","compte","personnel","exemplaire","ressource","distributeur","precoMouvementsRespecter","precoMouvementsVioler"})
 public class Mouvements {
     private String id ;
     private  String description ;

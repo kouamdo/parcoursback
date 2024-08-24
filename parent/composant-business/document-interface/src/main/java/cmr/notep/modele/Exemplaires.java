@@ -1,9 +1,7 @@
 package cmr.notep.modele;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
 import java.util.List;
 
@@ -11,6 +9,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@JsonIgnoreProperties({"personne"})
+@ToString(exclude = {"personne"})
+@EqualsAndHashCode(exclude = {"personne"})
 public class Exemplaires {
     private String id;
     private List<DeltaSoldes> deltasoldes;

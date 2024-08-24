@@ -27,6 +27,9 @@ public class DocumentsEntity {
     @Column(name = "description")
     private String description;
 
+    @Column(name="estencaissable")
+    private boolean estEncaissable;
+
     @Column(name = "etat")
     private Boolean etat;
 

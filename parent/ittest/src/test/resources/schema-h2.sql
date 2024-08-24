@@ -60,8 +60,10 @@ CREATE TABLE IF NOT EXISTS documents
     afficherdistributeur BOOLEAN,
     prixeditable         BOOLEAN,
     contientressources   BOOLEAN,
+    estencaissable BOOLEAN,
     CONSTRAINT pk_documents PRIMARY KEY (id)
 );
+
 CREATE TABLE IF NOT EXISTS suivre
 (
     documents_id       VARCHAR(255) NOT NULL,
@@ -205,9 +207,9 @@ CREATE TABLE IF NOT EXISTS deltasoldes (
     montantavant             DOUBLE PRECISION,
     montantapres             DOUBLE PRECISION,
     datecreation               date,
-    typemouvement   VARCHAR(255),
-    comptes_id  VARCHAR(255),
-    exemplaires_id  VARCHAR(255),
+    typemouvement   VARCHAR(255) NOT NULL,
+    comptes_id  VARCHAR(255) NOT NULL,
+    exemplaires_id  VARCHAR(255) NOT NULL,
     CONSTRAINT pk_deltasoldes PRIMARY KEY (id)
 );
 
@@ -233,7 +235,7 @@ CREATE TABLE IF NOT EXISTS caisses(
 
 CREATE TABLE IF NOT EXISTS exemplaires (
     id               VARCHAR(255) NOT NULL,
-    personnes_id    VARCHAR(255),
+    personnes_id    VARCHAR(255) NOT NULL,
     CONSTRAINT pk_exemplaires PRIMARY KEY (id)
 );
 

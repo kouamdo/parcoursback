@@ -30,7 +30,7 @@ public class DeltaSoldesEntity {
     private Date dateCreation ;
 
     @Column(name = "typemouvement", updatable = false,nullable = false)
-    private TypeMouvement typeMvt ;
+    private String typeMvt ;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "comptes_id")
