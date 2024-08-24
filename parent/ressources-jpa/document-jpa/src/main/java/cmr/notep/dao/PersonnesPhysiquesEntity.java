@@ -24,6 +24,4 @@ public class PersonnesPhysiquesEntity extends PersonnesEntity{
 
     @Column(name = "datenaissance",nullable = false)
     private Date dateNaissance ;
-    @Column(name = "datemodification")
-    private Date dateModification;
 }

@@ -13,5 +13,4 @@ import java.util.Date;
 public class PersonnesMorale extends Personnes{
     private String raisonsociale ;
     private String code ;
-    private Date dateModification;
 }

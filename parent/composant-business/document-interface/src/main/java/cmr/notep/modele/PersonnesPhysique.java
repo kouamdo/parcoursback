@@ -14,5 +14,4 @@ public class PersonnesPhysique extends Personnes {
     private String prenom;
     private String sexe ;
     private Date dateNaissance ;
-    private Date dateModification;
 }

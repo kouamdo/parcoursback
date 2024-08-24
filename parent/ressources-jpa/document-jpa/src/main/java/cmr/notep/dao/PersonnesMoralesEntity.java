@@ -17,6 +17,4 @@ public class PersonnesMoralesEntity extends PersonnesEntity{
 
     @Column(name = "code")
     private String code;
-    @Column(name = "datemodification")
-    private Date dateModification;
 }
