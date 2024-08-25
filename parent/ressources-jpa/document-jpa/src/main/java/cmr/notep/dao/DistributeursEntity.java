@@ -14,8 +14,6 @@ import java.util.List;
 @DiscriminatorValue("distributeurs")
 public class DistributeursEntity extends PersonnesEntity {
 
-    @Column(name = "datemodification")
-    private Date dateModification;
     @Column(name = "code")
     private String code ;
     @Column(name = "raisonsociale")

@@ -33,6 +33,6 @@ public class CaissesEntity {
     private String detailJSON ;
 
     @OneToMany(mappedBy = "caissesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("mouvements")
-    private List<MouvementsEntity> mouvementsEntities;
+    @Mapping("mouvementcaisses")
+    private List<MouvementCaissesEntity> mouvementCaissesEntities;
 }

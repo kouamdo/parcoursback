@@ -26,8 +26,5 @@ public class Mouvements {
 //    private List<PrecoMouvements> precoMouvements;
     private Ressources ressource;
     private Distributeurs distributeur;
-    private Caisses caisse;
-    private Comptes compte ;
-    private Personnels personnel;
-    private Exemplaires exemplaire;
+
 }

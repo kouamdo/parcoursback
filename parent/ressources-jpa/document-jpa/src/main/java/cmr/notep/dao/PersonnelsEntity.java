@@ -52,7 +52,7 @@ public class PersonnelsEntity {
     List<JouerRolesEntity> jouerRolesEntities;
 
     @OneToMany(mappedBy = "personnelsEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("mouvements")
-    List<MouvementsEntity> mouvementsEntities;
+    @Mapping("mouvementcaisses")
+    List<MouvementCaissesEntity> mouvementCaissesEntities;
 
 }

@@ -21,6 +21,6 @@ public class Comptes {
     private double montantDecouvertMax ;
     private String libelle ;
     private Personnes personne;
-    private List<Mouvements> mouvements;
+    private List<MouvementCaisses> mouvementcaisses;
     private List<DeltaSoldes> deltasoldes;
 }

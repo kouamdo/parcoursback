@@ -23,5 +23,5 @@ public class Personnels {
     private String sexe ;
     private Date dateModification;
     private List<JouerRoles> roles;
-    private List<Mouvements> mouvements;
+    private List<MouvementCaisses> mouvementcaisses;
 }

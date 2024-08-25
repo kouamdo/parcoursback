@@ -15,6 +15,6 @@ import java.util.List;
 public class Exemplaires {
     private String id;
     private List<DeltaSoldes> deltasoldes;
-    private List<Mouvements> mouvements;
+    private List<MouvementCaisses> mouvementcaisses;
     private Personnes personne;
 }

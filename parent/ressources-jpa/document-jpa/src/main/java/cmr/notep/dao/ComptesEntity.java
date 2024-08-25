@@ -42,8 +42,8 @@ public class ComptesEntity {
     private PersonnesEntity personnesEntity;
 
     @OneToMany(mappedBy = "comptesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("mouvements")
-    private List<MouvementsEntity> mouvementsEntities;
+    @Mapping("mouvementcaisses")
+    private List<MouvementCaissesEntity> mouvementCaissesEntities;
 
     @OneToMany(mappedBy = "comptesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Mapping("deltasoldes")

@@ -68,24 +68,4 @@ public class MouvementsEntity {
     @JoinColumn(name = "distributeurs_id")
     @Mapping("distributeur")
     private DistributeursEntity distributeursEntity;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "caisses_id")
-    @Mapping("caisse")
-    private CaissesEntity caissesEntity ;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "comptes_id")
-    @Mapping("compte")
-    private ComptesEntity comptesEntity ;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "personnels_id")
-    @Mapping("personnel")
-    private PersonnelsEntity personnelsEntity ;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "exemplaires_id")
-    @Mapping("exemplaire")
-    private ExemplairesEntity exemplaireEntity ;
 }

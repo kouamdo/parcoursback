@@ -1,6 +1,8 @@
 package cmr.notep.api;
 
 import cmr.notep.modele.Distributeurs;
+import cmr.notep.modele.MacroPersonnes;
+import cmr.notep.modele.Personnes;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;

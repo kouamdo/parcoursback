@@ -76,8 +76,8 @@ public class PersonnesBusiness {
 
     public void supprimerPersonne(@NotNull Personnes Personnes)
     {
-        daoAccessorService.getRepository(PersonnesRepository.class)
-                .deleteById(String.valueOf(Personnes.getId()));
+//        daoAccessorService.getRepository(PersonnesRepository.class)
+//                .deleteById(String.valueOf(Personnes.getId()));
     }
 
     public Personnes posterPersonne(Personnes Personnes) {

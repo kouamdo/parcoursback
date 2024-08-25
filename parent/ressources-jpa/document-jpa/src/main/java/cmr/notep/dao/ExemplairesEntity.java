@@ -25,8 +25,8 @@ public class ExemplairesEntity {
     private List<DeltaSoldesEntity> deltaSoldeEntities;
 
     @OneToMany(mappedBy = "exemplaireEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("mouvements")
-    private List<MouvementsEntity> mouvementsEntities;
+    @Mapping("mouvementcaisses")
+    private List<MouvementCaissesEntity> mouvementCaissesEntities;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "personnes_id")

@@ -17,5 +17,5 @@ public class Caisses {
     private double solde ;
     private String type ;
     private String detailJSON ;
-    private List<Mouvements> mouvements;
+    private List<MouvementCaisses> mouvementcaisses;
 }

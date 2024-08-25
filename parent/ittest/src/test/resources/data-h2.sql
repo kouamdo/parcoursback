@@ -180,21 +180,21 @@ VALUES
 --('0018e585-f82a-4d5f-af1c-54f880d766d3','@armee','agrt@yah.fr','655454545','qrcode32','2022-01-01','2022-01-02');
 
 INSERT INTO personnes (id,nom,prenom,sexe,datenaissance,datemodification,person_type,comptes_id) VALUES
-('0618e585-f82a-4d5f-af2c-04f880d766d3','Nkoabang','pnjerrtt@gma.com','Masculin','2022-01-01','2022-01-02', 'personnesphysique','d9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e'),
-('0618e585-f82a-4d5f-af2c-54f880d766d3','Essos','nayat@gma.com','Masculin','2022-01-01','2022-01-02', 'personnesphysique','a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f');
+('fdbff692-6b8d-43ab-a196-fcc3114b2daa','Nkoabang','pnjerrtt@gma.com','Masculin','2022-01-01','2022-01-02', 'personnesphysique','adbff692-6b8d-43ab-a196-fcc3114b2daa'),
+('d301ff83-2a62-4e6d-aa23-57c7825bcd57','Essos','nayat@gma.com','Masculin','2022-01-01','2022-01-02', 'personnesphysique','d301ff83-2a62-4e6d-aa23-57c7825bcd57');
 
-INSERT INTO personnes (id,raisonsociale,code,datemodification,person_type) VALUES
-('0079bd79-f71b-498b-b247-e7b9bbb3f600','GOSPEL',43,'2022-01-01','personnesmorales'),
-('0001ff83-2a62-4e6d-aa23-57c7825bcd57','Sportif',47,'2022-01-01','personnesmorales'),
-('0018e585-f82a-4d5f-af1c-54f880d766d3','armee',45,'2022-01-01','personnesmorales');
+INSERT INTO personnes (id,raisonsociale,code,datemodification,person_type,comptes_id) VALUES
+('0079bd79-f71b-498b-b247-e7b9bbb3f600','GOSPEL',43,'2022-01-01','personnesmorales','0079bd79-f71b-498b-b247-e7b9bbb3f600'),
+('0001ff83-2a62-4e6d-aa23-57c7825bcd57','Sportif',47,'2022-01-01','personnesmorales','0001ff83-2a62-4e6d-aa23-57c7825bcd57'),
+('0018e585-f82a-4d5f-af1c-54f880d766d3','armee',45,'2022-01-01','personnesmorales','0018e585-f82a-4d5f-af1c-54f880d766d3');
 
 -- Insérer les données dans la table 'distributeur' en se basant sur la classe DistributeurEntity
 INSERT INTO personnes (id, code, raisonsociale, datemodification,person_type,comptes_id) VALUES
 ('1979bd79-f71b-498b-b247-e7b9bbb3f600','d190615','ENEO','2022-01-01','distributeurs','b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d'),
 ('0618e585-f82a-4d5f-af1c-54f880d766d3','d190616','Brasserie','2022-01-01','distributeurs','f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d');
-INSERT INTO personnes (id, code, raisonsociale, datemodification,person_type) VALUES
-('d301ff83-2a62-4e6d-aa23-57c7825bcd57','d190619','UCB','2022-01-01','distributeurs'),
-('fdbff692-6b8d-43ab-a196-fcc3114b2daa','d190614','Pharmacam','2022-01-01','distributeurs');
+INSERT INTO personnes (id, code, raisonsociale, datemodification,person_type,comptes_id) VALUES
+('0618e585-f82a-4d5f-af2c-54f880d766d3','d190619','UCB','2022-01-01','distributeurs','a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f'),
+('0618e585-f82a-4d5f-af2c-04f880d766d3','d190614','Pharmacam','2022-01-01','distributeurs','d9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e');
 
 INSERT INTO personnels (id, dateentree, nom, datenaissance, telephone, datesortie, email, prenom, sexe)
 VALUES
@@ -214,7 +214,13 @@ VALUES
     ('a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f', '1000.00', '2024-08-19', 'actif', 500.00, 'Compte courant','0618e585-f82a-4d5f-af2c-54f880d766d3'),
     ('d9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e', '2500.00', '2024-08-19', 'actif', 1000.00, 'Épargne','0618e585-f82a-4d5f-af2c-04f880d766d3'),
     ('b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d', '500.00', '2024-08-19', 'inactif', 0.00, 'Compte jeunesse','1979bd79-f71b-498b-b247-e7b9bbb3f600'),
-    ('f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d', '7500.00', '2024-08-19', 'actif', 2000.00, 'Compte entreprise','0618e585-f82a-4d5f-af1c-54f880d766d3');
+    ('f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d', '7500.00', '2024-08-19', 'actif', 2000.00, 'Compte entreprise','0618e585-f82a-4d5f-af1c-54f880d766d3'),
+    ('adbff692-418d-43ab-a196-fcc3114b2daa', '1000.00', '2024-08-19', 'actif', 500.00, 'Compte courant','fdbff692-6b8d-43ab-a196-fcc3114b2daa'),
+    ('d301ff83-1b62-4e6d-aa23-57c7825bcd57', '2500.00', '2024-08-19', 'actif', 1000.00, 'Épargne','d301ff83-2a62-4e6d-aa23-57c7825bcd57'),
+    ('1179bd79-f71b-498b-b247-e7b9bbb3f600', '500.00', '2024-08-19', 'inactif', 0.00, 'Compte jeunesse','0079bd79-f71b-498b-b247-e7b9bbb3f600'),
+    ('00012f83-2a62-4e6d-aa23-57c7825bcd57', '7500.00', '2024-08-19', 'actif', 2000.00, 'Compte entreprise','0001ff83-2a62-4e6d-aa23-57c7825bcd57'),
+    ('1518e585-f82a-4d5f-af1c-54f880d766d3', '7500.00', '2024-08-19', 'actif', 2000.00, 'Compte entreprise','0018e585-f82a-4d5f-af1c-54f880d766d3');
+
 
 INSERT INTO exemplaires (id,personnes_id) VALUES
 ('a1f8e3b0-4c6d-4e5e-9b7a-2a8b9b9c8d6f','0618e585-f82a-4d5f-af2c-54f880d766d3'),
@@ -223,11 +229,17 @@ INSERT INTO exemplaires (id,personnes_id) VALUES
 ('f0a7b6c5-d4e3f2a1-8b9c-7d6e-5f4a3b2c1e0d','0618e585-f82a-4d5f-af1c-54f880d766d3');
 
 -- Insertion dans la table 'mouvemnts'
-INSERT INTO mouvements (id,description, quantite, prix, distributeurs_id, ressources_id, dateperemption, datecreation, datemodification,caisses_id,personnels_id,exemplaires_id,comptes_id) VALUES
-('97d314f5-84ad-47cd-874d-9c55f0e45790', 'sur commande',  10, 5000,'1979bd79-f71b-498b-b247-e7b9bbb3f600',  '6190615e-1101-7209-9932-7020bbd556f1', null, '2022-01-01', '2022-01-02','a1f8e3b0-4c6d-4e5e-ab7a-2a8b9b9c8d6f','4390615e-1101-7209-9932-7020bbd556f1','a1f8e3b0-4c6d-4e5e-9b7a-2a8b9b9c8d6f','a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f'),
-('bfee750d-9b8c-4475-9373-08eff9b3ccb7','vente à credit', 20, 10000, 'd301ff83-2a62-4e6d-aa23-57c7825bcd57', '6190615e-1101-7209-9932-7020bbd556f2', null, '2022-01-01', '2022-01-02','d9e2f1c2-8b3a-4f6c-bd5e-1a7b8a7c6d5e','4390615e-1101-7209-9932-7020bbd556f2','d9e2f1c2-8b3a-4f6c-9d5e-1a7b8a7c6d5e','d9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e'),
-('0e7cea07-d09e-4f79-be6c-6dd27aecbce6', 'achat express', 5, 2000,'fdbff692-6b8d-43ab-a196-fcc3114b2daa',  '6190615e-1101-7209-9932-7020bbd556f3', null, '2022-01-01', '2022-01-02','b3a7c8d6-1e2f-3d4c-cb6a-9e8f0a7b6c5d','4390615e-1101-7209-9932-7020bbd556f3','b3a7c8d6-1e2f-3d4c-5b6a-9e8f0a7b6c5d','b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d'),
-('decaedc8-a908-4cad-bdd6-0403a2614f22','inventaire', 5, 2000, 'fdbff692-6b8d-43ab-a196-fcc3114b2daa',  '6190615e-1101-7209-9932-7020bbd556f4', null, '2022-01-01', '2022-01-02','f0a7b6c5-d4e3f2a1-8d9c-7d6e-5f4a3b2c1e0d','4390615e-1101-7209-9932-7020bbd556f3','f0a7b6c5-d4e3f2a1-8b9c-7d6e-5f4a3b2c1e0d','f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d');
+INSERT INTO mouvements (id,description, quantite, prix, distributeurs_id, ressources_id, dateperemption, datecreation, datemodification) VALUES
+('97d314f5-84ad-47cd-874d-9c55f0e45790', 'sur commande',  10, 5000,'1979bd79-f71b-498b-b247-e7b9bbb3f600',  '6190615e-1101-7209-9932-7020bbd556f1', null, '2022-01-01', '2022-01-02'),
+('bfee750d-9b8c-4475-9373-08eff9b3ccb7','vente à credit', 20, 10000, '0618e585-f82a-4d5f-af1c-54f880d766d3', '6190615e-1101-7209-9932-7020bbd556f2', null, '2022-01-01', '2022-01-02'),
+('0e7cea07-d09e-4f79-be6c-6dd27aecbce6', 'achat express', 5, 2000,'0618e585-f82a-4d5f-af2c-54f880d766d3',  '6190615e-1101-7209-9932-7020bbd556f3', null, '2022-01-01', '2022-01-02'),
+('decaedc8-a908-4cad-bdd6-0403a2614f22','inventaire', 5, 2000, '0618e585-f82a-4d5f-af2c-04f880d766d3',  '6190615e-1101-7209-9932-7020bbd556f4', null, '2022-01-01', '2022-01-02');
+
+INSERT INTO mouvementcaisses (id,montant,moyenpaiement, datecreation,caisses_id,personnels_id,exemplaires_id,comptes_id) VALUES
+('97d314f5-84ad-77cd-874d-9c55f0e45790',45.21, 'sur commande', '2022-01-02','a1f8e3b0-4c6d-4e5e-ab7a-2a8b9b9c8d6f','4390615e-1101-7209-9932-7020bbd556f1','a1f8e3b0-4c6d-4e5e-9b7a-2a8b9b9c8d6f','a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f'),
+('bfee750d-9b8c-7475-9373-08eff9b3ccb7',1258.36,'vente à credit', '2022-01-02','d9e2f1c2-8b3a-4f6c-bd5e-1a7b8a7c6d5e','4390615e-1101-7209-9932-7020bbd556f2','d9e2f1c2-8b3a-4f6c-9d5e-1a7b8a7c6d5e','d9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e'),
+('0e7cea07-d09e-7f79-be6c-6dd27aecbce6',1548.21, 'achat express', '2022-01-02','b3a7c8d6-1e2f-3d4c-cb6a-9e8f0a7b6c5d','4390615e-1101-7209-9932-7020bbd556f3','b3a7c8d6-1e2f-3d4c-5b6a-9e8f0a7b6c5d','b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d'),
+('decaedc8-a908-7cad-bdd6-0403a2614f22',4563.21,'inventaire', '2022-01-02','f0a7b6c5-d4e3f2a1-8d9c-7d6e-5f4a3b2c1e0d','4390615e-1101-7209-9932-7020bbd556f3','f0a7b6c5-d4e3f2a1-8b9c-7d6e-5f4a3b2c1e0d','f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d');
 
 
 INSERT INTO etats (id, libelle,description, datecreation, datemodification) VALUES
