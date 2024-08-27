@@ -22,7 +22,7 @@ public class ComptesEntity {
     private String id;
 
     @Column(name="solde",nullable = false)
-    private String solde ;
+    private double solde ;
 
     @Column(name = "datecreation", updatable = false,nullable = false)
     private Date dateCreation ;

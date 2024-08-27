@@ -10,9 +10,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonIgnoreProperties({"caisse","compte","personnel","exemplaire","ressource","distributeur","precoMouvementsRespecter","precoMouvementsVioler"})
-@ToString(exclude = {"caisse","compte","personnel","exemplaire","ressource","distributeur","precoMouvementsRespecter","precoMouvementsVioler"})
-@EqualsAndHashCode(exclude = {"caisse","compte","personnel","exemplaire","ressource","distributeur","precoMouvementsRespecter","precoMouvementsVioler"})
+@JsonIgnoreProperties({"ressource","distributeur","precoMouvementsRespecter","precoMouvementsVioler"})
+@ToString(exclude = {"ressource","distributeur","precoMouvementsRespecter","precoMouvementsVioler"})
+@EqualsAndHashCode(exclude = {"ressource","distributeur","precoMouvementsRespecter","precoMouvementsVioler"})
 public class Mouvements {
     private String id ;
     private  String description ;
@@ -23,7 +23,6 @@ public class Mouvements {
     private Date dateModification;
     private List<PrecoMouvements> precoMouvementsRespecter;
     private List<PrecoMouvements> precoMouvementsVioler;
-//    private List<PrecoMouvements> precoMouvements;
     private Ressources ressource;
     private Distributeurs distributeur;
 

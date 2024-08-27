@@ -9,9 +9,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString(exclude = {"caisse","compte","compte","personnel","exemplaire"})
-@EqualsAndHashCode(exclude = {"caisse","compte","compte","personnel","exemplaire"})
-@JsonIgnoreProperties({"caisse","compte","compte","personnel","exemplaire"})
+@ToString(exclude = {"caisse","compte","personnel","exemplaire"})
+@EqualsAndHashCode(exclude = {"caisse","compte","personnel","exemplaire"})
+@JsonIgnoreProperties({"caisse","compte","personnel","exemplaire"})
 public class MouvementCaisses {
     private String id;
     private double montant ;

@@ -15,7 +15,7 @@ import java.util.List;
 @EqualsAndHashCode(exclude = {"personne"})
 public class Comptes {
     private String id;
-    private String solde ;
+    private double solde ;
     private Date dateCreation ;
     private String etat ;
     private double montantDecouvertMax ;
