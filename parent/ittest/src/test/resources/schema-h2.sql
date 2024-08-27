@@ -227,7 +227,7 @@ CREATE TABLE IF NOT EXISTS deltasoldes (
 
 CREATE TABLE IF NOT EXISTS comptes (
     id               VARCHAR(255) NOT NULL,
-    solde               VARCHAR(255),
+    solde               DOUBLE PRECISION,
     datecreation               date,
     etat    VARCHAR(255),
     montantdecouvertmax             DOUBLE PRECISION,

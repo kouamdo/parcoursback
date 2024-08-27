@@ -185,7 +185,7 @@ INSERT INTO personnes (id,nom,prenom,sexe,datenaissance,datemodification,person_
 INSERT INTO personnes (id,raisonsociale,code,datemodification,person_type,comptes_id) VALUES
 ('0079bd79-f71b-498b-b247-e7b9bbb3f600','GOSPEL',43,'2022-01-01','personnesmorales','0079bd79-f71b-498b-b247-e7b9bbb3f600'),
 ('0001ff83-2a62-4e6d-aa23-57c7825bcd57','Sportif',47,'2022-01-01','personnesmorales','0001ff83-2a62-4e6d-aa23-57c7825bcd57'),
-('0018e585-f82a-4d5f-af1c-54f880d766d3','armee',45,'2022-01-01','personnesmorales','0018e585-f82a-4d5f-af1c-54f880d766d3');
+('0018e585-f82a-4d5f-af1c-54f880d766d3','armee',45,'2022-01-01','personnesmorales','1518e585-f82a-4d5f-af1c-54f880d766d3');
 
 -- Insérer les données dans la table 'distributeur' en se basant sur la classe DistributeurEntity
 INSERT INTO personnes (id, code, raisonsociale, datemodification,person_type,comptes_id) VALUES
@@ -240,6 +240,11 @@ INSERT INTO mouvementcaisses (id,montant,moyenpaiement, datecreation,caisses_id,
 ('0e7cea07-d09e-7f79-be6c-6dd27aecbce6',1548.21, 'achat express', '2022-01-02','b3a7c8d6-1e2f-3d4c-cb6a-9e8f0a7b6c5d','4390615e-1101-7209-9932-7020bbd556f3','b3a7c8d6-1e2f-3d4c-5b6a-9e8f0a7b6c5d','b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d'),
 ('decaedc8-a908-7cad-bdd6-0403a2614f22',4563.21,'inventaire', '2022-01-02','f0a7b6c5-d4e3f2a1-8d9c-7d6e-5f4a3b2c1e0d','4390615e-1101-7209-9932-7020bbd556f3','f0a7b6c5-d4e3f2a1-8b9c-7d6e-5f4a3b2c1e0d','f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d');
 
+INSERT INTO deltasoldes(id,montantavant,montantapres,datecreation,typemouvement,comptes_id,exemplaires_id) VALUES
+('97daa4f5-84ad-77cd-874d-9c55f0e45790', 2000,4563.21,'2022-01-02','inventaire','a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f','a1f8e3b0-4c6d-4e5e-9b7a-2a8b9b9c8d6f'),
+('bfeeaa0d-9b8c-7475-9373-08eff9b3ccb7', 2000,1548.21,'2022-01-02', 'achat express','d9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e','d9e2f1c2-8b3a-4f6c-9d5e-1a7b8a7c6d5e'),
+('0e7aaa07-d09e-7f79-be6c-6dd27aecbce6', 10000,1258.36,'2022-01-02','vente à credit','b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d','b3a7c8d6-1e2f-3d4c-5b6a-9e8f0a7b6c5d'),
+('decaadc8-a908-7cad-bdd6-0403a2614f22', 5000,45.21,'2022-01-02', 'sur commande','f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d','f0a7b6c5-d4e3f2a1-8b9c-7d6e-5f4a3b2c1e0d');
 
 INSERT INTO etats (id, libelle,description, datecreation, datemodification) VALUES
 ('e190615e-1101-7209-9932-7020bbd556f1','En cours','En cours', '2022-01-01', '2022-01-02'),
