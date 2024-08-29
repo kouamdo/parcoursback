@@ -528,7 +528,7 @@ ALTER TABLE ressourcespromotions
     ADD CONSTRAINT fk_res_on_ressources_entity FOREIGN KEY (ressources_id) REFERENCES ressources (id);
 
 ALTER TABLE ressourcespromotions
-    ADD CONSTRAINT pk_ressourcespromotions PRIMARY KEY (ressources_id,promotions_id)
+    ADD CONSTRAINT pk_ressourcespromotions PRIMARY KEY (ressources_id,promotions_id);
 
 ALTER TABLE remplir
     ADD CONSTRAINT FK_REMPLIR_ON_MISSIONS FOREIGN KEY (missions_id) REFERENCES missions (id);
@@ -548,7 +548,7 @@ ALTER TABLE documentspromotions
     ADD CONSTRAINT fk_doc_on_promotions_entity FOREIGN KEY (promotions_id) REFERENCES promotions (id);
 
 ALTER TABLE documentspromotions
-    ADD CONSTRAINT pk_documentspromotions PRIMARY KEY (documents_id,promotions_id)
+    ADD CONSTRAINT pk_documentspromotions PRIMARY KEY (documents_id,promotions_id);
 
 ALTER TABLE famillespromotions
     ADD CONSTRAINT fk_fam_on_familles_entity FOREIGN KEY (familles_id) REFERENCES familles (id);
@@ -557,7 +557,7 @@ ALTER TABLE famillespromotions
     ADD CONSTRAINT fk_fam_on_promotions_entity FOREIGN KEY (promotions_id) REFERENCES promotions (id);
 
 ALTER TABLE famillespromotions
-    ADD CONSTRAINT pk_famillespromotions PRIMARY KEY(familles_id,promotions_id)
+    ADD CONSTRAINT pk_famillespromotions PRIMARY KEY(familles_id,promotions_id);
 
 ALTER TABLE precomouvementsqtes
     ADD CONSTRAINT FK_PRECOMOUVEMENTSQTES_ON_PRECOMOUVEMENTS FOREIGN KEY (precomouvements_id) REFERENCES precomouvements (id);
@@ -572,7 +572,7 @@ ALTER TABLE rattacher
     ADD CONSTRAINT fk_rattacher_on_personnes_bis FOREIGN KEY (rattacher_id) REFERENCES personnes (id);
 
 ALTER TABLE rattacher
-    ADD CONSTRAINT pk_rattacher PRIMARY KEY (personnes_id,rattacher_id)
+    ADD CONSTRAINT pk_rattacher PRIMARY KEY (personnes_id,rattacher_id);
 
 --ALTER TABLE personnesmorales
 --    ADD CONSTRAINT FK_PERSONNESMORALES_ON_PERSONNESMORALES FOREIGN KEY (personnesmorales_id) REFERENCES personnes (id);
@@ -596,7 +596,7 @@ ALTER TABLE respecter
     ADD CONSTRAINT fk_respecter_on_preco_mouvements_entity FOREIGN KEY (precomouvements_id) REFERENCES precomouvements (id);
 
 ALTER TABLE respecter
-    ADD CONSTRAINT PK_RESPECTER PRIMARY KEY (mouvements_id,precomouvements_id)
+    ADD CONSTRAINT PK_RESPECTER PRIMARY KEY (mouvements_id,precomouvements_id);
 
 ALTER TABLE violer
     ADD CONSTRAINT fk_violer_on_mouvements_entity FOREIGN KEY (mouvements_id) REFERENCES mouvements (id);
@@ -605,7 +605,7 @@ ALTER TABLE violer
     ADD CONSTRAINT fk_violer_on_preco_mouvements_entity FOREIGN KEY (precomouvements_id) REFERENCES precomouvements (id);
 
 ALTER TABLE violer
-    ADD CONSTRAINT pk_violer PRIMARY KEY (precomouvements_id,mouvements_id)
+    ADD CONSTRAINT pk_violer PRIMARY KEY (precomouvements_id,mouvements_id);
 
 ALTER TABLE missions
     ADD CONSTRAINT FK_MISSIONS_ON_SERVICES FOREIGN KEY (services_id) REFERENCES services (id);
@@ -617,7 +617,7 @@ ALTER TABLE traiter
     ADD CONSTRAINT fk_traiter_on_missions_entity FOREIGN KEY (missions_id) REFERENCES missions (id);
 
 ALTER TABLE traiter
-    ADD CONSTRAINT pk_traiter PRIMARY KEY (missions_id,documents_id)
+    ADD CONSTRAINT pk_traiter PRIMARY KEY (missions_id,documents_id);
 
 ALTER TABLE jouerroles
     ADD CONSTRAINT FK_JOUERROLES_ON_PERSONNELS FOREIGN KEY (personnels_id) REFERENCES personnels (id);
@@ -637,7 +637,7 @@ ALTER TABLE sapplique
     ADD CONSTRAINT fk_sapplique_on_preco_mouvements_qtes_entity FOREIGN KEY (precomouvementsqtes_id) REFERENCES precomouvementsqtes (id);
 
 ALTER TABLE sapplique
-    ADD CONSTRAINT pk_sapplique PRIMARY KEY (familles_id,precomouvementsqtes_id)
+    ADD CONSTRAINT pk_sapplique PRIMARY KEY (familles_id,precomouvementsqtes_id);
 
 ALTER TABLE etapes
     ADD CONSTRAINT FK_ETAPES_ON_PARCOURS FOREIGN KEY (parcours_id) REFERENCES parcours (id);
@@ -649,7 +649,7 @@ ALTER TABLE constituer
     ADD CONSTRAINT fk_con_on_documents_entity FOREIGN KEY (documents_id) REFERENCES documents (id);
 
 ALTER TABLE constituer
-    ADD CONSTRAINT pk_constituer PRIMARY KEY (attributs_id,documents_id)
+    ADD CONSTRAINT pk_constituer PRIMARY KEY (attributs_id,documents_id);
 
 ALTER TABLE suivre
     ADD CONSTRAINT fk_suivre_on_documents_entity FOREIGN KEY (documents_id) REFERENCES documents (id);
@@ -658,7 +658,7 @@ ALTER TABLE suivre
     ADD CONSTRAINT fk_suivre_on_preco_mouvements_entity FOREIGN KEY (precomouvements_id) REFERENCES precomouvements (id);
 
 ALTER TABLE suivre
-    ADD CONSTRAINT PK_suivre PRIMARY KEY (documents_id,precomouvements_id)
+    ADD CONSTRAINT PK_suivre PRIMARY KEY (documents_id,precomouvements_id);
 
 ALTER TABLE concerner
     ADD CONSTRAINT fk_concerner_on_distributeurs_entity FOREIGN KEY (distributeurs_id) REFERENCES personnes (id);
@@ -667,7 +667,7 @@ ALTER TABLE concerner
     ADD CONSTRAINT fk_concerner_on_preco_mouvements_qtes_entity FOREIGN KEY (precomouvementsqtes_id) REFERENCES precomouvementsqtes (id);
 
 ALTER TABLE concerner
-    ADD CONSTRAINT pk_concerner PRIMARY KEY (precomouvementsqtes_id,distributeurs_id)
+    ADD CONSTRAINT pk_concerner PRIMARY KEY (precomouvementsqtes_id,distributeurs_id);
 
 ALTER TABLE associer
     ADD CONSTRAINT FK_ASSOCIER_ON_ATTRIBUTS FOREIGN KEY (attributs_id) REFERENCES attributs (id);

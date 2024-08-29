@@ -1,9 +1,7 @@
 package cmr.notep.business;
 
 import cmr.notep.dao.DaoAccessorService;
-import cmr.notep.modele.Distributeurs;
 import cmr.notep.modele.PersonnesPhysique;
-import cmr.notep.repository.DistributeursRepository;
 import cmr.notep.repository.PersonnePhysiqueRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -36,5 +34,13 @@ public class PersonnesPhysiqueBusiness {
         return daoAccessorService.getRepository(PersonnePhysiqueRepository.class).findByNomOrByPrenom(value)
                 .stream().map(cat ->dozerMapperBean.map(cat, PersonnesPhysique.class))
                 .collect(Collectors.toList());
+    }
+
+    public List<PersonnesPhysique> avoirToutPersonnesPhysique() {
+
+        return this.daoAccessorService.getRepository(PersonnePhysiqueRepository.class).findAll()
+                .stream().map(personnesphysique ->dozerMapperBean.map(personnesphysique, PersonnesPhysique.class))
+                .toList();
+
     }
 }

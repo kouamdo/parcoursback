@@ -3,8 +3,6 @@ package cmr.notep.impl;
 import cmr.notep.api.IDistributeursApi;
 import cmr.notep.business.DistributeursBusiness;
 import cmr.notep.modele.Distributeurs;
-import cmr.notep.modele.MacroPersonnes;
-import cmr.notep.modele.Personnes;
 import lombok.NonNull;
 import org.springframework.web.bind.annotation.RestController;
 

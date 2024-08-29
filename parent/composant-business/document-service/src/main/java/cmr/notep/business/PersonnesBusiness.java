@@ -3,6 +3,7 @@ package cmr.notep.business;
 import cmr.notep.dao.DaoAccessorService;
 import cmr.notep.dao.PersonnesEntity;
 import cmr.notep.modele.*;
+import cmr.notep.repository.PersonnePhysiqueRepository;
 import cmr.notep.repository.PersonnesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
@@ -20,10 +21,16 @@ import static cmr.notep.config.DocumentConfig.dozerMapperBean;
 @Transactional
 public class PersonnesBusiness {
     private final DaoAccessorService daoAccessorService;
+    private final DistributeursBusiness distributeursBusiness ;
+    private final PersonnesPhysiqueBusiness personnesPhysiqueBusiness ;
+    private final PersonnesMoraleBusiness personnesMoraleBusiness;
 
-    public PersonnesBusiness(DaoAccessorService daoAccessorService)
+    public PersonnesBusiness(DaoAccessorService daoAccessorService, DistributeursBusiness distributeursBusiness, PersonnesPhysiqueBusiness personnesPhysiqueBusiness, PersonnesMoraleBusiness personnesMoraleBusiness)
     {
         this.daoAccessorService = daoAccessorService;
+        this.distributeursBusiness = distributeursBusiness;
+        this.personnesPhysiqueBusiness = personnesPhysiqueBusiness;
+        this.personnesMoraleBusiness = personnesMoraleBusiness;
     }
 
     public Personnes avoirPersonne(String id) {
@@ -69,8 +76,9 @@ public class PersonnesBusiness {
     }
 
     public List<Personnes> avoirToutPersonnes() {
+
         return daoAccessorService.getRepository(PersonnesRepository.class).findAll()
-                .stream().map(personne ->dozerMapperBean.map(personne, Personnes.class))
+                .stream().map(cat ->dozerMapperBean.map(cat, Personnes.class))
                 .collect(Collectors.toList());
     }
 

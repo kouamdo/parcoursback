@@ -47,7 +47,7 @@ public class DistributeursBusiness {
 
     public List<Distributeurs> avoirToutDistributeurs() {
 
-        return daoAccessorService.getRepository(DistributeursRepository.class).findAllDistributeurs()
+        return this.daoAccessorService.getRepository(DistributeursRepository.class).findAll()
                 .stream().map(distibuteur ->dozerMapperBean.map(distibuteur, Distributeurs.class))
                 .toList();
     }

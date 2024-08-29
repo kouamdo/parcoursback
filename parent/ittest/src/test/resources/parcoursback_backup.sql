@@ -5,7 +5,7 @@
 -- Dumped from database version 16.3
 -- Dumped by pg_dump version 16.3
 
--- Started on 2024-08-25 22:59:35
+-- Started on 2024-08-29 14:34:21
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,16 +19,16 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 5147 (class 1262 OID 21454)
--- Name: parcoursback; Type: DATABASE; Schema: -; Owner: postgres
+-- TOC entry 5150 (class 1262 OID 28060)
+-- Name: parcoursbackv2; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE parcoursback WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'French_France.1252';
+CREATE DATABASE parcoursbackv2 WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'French_France.1252';
 
 
-ALTER DATABASE parcoursback OWNER TO postgres;
+ALTER DATABASE parcoursbackv2 OWNER TO postgres;
 
-\connect parcoursback
+\connect parcoursbackv2
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -40,23 +40,13 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
-
---
--- TOC entry 6 (class 2615 OID 22307)
--- Name: parcours; Type: SCHEMA; Schema: -; Owner: sa
---
-
-CREATE SCHEMA parcours;
-
-
-ALTER SCHEMA parcours OWNER TO sa;
 
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- TOC entry 218 (class 1259 OID 22324)
+-- TOC entry 215 (class 1259 OID 28061)
 -- Name: associer; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -71,7 +61,7 @@ CREATE TABLE public.associer (
 ALTER TABLE public.associer OWNER TO postgres;
 
 --
--- TOC entry 216 (class 1259 OID 22308)
+-- TOC entry 216 (class 1259 OID 28066)
 -- Name: attributs; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -90,7 +80,7 @@ CREATE TABLE public.attributs (
 ALTER TABLE public.attributs OWNER TO postgres;
 
 --
--- TOC entry 256 (class 1259 OID 27723)
+-- TOC entry 217 (class 1259 OID 28072)
 -- Name: caisses; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -106,7 +96,7 @@ CREATE TABLE public.caisses (
 ALTER TABLE public.caisses OWNER TO postgres;
 
 --
--- TOC entry 217 (class 1259 OID 22316)
+-- TOC entry 218 (class 1259 OID 28077)
 -- Name: categories; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -124,25 +114,25 @@ CREATE TABLE public.categories (
 ALTER TABLE public.categories OWNER TO postgres;
 
 --
--- TOC entry 255 (class 1259 OID 27716)
+-- TOC entry 219 (class 1259 OID 28083)
 -- Name: comptes; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.comptes (
     id character varying(255) NOT NULL,
-    solde character varying(255),
     datecreation date,
     etat character varying(255),
     montantdecouvertmax double precision,
     libelle character varying(255),
-    personnes_id character varying(255)
+    personnes_id character varying(255),
+    solde double precision
 );
 
 
 ALTER TABLE public.comptes OWNER TO postgres;
 
 --
--- TOC entry 259 (class 1259 OID 27824)
+-- TOC entry 220 (class 1259 OID 28088)
 -- Name: concerner; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -155,7 +145,7 @@ CREATE TABLE public.concerner (
 ALTER TABLE public.concerner OWNER TO postgres;
 
 --
--- TOC entry 219 (class 1259 OID 22343)
+-- TOC entry 221 (class 1259 OID 28093)
 -- Name: constituer; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -168,7 +158,7 @@ CREATE TABLE public.constituer (
 ALTER TABLE public.constituer OWNER TO postgres;
 
 --
--- TOC entry 254 (class 1259 OID 27709)
+-- TOC entry 222 (class 1259 OID 28098)
 -- Name: deltasoldes; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -186,7 +176,7 @@ CREATE TABLE public.deltasoldes (
 ALTER TABLE public.deltasoldes OWNER TO postgres;
 
 --
--- TOC entry 250 (class 1259 OID 22561)
+-- TOC entry 223 (class 1259 OID 28103)
 -- Name: docetats; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -205,7 +195,7 @@ CREATE TABLE public.docetats (
 ALTER TABLE public.docetats OWNER TO postgres;
 
 --
--- TOC entry 251 (class 1259 OID 22568)
+-- TOC entry 224 (class 1259 OID 28108)
 -- Name: docetats_predecesseurs; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -218,7 +208,7 @@ CREATE TABLE public.docetats_predecesseurs (
 ALTER TABLE public.docetats_predecesseurs OWNER TO postgres;
 
 --
--- TOC entry 220 (class 1259 OID 22348)
+-- TOC entry 225 (class 1259 OID 28113)
 -- Name: documents; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -242,7 +232,7 @@ CREATE TABLE public.documents (
 ALTER TABLE public.documents OWNER TO postgres;
 
 --
--- TOC entry 239 (class 1259 OID 22490)
+-- TOC entry 226 (class 1259 OID 28118)
 -- Name: documentspromotions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -255,7 +245,7 @@ CREATE TABLE public.documentspromotions (
 ALTER TABLE public.documentspromotions OWNER TO postgres;
 
 --
--- TOC entry 223 (class 1259 OID 22367)
+-- TOC entry 227 (class 1259 OID 28123)
 -- Name: etapes; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -271,7 +261,7 @@ CREATE TABLE public.etapes (
 ALTER TABLE public.etapes OWNER TO postgres;
 
 --
--- TOC entry 222 (class 1259 OID 22360)
+-- TOC entry 228 (class 1259 OID 28128)
 -- Name: etats; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -287,7 +277,7 @@ CREATE TABLE public.etats (
 ALTER TABLE public.etats OWNER TO postgres;
 
 --
--- TOC entry 257 (class 1259 OID 27730)
+-- TOC entry 229 (class 1259 OID 28133)
 -- Name: exemplaires; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -300,7 +290,7 @@ CREATE TABLE public.exemplaires (
 ALTER TABLE public.exemplaires OWNER TO postgres;
 
 --
--- TOC entry 224 (class 1259 OID 22374)
+-- TOC entry 230 (class 1259 OID 28138)
 -- Name: familles; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -317,7 +307,7 @@ CREATE TABLE public.familles (
 ALTER TABLE public.familles OWNER TO postgres;
 
 --
--- TOC entry 240 (class 1259 OID 22495)
+-- TOC entry 231 (class 1259 OID 28143)
 -- Name: famillespromotions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -330,7 +320,7 @@ CREATE TABLE public.famillespromotions (
 ALTER TABLE public.famillespromotions OWNER TO postgres;
 
 --
--- TOC entry 226 (class 1259 OID 22386)
+-- TOC entry 232 (class 1259 OID 28148)
 -- Name: filesattentes; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -346,7 +336,7 @@ CREATE TABLE public.filesattentes (
 ALTER TABLE public.filesattentes OWNER TO postgres;
 
 --
--- TOC entry 227 (class 1259 OID 22393)
+-- TOC entry 233 (class 1259 OID 28153)
 -- Name: jouerroles; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -365,7 +355,7 @@ CREATE TABLE public.jouerroles (
 ALTER TABLE public.jouerroles OWNER TO postgres;
 
 --
--- TOC entry 228 (class 1259 OID 22400)
+-- TOC entry 234 (class 1259 OID 28158)
 -- Name: missions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -383,7 +373,7 @@ CREATE TABLE public.missions (
 ALTER TABLE public.missions OWNER TO postgres;
 
 --
--- TOC entry 258 (class 1259 OID 27782)
+-- TOC entry 235 (class 1259 OID 28163)
 -- Name: mouvementcaisses; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -407,7 +397,7 @@ CREATE TABLE public.mouvementcaisses (
 ALTER TABLE public.mouvementcaisses OWNER TO postgres;
 
 --
--- TOC entry 230 (class 1259 OID 22412)
+-- TOC entry 236 (class 1259 OID 28168)
 -- Name: mouvements; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -427,7 +417,7 @@ CREATE TABLE public.mouvements (
 ALTER TABLE public.mouvements OWNER TO postgres;
 
 --
--- TOC entry 233 (class 1259 OID 22429)
+-- TOC entry 237 (class 1259 OID 28173)
 -- Name: ordreetats; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -444,7 +434,7 @@ CREATE TABLE public.ordreetats (
 ALTER TABLE public.ordreetats OWNER TO postgres;
 
 --
--- TOC entry 234 (class 1259 OID 22436)
+-- TOC entry 238 (class 1259 OID 28178)
 -- Name: parcours; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -459,7 +449,7 @@ CREATE TABLE public.parcours (
 ALTER TABLE public.parcours OWNER TO postgres;
 
 --
--- TOC entry 235 (class 1259 OID 22443)
+-- TOC entry 239 (class 1259 OID 28183)
 -- Name: personnels; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -480,7 +470,7 @@ CREATE TABLE public.personnels (
 ALTER TABLE public.personnels OWNER TO postgres;
 
 --
--- TOC entry 253 (class 1259 OID 27701)
+-- TOC entry 240 (class 1259 OID 28188)
 -- Name: personnes; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -500,14 +490,14 @@ CREATE TABLE public.personnes (
     datemodification date,
     person_type character varying(255) NOT NULL,
     comptes_id character varying(255),
-    CONSTRAINT personnes_person_type_check CHECK (((person_type)::text = ANY ((ARRAY['personnesmorales'::character varying, 'personnesphysique'::character varying, 'distributeurs'::character varying])::text[])))
+    CONSTRAINT personnes_person_type_check CHECK (((person_type)::text = ANY (ARRAY[('personnesmorales'::character varying)::text, ('personnesphysique'::character varying)::text, ('distributeurs'::character varying)::text])))
 );
 
 
 ALTER TABLE public.personnes OWNER TO postgres;
 
 --
--- TOC entry 252 (class 1259 OID 27679)
+-- TOC entry 241 (class 1259 OID 28194)
 -- Name: personnes_s; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -532,7 +522,7 @@ CREATE TABLE public.personnes_s (
 ALTER TABLE public.personnes_s OWNER TO postgres;
 
 --
--- TOC entry 237 (class 1259 OID 22476)
+-- TOC entry 242 (class 1259 OID 28199)
 -- Name: precomouvements; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -549,7 +539,7 @@ CREATE TABLE public.precomouvements (
 ALTER TABLE public.precomouvements OWNER TO postgres;
 
 --
--- TOC entry 238 (class 1259 OID 22483)
+-- TOC entry 243 (class 1259 OID 28204)
 -- Name: precomouvementsqtes; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -569,7 +559,7 @@ CREATE TABLE public.precomouvementsqtes (
 ALTER TABLE public.precomouvementsqtes OWNER TO postgres;
 
 --
--- TOC entry 241 (class 1259 OID 22500)
+-- TOC entry 244 (class 1259 OID 28209)
 -- Name: promotions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -589,7 +579,7 @@ CREATE TABLE public.promotions (
 ALTER TABLE public.promotions OWNER TO postgres;
 
 --
--- TOC entry 236 (class 1259 OID 22457)
+-- TOC entry 245 (class 1259 OID 28214)
 -- Name: rattacher; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -602,7 +592,7 @@ CREATE TABLE public.rattacher (
 ALTER TABLE public.rattacher OWNER TO postgres;
 
 --
--- TOC entry 242 (class 1259 OID 22507)
+-- TOC entry 246 (class 1259 OID 28219)
 -- Name: remplir; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -623,7 +613,7 @@ CREATE TABLE public.remplir (
 ALTER TABLE public.remplir OWNER TO postgres;
 
 --
--- TOC entry 231 (class 1259 OID 22419)
+-- TOC entry 247 (class 1259 OID 28224)
 -- Name: respecter; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -636,7 +626,7 @@ CREATE TABLE public.respecter (
 ALTER TABLE public.respecter OWNER TO postgres;
 
 --
--- TOC entry 243 (class 1259 OID 22514)
+-- TOC entry 248 (class 1259 OID 28229)
 -- Name: ressources; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -659,7 +649,7 @@ CREATE TABLE public.ressources (
 ALTER TABLE public.ressources OWNER TO postgres;
 
 --
--- TOC entry 244 (class 1259 OID 22521)
+-- TOC entry 249 (class 1259 OID 28234)
 -- Name: ressourcespromotions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -672,7 +662,7 @@ CREATE TABLE public.ressourcespromotions (
 ALTER TABLE public.ressourcespromotions OWNER TO postgres;
 
 --
--- TOC entry 245 (class 1259 OID 22526)
+-- TOC entry 250 (class 1259 OID 28239)
 -- Name: roles; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -689,7 +679,7 @@ CREATE TABLE public.roles (
 ALTER TABLE public.roles OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1259 OID 22381)
+-- TOC entry 251 (class 1259 OID 28244)
 -- Name: sapplique; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -702,7 +692,7 @@ CREATE TABLE public.sapplique (
 ALTER TABLE public.sapplique OWNER TO postgres;
 
 --
--- TOC entry 246 (class 1259 OID 22533)
+-- TOC entry 252 (class 1259 OID 28249)
 -- Name: services; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -722,7 +712,7 @@ CREATE TABLE public.services (
 ALTER TABLE public.services OWNER TO postgres;
 
 --
--- TOC entry 221 (class 1259 OID 22355)
+-- TOC entry 253 (class 1259 OID 28254)
 -- Name: suivre; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -735,7 +725,7 @@ CREATE TABLE public.suivre (
 ALTER TABLE public.suivre OWNER TO postgres;
 
 --
--- TOC entry 247 (class 1259 OID 22540)
+-- TOC entry 254 (class 1259 OID 28259)
 -- Name: tickets; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -750,7 +740,7 @@ CREATE TABLE public.tickets (
 ALTER TABLE public.tickets OWNER TO postgres;
 
 --
--- TOC entry 248 (class 1259 OID 22547)
+-- TOC entry 255 (class 1259 OID 28264)
 -- Name: ticketsfilesattentes; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -766,7 +756,7 @@ CREATE TABLE public.ticketsfilesattentes (
 ALTER TABLE public.ticketsfilesattentes OWNER TO postgres;
 
 --
--- TOC entry 229 (class 1259 OID 22407)
+-- TOC entry 256 (class 1259 OID 28269)
 -- Name: traiter; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -779,7 +769,7 @@ CREATE TABLE public.traiter (
 ALTER TABLE public.traiter OWNER TO postgres;
 
 --
--- TOC entry 249 (class 1259 OID 22554)
+-- TOC entry 257 (class 1259 OID 28274)
 -- Name: validations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -799,7 +789,7 @@ CREATE TABLE public.validations (
 ALTER TABLE public.validations OWNER TO postgres;
 
 --
--- TOC entry 232 (class 1259 OID 22424)
+-- TOC entry 258 (class 1259 OID 28279)
 -- Name: violer; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -812,8 +802,8 @@ CREATE TABLE public.violer (
 ALTER TABLE public.violer OWNER TO postgres;
 
 --
--- TOC entry 5100 (class 0 OID 22324)
--- Dependencies: 218
+-- TOC entry 5101 (class 0 OID 28061)
+-- Dependencies: 215
 -- Data for Name: associer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -833,7 +823,7 @@ INSERT INTO public.associer (obligatoire, ordre, attributs_id, categories_id) VA
 
 
 --
--- TOC entry 5098 (class 0 OID 22308)
+-- TOC entry 5102 (class 0 OID 28066)
 -- Dependencies: 216
 -- Data for Name: attributs; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -851,8 +841,8 @@ INSERT INTO public.attributs (id, titre, description, etat, datecreation, datemo
 
 
 --
--- TOC entry 5138 (class 0 OID 27723)
--- Dependencies: 256
+-- TOC entry 5103 (class 0 OID 28072)
+-- Dependencies: 217
 -- Data for Name: caisses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -863,8 +853,8 @@ INSERT INTO public.caisses (id, libelle, solde, type, detailjson) VALUES ('f0a7b
 
 
 --
--- TOC entry 5099 (class 0 OID 22316)
--- Dependencies: 217
+-- TOC entry 5104 (class 0 OID 28077)
+-- Dependencies: 218
 -- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -880,33 +870,33 @@ INSERT INTO public.categories (id, ordre, libelle, etat, datecreation, datemodif
 
 
 --
--- TOC entry 5137 (class 0 OID 27716)
--- Dependencies: 255
+-- TOC entry 5105 (class 0 OID 28083)
+-- Dependencies: 219
 -- Data for Name: comptes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.comptes (id, solde, datecreation, etat, montantdecouvertmax, libelle, personnes_id) VALUES ('a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f', '1000.00', '2024-08-19', 'actif', 500, 'Compte courant', '0618e585-f82a-4d5f-af2c-54f880d766d3') ON CONFLICT DO NOTHING;
-INSERT INTO public.comptes (id, solde, datecreation, etat, montantdecouvertmax, libelle, personnes_id) VALUES ('d9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e', '2500.00', '2024-08-19', 'actif', 1000, 'Épargne', '0618e585-f82a-4d5f-af2c-04f880d766d3') ON CONFLICT DO NOTHING;
-INSERT INTO public.comptes (id, solde, datecreation, etat, montantdecouvertmax, libelle, personnes_id) VALUES ('b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d', '500.00', '2024-08-19', 'inactif', 0, 'Compte jeunesse', '1979bd79-f71b-498b-b247-e7b9bbb3f600') ON CONFLICT DO NOTHING;
-INSERT INTO public.comptes (id, solde, datecreation, etat, montantdecouvertmax, libelle, personnes_id) VALUES ('f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d', '7500.00', '2024-08-19', 'actif', 2000, 'Compte entreprise', '0618e585-f82a-4d5f-af1c-54f880d766d3') ON CONFLICT DO NOTHING;
-INSERT INTO public.comptes (id, solde, datecreation, etat, montantdecouvertmax, libelle, personnes_id) VALUES ('d301ff83-1b62-4e6d-aa23-57c7825bcd57', '2500.00', '2024-08-19', 'actif', 1000, 'Épargne', 'd301ff83-2a62-4e6d-aa23-57c7825bcd57') ON CONFLICT DO NOTHING;
-INSERT INTO public.comptes (id, solde, datecreation, etat, montantdecouvertmax, libelle, personnes_id) VALUES ('1179bd79-f71b-498b-b247-e7b9bbb3f600', '500.00', '2024-08-19', 'inactif', 0, 'Compte jeunesse', '0079bd79-f71b-498b-b247-e7b9bbb3f600') ON CONFLICT DO NOTHING;
-INSERT INTO public.comptes (id, solde, datecreation, etat, montantdecouvertmax, libelle, personnes_id) VALUES ('00012f83-2a62-4e6d-aa23-57c7825bcd57', '7500.00', '2024-08-19', 'actif', 2000, 'Compte entreprise', '0001ff83-2a62-4e6d-aa23-57c7825bcd57') ON CONFLICT DO NOTHING;
-INSERT INTO public.comptes (id, solde, datecreation, etat, montantdecouvertmax, libelle, personnes_id) VALUES ('1518e585-f82a-4d5f-af1c-54f880d766d3', '7500.00', '2024-08-19', 'actif', 2000, 'Compte entreprise', '0018e585-f82a-4d5f-af1c-54f880d766d3') ON CONFLICT DO NOTHING;
-INSERT INTO public.comptes (id, solde, datecreation, etat, montantdecouvertmax, libelle, personnes_id) VALUES ('adbff692-418d-43ab-a196-fcc3114b2daa', '1000.00', '2024-08-19', 'actif', 500, 'Compte courant', 'fdbff692-6b8d-43ab-a196-fcc3114b2daa') ON CONFLICT DO NOTHING;
+INSERT INTO public.comptes (id, datecreation, etat, montantdecouvertmax, libelle, personnes_id, solde) VALUES ('00012f83-2a62-4e6d-aa23-57c7825bcd57', '2024-08-19', 'actif', 2000, 'Compte entreprise', '0001ff83-2a62-4e6d-aa23-57c7825bcd57', 102.32) ON CONFLICT DO NOTHING;
+INSERT INTO public.comptes (id, datecreation, etat, montantdecouvertmax, libelle, personnes_id, solde) VALUES ('1179bd79-f71b-498b-b247-e7b9bbb3f600', '2024-08-19', 'inactif', 0, 'Compte jeunesse', '0079bd79-f71b-498b-b247-e7b9bbb3f600', 3553.2) ON CONFLICT DO NOTHING;
+INSERT INTO public.comptes (id, datecreation, etat, montantdecouvertmax, libelle, personnes_id, solde) VALUES ('1518e585-f82a-4d5f-af1c-54f880d766d3', '2024-08-19', 'actif', 2000, 'Compte entreprise', '0018e585-f82a-4d5f-af1c-54f880d766d3', 646583.32) ON CONFLICT DO NOTHING;
+INSERT INTO public.comptes (id, datecreation, etat, montantdecouvertmax, libelle, personnes_id, solde) VALUES ('a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f', '2024-08-19', 'actif', 500, 'Compte courant', '0618e585-f82a-4d5f-af2c-54f880d766d3', 14785) ON CONFLICT DO NOTHING;
+INSERT INTO public.comptes (id, datecreation, etat, montantdecouvertmax, libelle, personnes_id, solde) VALUES ('adbff692-418d-43ab-a196-fcc3114b2daa', '2024-08-19', 'actif', 500, 'Compte courant', 'fdbff692-6b8d-43ab-a196-fcc3114b2daa', 31656.325) ON CONFLICT DO NOTHING;
+INSERT INTO public.comptes (id, datecreation, etat, montantdecouvertmax, libelle, personnes_id, solde) VALUES ('b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d', '2024-08-19', 'inactif', 0, 'Compte jeunesse', '1979bd79-f71b-498b-b247-e7b9bbb3f600', 789654.23) ON CONFLICT DO NOTHING;
+INSERT INTO public.comptes (id, datecreation, etat, montantdecouvertmax, libelle, personnes_id, solde) VALUES ('d301ff83-1b62-4e6d-aa23-57c7825bcd57', '2024-08-19', 'actif', 1000, 'Épargne', 'd301ff83-2a62-4e6d-aa23-57c7825bcd57', 1153548.35) ON CONFLICT DO NOTHING;
+INSERT INTO public.comptes (id, datecreation, etat, montantdecouvertmax, libelle, personnes_id, solde) VALUES ('d9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e', '2024-08-19', 'actif', 1000, 'Épargne', '0618e585-f82a-4d5f-af2c-04f880d766d3', 635663.254) ON CONFLICT DO NOTHING;
+INSERT INTO public.comptes (id, datecreation, etat, montantdecouvertmax, libelle, personnes_id, solde) VALUES ('f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d', '2024-08-19', 'actif', 2000, 'Compte entreprise', '0618e585-f82a-4d5f-af1c-54f880d766d3', 655318.369) ON CONFLICT DO NOTHING;
 
 
 --
--- TOC entry 5141 (class 0 OID 27824)
--- Dependencies: 259
+-- TOC entry 5106 (class 0 OID 28088)
+-- Dependencies: 220
 -- Data for Name: concerner; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 5101 (class 0 OID 22343)
--- Dependencies: 219
+-- TOC entry 5107 (class 0 OID 28093)
+-- Dependencies: 221
 -- Data for Name: constituer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -928,16 +918,20 @@ INSERT INTO public.constituer (attributs_id, documents_id) VALUES ('a2eebc99-9c0
 
 
 --
--- TOC entry 5136 (class 0 OID 27709)
--- Dependencies: 254
+-- TOC entry 5108 (class 0 OID 28098)
+-- Dependencies: 222
 -- Data for Name: deltasoldes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.deltasoldes (id, montantavant, montantapres, datecreation, typemouvement, comptes_id, exemplaires_id) VALUES ('aad314f5-84ad-77cd-874d-9c55f0e45790', 651651.258, 51555.32, '2022-01-02', 'retrait', 'b3a7c8d6-1e2f-3d4c-7b6a-9e8f0a7b6c5d', 'b3a7c8d6-1e2f-3d4c-5b6a-9e8f0a7b6c5d') ON CONFLICT DO NOTHING;
+INSERT INTO public.deltasoldes (id, montantavant, montantapres, datecreation, typemouvement, comptes_id, exemplaires_id) VALUES ('aad314f5-84ad-77cd-874d-9c55f0e45791', 651651.258, 51555.32, '2022-01-02', 'retrait', 'a1f8e3b0-4c6d-4e5e-7b7a-2a8b9b9c8d6f', 'a1f8e3b0-4c6d-4e5e-9b7a-2a8b9b9c8d6f') ON CONFLICT DO NOTHING;
+INSERT INTO public.deltasoldes (id, montantavant, montantapres, datecreation, typemouvement, comptes_id, exemplaires_id) VALUES ('aad314f5-84ad-77cd-874d-9c55f0e45792', 564566.21, 6544864.21, '2022-01-02', 'paiement', 'd9e2f1c2-8b3a-4f6c-7d5e-1a7b8a7c6d5e', 'd9e2f1c2-8b3a-4f6c-9d5e-1a7b8a7c6d5e') ON CONFLICT DO NOTHING;
+INSERT INTO public.deltasoldes (id, montantavant, montantapres, datecreation, typemouvement, comptes_id, exemplaires_id) VALUES ('aad314f5-84ad-77cd-874d-9c55f0e45793', 48646.58, 454151.14, '2022-01-02', 'paiement', 'f0a7b6c5-d4e3f2a1-7b9c-7d6e-5f4a3b2c1e0d', 'f0a7b6c5-d4e3f2a1-8b9c-7d6e-5f4a3b2c1e0d') ON CONFLICT DO NOTHING;
 
 
 --
--- TOC entry 5132 (class 0 OID 22561)
--- Dependencies: 250
+-- TOC entry 5109 (class 0 OID 28103)
+-- Dependencies: 223
 -- Data for Name: docetats; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -949,8 +943,8 @@ INSERT INTO public.docetats (id, ordre, datecreation, datemodification, validati
 
 
 --
--- TOC entry 5133 (class 0 OID 22568)
--- Dependencies: 251
+-- TOC entry 5110 (class 0 OID 28108)
+-- Dependencies: 224
 -- Data for Name: docetats_predecesseurs; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -959,8 +953,8 @@ INSERT INTO public.docetats_predecesseurs (docetats_id, predecesseur_id) VALUES 
 
 
 --
--- TOC entry 5102 (class 0 OID 22348)
--- Dependencies: 220
+-- TOC entry 5111 (class 0 OID 28113)
+-- Dependencies: 225
 -- Data for Name: documents; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -975,8 +969,8 @@ INSERT INTO public.documents (id, titre, description, etat, datecreation, datemo
 
 
 --
--- TOC entry 5121 (class 0 OID 22490)
--- Dependencies: 239
+-- TOC entry 5112 (class 0 OID 28118)
+-- Dependencies: 226
 -- Data for Name: documentspromotions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -986,8 +980,8 @@ INSERT INTO public.documentspromotions (documents_id, promotions_id) VALUES ('01
 
 
 --
--- TOC entry 5105 (class 0 OID 22367)
--- Dependencies: 223
+-- TOC entry 5113 (class 0 OID 28123)
+-- Dependencies: 227
 -- Data for Name: etapes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -997,8 +991,8 @@ INSERT INTO public.etapes (id, libelle, etat, datemodification, parcours_id) VAL
 
 
 --
--- TOC entry 5104 (class 0 OID 22360)
--- Dependencies: 222
+-- TOC entry 5114 (class 0 OID 28128)
+-- Dependencies: 228
 -- Data for Name: etats; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1009,8 +1003,8 @@ INSERT INTO public.etats (id, libelle, description, datecreation, datemodificati
 
 
 --
--- TOC entry 5139 (class 0 OID 27730)
--- Dependencies: 257
+-- TOC entry 5115 (class 0 OID 28133)
+-- Dependencies: 229
 -- Data for Name: exemplaires; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1021,8 +1015,8 @@ INSERT INTO public.exemplaires (id, personnes_id) VALUES ('f0a7b6c5-d4e3f2a1-8b9
 
 
 --
--- TOC entry 5106 (class 0 OID 22374)
--- Dependencies: 224
+-- TOC entry 5116 (class 0 OID 28138)
+-- Dependencies: 230
 -- Data for Name: familles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1033,8 +1027,8 @@ INSERT INTO public.familles (id, libelle, description, etat, datecreation, datem
 
 
 --
--- TOC entry 5122 (class 0 OID 22495)
--- Dependencies: 240
+-- TOC entry 5117 (class 0 OID 28143)
+-- Dependencies: 231
 -- Data for Name: famillespromotions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1044,8 +1038,8 @@ INSERT INTO public.famillespromotions (familles_id, promotions_id) VALUES ('f190
 
 
 --
--- TOC entry 5108 (class 0 OID 22386)
--- Dependencies: 226
+-- TOC entry 5118 (class 0 OID 28148)
+-- Dependencies: 232
 -- Data for Name: filesattentes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1055,8 +1049,8 @@ INSERT INTO public.filesattentes (id, datecreation, datemodification, etat, serv
 
 
 --
--- TOC entry 5109 (class 0 OID 22393)
--- Dependencies: 227
+-- TOC entry 5119 (class 0 OID 28153)
+-- Dependencies: 233
 -- Data for Name: jouerroles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1066,8 +1060,8 @@ INSERT INTO public.jouerroles (id, etat, datecreation, datemodification, datefin
 
 
 --
--- TOC entry 5110 (class 0 OID 22400)
--- Dependencies: 228
+-- TOC entry 5120 (class 0 OID 28158)
+-- Dependencies: 234
 -- Data for Name: missions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1080,8 +1074,8 @@ INSERT INTO public.missions (id, libelle, description, etat, datecreation, datem
 
 
 --
--- TOC entry 5140 (class 0 OID 27782)
--- Dependencies: 258
+-- TOC entry 5121 (class 0 OID 28163)
+-- Dependencies: 235
 -- Data for Name: mouvementcaisses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1092,8 +1086,8 @@ INSERT INTO public.mouvementcaisses (id, montant, moyenpaiement, referencepaieme
 
 
 --
--- TOC entry 5112 (class 0 OID 22412)
--- Dependencies: 230
+-- TOC entry 5122 (class 0 OID 28168)
+-- Dependencies: 236
 -- Data for Name: mouvements; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1104,8 +1098,8 @@ INSERT INTO public.mouvements (id, description, quantite, prix, datecreation, da
 
 
 --
--- TOC entry 5115 (class 0 OID 22429)
--- Dependencies: 233
+-- TOC entry 5123 (class 0 OID 28173)
+-- Dependencies: 237
 -- Data for Name: ordreetats; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1115,8 +1109,8 @@ INSERT INTO public.ordreetats (id, datecreation, datemodification, datefinvote, 
 
 
 --
--- TOC entry 5116 (class 0 OID 22436)
--- Dependencies: 234
+-- TOC entry 5124 (class 0 OID 28178)
+-- Dependencies: 238
 -- Data for Name: parcours; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1126,8 +1120,8 @@ INSERT INTO public.parcours (id, libelle, datecreation, datemodification) VALUES
 
 
 --
--- TOC entry 5117 (class 0 OID 22443)
--- Dependencies: 235
+-- TOC entry 5125 (class 0 OID 28183)
+-- Dependencies: 239
 -- Data for Name: personnels; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1137,8 +1131,8 @@ INSERT INTO public.personnels (id, dateentree, nom, datenaissance, telephone, da
 
 
 --
--- TOC entry 5135 (class 0 OID 27701)
--- Dependencies: 253
+-- TOC entry 5126 (class 0 OID 28188)
+-- Dependencies: 240
 -- Data for Name: personnes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1154,16 +1148,16 @@ INSERT INTO public.personnes (id, adresse, mail, telephone, qrcodevalue, code, r
 
 
 --
--- TOC entry 5134 (class 0 OID 27679)
--- Dependencies: 252
+-- TOC entry 5127 (class 0 OID 28194)
+-- Dependencies: 241
 -- Data for Name: personnes_s; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 5119 (class 0 OID 22476)
--- Dependencies: 237
+-- TOC entry 5128 (class 0 OID 28199)
+-- Dependencies: 242
 -- Data for Name: precomouvements; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1178,8 +1172,8 @@ INSERT INTO public.precomouvements (id, libelle, etat, datecreation, datemodific
 
 
 --
--- TOC entry 5120 (class 0 OID 22483)
--- Dependencies: 238
+-- TOC entry 5129 (class 0 OID 28204)
+-- Dependencies: 243
 -- Data for Name: precomouvementsqtes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1195,8 +1189,8 @@ INSERT INTO public.precomouvementsqtes (id, qtemin, qtemax, montantmin, montantm
 
 
 --
--- TOC entry 5123 (class 0 OID 22500)
--- Dependencies: 241
+-- TOC entry 5130 (class 0 OID 28209)
+-- Dependencies: 244
 -- Data for Name: promotions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1206,8 +1200,8 @@ INSERT INTO public.promotions (id, datedebut, datefin, codeunique, typeremise, v
 
 
 --
--- TOC entry 5118 (class 0 OID 22457)
--- Dependencies: 236
+-- TOC entry 5131 (class 0 OID 28214)
+-- Dependencies: 245
 -- Data for Name: rattacher; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1216,8 +1210,8 @@ INSERT INTO public.rattacher (personnes_id, rattacher_id) VALUES ('fdbff692-6b8d
 
 
 --
--- TOC entry 5124 (class 0 OID 22507)
--- Dependencies: 242
+-- TOC entry 5132 (class 0 OID 28219)
+-- Dependencies: 246
 -- Data for Name: remplir; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1227,8 +1221,8 @@ INSERT INTO public.remplir (datefin, datecreation, datedebut, etat, droitajouter
 
 
 --
--- TOC entry 5113 (class 0 OID 22419)
--- Dependencies: 231
+-- TOC entry 5133 (class 0 OID 28224)
+-- Dependencies: 247
 -- Data for Name: respecter; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1238,8 +1232,8 @@ INSERT INTO public.respecter (mouvements_id, precomouvements_id) VALUES ('0e7cea
 
 
 --
--- TOC entry 5125 (class 0 OID 22514)
--- Dependencies: 243
+-- TOC entry 5134 (class 0 OID 28229)
+-- Dependencies: 248
 -- Data for Name: ressources; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1264,8 +1258,8 @@ INSERT INTO public.ressources (id, libelle, description, etat, datecreation, dat
 
 
 --
--- TOC entry 5126 (class 0 OID 22521)
--- Dependencies: 244
+-- TOC entry 5135 (class 0 OID 28234)
+-- Dependencies: 249
 -- Data for Name: ressourcespromotions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1275,8 +1269,8 @@ INSERT INTO public.ressourcespromotions (promotions_id, ressources_id) VALUES ('
 
 
 --
--- TOC entry 5127 (class 0 OID 22526)
--- Dependencies: 245
+-- TOC entry 5136 (class 0 OID 28239)
+-- Dependencies: 250
 -- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1286,8 +1280,8 @@ INSERT INTO public.roles (id, titre, description, etat, datecreation, datemodifi
 
 
 --
--- TOC entry 5107 (class 0 OID 22381)
--- Dependencies: 225
+-- TOC entry 5137 (class 0 OID 28244)
+-- Dependencies: 251
 -- Data for Name: sapplique; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1302,8 +1296,8 @@ INSERT INTO public.sapplique (familles_id, precomouvementsqtes_id) VALUES ('f190
 
 
 --
--- TOC entry 5128 (class 0 OID 22533)
--- Dependencies: 246
+-- TOC entry 5138 (class 0 OID 28249)
+-- Dependencies: 252
 -- Data for Name: services; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1313,8 +1307,8 @@ INSERT INTO public.services (id, description, libelle, localisation, etat, datec
 
 
 --
--- TOC entry 5103 (class 0 OID 22355)
--- Dependencies: 221
+-- TOC entry 5139 (class 0 OID 28254)
+-- Dependencies: 253
 -- Data for Name: suivre; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1329,8 +1323,8 @@ INSERT INTO public.suivre (documents_id, precomouvements_id) VALUES ('0190615e-1
 
 
 --
--- TOC entry 5129 (class 0 OID 22540)
--- Dependencies: 247
+-- TOC entry 5140 (class 0 OID 28259)
+-- Dependencies: 254
 -- Data for Name: tickets; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1343,8 +1337,8 @@ INSERT INTO public.tickets (id, codecourt, datecreation, datemodification) VALUE
 
 
 --
--- TOC entry 5130 (class 0 OID 22547)
--- Dependencies: 248
+-- TOC entry 5141 (class 0 OID 28264)
+-- Dependencies: 255
 -- Data for Name: ticketsfilesattentes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1357,8 +1351,8 @@ INSERT INTO public.ticketsfilesattentes (id, etat, dateaffectation, tickets_id, 
 
 
 --
--- TOC entry 5111 (class 0 OID 22407)
--- Dependencies: 229
+-- TOC entry 5142 (class 0 OID 28269)
+-- Dependencies: 256
 -- Data for Name: traiter; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1369,8 +1363,8 @@ INSERT INTO public.traiter (documents_id, missions_id) VALUES ('0190615e-1101-72
 
 
 --
--- TOC entry 5131 (class 0 OID 22554)
--- Dependencies: 249
+-- TOC entry 5143 (class 0 OID 28274)
+-- Dependencies: 257
 -- Data for Name: validations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1382,8 +1376,8 @@ INSERT INTO public.validations (id, code, etat, datecreation, datemodification, 
 
 
 --
--- TOC entry 5114 (class 0 OID 22424)
--- Dependencies: 232
+-- TOC entry 5144 (class 0 OID 28279)
+-- Dependencies: 258
 -- Data for Name: violer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1393,7 +1387,7 @@ INSERT INTO public.violer (mouvements_id, precomouvements_id) VALUES ('0e7cea07-
 
 
 --
--- TOC entry 4814 (class 2606 OID 22330)
+-- TOC entry 4809 (class 2606 OID 28285)
 -- Name: associer pk_associer; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1402,7 +1396,7 @@ ALTER TABLE ONLY public.associer
 
 
 --
--- TOC entry 4810 (class 2606 OID 22315)
+-- TOC entry 4811 (class 2606 OID 28287)
 -- Name: attributs pk_attributs; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1411,7 +1405,7 @@ ALTER TABLE ONLY public.attributs
 
 
 --
--- TOC entry 4894 (class 2606 OID 27729)
+-- TOC entry 4813 (class 2606 OID 28289)
 -- Name: caisses pk_caisses; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1420,7 +1414,7 @@ ALTER TABLE ONLY public.caisses
 
 
 --
--- TOC entry 4812 (class 2606 OID 22323)
+-- TOC entry 4815 (class 2606 OID 28291)
 -- Name: categories pk_categories; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1429,7 +1423,7 @@ ALTER TABLE ONLY public.categories
 
 
 --
--- TOC entry 4892 (class 2606 OID 27722)
+-- TOC entry 4817 (class 2606 OID 28293)
 -- Name: comptes pk_comptes; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1438,7 +1432,7 @@ ALTER TABLE ONLY public.comptes
 
 
 --
--- TOC entry 4900 (class 2606 OID 27940)
+-- TOC entry 4819 (class 2606 OID 28295)
 -- Name: concerner pk_concerner; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1447,7 +1441,7 @@ ALTER TABLE ONLY public.concerner
 
 
 --
--- TOC entry 4816 (class 2606 OID 27959)
+-- TOC entry 4821 (class 2606 OID 28297)
 -- Name: constituer pk_constituer; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1456,7 +1450,7 @@ ALTER TABLE ONLY public.constituer
 
 
 --
--- TOC entry 4890 (class 2606 OID 27715)
+-- TOC entry 4823 (class 2606 OID 28299)
 -- Name: deltasoldes pk_deltasoldes; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1465,7 +1459,7 @@ ALTER TABLE ONLY public.deltasoldes
 
 
 --
--- TOC entry 4882 (class 2606 OID 22567)
+-- TOC entry 4825 (class 2606 OID 28301)
 -- Name: docetats pk_docetats; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1474,7 +1468,7 @@ ALTER TABLE ONLY public.docetats
 
 
 --
--- TOC entry 4884 (class 2606 OID 22574)
+-- TOC entry 4827 (class 2606 OID 28303)
 -- Name: docetats_predecesseurs pk_docetats_predecesseurs; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1483,7 +1477,7 @@ ALTER TABLE ONLY public.docetats_predecesseurs
 
 
 --
--- TOC entry 4818 (class 2606 OID 22354)
+-- TOC entry 4829 (class 2606 OID 28305)
 -- Name: documents pk_documents; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1492,7 +1486,16 @@ ALTER TABLE ONLY public.documents
 
 
 --
--- TOC entry 4824 (class 2606 OID 22373)
+-- TOC entry 4831 (class 2606 OID 28674)
+-- Name: documentspromotions pk_documentspromotions; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.documentspromotions
+    ADD CONSTRAINT pk_documentspromotions PRIMARY KEY (documents_id, promotions_id);
+
+
+--
+-- TOC entry 4833 (class 2606 OID 28307)
 -- Name: etapes pk_etapes; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1501,7 +1504,7 @@ ALTER TABLE ONLY public.etapes
 
 
 --
--- TOC entry 4822 (class 2606 OID 22366)
+-- TOC entry 4835 (class 2606 OID 28309)
 -- Name: etats pk_etats; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1510,7 +1513,7 @@ ALTER TABLE ONLY public.etats
 
 
 --
--- TOC entry 4896 (class 2606 OID 27736)
+-- TOC entry 4837 (class 2606 OID 28311)
 -- Name: exemplaires pk_exemplaires; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1519,7 +1522,7 @@ ALTER TABLE ONLY public.exemplaires
 
 
 --
--- TOC entry 4826 (class 2606 OID 22380)
+-- TOC entry 4839 (class 2606 OID 28313)
 -- Name: familles pk_familles; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1528,7 +1531,7 @@ ALTER TABLE ONLY public.familles
 
 
 --
--- TOC entry 4856 (class 2606 OID 27944)
+-- TOC entry 4841 (class 2606 OID 28315)
 -- Name: famillespromotions pk_famillespromotions; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1537,7 +1540,7 @@ ALTER TABLE ONLY public.famillespromotions
 
 
 --
--- TOC entry 4830 (class 2606 OID 22392)
+-- TOC entry 4843 (class 2606 OID 28317)
 -- Name: filesattentes pk_filesattentes; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1546,7 +1549,7 @@ ALTER TABLE ONLY public.filesattentes
 
 
 --
--- TOC entry 4834 (class 2606 OID 22399)
+-- TOC entry 4847 (class 2606 OID 28319)
 -- Name: jouerroles pk_jouerroles; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1555,7 +1558,7 @@ ALTER TABLE ONLY public.jouerroles
 
 
 --
--- TOC entry 4836 (class 2606 OID 22406)
+-- TOC entry 4849 (class 2606 OID 28321)
 -- Name: missions pk_missions; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1564,7 +1567,7 @@ ALTER TABLE ONLY public.missions
 
 
 --
--- TOC entry 4898 (class 2606 OID 27788)
+-- TOC entry 4851 (class 2606 OID 28323)
 -- Name: mouvementcaisses pk_mouvementcaisses; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1573,7 +1576,7 @@ ALTER TABLE ONLY public.mouvementcaisses
 
 
 --
--- TOC entry 4838 (class 2606 OID 22418)
+-- TOC entry 4853 (class 2606 OID 28325)
 -- Name: mouvements pk_mouvements; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1582,7 +1585,7 @@ ALTER TABLE ONLY public.mouvements
 
 
 --
--- TOC entry 4844 (class 2606 OID 22435)
+-- TOC entry 4855 (class 2606 OID 28327)
 -- Name: ordreetats pk_ordreetats; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1591,7 +1594,7 @@ ALTER TABLE ONLY public.ordreetats
 
 
 --
--- TOC entry 4846 (class 2606 OID 22442)
+-- TOC entry 4857 (class 2606 OID 28329)
 -- Name: parcours pk_parcours; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1600,7 +1603,7 @@ ALTER TABLE ONLY public.parcours
 
 
 --
--- TOC entry 4848 (class 2606 OID 22449)
+-- TOC entry 4859 (class 2606 OID 28331)
 -- Name: personnels pk_personnels; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1609,7 +1612,7 @@ ALTER TABLE ONLY public.personnels
 
 
 --
--- TOC entry 4888 (class 2606 OID 27708)
+-- TOC entry 4861 (class 2606 OID 28333)
 -- Name: personnes pk_personnes; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1618,7 +1621,7 @@ ALTER TABLE ONLY public.personnes
 
 
 --
--- TOC entry 4886 (class 2606 OID 27685)
+-- TOC entry 4863 (class 2606 OID 28335)
 -- Name: personnes_s pk_personnes_s; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1627,7 +1630,7 @@ ALTER TABLE ONLY public.personnes_s
 
 
 --
--- TOC entry 4852 (class 2606 OID 22482)
+-- TOC entry 4865 (class 2606 OID 28337)
 -- Name: precomouvements pk_precomouvements; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1636,7 +1639,7 @@ ALTER TABLE ONLY public.precomouvements
 
 
 --
--- TOC entry 4854 (class 2606 OID 22489)
+-- TOC entry 4867 (class 2606 OID 28339)
 -- Name: precomouvementsqtes pk_precomouvementsqtes; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1645,7 +1648,7 @@ ALTER TABLE ONLY public.precomouvementsqtes
 
 
 --
--- TOC entry 4858 (class 2606 OID 22506)
+-- TOC entry 4869 (class 2606 OID 28341)
 -- Name: promotions pk_promotions; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1654,7 +1657,7 @@ ALTER TABLE ONLY public.promotions
 
 
 --
--- TOC entry 4850 (class 2606 OID 27965)
+-- TOC entry 4873 (class 2606 OID 28343)
 -- Name: rattacher pk_rattacher; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1663,7 +1666,7 @@ ALTER TABLE ONLY public.rattacher
 
 
 --
--- TOC entry 4862 (class 2606 OID 22513)
+-- TOC entry 4875 (class 2606 OID 28345)
 -- Name: remplir pk_remplir; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1672,7 +1675,7 @@ ALTER TABLE ONLY public.remplir
 
 
 --
--- TOC entry 4840 (class 2606 OID 27963)
+-- TOC entry 4877 (class 2606 OID 28347)
 -- Name: respecter pk_respecter; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1681,7 +1684,7 @@ ALTER TABLE ONLY public.respecter
 
 
 --
--- TOC entry 4864 (class 2606 OID 22520)
+-- TOC entry 4879 (class 2606 OID 28349)
 -- Name: ressources pk_ressources; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1690,7 +1693,7 @@ ALTER TABLE ONLY public.ressources
 
 
 --
--- TOC entry 4866 (class 2606 OID 27942)
+-- TOC entry 4881 (class 2606 OID 28351)
 -- Name: ressourcespromotions pk_ressourcespromotions; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1699,7 +1702,7 @@ ALTER TABLE ONLY public.ressourcespromotions
 
 
 --
--- TOC entry 4868 (class 2606 OID 22532)
+-- TOC entry 4883 (class 2606 OID 28353)
 -- Name: roles pk_roles; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1708,7 +1711,7 @@ ALTER TABLE ONLY public.roles
 
 
 --
--- TOC entry 4828 (class 2606 OID 27955)
+-- TOC entry 4885 (class 2606 OID 28355)
 -- Name: sapplique pk_sapplique; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1717,7 +1720,7 @@ ALTER TABLE ONLY public.sapplique
 
 
 --
--- TOC entry 4870 (class 2606 OID 22539)
+-- TOC entry 4887 (class 2606 OID 28357)
 -- Name: services pk_services; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1726,7 +1729,7 @@ ALTER TABLE ONLY public.services
 
 
 --
--- TOC entry 4820 (class 2606 OID 27957)
+-- TOC entry 4893 (class 2606 OID 28359)
 -- Name: suivre pk_suivre; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1735,7 +1738,7 @@ ALTER TABLE ONLY public.suivre
 
 
 --
--- TOC entry 4876 (class 2606 OID 22546)
+-- TOC entry 4895 (class 2606 OID 28361)
 -- Name: tickets pk_tickets; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1744,7 +1747,7 @@ ALTER TABLE ONLY public.tickets
 
 
 --
--- TOC entry 4878 (class 2606 OID 22553)
+-- TOC entry 4897 (class 2606 OID 28363)
 -- Name: ticketsfilesattentes pk_ticketsfilesattentes; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1753,7 +1756,16 @@ ALTER TABLE ONLY public.ticketsfilesattentes
 
 
 --
--- TOC entry 4880 (class 2606 OID 22560)
+-- TOC entry 4899 (class 2606 OID 28676)
+-- Name: traiter pk_traiter; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.traiter
+    ADD CONSTRAINT pk_traiter PRIMARY KEY (missions_id, documents_id);
+
+
+--
+-- TOC entry 4901 (class 2606 OID 28365)
 -- Name: validations pk_validations; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1762,7 +1774,7 @@ ALTER TABLE ONLY public.validations
 
 
 --
--- TOC entry 4842 (class 2606 OID 27961)
+-- TOC entry 4903 (class 2606 OID 28367)
 -- Name: violer pk_violer; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1771,7 +1783,7 @@ ALTER TABLE ONLY public.violer
 
 
 --
--- TOC entry 4832 (class 2606 OID 22772)
+-- TOC entry 4845 (class 2606 OID 28369)
 -- Name: filesattentes uc_filesattentes_services; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1780,7 +1792,7 @@ ALTER TABLE ONLY public.filesattentes
 
 
 --
--- TOC entry 4860 (class 2606 OID 22655)
+-- TOC entry 4871 (class 2606 OID 28371)
 -- Name: promotions uc_promotions_codeunique; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1789,7 +1801,7 @@ ALTER TABLE ONLY public.promotions
 
 
 --
--- TOC entry 4872 (class 2606 OID 22621)
+-- TOC entry 4889 (class 2606 OID 28373)
 -- Name: services uc_services_codeunique; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1798,7 +1810,7 @@ ALTER TABLE ONLY public.services
 
 
 --
--- TOC entry 4874 (class 2606 OID 22623)
+-- TOC entry 4891 (class 2606 OID 28375)
 -- Name: services uc_services_filesattentes; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1807,7 +1819,7 @@ ALTER TABLE ONLY public.services
 
 
 --
--- TOC entry 4902 (class 2606 OID 22828)
+-- TOC entry 4904 (class 2606 OID 28376)
 -- Name: associer fk_associer_on_attributs; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1816,7 +1828,7 @@ ALTER TABLE ONLY public.associer
 
 
 --
--- TOC entry 4903 (class 2606 OID 22833)
+-- TOC entry 4905 (class 2606 OID 28381)
 -- Name: associer fk_associer_on_categories; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1825,7 +1837,7 @@ ALTER TABLE ONLY public.associer
 
 
 --
--- TOC entry 4901 (class 2606 OID 22838)
+-- TOC entry 4906 (class 2606 OID 28386)
 -- Name: categories fk_categories_on_documents; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1834,7 +1846,7 @@ ALTER TABLE ONLY public.categories
 
 
 --
--- TOC entry 4947 (class 2606 OID 27772)
+-- TOC entry 4907 (class 2606 OID 28391)
 -- Name: comptes fk_comptes_personnes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1843,7 +1855,7 @@ ALTER TABLE ONLY public.comptes
 
 
 --
--- TOC entry 4904 (class 2606 OID 22793)
+-- TOC entry 4910 (class 2606 OID 28396)
 -- Name: constituer fk_con_on_attributs_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1852,7 +1864,7 @@ ALTER TABLE ONLY public.constituer
 
 
 --
--- TOC entry 4905 (class 2606 OID 22798)
+-- TOC entry 4911 (class 2606 OID 28401)
 -- Name: constituer fk_con_on_documents_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1861,7 +1873,7 @@ ALTER TABLE ONLY public.constituer
 
 
 --
--- TOC entry 4953 (class 2606 OID 27829)
+-- TOC entry 4908 (class 2606 OID 28406)
 -- Name: concerner fk_concerner_on_distributeurs_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1870,7 +1882,7 @@ ALTER TABLE ONLY public.concerner
 
 
 --
--- TOC entry 4954 (class 2606 OID 27834)
+-- TOC entry 4909 (class 2606 OID 28411)
 -- Name: concerner fk_concerner_on_preco_mouvements_qtes_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1879,7 +1891,7 @@ ALTER TABLE ONLY public.concerner
 
 
 --
--- TOC entry 4945 (class 2606 OID 27762)
+-- TOC entry 4912 (class 2606 OID 28416)
 -- Name: deltasoldes fk_deltasoldes_comptes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1888,7 +1900,7 @@ ALTER TABLE ONLY public.deltasoldes
 
 
 --
--- TOC entry 4946 (class 2606 OID 27767)
+-- TOC entry 4913 (class 2606 OID 28421)
 -- Name: deltasoldes fk_deltasoldes_exemplaires; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1897,7 +1909,7 @@ ALTER TABLE ONLY public.deltasoldes
 
 
 --
--- TOC entry 4925 (class 2606 OID 22661)
+-- TOC entry 4920 (class 2606 OID 28426)
 -- Name: documentspromotions fk_doc_on_documents_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1906,7 +1918,7 @@ ALTER TABLE ONLY public.documentspromotions
 
 
 --
--- TOC entry 4926 (class 2606 OID 22666)
+-- TOC entry 4921 (class 2606 OID 28431)
 -- Name: documentspromotions fk_doc_on_promotions_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1915,7 +1927,7 @@ ALTER TABLE ONLY public.documentspromotions
 
 
 --
--- TOC entry 4938 (class 2606 OID 22585)
+-- TOC entry 4914 (class 2606 OID 28436)
 -- Name: docetats fk_docetats_on_documents; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1924,7 +1936,7 @@ ALTER TABLE ONLY public.docetats
 
 
 --
--- TOC entry 4939 (class 2606 OID 22590)
+-- TOC entry 4915 (class 2606 OID 28441)
 -- Name: docetats fk_docetats_on_etapes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1933,7 +1945,7 @@ ALTER TABLE ONLY public.docetats
 
 
 --
--- TOC entry 4940 (class 2606 OID 22595)
+-- TOC entry 4916 (class 2606 OID 28446)
 -- Name: docetats fk_docetats_on_etats; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1942,7 +1954,7 @@ ALTER TABLE ONLY public.docetats
 
 
 --
--- TOC entry 4941 (class 2606 OID 22600)
+-- TOC entry 4917 (class 2606 OID 28451)
 -- Name: docetats fk_docetats_on_validations; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1951,7 +1963,7 @@ ALTER TABLE ONLY public.docetats
 
 
 --
--- TOC entry 4942 (class 2606 OID 22575)
+-- TOC entry 4918 (class 2606 OID 28456)
 -- Name: docetats_predecesseurs fk_docetats_predecesseurs_on_docetats; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1960,7 +1972,7 @@ ALTER TABLE ONLY public.docetats_predecesseurs
 
 
 --
--- TOC entry 4943 (class 2606 OID 22580)
+-- TOC entry 4919 (class 2606 OID 28461)
 -- Name: docetats_predecesseurs fk_docetats_predecesseurs_suivant_on_docetats; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1969,7 +1981,7 @@ ALTER TABLE ONLY public.docetats_predecesseurs
 
 
 --
--- TOC entry 4908 (class 2606 OID 22788)
+-- TOC entry 4922 (class 2606 OID 28466)
 -- Name: etapes fk_etapes_on_parcours; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1978,7 +1990,7 @@ ALTER TABLE ONLY public.etapes
 
 
 --
--- TOC entry 4948 (class 2606 OID 27757)
+-- TOC entry 4923 (class 2606 OID 28471)
 -- Name: exemplaires fk_exemplaires_personnes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1987,7 +1999,7 @@ ALTER TABLE ONLY public.exemplaires
 
 
 --
--- TOC entry 4927 (class 2606 OID 22671)
+-- TOC entry 4924 (class 2606 OID 28476)
 -- Name: famillespromotions fk_fam_on_familles_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1996,7 +2008,7 @@ ALTER TABLE ONLY public.famillespromotions
 
 
 --
--- TOC entry 4928 (class 2606 OID 22676)
+-- TOC entry 4925 (class 2606 OID 28481)
 -- Name: famillespromotions fk_fam_on_promotions_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2005,7 +2017,7 @@ ALTER TABLE ONLY public.famillespromotions
 
 
 --
--- TOC entry 4911 (class 2606 OID 22773)
+-- TOC entry 4926 (class 2606 OID 28486)
 -- Name: filesattentes fk_filesattentes_on_services; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2014,7 +2026,7 @@ ALTER TABLE ONLY public.filesattentes
 
 
 --
--- TOC entry 4912 (class 2606 OID 22761)
+-- TOC entry 4927 (class 2606 OID 28491)
 -- Name: jouerroles fk_jouerroles_on_personnels; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2023,7 +2035,7 @@ ALTER TABLE ONLY public.jouerroles
 
 
 --
--- TOC entry 4913 (class 2606 OID 22766)
+-- TOC entry 4928 (class 2606 OID 28496)
 -- Name: jouerroles fk_jouerroles_on_roles; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2032,7 +2044,7 @@ ALTER TABLE ONLY public.jouerroles
 
 
 --
--- TOC entry 4914 (class 2606 OID 22746)
+-- TOC entry 4929 (class 2606 OID 28501)
 -- Name: missions fk_missions_on_services; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2041,7 +2053,7 @@ ALTER TABLE ONLY public.missions
 
 
 --
--- TOC entry 4949 (class 2606 OID 27789)
+-- TOC entry 4930 (class 2606 OID 28506)
 -- Name: mouvementcaisses fk_mouvementcaisses_caisses; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2050,7 +2062,7 @@ ALTER TABLE ONLY public.mouvementcaisses
 
 
 --
--- TOC entry 4950 (class 2606 OID 27794)
+-- TOC entry 4931 (class 2606 OID 28511)
 -- Name: mouvementcaisses fk_mouvementcaisses_comptes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2059,7 +2071,7 @@ ALTER TABLE ONLY public.mouvementcaisses
 
 
 --
--- TOC entry 4951 (class 2606 OID 27799)
+-- TOC entry 4932 (class 2606 OID 28516)
 -- Name: mouvementcaisses fk_mouvementcaisses_personnels; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2068,7 +2080,7 @@ ALTER TABLE ONLY public.mouvementcaisses
 
 
 --
--- TOC entry 4917 (class 2606 OID 22721)
+-- TOC entry 4934 (class 2606 OID 28521)
 -- Name: mouvements fk_mouvements_on_ressources; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2077,7 +2089,7 @@ ALTER TABLE ONLY public.mouvements
 
 
 --
--- TOC entry 4952 (class 2606 OID 27804)
+-- TOC entry 4933 (class 2606 OID 28526)
 -- Name: mouvementcaisses fk_mouvementscaisses_exemplaires; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2086,7 +2098,7 @@ ALTER TABLE ONLY public.mouvementcaisses
 
 
 --
--- TOC entry 4922 (class 2606 OID 22711)
+-- TOC entry 4935 (class 2606 OID 28531)
 -- Name: ordreetats fk_ordreetats_on_etats; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2095,7 +2107,7 @@ ALTER TABLE ONLY public.ordreetats
 
 
 --
--- TOC entry 4944 (class 2606 OID 27777)
+-- TOC entry 4936 (class 2606 OID 28536)
 -- Name: personnes fk_personnes_comptes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2104,7 +2116,7 @@ ALTER TABLE ONLY public.personnes
 
 
 --
--- TOC entry 4923 (class 2606 OID 22681)
+-- TOC entry 4937 (class 2606 OID 28541)
 -- Name: precomouvementsqtes fk_precomouvementsqtes_on_precomouvements; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2113,7 +2125,7 @@ ALTER TABLE ONLY public.precomouvementsqtes
 
 
 --
--- TOC entry 4924 (class 2606 OID 22686)
+-- TOC entry 4938 (class 2606 OID 28546)
 -- Name: precomouvementsqtes fk_precomouvementsqtes_on_ressources; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2122,7 +2134,7 @@ ALTER TABLE ONLY public.precomouvementsqtes
 
 
 --
--- TOC entry 4929 (class 2606 OID 22644)
+-- TOC entry 4939 (class 2606 OID 28551)
 -- Name: remplir fk_remplir_on_missions; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2131,7 +2143,7 @@ ALTER TABLE ONLY public.remplir
 
 
 --
--- TOC entry 4930 (class 2606 OID 22649)
+-- TOC entry 4940 (class 2606 OID 28556)
 -- Name: remplir fk_remplir_on_roles; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2140,7 +2152,7 @@ ALTER TABLE ONLY public.remplir
 
 
 --
--- TOC entry 4932 (class 2606 OID 22634)
+-- TOC entry 4944 (class 2606 OID 28561)
 -- Name: ressourcespromotions fk_res_on_promotions_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2149,7 +2161,7 @@ ALTER TABLE ONLY public.ressourcespromotions
 
 
 --
--- TOC entry 4933 (class 2606 OID 22639)
+-- TOC entry 4945 (class 2606 OID 28566)
 -- Name: ressourcespromotions fk_res_on_ressources_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2158,7 +2170,7 @@ ALTER TABLE ONLY public.ressourcespromotions
 
 
 --
--- TOC entry 4918 (class 2606 OID 22726)
+-- TOC entry 4941 (class 2606 OID 28571)
 -- Name: respecter fk_respecter_on_mouvements_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2167,7 +2179,7 @@ ALTER TABLE ONLY public.respecter
 
 
 --
--- TOC entry 4919 (class 2606 OID 22731)
+-- TOC entry 4942 (class 2606 OID 28576)
 -- Name: respecter fk_respecter_on_preco_mouvements_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2176,7 +2188,7 @@ ALTER TABLE ONLY public.respecter
 
 
 --
--- TOC entry 4931 (class 2606 OID 22629)
+-- TOC entry 4943 (class 2606 OID 28581)
 -- Name: ressources fk_ressources_on_familles; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2185,7 +2197,7 @@ ALTER TABLE ONLY public.ressources
 
 
 --
--- TOC entry 4909 (class 2606 OID 22778)
+-- TOC entry 4946 (class 2606 OID 28586)
 -- Name: sapplique fk_sapplique_on_familles_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2194,7 +2206,7 @@ ALTER TABLE ONLY public.sapplique
 
 
 --
--- TOC entry 4910 (class 2606 OID 22783)
+-- TOC entry 4947 (class 2606 OID 28591)
 -- Name: sapplique fk_sapplique_on_preco_mouvements_qtes_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2203,7 +2215,7 @@ ALTER TABLE ONLY public.sapplique
 
 
 --
--- TOC entry 4934 (class 2606 OID 22624)
+-- TOC entry 4948 (class 2606 OID 28596)
 -- Name: services fk_services_on_filesattentes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2212,7 +2224,7 @@ ALTER TABLE ONLY public.services
 
 
 --
--- TOC entry 4906 (class 2606 OID 22803)
+-- TOC entry 4949 (class 2606 OID 28601)
 -- Name: suivre fk_suivre_on_documents_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2221,7 +2233,7 @@ ALTER TABLE ONLY public.suivre
 
 
 --
--- TOC entry 4907 (class 2606 OID 22808)
+-- TOC entry 4950 (class 2606 OID 28606)
 -- Name: suivre fk_suivre_on_preco_mouvements_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2230,7 +2242,7 @@ ALTER TABLE ONLY public.suivre
 
 
 --
--- TOC entry 4935 (class 2606 OID 22610)
+-- TOC entry 4951 (class 2606 OID 28611)
 -- Name: ticketsfilesattentes fk_ticketsfilesattentes_on_filesattentes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2239,7 +2251,7 @@ ALTER TABLE ONLY public.ticketsfilesattentes
 
 
 --
--- TOC entry 4936 (class 2606 OID 22615)
+-- TOC entry 4952 (class 2606 OID 28616)
 -- Name: ticketsfilesattentes fk_ticketsfilesattentes_on_tickets; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2248,7 +2260,7 @@ ALTER TABLE ONLY public.ticketsfilesattentes
 
 
 --
--- TOC entry 4915 (class 2606 OID 22751)
+-- TOC entry 4953 (class 2606 OID 28621)
 -- Name: traiter fk_traiter_on_documents_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2257,7 +2269,7 @@ ALTER TABLE ONLY public.traiter
 
 
 --
--- TOC entry 4916 (class 2606 OID 22756)
+-- TOC entry 4954 (class 2606 OID 28626)
 -- Name: traiter fk_traiter_on_missions_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2266,7 +2278,7 @@ ALTER TABLE ONLY public.traiter
 
 
 --
--- TOC entry 4937 (class 2606 OID 22605)
+-- TOC entry 4955 (class 2606 OID 28631)
 -- Name: validations fk_validations_on_roles; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2275,7 +2287,7 @@ ALTER TABLE ONLY public.validations
 
 
 --
--- TOC entry 4920 (class 2606 OID 22736)
+-- TOC entry 4956 (class 2606 OID 28636)
 -- Name: violer fk_violer_on_mouvements_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2284,7 +2296,7 @@ ALTER TABLE ONLY public.violer
 
 
 --
--- TOC entry 4921 (class 2606 OID 22741)
+-- TOC entry 4957 (class 2606 OID 28641)
 -- Name: violer fk_violer_on_preco_mouvements_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2292,7 +2304,7 @@ ALTER TABLE ONLY public.violer
     ADD CONSTRAINT fk_violer_on_preco_mouvements_entity FOREIGN KEY (precomouvements_id) REFERENCES public.precomouvements(id);
 
 
--- Completed on 2024-08-25 22:59:35
+-- Completed on 2024-08-29 14:34:22
 
 --
 -- PostgreSQL database dump complete

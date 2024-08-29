@@ -2,9 +2,7 @@ package cmr.notep.business;
 
 import cmr.notep.dao.DaoAccessorService;
 import cmr.notep.modele.PersonnesMorale;
-import cmr.notep.modele.PersonnesPhysique;
 import cmr.notep.repository.PersonneMoraleRepository;
-import cmr.notep.repository.PersonnePhysiqueRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,5 +36,13 @@ public class PersonnesMoraleBusiness {
         return daoAccessorService.getRepository(PersonneMoraleRepository.class).findByRaisonSociale(value)
                 .stream().map(cat ->dozerMapperBean.map(cat, PersonnesMorale.class))
                 .collect(Collectors.toList());
+    }
+
+    public List<PersonnesMorale> avoirToutPersonnesMorale() {
+
+        return this.daoAccessorService.getRepository(PersonneMoraleRepository.class).findAll()
+                .stream().map(personnesmorale ->dozerMapperBean.map(personnesmorale, PersonnesMorale.class))
+                .toList();
+
     }
 }
