@@ -3,7 +3,6 @@ package cmr.notep.business;
 import cmr.notep.dao.DaoAccessorService;
 import cmr.notep.dao.PersonnesEntity;
 import cmr.notep.modele.*;
-import cmr.notep.repository.PersonnePhysiqueRepository;
 import cmr.notep.repository.PersonnesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
@@ -77,9 +76,12 @@ public class PersonnesBusiness {
 
     public List<Personnes> avoirToutPersonnes() {
 
-        return daoAccessorService.getRepository(PersonnesRepository.class).findAll()
-                .stream().map(cat ->dozerMapperBean.map(cat, Personnes.class))
+        List<PersonnesEntity> list_personnes_entity = daoAccessorService.getRepository(PersonnesRepository.class).findAll() ;
+
+        List<Personnes> list_persones = list_personnes_entity.stream().map(cat ->dozerMapperBean.map(cat, Personnes.class))
                 .collect(Collectors.toList());
+
+        return list_persones;
     }
 
     public void supprimerPersonne(@NotNull Personnes Personnes)

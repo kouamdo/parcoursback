@@ -7,10 +7,11 @@ import cmr.notep.dao.PersonnesPhysiquesEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+@Repository
 public interface PersonnesRepository extends JpaRepository<PersonnesEntity, String> {
 
     @Query(value = "SELECT p.id, p.comptes_id,p.raisonsociale, p.code, p.datemodification, "+

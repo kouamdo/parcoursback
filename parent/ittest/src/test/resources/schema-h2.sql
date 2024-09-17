@@ -232,7 +232,7 @@ CREATE TABLE IF NOT EXISTS comptes (
     etat    VARCHAR(255),
     montantdecouvertmax             DOUBLE PRECISION,
     libelle VARCHAR(255),
-    personnes_id VARCHAR(255),
+    personnes_id VARCHAR(255) NOT NULL,
     CONSTRAINT pk_comptes PRIMARY KEY (id)
 );
 
@@ -461,14 +461,263 @@ CREATE TABLE IF NOT EXISTS docetats_predecesseurs
     CONSTRAINT pk_docetats_predecesseurs PRIMARY KEY (docetats_id, predecesseur_id)
 );
 
---CREATE TABLE IF NOT EXISTS mouvpreco
---(
---    id_precomouvements VARCHAR(255) NOT NULL,
---    id_mouvements VARCHAR(255) NOT NULL,
---    CONSTRAINT pk_mouvpreco PRIMARY KEY (id_precomouvements,id_mouvements),
---    CONSTRAINT fk_mouvpreco_precomouvements FOREIGN KEY (id_precomouvements) REFERENCES precomouvements(id),
---    CONSTRAINT fk_mouvpreco_mouvements FOREIGN KEY (id_mouvements) REFERENCES mouvements(id)
---);
+
+
+CREATE TABLE actions (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255),
+    etat BOOLEAN,
+    datecreation DATE,
+    datemodification DATE,
+    elementsbase_id VARCHAR(255)
+);
+
+CREATE TABLE elementsbases (
+
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255),
+    etat BOOLEAN,
+    datesouscription DATE,
+    datemodification DATE,
+    moduleangular VARCHAR(255)
+);
+
+CREATE TABLE actionslangues (
+
+    langues_id VARCHAR(255),
+    actions_id VARCHAR(255),
+    valeurlibelle VARCHAR(255)
+);
+
+CREATE TABLE langues (
+
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255),
+    etat BOOLEAN,
+    datesouscription DATE,
+    datemodification DATE
+);
+
+CREATE TABLE elementsbaselanques (
+
+    langues_id VARCHAR(255),
+    elementsbases_id VARCHAR(255),
+    valeurlibelle VARCHAR(255)
+);
+
+CREATE TABLE elementslangues(
+    langues_id VARCHAR(255),
+    elements_id VARCHAR(255),
+    valeurlibelle VARCHAR(255)
+);
+
+CREATE TABLE elements(
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255),
+    etat BOOLEAN,
+    datesouscription DATE,
+    datemodification DATE,
+    menus_id VARCHAR(255),
+    elementsbases_id VARCHAR(255)
+);
+
+CREATE TABLE menus (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    etat BOOLEAN,
+    datecreation DATE,
+    utilisateurs_id VARCHAR(255),
+    groupes_id VARCHAR(255)
+);
+
+CREATE TABLE utilisateurs (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    login VARCHAR(255),
+    mdp VARCHAR(255),
+    etat VARCHAR(255),
+    datecreation DATE,
+    datemodification DATE,
+    groupes_id VARCHAR(255),
+    menus_id VARCHAR(255)
+);
+
+CREATE TABLE organisations (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    raisonsociale VARCHAR(255),
+);
+
+CREATE TABLE organiser (
+    organisations_id VARCHAR(255),
+    utilisateurs_id VARCHAR(255)
+);
+
+CREATE TABLE groupes (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255),
+    etat BOOLEAN,
+    datecreation DATE,
+    datemodification DATE,
+    menus_id VARCHAR(255)
+);
+
+CREATE TABLE actions (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255),
+    etat BOOLEAN,
+    datecreation DATE,
+    datemodification DATE,
+    elementsbase_id VARCHAR(255)
+);
+
+CREATE TABLE elementsbases (
+
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255),
+    etat BOOLEAN,
+    datesouscription DATE,
+    datemodification DATE,
+    moduleangular VARCHAR(255)
+);
+
+CREATE TABLE actionslangues (
+
+    langues_id VARCHAR(255),
+    actions_id VARCHAR(255),
+    valeurlibelle VARCHAR(255)
+);
+
+CREATE TABLE langues (
+
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255),
+    etat BOOLEAN,
+    datesouscription DATE,
+    datemodification DATE
+);
+
+CREATE TABLE elementsbaselanques (
+
+    langues_id VARCHAR(255),
+    elementsbases_id VARCHAR(255),
+    valeurlibelle VARCHAR(255)
+);
+
+CREATE TABLE elementslangues(
+    langues_id VARCHAR(255),
+    elements_id VARCHAR(255),
+    valeurlibelle VARCHAR(255)
+);
+
+CREATE TABLE elements(
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255),
+    etat BOOLEAN,
+    datesouscription DATE,
+    datemodification DATE,
+    menus_id VARCHAR(255),
+    elementsbases_id VARCHAR(255)
+);
+
+CREATE TABLE menus (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    etat BOOLEAN,
+    datecreation DATE,
+    utilisateurs_id VARCHAR(255),
+    groupes_id VARCHAR(255)
+);
+
+CREATE TABLE utilisateurs (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    login VARCHAR(255),
+    mdp VARCHAR(255),
+    etat VARCHAR(255),
+    datecreation DATE,
+    datemodification DATE,
+    groupes_id VARCHAR(255),
+    menus_id VARCHAR(255)
+);
+
+CREATE TABLE organisations (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    raisonsociale VARCHAR(255)
+);
+
+CREATE TABLE organiser (
+    organisations_id VARCHAR(255),
+    utilisateurs_id VARCHAR(255)
+);
+
+CREATE TABLE groupes (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    libelle VARCHAR(255),
+    etat BOOLEAN,
+    datecreation DATE,
+    datemodification DATE,
+    menus_id VARCHAR(255)
+);
+
+ALTER TABLE groupes ADD CONSTRAINT FK_MENUS_GROUPES
+    FOREIGN KEY (menus_id) REFERENCES menus(id);
+
+ALTER TABLE organiser  ADD CONSTRAINT FK_ORGANISATION_ORGANISER
+    FOREIGN KEY (organisations_id) REFERENCES organisations(id);
+
+ALTER TABLE organiser  ADD CONSTRAINT FK_UTILISATEURS_ORGANISER
+    FOREIGN KEY (utilisateurs_id) REFERENCES utilisateurs(id);
+
+ALTER TABLE organiser ADD CONSTRAINT PK_ORGANISER
+    PRIMARY KEY (organisations_id,utilisateurs_id);
+
+ALTER TABLE utilisateurs ADD CONSTRAINT FK_GROUPES_UTILISATEURS
+    FOREIGN KEY (groupes_id) REFERENCES groupes(id);
+
+ALTER TABLE utilisateurs ADD CONSTRAINT FK_MENUS_UTILISATEURS
+    FOREIGN KEY (menus_id) REFERENCES menus(id);
+
+ALTER TABLE menus ADD CONSTRAINT FK_UTILISATEUR_MENUS
+    FOREIGN KEY (utilisateurs_id) REFERENCES utilisateurs(id);
+
+ALTER TABLE menus ADD CONSTRAINT FK_GROUPES_MENUS
+    FOREIGN KEY (groupes_id) REFERENCES groupes(id);
+
+ALTER TABLE elements ADD CONSTRAINT PK_COMPOSITE_ELEMENTS
+    UNIQUE (menus_id,elementsbases_id);
+
+ALTER TABLE elements ADD CONSTRAINT FK_MENUS_ELEMENTS
+    FOREIGN KEY (menus_id) REFERENCES menus(id);
+
+ALTER TABLE elements ADD CONSTRAINT FK_ELEMENTSBASE_ELEMENTS
+    FOREIGN KEY (elementsbases_id) REFERENCES elementsbases(id);
+
+ALTER TABLE elementslangues ADD CONSTRAINT FK_LANGUES_ELEMENTSLANGUES
+    FOREIGN KEY (langues_id) REFERENCES langues(id);
+
+ALTER TABLE elementslangues ADD CONSTRAINT FK_ELEMENTS_ELEMENTSLANGUES
+    FOREIGN KEY (elements_id) REFERENCES elements(id);
+
+ALTER TABLE elementslangues ADD CONSTRAINT PK_ELEMENTSLANGUES
+    PRIMARY KEY (langues_id,elements_id);
+
+ALTER TABLE elementsbaselanques ADD CONSTRAINT FK_ELEMENTSBASE_ELEMENTSBASELANGUES
+    FOREIGN KEY (elementsbases_id) REFERENCES elementsbases(id);
+
+ALTER TABLE elementsbaselanques ADD CONSTRAINT FK_LANGUES_ELEMENTSBASELANGUES
+    FOREIGN KEY (langues_id) REFERENCES langues(id);
+
+ALTER TABLE elementsbaselanques ADD CONSTRAINT PK_ELEMENTSBASESLANGUES
+    PRIMARY KEY (langues_id,elementsbases_id);
+
+ALTER TABLE actionslangues ADD CONSTRAINT FK_ACTIONS_ACTIONSLANGUES
+    FOREIGN KEY (actions_id) REFERENCES actions(id);
+
+ALTER TABLE actionslangues ADD CONSTRAINT FK_LANGUES_ACTIONSLANGUES
+    FOREIGN KEY (langues_id) REFERENCES langues(id);
+
+ALTER TABLE actionslangues ADD CONSTRAINT PK_ACTIONSLANGUES
+    PRIMARY KEY (langues_id,actions_id);
+
+ALTER TABLE actions ADD CONSTRAINT FK_ACTIONS_ELEMENTBASES
+    FOREIGN KEY (elementsbase_id) REFERENCES elementsbases(id);
+
 ALTER TABLE mouvementcaisses
     ADD CONSTRAINT FK_MOUVEMENTCAISSES_CAISSES FOREIGN KEY (caisses_id) REFERENCES caisses(id);
 ALTER TABLE mouvementcaisses
