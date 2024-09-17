@@ -718,6 +718,9 @@ ALTER TABLE actionslangues ADD CONSTRAINT PK_ACTIONSLANGUES
 ALTER TABLE actions ADD CONSTRAINT FK_ACTIONS_ELEMENTBASES
     FOREIGN KEY (elementsbase_id) REFERENCES elementsbases(id);
 
+alter table mouvements add constraint fk_distributeurs_mouvements
+foreign key (distributeurs_id) references personnes(id);
+
 ALTER TABLE mouvementcaisses
     ADD CONSTRAINT FK_MOUVEMENTCAISSES_CAISSES FOREIGN KEY (caisses_id) REFERENCES caisses(id);
 ALTER TABLE mouvementcaisses
@@ -743,6 +746,9 @@ ALTER TABLE docetats_predecesseurs
 
 ALTER TABLE docetats
     ADD CONSTRAINT FK_DOCETATS_ON_DOCUMENTS FOREIGN KEY (documents_id) REFERENCES documents (id);
+
+alter table promotions add constraint fk_distributeurs_promotions
+foreign key (distributeurs_id) references personnes(id);
 
 ALTER TABLE docetats
     ADD CONSTRAINT FK_DOCETATS_ON_ETAPES FOREIGN KEY (etapes_id) REFERENCES etapes (id);

@@ -5,7 +5,7 @@
 -- Dumped from database version 16.3
 -- Dumped by pg_dump version 16.3
 
--- Started on 2024-09-17 17:05:25
+-- Started on 2024-09-17 20:03:22
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,7 +19,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 5252 (class 1262 OID 28060)
+-- TOC entry 5254 (class 1262 OID 28060)
 -- Name: parcoursbackv2; Type: DATABASE; Schema: -; Owner: postgres
 --
 
@@ -990,7 +990,7 @@ CREATE TABLE public.violer (
 ALTER TABLE public.violer OWNER TO postgres;
 
 --
--- TOC entry 5235 (class 0 OID 28677)
+-- TOC entry 5237 (class 0 OID 28677)
 -- Dependencies: 259
 -- Data for Name: actions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -998,7 +998,7 @@ ALTER TABLE public.violer OWNER TO postgres;
 
 
 --
--- TOC entry 5237 (class 0 OID 28691)
+-- TOC entry 5239 (class 0 OID 28691)
 -- Dependencies: 261
 -- Data for Name: actionslangues; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1006,7 +1006,7 @@ ALTER TABLE public.violer OWNER TO postgres;
 
 
 --
--- TOC entry 5191 (class 0 OID 28061)
+-- TOC entry 5193 (class 0 OID 28061)
 -- Dependencies: 215
 -- Data for Name: associer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1027,7 +1027,7 @@ INSERT INTO public.associer (obligatoire, ordre, attributs_id, categories_id) VA
 
 
 --
--- TOC entry 5192 (class 0 OID 28066)
+-- TOC entry 5194 (class 0 OID 28066)
 -- Dependencies: 216
 -- Data for Name: attributs; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1045,7 +1045,7 @@ INSERT INTO public.attributs (id, titre, description, etat, datecreation, datemo
 
 
 --
--- TOC entry 5193 (class 0 OID 28072)
+-- TOC entry 5195 (class 0 OID 28072)
 -- Dependencies: 217
 -- Data for Name: caisses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1057,7 +1057,7 @@ INSERT INTO public.caisses (id, libelle, solde, type, detailjson) VALUES ('f0a7b
 
 
 --
--- TOC entry 5194 (class 0 OID 28077)
+-- TOC entry 5196 (class 0 OID 28077)
 -- Dependencies: 218
 -- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1074,7 +1074,7 @@ INSERT INTO public.categories (id, ordre, libelle, etat, datecreation, datemodif
 
 
 --
--- TOC entry 5195 (class 0 OID 28083)
+-- TOC entry 5197 (class 0 OID 28083)
 -- Dependencies: 219
 -- Data for Name: comptes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1091,7 +1091,7 @@ INSERT INTO public.comptes (id, datecreation, etat, montantdecouvertmax, libelle
 
 
 --
--- TOC entry 5196 (class 0 OID 28088)
+-- TOC entry 5198 (class 0 OID 28088)
 -- Dependencies: 220
 -- Data for Name: concerner; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1099,7 +1099,7 @@ INSERT INTO public.comptes (id, datecreation, etat, montantdecouvertmax, libelle
 
 
 --
--- TOC entry 5197 (class 0 OID 28093)
+-- TOC entry 5199 (class 0 OID 28093)
 -- Dependencies: 221
 -- Data for Name: constituer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1122,7 +1122,7 @@ INSERT INTO public.constituer (attributs_id, documents_id) VALUES ('a2eebc99-9c0
 
 
 --
--- TOC entry 5198 (class 0 OID 28098)
+-- TOC entry 5200 (class 0 OID 28098)
 -- Dependencies: 222
 -- Data for Name: deltasoldes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1136,7 +1136,7 @@ INSERT INTO public.deltasoldes (id, montantavant, montantapres, datecreation, ty
 
 
 --
--- TOC entry 5199 (class 0 OID 28103)
+-- TOC entry 5201 (class 0 OID 28103)
 -- Dependencies: 223
 -- Data for Name: docetats; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1149,7 +1149,7 @@ INSERT INTO public.docetats (id, ordre, datecreation, datemodification, validati
 
 
 --
--- TOC entry 5200 (class 0 OID 28108)
+-- TOC entry 5202 (class 0 OID 28108)
 -- Dependencies: 224
 -- Data for Name: docetats_predecesseurs; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1159,7 +1159,7 @@ INSERT INTO public.docetats_predecesseurs (docetats_id, predecesseur_id) VALUES 
 
 
 --
--- TOC entry 5201 (class 0 OID 28113)
+-- TOC entry 5203 (class 0 OID 28113)
 -- Dependencies: 225
 -- Data for Name: documents; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1175,7 +1175,7 @@ INSERT INTO public.documents (id, titre, description, etat, datecreation, datemo
 
 
 --
--- TOC entry 5202 (class 0 OID 28118)
+-- TOC entry 5204 (class 0 OID 28118)
 -- Dependencies: 226
 -- Data for Name: documentspromotions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1186,7 +1186,7 @@ INSERT INTO public.documentspromotions (documents_id, promotions_id) VALUES ('01
 
 
 --
--- TOC entry 5241 (class 0 OID 28713)
+-- TOC entry 5243 (class 0 OID 28713)
 -- Dependencies: 265
 -- Data for Name: elements; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1194,7 +1194,7 @@ INSERT INTO public.documentspromotions (documents_id, promotions_id) VALUES ('01
 
 
 --
--- TOC entry 5239 (class 0 OID 28703)
+-- TOC entry 5241 (class 0 OID 28703)
 -- Dependencies: 263
 -- Data for Name: elementsbaselanques; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1202,7 +1202,7 @@ INSERT INTO public.documentspromotions (documents_id, promotions_id) VALUES ('01
 
 
 --
--- TOC entry 5236 (class 0 OID 28684)
+-- TOC entry 5238 (class 0 OID 28684)
 -- Dependencies: 260
 -- Data for Name: elementsbases; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1210,7 +1210,7 @@ INSERT INTO public.documentspromotions (documents_id, promotions_id) VALUES ('01
 
 
 --
--- TOC entry 5240 (class 0 OID 28708)
+-- TOC entry 5242 (class 0 OID 28708)
 -- Dependencies: 264
 -- Data for Name: elementslangues; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1218,7 +1218,7 @@ INSERT INTO public.documentspromotions (documents_id, promotions_id) VALUES ('01
 
 
 --
--- TOC entry 5203 (class 0 OID 28123)
+-- TOC entry 5205 (class 0 OID 28123)
 -- Dependencies: 227
 -- Data for Name: etapes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1229,7 +1229,7 @@ INSERT INTO public.etapes (id, libelle, etat, datemodification, parcours_id) VAL
 
 
 --
--- TOC entry 5204 (class 0 OID 28128)
+-- TOC entry 5206 (class 0 OID 28128)
 -- Dependencies: 228
 -- Data for Name: etats; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1241,7 +1241,7 @@ INSERT INTO public.etats (id, libelle, description, datecreation, datemodificati
 
 
 --
--- TOC entry 5205 (class 0 OID 28133)
+-- TOC entry 5207 (class 0 OID 28133)
 -- Dependencies: 229
 -- Data for Name: exemplaires; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1255,7 +1255,7 @@ INSERT INTO public.exemplaires (id, personnes_id) VALUES ('a1f1e4b0-4c6d-4e5e-9b
 
 
 --
--- TOC entry 5206 (class 0 OID 28138)
+-- TOC entry 5208 (class 0 OID 28138)
 -- Dependencies: 230
 -- Data for Name: familles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1267,7 +1267,7 @@ INSERT INTO public.familles (id, libelle, description, etat, datecreation, datem
 
 
 --
--- TOC entry 5207 (class 0 OID 28143)
+-- TOC entry 5209 (class 0 OID 28143)
 -- Dependencies: 231
 -- Data for Name: famillespromotions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1278,7 +1278,7 @@ INSERT INTO public.famillespromotions (familles_id, promotions_id) VALUES ('f190
 
 
 --
--- TOC entry 5208 (class 0 OID 28148)
+-- TOC entry 5210 (class 0 OID 28148)
 -- Dependencies: 232
 -- Data for Name: filesattentes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1289,7 +1289,7 @@ INSERT INTO public.filesattentes (id, datecreation, datemodification, etat, serv
 
 
 --
--- TOC entry 5246 (class 0 OID 28746)
+-- TOC entry 5248 (class 0 OID 28746)
 -- Dependencies: 270
 -- Data for Name: groupes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1297,7 +1297,7 @@ INSERT INTO public.filesattentes (id, datecreation, datemodification, etat, serv
 
 
 --
--- TOC entry 5209 (class 0 OID 28153)
+-- TOC entry 5211 (class 0 OID 28153)
 -- Dependencies: 233
 -- Data for Name: jouerroles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1308,7 +1308,7 @@ INSERT INTO public.jouerroles (id, etat, datecreation, datemodification, datefin
 
 
 --
--- TOC entry 5238 (class 0 OID 28696)
+-- TOC entry 5240 (class 0 OID 28696)
 -- Dependencies: 262
 -- Data for Name: langues; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1316,7 +1316,7 @@ INSERT INTO public.jouerroles (id, etat, datecreation, datemodification, datefin
 
 
 --
--- TOC entry 5242 (class 0 OID 28720)
+-- TOC entry 5244 (class 0 OID 28720)
 -- Dependencies: 266
 -- Data for Name: menus; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1324,7 +1324,7 @@ INSERT INTO public.jouerroles (id, etat, datecreation, datemodification, datefin
 
 
 --
--- TOC entry 5210 (class 0 OID 28158)
+-- TOC entry 5212 (class 0 OID 28158)
 -- Dependencies: 234
 -- Data for Name: missions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1338,7 +1338,7 @@ INSERT INTO public.missions (id, libelle, description, etat, datecreation, datem
 
 
 --
--- TOC entry 5211 (class 0 OID 28163)
+-- TOC entry 5213 (class 0 OID 28163)
 -- Dependencies: 235
 -- Data for Name: mouvementcaisses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1352,7 +1352,7 @@ INSERT INTO public.mouvementcaisses (id, montant, moyenpaiement, referencepaieme
 
 
 --
--- TOC entry 5212 (class 0 OID 28168)
+-- TOC entry 5214 (class 0 OID 28168)
 -- Dependencies: 236
 -- Data for Name: mouvements; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1364,7 +1364,7 @@ INSERT INTO public.mouvements (id, description, quantite, prix, datecreation, da
 
 
 --
--- TOC entry 5213 (class 0 OID 28173)
+-- TOC entry 5215 (class 0 OID 28173)
 -- Dependencies: 237
 -- Data for Name: ordreetats; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1375,7 +1375,7 @@ INSERT INTO public.ordreetats (id, datecreation, datemodification, datefinvote, 
 
 
 --
--- TOC entry 5244 (class 0 OID 28734)
+-- TOC entry 5246 (class 0 OID 28734)
 -- Dependencies: 268
 -- Data for Name: organisations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1383,7 +1383,7 @@ INSERT INTO public.ordreetats (id, datecreation, datemodification, datefinvote, 
 
 
 --
--- TOC entry 5245 (class 0 OID 28741)
+-- TOC entry 5247 (class 0 OID 28741)
 -- Dependencies: 269
 -- Data for Name: organiser; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1391,7 +1391,7 @@ INSERT INTO public.ordreetats (id, datecreation, datemodification, datefinvote, 
 
 
 --
--- TOC entry 5214 (class 0 OID 28178)
+-- TOC entry 5216 (class 0 OID 28178)
 -- Dependencies: 238
 -- Data for Name: parcours; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1402,7 +1402,7 @@ INSERT INTO public.parcours (id, libelle, datecreation, datemodification) VALUES
 
 
 --
--- TOC entry 5215 (class 0 OID 28183)
+-- TOC entry 5217 (class 0 OID 28183)
 -- Dependencies: 239
 -- Data for Name: personnels; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1413,7 +1413,7 @@ INSERT INTO public.personnels (id, dateentree, nom, datenaissance, telephone, da
 
 
 --
--- TOC entry 5216 (class 0 OID 28188)
+-- TOC entry 5218 (class 0 OID 28188)
 -- Dependencies: 240
 -- Data for Name: personnes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1430,7 +1430,7 @@ INSERT INTO public.personnes (id, adresse, mail, telephone, qrcodevalue, code, r
 
 
 --
--- TOC entry 5217 (class 0 OID 28194)
+-- TOC entry 5219 (class 0 OID 28194)
 -- Dependencies: 241
 -- Data for Name: personnes_s; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1438,7 +1438,7 @@ INSERT INTO public.personnes (id, adresse, mail, telephone, qrcodevalue, code, r
 
 
 --
--- TOC entry 5218 (class 0 OID 28199)
+-- TOC entry 5220 (class 0 OID 28199)
 -- Dependencies: 242
 -- Data for Name: precomouvements; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1454,7 +1454,7 @@ INSERT INTO public.precomouvements (id, libelle, etat, datecreation, datemodific
 
 
 --
--- TOC entry 5219 (class 0 OID 28204)
+-- TOC entry 5221 (class 0 OID 28204)
 -- Dependencies: 243
 -- Data for Name: precomouvementsqtes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1471,7 +1471,7 @@ INSERT INTO public.precomouvementsqtes (id, qtemin, qtemax, montantmin, montantm
 
 
 --
--- TOC entry 5220 (class 0 OID 28209)
+-- TOC entry 5222 (class 0 OID 28209)
 -- Dependencies: 244
 -- Data for Name: promotions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1482,7 +1482,7 @@ INSERT INTO public.promotions (id, datedebut, datefin, codeunique, typeremise, v
 
 
 --
--- TOC entry 5221 (class 0 OID 28214)
+-- TOC entry 5223 (class 0 OID 28214)
 -- Dependencies: 245
 -- Data for Name: rattacher; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1492,7 +1492,7 @@ INSERT INTO public.rattacher (personnes_id, rattacher_id) VALUES ('fdbff692-6b8d
 
 
 --
--- TOC entry 5222 (class 0 OID 28219)
+-- TOC entry 5224 (class 0 OID 28219)
 -- Dependencies: 246
 -- Data for Name: remplir; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1503,7 +1503,7 @@ INSERT INTO public.remplir (datefin, datecreation, datedebut, etat, droitajouter
 
 
 --
--- TOC entry 5223 (class 0 OID 28224)
+-- TOC entry 5225 (class 0 OID 28224)
 -- Dependencies: 247
 -- Data for Name: respecter; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1514,7 +1514,7 @@ INSERT INTO public.respecter (mouvements_id, precomouvements_id) VALUES ('0e7cea
 
 
 --
--- TOC entry 5224 (class 0 OID 28229)
+-- TOC entry 5226 (class 0 OID 28229)
 -- Dependencies: 248
 -- Data for Name: ressources; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1540,7 +1540,7 @@ INSERT INTO public.ressources (id, libelle, description, etat, datecreation, dat
 
 
 --
--- TOC entry 5225 (class 0 OID 28234)
+-- TOC entry 5227 (class 0 OID 28234)
 -- Dependencies: 249
 -- Data for Name: ressourcespromotions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1551,7 +1551,7 @@ INSERT INTO public.ressourcespromotions (promotions_id, ressources_id) VALUES ('
 
 
 --
--- TOC entry 5226 (class 0 OID 28239)
+-- TOC entry 5228 (class 0 OID 28239)
 -- Dependencies: 250
 -- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1562,7 +1562,7 @@ INSERT INTO public.roles (id, titre, description, etat, datecreation, datemodifi
 
 
 --
--- TOC entry 5227 (class 0 OID 28244)
+-- TOC entry 5229 (class 0 OID 28244)
 -- Dependencies: 251
 -- Data for Name: sapplique; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1578,7 +1578,7 @@ INSERT INTO public.sapplique (familles_id, precomouvementsqtes_id) VALUES ('f190
 
 
 --
--- TOC entry 5228 (class 0 OID 28249)
+-- TOC entry 5230 (class 0 OID 28249)
 -- Dependencies: 252
 -- Data for Name: services; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1589,7 +1589,7 @@ INSERT INTO public.services (id, description, libelle, localisation, etat, datec
 
 
 --
--- TOC entry 5229 (class 0 OID 28254)
+-- TOC entry 5231 (class 0 OID 28254)
 -- Dependencies: 253
 -- Data for Name: suivre; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1605,7 +1605,7 @@ INSERT INTO public.suivre (documents_id, precomouvements_id) VALUES ('0190615e-1
 
 
 --
--- TOC entry 5230 (class 0 OID 28259)
+-- TOC entry 5232 (class 0 OID 28259)
 -- Dependencies: 254
 -- Data for Name: tickets; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1619,7 +1619,7 @@ INSERT INTO public.tickets (id, codecourt, datecreation, datemodification) VALUE
 
 
 --
--- TOC entry 5231 (class 0 OID 28264)
+-- TOC entry 5233 (class 0 OID 28264)
 -- Dependencies: 255
 -- Data for Name: ticketsfilesattentes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1633,7 +1633,7 @@ INSERT INTO public.ticketsfilesattentes (id, etat, dateaffectation, tickets_id, 
 
 
 --
--- TOC entry 5232 (class 0 OID 28269)
+-- TOC entry 5234 (class 0 OID 28269)
 -- Dependencies: 256
 -- Data for Name: traiter; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1645,7 +1645,7 @@ INSERT INTO public.traiter (documents_id, missions_id) VALUES ('0190615e-1101-72
 
 
 --
--- TOC entry 5243 (class 0 OID 28727)
+-- TOC entry 5245 (class 0 OID 28727)
 -- Dependencies: 267
 -- Data for Name: utilisateurs; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1653,7 +1653,7 @@ INSERT INTO public.traiter (documents_id, missions_id) VALUES ('0190615e-1101-72
 
 
 --
--- TOC entry 5233 (class 0 OID 28274)
+-- TOC entry 5235 (class 0 OID 28274)
 -- Dependencies: 257
 -- Data for Name: validations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -1666,7 +1666,7 @@ INSERT INTO public.validations (id, code, etat, datecreation, datemodification, 
 
 
 --
--- TOC entry 5234 (class 0 OID 28279)
+-- TOC entry 5236 (class 0 OID 28279)
 -- Dependencies: 258
 -- Data for Name: violer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -2226,7 +2226,7 @@ ALTER TABLE ONLY public.utilisateurs
 
 
 --
--- TOC entry 5033 (class 2606 OID 28826)
+-- TOC entry 5035 (class 2606 OID 28826)
 -- Name: actionslangues fk_actions_actionslangues; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2235,7 +2235,7 @@ ALTER TABLE ONLY public.actionslangues
 
 
 --
--- TOC entry 5032 (class 2606 OID 28838)
+-- TOC entry 5034 (class 2606 OID 28838)
 -- Name: actions fk_actions_elementbases; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2334,6 +2334,24 @@ ALTER TABLE ONLY public.deltasoldes
 
 
 --
+-- TOC entry 5008 (class 2606 OID 28843)
+-- Name: mouvements fk_distributeurs_mouvements; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.mouvements
+    ADD CONSTRAINT fk_distributeurs_mouvements FOREIGN KEY (distributeurs_id) REFERENCES public.personnes(id);
+
+
+--
+-- TOC entry 5014 (class 2606 OID 28848)
+-- Name: promotions fk_distributeurs_promotions; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.promotions
+    ADD CONSTRAINT fk_distributeurs_promotions FOREIGN KEY (distributeurs_id) REFERENCES public.personnes(id);
+
+
+--
 -- TOC entry 4994 (class 2606 OID 28426)
 -- Name: documentspromotions fk_doc_on_documents_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
@@ -2406,7 +2424,7 @@ ALTER TABLE ONLY public.docetats_predecesseurs
 
 
 --
--- TOC entry 5037 (class 2606 OID 28807)
+-- TOC entry 5039 (class 2606 OID 28807)
 -- Name: elementslangues fk_elements_elementslangues; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2415,7 +2433,7 @@ ALTER TABLE ONLY public.elementslangues
 
 
 --
--- TOC entry 5039 (class 2606 OID 28797)
+-- TOC entry 5041 (class 2606 OID 28797)
 -- Name: elements fk_elementsbase_elements; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2424,7 +2442,7 @@ ALTER TABLE ONLY public.elements
 
 
 --
--- TOC entry 5035 (class 2606 OID 28814)
+-- TOC entry 5037 (class 2606 OID 28814)
 -- Name: elementsbaselanques fk_elementsbase_elementsbaselangues; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2478,7 +2496,7 @@ ALTER TABLE ONLY public.filesattentes
 
 
 --
--- TOC entry 5041 (class 2606 OID 28785)
+-- TOC entry 5043 (class 2606 OID 28785)
 -- Name: menus fk_groupes_menus; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2487,7 +2505,7 @@ ALTER TABLE ONLY public.menus
 
 
 --
--- TOC entry 5043 (class 2606 OID 28770)
+-- TOC entry 5045 (class 2606 OID 28770)
 -- Name: utilisateurs fk_groupes_utilisateurs; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2514,7 +2532,7 @@ ALTER TABLE ONLY public.jouerroles
 
 
 --
--- TOC entry 5034 (class 2606 OID 28831)
+-- TOC entry 5036 (class 2606 OID 28831)
 -- Name: actionslangues fk_langues_actionslangues; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2523,7 +2541,7 @@ ALTER TABLE ONLY public.actionslangues
 
 
 --
--- TOC entry 5036 (class 2606 OID 28819)
+-- TOC entry 5038 (class 2606 OID 28819)
 -- Name: elementsbaselanques fk_langues_elementsbaselangues; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2532,7 +2550,7 @@ ALTER TABLE ONLY public.elementsbaselanques
 
 
 --
--- TOC entry 5038 (class 2606 OID 28802)
+-- TOC entry 5040 (class 2606 OID 28802)
 -- Name: elementslangues fk_langues_elementslangues; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2541,7 +2559,7 @@ ALTER TABLE ONLY public.elementslangues
 
 
 --
--- TOC entry 5040 (class 2606 OID 28792)
+-- TOC entry 5042 (class 2606 OID 28792)
 -- Name: elements fk_menus_elements; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2550,7 +2568,7 @@ ALTER TABLE ONLY public.elements
 
 
 --
--- TOC entry 5047 (class 2606 OID 28753)
+-- TOC entry 5049 (class 2606 OID 28753)
 -- Name: groupes fk_menus_groupes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2559,7 +2577,7 @@ ALTER TABLE ONLY public.groupes
 
 
 --
--- TOC entry 5044 (class 2606 OID 28775)
+-- TOC entry 5046 (class 2606 OID 28775)
 -- Name: utilisateurs fk_menus_utilisateurs; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2604,7 +2622,7 @@ ALTER TABLE ONLY public.mouvementcaisses
 
 
 --
--- TOC entry 5008 (class 2606 OID 28521)
+-- TOC entry 5009 (class 2606 OID 28521)
 -- Name: mouvements fk_mouvements_on_ressources; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2622,7 +2640,7 @@ ALTER TABLE ONLY public.mouvementcaisses
 
 
 --
--- TOC entry 5009 (class 2606 OID 28531)
+-- TOC entry 5010 (class 2606 OID 28531)
 -- Name: ordreetats fk_ordreetats_on_etats; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2631,7 +2649,7 @@ ALTER TABLE ONLY public.ordreetats
 
 
 --
--- TOC entry 5045 (class 2606 OID 28758)
+-- TOC entry 5047 (class 2606 OID 28758)
 -- Name: organiser fk_organisation_organiser; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2640,7 +2658,7 @@ ALTER TABLE ONLY public.organiser
 
 
 --
--- TOC entry 5010 (class 2606 OID 28536)
+-- TOC entry 5011 (class 2606 OID 28536)
 -- Name: personnes fk_personnes_comptes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2649,7 +2667,7 @@ ALTER TABLE ONLY public.personnes
 
 
 --
--- TOC entry 5011 (class 2606 OID 28541)
+-- TOC entry 5012 (class 2606 OID 28541)
 -- Name: precomouvementsqtes fk_precomouvementsqtes_on_precomouvements; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2658,7 +2676,7 @@ ALTER TABLE ONLY public.precomouvementsqtes
 
 
 --
--- TOC entry 5012 (class 2606 OID 28546)
+-- TOC entry 5013 (class 2606 OID 28546)
 -- Name: precomouvementsqtes fk_precomouvementsqtes_on_ressources; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2667,7 +2685,7 @@ ALTER TABLE ONLY public.precomouvementsqtes
 
 
 --
--- TOC entry 5013 (class 2606 OID 28551)
+-- TOC entry 5015 (class 2606 OID 28551)
 -- Name: remplir fk_remplir_on_missions; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2676,7 +2694,7 @@ ALTER TABLE ONLY public.remplir
 
 
 --
--- TOC entry 5014 (class 2606 OID 28556)
+-- TOC entry 5016 (class 2606 OID 28556)
 -- Name: remplir fk_remplir_on_roles; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2685,7 +2703,7 @@ ALTER TABLE ONLY public.remplir
 
 
 --
--- TOC entry 5018 (class 2606 OID 28561)
+-- TOC entry 5020 (class 2606 OID 28561)
 -- Name: ressourcespromotions fk_res_on_promotions_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2694,7 +2712,7 @@ ALTER TABLE ONLY public.ressourcespromotions
 
 
 --
--- TOC entry 5019 (class 2606 OID 28566)
+-- TOC entry 5021 (class 2606 OID 28566)
 -- Name: ressourcespromotions fk_res_on_ressources_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2703,7 +2721,7 @@ ALTER TABLE ONLY public.ressourcespromotions
 
 
 --
--- TOC entry 5015 (class 2606 OID 28571)
+-- TOC entry 5017 (class 2606 OID 28571)
 -- Name: respecter fk_respecter_on_mouvements_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2712,7 +2730,7 @@ ALTER TABLE ONLY public.respecter
 
 
 --
--- TOC entry 5016 (class 2606 OID 28576)
+-- TOC entry 5018 (class 2606 OID 28576)
 -- Name: respecter fk_respecter_on_preco_mouvements_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2721,7 +2739,7 @@ ALTER TABLE ONLY public.respecter
 
 
 --
--- TOC entry 5017 (class 2606 OID 28581)
+-- TOC entry 5019 (class 2606 OID 28581)
 -- Name: ressources fk_ressources_on_familles; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2730,7 +2748,7 @@ ALTER TABLE ONLY public.ressources
 
 
 --
--- TOC entry 5020 (class 2606 OID 28586)
+-- TOC entry 5022 (class 2606 OID 28586)
 -- Name: sapplique fk_sapplique_on_familles_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2739,7 +2757,7 @@ ALTER TABLE ONLY public.sapplique
 
 
 --
--- TOC entry 5021 (class 2606 OID 28591)
+-- TOC entry 5023 (class 2606 OID 28591)
 -- Name: sapplique fk_sapplique_on_preco_mouvements_qtes_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2748,7 +2766,7 @@ ALTER TABLE ONLY public.sapplique
 
 
 --
--- TOC entry 5022 (class 2606 OID 28596)
+-- TOC entry 5024 (class 2606 OID 28596)
 -- Name: services fk_services_on_filesattentes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2757,7 +2775,7 @@ ALTER TABLE ONLY public.services
 
 
 --
--- TOC entry 5023 (class 2606 OID 28601)
+-- TOC entry 5025 (class 2606 OID 28601)
 -- Name: suivre fk_suivre_on_documents_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2766,7 +2784,7 @@ ALTER TABLE ONLY public.suivre
 
 
 --
--- TOC entry 5024 (class 2606 OID 28606)
+-- TOC entry 5026 (class 2606 OID 28606)
 -- Name: suivre fk_suivre_on_preco_mouvements_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2775,7 +2793,7 @@ ALTER TABLE ONLY public.suivre
 
 
 --
--- TOC entry 5025 (class 2606 OID 28611)
+-- TOC entry 5027 (class 2606 OID 28611)
 -- Name: ticketsfilesattentes fk_ticketsfilesattentes_on_filesattentes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2784,7 +2802,7 @@ ALTER TABLE ONLY public.ticketsfilesattentes
 
 
 --
--- TOC entry 5026 (class 2606 OID 28616)
+-- TOC entry 5028 (class 2606 OID 28616)
 -- Name: ticketsfilesattentes fk_ticketsfilesattentes_on_tickets; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2793,7 +2811,7 @@ ALTER TABLE ONLY public.ticketsfilesattentes
 
 
 --
--- TOC entry 5027 (class 2606 OID 28621)
+-- TOC entry 5029 (class 2606 OID 28621)
 -- Name: traiter fk_traiter_on_documents_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2802,7 +2820,7 @@ ALTER TABLE ONLY public.traiter
 
 
 --
--- TOC entry 5028 (class 2606 OID 28626)
+-- TOC entry 5030 (class 2606 OID 28626)
 -- Name: traiter fk_traiter_on_missions_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2811,7 +2829,7 @@ ALTER TABLE ONLY public.traiter
 
 
 --
--- TOC entry 5042 (class 2606 OID 28780)
+-- TOC entry 5044 (class 2606 OID 28780)
 -- Name: menus fk_utilisateur_menus; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2820,7 +2838,7 @@ ALTER TABLE ONLY public.menus
 
 
 --
--- TOC entry 5046 (class 2606 OID 28763)
+-- TOC entry 5048 (class 2606 OID 28763)
 -- Name: organiser fk_utilisateurs_organiser; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2829,7 +2847,7 @@ ALTER TABLE ONLY public.organiser
 
 
 --
--- TOC entry 5029 (class 2606 OID 28631)
+-- TOC entry 5031 (class 2606 OID 28631)
 -- Name: validations fk_validations_on_roles; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2838,7 +2856,7 @@ ALTER TABLE ONLY public.validations
 
 
 --
--- TOC entry 5030 (class 2606 OID 28636)
+-- TOC entry 5032 (class 2606 OID 28636)
 -- Name: violer fk_violer_on_mouvements_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2847,7 +2865,7 @@ ALTER TABLE ONLY public.violer
 
 
 --
--- TOC entry 5031 (class 2606 OID 28641)
+-- TOC entry 5033 (class 2606 OID 28641)
 -- Name: violer fk_violer_on_preco_mouvements_entity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2855,7 +2873,7 @@ ALTER TABLE ONLY public.violer
     ADD CONSTRAINT fk_violer_on_preco_mouvements_entity FOREIGN KEY (precomouvements_id) REFERENCES public.precomouvements(id);
 
 
--- Completed on 2024-09-17 17:05:26
+-- Completed on 2024-09-17 20:03:22
 
 --
 -- PostgreSQL database dump complete
