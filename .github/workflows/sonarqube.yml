@@ -63,13 +63,4 @@ jobs:
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
-      - name: SonarQube Scan 2
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # analysis token associated to your project
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: run: |
-            cd PROJECT2_PATH/
-            mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=SONAR_PROJECT2_KEY -Dsonar.projectName='SONAR_PROJECT2_NAME'
-        # Replace variables with project path, key and name
-  # Add other scan jobs if you wish to scan more projects in the monorepo   
+          restore-keys: ${{ runner.os }}-m2 
