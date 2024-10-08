@@ -36,10 +36,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # analysis token associated to your project
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: |
-            cd PROJECT1_PATH/
-            mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=SONAR_PROJECT1_KEY -Dsonar.projectName='SONAR_PROJECT1_NAME' 
-        # Replace variables with project path, key and name
   sonarQubeScan2:
     name: sonarQubeScan2
     runs-on: ubuntu-latest
