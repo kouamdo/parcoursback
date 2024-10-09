@@ -13,12 +13,29 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      
     - name: Set up JDK 11
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
         java-version: '11'
-    - name: SonarQube Scan
+
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+
+    - name: Build with Maven
+      run: mvn clean install
+
+    - name: SonarQube fist Scan
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn sonar:sonar -Dsonar.projectKey=my_project -Dsonar.host.url=https://sonarqube.example.com -Dsonar.login=$SONAR_TOKEN
+    
+    - name: SonarQube second Scan
       uses: sonarsource/sonarqube-scan-action@master
       with:
         projectBaseDir: .
