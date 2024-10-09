@@ -34,3 +34,11 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build with Maven
         run: cd parent && pwd && ls && mvn clean install
+      - name: SonarQube Scan 1
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_1 }}  # analysis token associated to your project
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: |
+            cd parent
+            mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=SONAR_PROJECT1_KEY -Dsonar.projectName='SONAR_PROJECT1_NAME' 
+        # Replace variables with project path, key and name
