@@ -34,14 +34,3 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn sonar:sonar -Dsonar.projectKey=my_project -Dsonar.host.url=https://sonarqube.example.com -Dsonar.login=$SONAR_TOKEN
-    
-    - name: SonarQube second Scan
-      uses: sonarsource/sonarqube-scan-action@master
-      with:
-        projectBaseDir: .
-        args: >
-          -Dsonar.organization=my-org
-          -Dsonar.projectKey=my-Java-web-app
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
