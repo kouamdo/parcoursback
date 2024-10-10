@@ -18,22 +18,22 @@ public class PrecomouvementsService implements IPrecoMouvementsApi {
 
 
     @Override
-    public PrecoMouvements avoirPrecomouvement(@NonNull String idPrecomouvements) {
+    public PrecoMouvements avoirPrecoMouvement(@NonNull String idPrecomouvements) {
         return precomouvementbusiness.avoirPrecomouvements(idPrecomouvements);
     }
 
     @Override
-    public List<PrecoMouvements> avoirToutPrecomouvement() {
+    public List<PrecoMouvements> avoirToutPrecoMouvement() {
         return precomouvementbusiness.avoirTousPrecouvement();
     }
 
     @Override
-    public void supprimerPrecomouvements(PrecoMouvements precoMouvements) {
+    public void supprimerPrecoMouvements(PrecoMouvements precoMouvements) {
 
     }
 
     @Override
-    public PrecoMouvements posterPrecomouvements(@NonNull PrecoMouvements precoMouvements) {
+    public PrecoMouvements posterPrecoMouvements(@NonNull PrecoMouvements precoMouvements) {
         return precomouvementbusiness.posterPrecomouvement(precoMouvements);
     }
 }

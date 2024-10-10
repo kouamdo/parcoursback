@@ -41,8 +41,8 @@ public class DocumentCrudTest extends AbstractIttest {
     // Les noms des champs à exclure de la comparaison
     Set<String> fieldsToExclude = new HashSet<>();
     fieldsToExclude.add("id");
-    fieldsToExclude.add("\n\n check assertion");
-    System.out.println("match field");
+    fieldsToExclude.add("dateModification");
+    fieldsToExclude.add("dateCreation");
     Assertions.assertTrue(JsonComparator.CompareResultWithJson(
             pathJson
             ,objectMapper.writeValueAsString(documentsList)

@@ -21,11 +21,6 @@ public class DistributeursEntity extends PersonnesEntity {
     private String code ;
     @Column(name = "raisonsociale")
     private String raisonSociale;
-
-    @OneToMany(mappedBy = "distributeursEntity" , fetch = FetchType.LAZY , cascade = {CascadeType.ALL})
-    @Mapping("mouvements")
-    private List<MouvementsEntity> mouvementEntities;
-
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "concerner",
     joinColumns = @JoinColumn(name = "precomouvementsqtes_id"),

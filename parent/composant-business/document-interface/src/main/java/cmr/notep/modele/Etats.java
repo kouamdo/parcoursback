@@ -17,6 +17,5 @@ public class Etats {
     private String libelle;
     private Date dateCreation;
     private List<DocEtats> docEtats;
-    private List<OrdreEtats> ordresEtats;
     private String description;
 }
