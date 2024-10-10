@@ -1,6 +1,6 @@
 package cmr.notep.dao;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -34,7 +34,7 @@ public class AttributsEntity {
     @Column(name = "valeurpardefaut")
     private String valeurParDefaut;
     @ManyToMany(mappedBy = "attributsEntities")
-    @JsonIgnore
+
     private List<DocumentsEntity> documentsEntities;
     //@ManyToMany(mappedBy = "attributsEntities")
     //@Mapping("categories")
