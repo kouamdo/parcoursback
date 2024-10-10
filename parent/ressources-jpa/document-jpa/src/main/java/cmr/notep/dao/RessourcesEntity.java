@@ -49,9 +49,9 @@ public class RessourcesEntity {
     @Mapping("famille")
     private FamillesEntity famillesEntity;
 
-    @OneToMany(mappedBy = "ressourcesEntity" , fetch = FetchType.LAZY)
-    @Mapping("mouvements")
-    private List<MouvementsEntity> mouvementsEntities;
+//    @OneToMany(mappedBy = "ressourcesEntity" , fetch = FetchType.LAZY)
+//    @Mapping("mouvements")
+//    private List<MouvementsEntity> mouvementsEntities;
 
     @ManyToMany
     @JoinTable(name = "ressourcespromotions" ,
