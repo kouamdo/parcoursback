@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - master # main branch name
+      - develop-extend-document # main branch name
   pull_request:
     types: [opened, synchronize, reopened]
 
