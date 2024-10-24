@@ -8,10 +8,10 @@ RUN mvn clean install -Dmaven.test.skip=true
 
 FROM openjdk:17-jdk-slim
 
-COPY --from=build /app/parent/target/*.jar /app/parent/parcoursback.jar
+COPY --from=build target/*.jar parcoursback.jar
 
 WORKDIR /app
 
-CMD ["java", "-jar", "/app/parent/parcoursback.jar"]
+CMD ["java", "-jar", "parcoursback.jar"]
 
 EXPOSE 8080
