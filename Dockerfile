@@ -4,7 +4,7 @@ COPY ./parent /app
 
 WORKDIR /app
 
-RUN mvn clean install -Dmaven.test.skip=true
+RUN mvn clean install -Dmaven.test.skip=true && ls -l /app/target
 
 FROM openjdk:17-jdk-slim
 
