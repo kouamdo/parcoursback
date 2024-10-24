@@ -9,11 +9,13 @@ import cmr.notep.utile.serialiser.JacksonHelper;
 import cmr.notep.wstools.api.IGenericWsClientApi;
 import cmr.notep.wstools.modeles.GenericWsRequest;
 import cmr.notep.wstools.modeles.GenericWsResponse;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
+@Profile("!ittest")
 public class PersonnelsClientWs implements IPersonnelsApi {
     public static final String URI_PERSONNELS = "/personnels/";
     private final IGenericWsClientApi genericWsClientApi;

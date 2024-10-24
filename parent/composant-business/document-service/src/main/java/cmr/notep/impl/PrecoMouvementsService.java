@@ -4,6 +4,7 @@ import cmr.notep.api.IPrecoMouvementsApi;
 import cmr.notep.business.PrecomouvementsBusiness;
 import cmr.notep.modele.PrecoMouvements;
 import lombok.NonNull;
+import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
@@ -11,10 +12,11 @@ import java.util.List;
 
 @RestController
 @Transactional
-public class PrecomouvementsService implements IPrecoMouvementsApi {
+@Primary
+public class PrecoMouvementsService implements IPrecoMouvementsApi {
 
     private final PrecomouvementsBusiness precomouvementbusiness ;
-    public PrecomouvementsService(PrecomouvementsBusiness precomouvementbusiness) {this.precomouvementbusiness = precomouvementbusiness ;}
+    public PrecoMouvementsService(PrecomouvementsBusiness precomouvementbusiness) {this.precomouvementbusiness = precomouvementbusiness ;}
 
 
     @Override

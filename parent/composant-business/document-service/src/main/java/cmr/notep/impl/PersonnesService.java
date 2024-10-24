@@ -3,6 +3,8 @@ package cmr.notep.impl;
 import cmr.notep.api.IPersonnesApi;
 import cmr.notep.business.PersonnesBusiness;
 import cmr.notep.modele.Personnes;
+import org.springframework.context.annotation.Primary;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
@@ -10,6 +12,7 @@ import java.util.List;
 
 @RestController
 @Transactional
+@Primary
 public class PersonnesService implements IPersonnesApi {
 
     private final PersonnesBusiness personnesBusiness;
@@ -18,7 +21,7 @@ public class PersonnesService implements IPersonnesApi {
         this.personnesBusiness = personnesBusiness;
     }
 @Override
-    public Personnes avoirPersonne(String idPersonnes) {
+    public Personnes avoirPersonne(@NonNull String idPersonnes) {
         return personnesBusiness.avoirPersonne(idPersonnes);
     }
 

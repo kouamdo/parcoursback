@@ -10,10 +10,12 @@ import cmr.notep.wstools.modeles.GenericWsRequest;
 import cmr.notep.wstools.modeles.GenericWsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 @Component
+@Profile("!ittest")
 public class DocumentsClientWs implements IDocumentsApi {
     public static final String URI_DOCUMENTS = "/documents/";
     private final ExemplaireConfig exemplaireConfig;

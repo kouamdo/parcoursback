@@ -1,9 +1,10 @@
 -- DROP DATABASE IF EXISTS exemplaire;
-CREATE SCHEMA exemplaire AUTHORIZATION sa;
+CREATE SCHEMA IF NOT EXISTS exemplaire AUTHORIZATION sa;
 
-CREATE TABLE exemplaire.ordreetats
+CREATE TABLE IF NOT EXISTS exemplaire.ordreetats
 (
     id               VARCHAR(255) NOT NULL,
+    description      VARCHAR(255) NOT NULL,
     datecreation     Date,
     datemodification Date,
     datefinvote      Date,
@@ -13,7 +14,7 @@ CREATE TABLE exemplaire.ordreetats
     CONSTRAINT pk_ordreetats PRIMARY KEY (id)
 );
 
-CREATE TABLE exemplaire.mouvements
+CREATE TABLE IF NOT EXISTS exemplaire.mouvements
 (
     id               VARCHAR(255) NOT NULL,
     description      VARCHAR(255) NOT NULL,
@@ -28,32 +29,33 @@ CREATE TABLE exemplaire.mouvements
     CONSTRAINT pk_mouvements PRIMARY KEY (id)
 );
 
-CREATE TABLE exemplaire.respecterprecomouvement
+CREATE TABLE IF NOT EXISTS exemplaire.respecterprecomouvement
 (
     mouvements_id      VARCHAR(255) NOT NULL,
     precomouvements_id VARCHAR(255)
 );
 
-CREATE TABLE exemplaire.violerprecomouvement
+CREATE TABLE IF NOT EXISTS exemplaire.violerprecomouvement
 (
     mouvements_id      VARCHAR(255) NOT NULL,
     precomouvements_id VARCHAR(255)
 );
 
-CREATE TABLE exemplaire.exemplaires
+CREATE TABLE IF NOT EXISTS exemplaire.exemplaires
 (
     id                 VARCHAR(255) NOT NULL,
     code               VARCHAR(255),
     codebarre          VARCHAR(255),
     titre              VARCHAR(255),
+    document_id        VARCHAR(255) NOT NULL,
     datecreation       Date NOT NULL,
     datemodification   Date,
-    personnerbeneficiaire VARCHAR(255),
+    personnebeneficiaire VARCHAR(255),
     personnerattachee VARCHAR(255),
     CONSTRAINT pk_exemplaires PRIMARY KEY (id)
 );
 
-CREATE TABLE exemplaire.exemplairesattributs
+CREATE TABLE IF NOT EXISTS exemplaire.exemplairesattributs
 (
     exemplaires_id   VARCHAR(255)                        NOT NULL,
     attribut_id      VARCHAR(255),
@@ -62,13 +64,13 @@ CREATE TABLE exemplaire.exemplairesattributs
     datemodification Date
 );
 
-CREATE TABLE exemplaire.exemplairesparents
+CREATE TABLE IF NOT EXISTS exemplaire.exemplairesparents
 (
     exemplaires_id VARCHAR(255) NOT NULL,
-    id             VARCHAR(255)
+    parent_id             VARCHAR(255)
 );
 
-CREATE TABLE exemplaire.personnesdestinataires
+CREATE TABLE IF NOT EXISTS exemplaire.personnesdestinataires
 (
     exemplaires_id VARCHAR(255) NOT NULL,
     personneid     VARCHAR(255),
@@ -77,22 +79,22 @@ CREATE TABLE exemplaire.personnesdestinataires
 );
 
 ALTER TABLE exemplaire.exemplairesattributs
-    ADD CONSTRAINT fk_exemplairesattributs_on_exemplaires_entity FOREIGN KEY (exemplaires_id) REFERENCES exemplaire.exemplaires (id);
+    ADD CONSTRAINT IF NOT EXISTS fk_exemplairesattributs_on_exemplaires_entity FOREIGN KEY (exemplaires_id) REFERENCES exemplaire.exemplaires (id);
 
 ALTER TABLE exemplaire.exemplairesparents
-    ADD CONSTRAINT fk_exemplairesparents_on_exemplaires_entity FOREIGN KEY (exemplaires_id) REFERENCES exemplaire.exemplaires (id);
+    ADD CONSTRAINT IF NOT EXISTS fk_exemplairesparents_on_exemplaires_entity FOREIGN KEY (exemplaires_id) REFERENCES exemplaire.exemplaires (id);
 
 ALTER TABLE exemplaire.personnesdestinataires
-    ADD CONSTRAINT fk_personnesdestinataires_on_exemplaires_entity FOREIGN KEY (exemplaires_id) REFERENCES exemplaire.exemplaires (id);
+    ADD CONSTRAINT IF NOT EXISTS fk_personnesdestinataires_on_exemplaires_entity FOREIGN KEY (exemplaires_id) REFERENCES exemplaire.exemplaires (id);
 
 ALTER TABLE exemplaire.mouvements
-    ADD CONSTRAINT FK_MOUVEMENTS_ON_EXEMPLAIRES FOREIGN KEY (exemplaires_id) REFERENCES exemplaire.exemplaires (id);
+    ADD CONSTRAINT IF NOT EXISTS FK_MOUVEMENTS_ON_EXEMPLAIRES FOREIGN KEY (exemplaires_id) REFERENCES exemplaire.exemplaires (id);
 
 ALTER TABLE exemplaire.respecterprecomouvement
-    ADD CONSTRAINT fk_respecterprecomouvement_on_mouvements_entity FOREIGN KEY (mouvements_id) REFERENCES exemplaire.mouvements (id);
+    ADD CONSTRAINT IF NOT EXISTS fk_respecterprecomouvement_on_mouvements_entity FOREIGN KEY (mouvements_id) REFERENCES exemplaire.mouvements (id);
 
 ALTER TABLE exemplaire.violerprecomouvement
-    ADD CONSTRAINT fk_violerprecomouvement_on_mouvements_entity FOREIGN KEY (mouvements_id) REFERENCES exemplaire.mouvements (id);
+    ADD CONSTRAINT IF NOT EXISTS fk_violerprecomouvement_on_mouvements_entity FOREIGN KEY (mouvements_id) REFERENCES exemplaire.mouvements (id);
 
 ALTER TABLE exemplaire.ordreetats
-    ADD CONSTRAINT FK_ORDREETATS_ON_EXEMPLAIREID FOREIGN KEY (exemplaireid) REFERENCES exemplaire.exemplaires (id);
+    ADD CONSTRAINT IF NOT EXISTS FK_ORDREETATS_ON_EXEMPLAIREID FOREIGN KEY (exemplaire_id) REFERENCES exemplaire.exemplaires (id);

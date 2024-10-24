@@ -1,4 +1,4 @@
-INSERT INTO documents(
+INSERT INTO document.documents(
 	id, titre, description, etat,typemouvement,afficherunite,afficherdistributeur,prixeditable,contientressources,afficherprix, datecreation, datemodification)
 	VALUES 
 ('0190615e-1101-7209-9932-7020bbd556f1', 'Note intervention', 'Document delivre par le medecin ou un infirmier de l''etablissement', true, 'Ajout', true, true, true, true,true,'2023-03-31','2023-03-31'),
@@ -11,20 +11,20 @@ INSERT INTO documents(
 ('0190615e-1101-7209-9932-7020bbd556f8','Fiche de selection','Document delivre par le magasinier',True,'Neutre',true,true,true,true,true,NULL,NULL);
 
 --insertion dans la table 'filesattentes'
-INSERT INTO filesattentes (id,  etat, datecreation, datemodification) VALUES
+INSERT INTO document.filesattentes (id,  etat, datecreation, datemodification) VALUES
 ('f190615e-1101-7209-9932-7020bbd556f1', true, '2022-01-01', '2022-01-02'),
 ('f190615e-1101-7209-9932-7020bbd556f2',  true, '2022-01-01', '2022-01-02'),
 ('f190615e-1101-7209-9932-7020bbd556f3',  true, '2022-01-01', '2022-01-02');
 
 -- Insertion dans la table service
-INSERT INTO services (id, libelle, description, codeunique, etat,localisation, datecreation, datemodification,filesattentes_id)
+INSERT INTO document.services (id, libelle, description, codeunique, etat,localisation, datecreation, datemodification,filesattentes_id)
 VALUES
 ('2190615e-1101-7209-9932-7020bbd556f1', 'Consultation', 'bien', 'S1', true, 'douala', '1972-06-12', '1990-03-07','f190615e-1101-7209-9932-7020bbd556f1'),
 ('2190615e-1101-7209-9932-7020bbd556f2', 'Laboratoire', 'bien', 'S2', true, 'douala', '1990-08-06', '1990-03-07','f190615e-1101-7209-9932-7020bbd556f2'),
 ('2190615e-1101-7209-9932-7020bbd556f3', 'Pharmacie', 'bien', 'S3', true, 'douala', '2000-03-07', '1990-03-07','f190615e-1101-7209-9932-7020bbd556f3');
 
 -- Insertion dans la table mission
-INSERT INTO missions (id, libelle, description, etat, datecreation, datemodification, services_id)
+INSERT INTO document.missions (id, libelle, description, etat, datecreation, datemodification, services_id)
 VALUES
 ('3190615e-1101-7209-9932-7020bbd556f1', 'Encaissement', 'recu de paiement lié à une mission', true, '2000-03-07', '1990-03-07', '2190615e-1101-7209-9932-7020bbd556f1'),
 ('3190615e-1101-7209-9932-7020bbd556f2', 'Resultat Labo', 'Communiquer les résultats du labo aux patients', true, '2000-03-07', '1990-03-07', '2190615e-1101-7209-9932-7020bbd556f1'),
@@ -33,7 +33,7 @@ VALUES
 ('3190615e-1101-7209-9932-7020bbd556f5', 'Consultation Spécialiste', 'Consultation faite par un médecin', true, '2000-03-07', '1990-03-07', '2190615e-1101-7209-9932-7020bbd556f3'),
 ('3190615e-1101-7209-9932-7020bbd556f6', 'Consultation', 'Consultation faite par une infirmière', true, '2000-03-07', '1990-03-07', '2190615e-1101-7209-9932-7020bbd556f3');
 
-INSERT INTO attributs (id, titre, description, etat, datecreation, datemodification, type, valeurpardefaut)
+INSERT INTO document.attributs (id, titre, description, etat, datecreation, datemodification, type, valeurpardefaut)
 VALUES
 ('a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'Taille', 'Description Taille', TRUE, '2022-01-01', '2022-01-02', 'String', null),
 ('a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 'Poids', 'Description Poids', TRUE, '2022-01-01', '2022-01-02', 'Double', null),
@@ -47,7 +47,7 @@ VALUES
 ('a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a20', 'Date de naissance', 'Date de naissance', TRUE, '2022-01-01', '2022-01-02', 'Date', null);
 
 -- Insertion dans la table 'categories'
-INSERT INTO categories (id, libelle, ordre, etat, datecreation, datemodification,documents_id)
+INSERT INTO document.categories (id, libelle, ordre, etat, datecreation, datemodification,documents_id)
 VALUES
 ('36b843d8-f8a7-4b76-9980-1add9edc2364', 'Informations Personnelles', 0, true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f1'),
 ('be9ef47f-d5a2-4254-ab79-af860672553e', 'Informations Primaires', 1, true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f1'),
@@ -60,7 +60,7 @@ VALUES
 ('be8ef59f-d5a4-4254-ab99-af860672553e', 'Catégorie par Defaut', 0, true, '2022-01-01', '2022-01-02','0190615e-1101-7209-9932-7020bbd556f7');
 
 -- Insertion dans la table 'associer'
-INSERT INTO associer (categories_id, attributs_id,ordre,obligatoire)
+INSERT INTO document.associer (categories_id, attributs_id,ordre,obligatoire)
 VALUES
 ('36b843d8-f8a7-4b76-9980-1add9edc2364', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',1,true),
 ('36b843d8-f8a7-4b76-9980-1add9edc2364', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a13',2,true),
@@ -77,7 +77,7 @@ VALUES
 ('be8ef59f-d5a4-4254-ab99-af860672553e', 'a9eebc99-9c0b-4ef8-bb6d-6bb9bd380a19',1,true);
 
 -- Insertion dans la table 'constituer'
-INSERT INTO constituer (documents_id, attributs_id)
+INSERT INTO document.constituer (documents_id, attributs_id)
 VALUES
 ('0190615e-1101-7209-9932-7020bbd556f1', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a11'),
 ('0190615e-1101-7209-9932-7020bbd556f1', 'a1eebc99-9c0b-4ef8-bb6d-6bb9bd380a13'),
@@ -96,7 +96,7 @@ VALUES
 ('0190615e-1101-7209-9932-7020bbd556f8', 'a2eebc99-9c0b-4ef8-bb6d-6bb9bd380a20');
 
 -- Insertion dans la table 'precomouvements'
-INSERT INTO precomouvements (id, libelle, etat, typemouvement, datecreation, datemodification) VALUES
+INSERT INTO document.precomouvements (id, libelle, etat, typemouvement, datecreation, datemodification) VALUES
 ('6290615e-1101-7209-9932-7020bbd556f1', 'Inventaire', true, 'Neutre', '2022-01-01', '2022-01-02'),
 ('6290615e-1101-7209-9932-7020bbd556f2', 'Vente', true, 'Reduire', '2022-01-01', '2022-01-02'),
 ('17ee6932-2fcd-4b93-9c4c-0a4dbf659bff', 'Achat', true, 'Ajout', '2022-01-01', '2022-01-02'),
@@ -107,7 +107,7 @@ INSERT INTO precomouvements (id, libelle, etat, typemouvement, datecreation, dat
 ('6290615e-1101-7209-9932-7020bbd556f8', 'Sortie magasin', true, 'Reduire', '2022-01-01', '2022-01-02');
 
 ---- Insertion dans la table 'familles'
-INSERT INTO familles (id, libelle, description, etat, datecreation, datemodification) VALUES
+INSERT INTO document.familles (id, libelle, description, etat, datecreation, datemodification) VALUES
 ('f190615e-1101-7209-9932-7020bbd556f1', 'Medicaments', 'Medicaments', true, '2022-01-01', '2022-01-02'),
 ('f190615e-1101-7209-9932-7020bbd556f2', 'Consommables Informatiques', 'Consommables Informatiques', true, '2022-01-01', '2022-01-02'),
 ('f190615e-1101-7209-9932-7020bbd556f3', 'BioMedical', 'BioMedical', true, '2022-01-01', '2022-01-02'),
@@ -115,7 +115,7 @@ INSERT INTO familles (id, libelle, description, etat, datecreation, datemodifica
 
 --
 ---- Insertion dans la table 'ressources'
-INSERT INTO ressources (id, libelle, description, etat, datecreation, datemodification,quantite, prixentree,prixsortie,seuilalerte,unite, familles_id) VALUES
+INSERT INTO document.ressources (id, libelle, description, etat, datecreation, datemodification,quantite, prixentree,prixsortie,seuilalerte,unite, familles_id) VALUES
 ('6190615e-1101-7209-9932-7020bbd556f1', 'Paracetamol', 'Paracetamol', true, '2022-01-01', '2022-01-02',4,1200,2000,20,'Boite', 'f190615e-1101-7209-9932-7020bbd556f1'),
 ('6190615e-1101-7209-9932-7020bbd556f2', 'Cartouche d''encre', 'Cartouche d''encre', true, '2022-01-01', '2022-01-02',4,2000,3000,10,'Boite', 'f190615e-1101-7209-9932-7020bbd556f2'),
 ('6190615e-1101-7209-9932-7020bbd556f3', 'Scanner', 'Scanner', true, '2022-01-01', '2022-01-02',4,12000,20000,2,'Packs', 'f190615e-1101-7209-9932-7020bbd556f2'),
@@ -136,7 +136,7 @@ INSERT INTO ressources (id, libelle, description, etat, datecreation, datemodifi
 ('5f516ee3-b23d-4cf1-8d55-e301764e0508', 'Cahier', 'Cahier', true, '2022-01-01', '2022-01-02',4,1200,2000,20,'Packs', 'f190615e-1101-7209-9932-7020bbd556f4');
 
 ---- Insertion dans la table 'precomouvementsqtes'
-INSERT INTO precomouvementsqtes (id, qtemin, qtemax, montantmin, montantmax, precomouvements_id, ressources_id, datecreation, datemodification) VALUES
+INSERT INTO document.precomouvementsqtes (id, qtemin, qtemax, montantmin, montantmax, precomouvements_id, ressources_id, datecreation, datemodification) VALUES
 ('a97eb081-62f6-4617-ba29-64dc8593a9ff', 10, 100, 500, 5000, '6290615e-1101-7209-9932-7020bbd556f1', '6190615e-1101-7209-9932-7020bbd556f1', '2022-01-01', '2022-01-02'),
 ('a87eb081-62f6-4617-ba29-64dc8593a9ff', 20, 200, 1000, 10000, '6290615e-1101-7209-9932-7020bbd556f2', '6190615e-1101-7209-9932-7020bbd556f2', '2022-01-01', '2022-01-02'),
 ('a77eb081-62f6-4617-ba29-64dc8593a9ff', 5, 50, 200, 2000, '17ee6932-2fcd-4b93-9c4c-0a4dbf659bff', '6190615e-1101-7209-9932-7020bbd556f3', '2022-01-01', '2022-01-02'),
@@ -148,7 +148,7 @@ INSERT INTO precomouvementsqtes (id, qtemin, qtemax, montantmin, montantmax, pre
 ('a97eb081-62f6-4617-ba29-74dc8593a9ff', 5, 50, 200, 2000, '6290615e-1101-7209-9932-7020bbd556f8', null, '2022-01-01', '2022-01-02');
 
 -- Insertion dans la table sapplique
-INSERT INTO sapplique (precomouvementsqtes_id,familles_id)
+INSERT INTO document.sapplique (precomouvementsqtes_id,familles_id)
 VALUES
 ('a97eb081-72f6-4617-ba29-64dc8593a9ff', 'f190615e-1101-7209-9932-7020bbd556f1'),
 ('a97eb081-62f6-4617-ba49-64dc8593a9ff', 'f190615e-1101-7209-9932-7020bbd556f2'),
@@ -161,7 +161,7 @@ VALUES
 ('a97eb081-62f6-4617-ba49-64dc8593a9ff', 'f190615e-1101-7209-9932-7020bbd556f1');
 
 --insertion dans la table suivre
-INSERT INTO suivre (precomouvements_id, documents_id)
+INSERT INTO document.suivre (precomouvements_id, documents_id)
 VALUES
 ('6290615e-1101-7209-9932-7020bbd556f1', '0190615e-1101-7209-9932-7020bbd556f1'),
 ('6290615e-1101-7209-9932-7020bbd556f2', '0190615e-1101-7209-9932-7020bbd556f2'),
@@ -173,45 +173,45 @@ VALUES
 ('6290615e-1101-7209-9932-7020bbd556f8', '0190615e-1101-7209-9932-7020bbd556f8');
 
 -- Insérer les données dans la table 'personnes' en se basant sur la classe PersonnesEntity
-INSERT INTO personnes (id,adresse,mail,telephone,qrcodevalue,datecreation,datemodification) VALUES
+INSERT INTO document.personnes (id,adresse,mail,telephone,qrcodevalue,datecreation,datemodification) VALUES
 ('1979bd79-f71b-498b-b247-e7b9bbb3f600','Bastos','abd@yah.fr','655454545','qrcode1','2022-01-01','2022-01-02'),
 ('d301ff83-2a62-4e6d-aa23-57c7825bcd57','Bastos','dbc@yah.fr','655454545','qrcode2','2022-01-01','2022-01-02'),
 ('0618e585-f82a-4d5f-af1c-54f880d766d3','Bastos','pnj@gma.com','655454545','qrcode3','2022-01-01','2022-01-02'),
 ('fdbff692-6b8d-43ab-a196-fcc3114b2daa','Bastos','sg@sg.fr','655454545','qrcode4','2022-01-01','2022-01-02');
 
 -- Insérer les données dans la table 'distributeur' en se basant sur la classe DistributeurEntity
-INSERT INTO distributeurs (distributeurs_id, code, raisonsociale, datemodification) VALUES
+INSERT INTO document.distributeurs (distributeurs_id, code, raisonsociale, datemodification) VALUES
 ('1979bd79-f71b-498b-b247-e7b9bbb3f600','d190615','ENEO','2022-01-01'),
 ('0618e585-f82a-4d5f-af1c-54f880d766d3','d190616','Brasserie','2022-01-01'),
 ('d301ff83-2a62-4e6d-aa23-57c7825bcd57','d190619','UCB','2022-01-01'),
 ('fdbff692-6b8d-43ab-a196-fcc3114b2daa','d190614','Pharmacam','2022-01-01');
 
-INSERT INTO etats (id, libelle,description, datecreation, datemodification) VALUES
+INSERT INTO document.etats (id, libelle,description, datecreation, datemodification) VALUES
 ('e190615e-1101-7209-9932-7020bbd556f1','En cours','En cours', '2022-01-01', '2022-01-02'),
 ('e190615e-1101-7209-9932-7020bbd556f2','Valide','Valide', '2022-01-01', '2022-01-02'),
 ('e190615e-1101-7209-9932-7020bbd556f3','Rejete','Rejete', '2022-01-01', '2022-01-02'),
 ('e190615e-1101-7209-9932-7020bbd556f4','En attente','En attente', '2022-01-01', '2022-01-02');
 
 -- Insérer les données dans la table 'roles' en se basant sur la classe RolesEntity
-INSERT INTO roles (id, titre, description, etat, datecreation,datemodification) VALUES
+INSERT INTO document.roles (id, titre, description, etat, datecreation,datemodification) VALUES
 ('5190615e-1101-7209-9932-7020bbd556f1','vendeur','personnel au contact du client', true, '2022-01-01','2022-01-02'),
 ('6130615e-1101-7209-9932-7020bbd556f2','traiteur','Personnel administratif', true, '2022-01-01','2022-01-02'),
 ('6191615e-1101-7209-9932-7020bbd556f3','marcheur','commercial sur le terrain', true, '2022-01-01','2022-01-02');
 
-INSERT INTO personnels (id, dateentree, nom, datenaissance, telephone, datesortie, email, prenom, sexe)
+INSERT INTO document.personnels (id, dateentree, nom, datenaissance, telephone, datesortie, email, prenom, sexe)
 VALUES
     ('4390615e-1101-7209-9932-7020bbd556f1', CURRENT_DATE, 'Tagne', '2000-04-10', '655455487', NULL, 'tagnewillie@gmail.com', 'Willy', 'M'),
     ('4390615e-1101-7209-9932-7020bbd556f2', CURRENT_DATE, 'Peter', '2004-08-10', '655455487', NULL, 'peteralan@gmail.com', 'Alan', 'M'),
     ('4390615e-1101-7209-9932-7020bbd556f3', CURRENT_DATE, 'Dombo', '2002-10-10', '655455487', NULL, 'dombogilles@gmail.com', 'Gilles', 'M');
 
 -- Insérer les données dans la table 'jouerRole' en se basant sur la classe JouerRoleEntity
-INSERT INTO jouerRoles (id,personnels_id, roles_id,datedebut,datefin, datecreation, datemodification) VALUES
+INSERT INTO document.jouerRoles (id,personnels_id, roles_id,datedebut,datefin, datecreation, datemodification) VALUES
 ('d76fd017-cceb-4926-8705-380b08ad9c6a','4390615e-1101-7209-9932-7020bbd556f1','5190615e-1101-7209-9932-7020bbd556f1','2024-01-01',null,'2022-01-01','2022-01-02'),
 ('d39bcc09-ffe6-48d1-8582-f1173671d59f','4390615e-1101-7209-9932-7020bbd556f2','6130615e-1101-7209-9932-7020bbd556f2','2024-01-01',null,'2022-01-01','2022-01-02'),
 ('9183d626-0c1a-4f70-8556-1c417d5feb91','4390615e-1101-7209-9932-7020bbd556f3','6191615e-1101-7209-9932-7020bbd556f3','2024-01-01',null,'2022-01-01','2022-01-02');
 
 --inserer données dans la table 'traiter'
-INSERT INTO traiter (documents_id,missions_id) values
+INSERT INTO document.traiter (documents_id,missions_id) values
 ('0190615e-1101-7209-9932-7020bbd556f1','3190615e-1101-7209-9932-7020bbd556f1'),
 ('0190615e-1101-7209-9932-7020bbd556f1','3190615e-1101-7209-9932-7020bbd556f2'),
 ('0190615e-1101-7209-9932-7020bbd556f2','3190615e-1101-7209-9932-7020bbd556f2'),

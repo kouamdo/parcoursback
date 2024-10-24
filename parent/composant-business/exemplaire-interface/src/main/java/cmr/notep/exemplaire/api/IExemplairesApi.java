@@ -1,5 +1,6 @@
 package cmr.notep.exemplaire.api;
 
+import cmr.notep.exceptions.ParcoursException;
 import cmr.notep.exemplaire.modele.Exemplaires;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
@@ -20,12 +21,12 @@ public interface IExemplairesApi {
             path = "/{idExemplaire}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    Exemplaires avoirExemplaire(@NonNull @RequestParam(name = "idExemplaire") String idExemplaire);
+    Exemplaires avoirExemplaire(@NonNull @RequestParam(name = "idExemplaire") String idExemplaire) throws ParcoursException;
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    List<Exemplaires> avoirTousExemplaires();
+    List<Exemplaires> avoirTousExemplaires() throws ParcoursException;
     @DeleteMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE
     )

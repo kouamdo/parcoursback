@@ -27,5 +27,5 @@ public class MouvementsInterne {
     private List<String> precoMouvementsVioler;
     private String ressource;
     private String distributeur;
-    private Exemplaires exemplaire;
+    private ExemplairesInterne exemplaire;
 }

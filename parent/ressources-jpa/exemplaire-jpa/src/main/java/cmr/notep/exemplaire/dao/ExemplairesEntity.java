@@ -28,7 +28,7 @@ public class ExemplairesEntity {
     private String personneBeneficiaire;
     @Column(name = "personnerattachee")
     private String personneRattachee;
-    @Column(name="documentid")
+    @Column(name="document_id")
     private String documentId;
     @Column(name = "datecreation", updatable = false,nullable = false)
     private Date dateCreation;
@@ -36,8 +36,8 @@ public class ExemplairesEntity {
     private Date dateModification;
     //liste des id des exemplaires qui ont servi à la creation de cet exemplaire
     @ElementCollection
-    @CollectionTable(name = "exemplairesparents", joinColumns = @JoinColumn(name = "exemplaires_id"))
-    @Column(name = "id")
+    @CollectionTable(name = "exemplairesparents", joinColumns = @JoinColumn(name = "exemplaires_id"), schema = "exemplaire")
+    @Column(name = "parent_id")
     private List<String> idExemplairesParents;
     @OneToMany(mappedBy = "exemplaireEntity")
     @Mapping("ordreEtats")
@@ -46,12 +46,12 @@ public class ExemplairesEntity {
     @Mapping("mouvements")
     private List<MouvementsEntity> mouvementsEntities;
     @ElementCollection
-    @CollectionTable(name = "personnesdestinataires", joinColumns = @JoinColumn(name = "exemplaires_id"))
+    @CollectionTable(name = "personnesdestinataires", joinColumns = @JoinColumn(name = "exemplaires_id"), schema = "exemplaire")
     @Column(name = "personneid")
     @Mapping("personnesDestinataires")
     private List<PersonnesDestinatairesEntity> personnesDestinatairesEntities;
     @ElementCollection
-    @CollectionTable(name = "exemplairesattributs", joinColumns = @JoinColumn(name = "exemplaires_id"))
+    @CollectionTable(name = "exemplairesattributs", joinColumns = @JoinColumn(name = "exemplaires_id"), schema = "exemplaire")
     @Column(name = "attributsid")
     @Mapping("exemplaireAttributs")
     private List<ExemplaireAttributsEntity> exemplaireAttributsEntities;

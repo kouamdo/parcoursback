@@ -19,7 +19,8 @@ public class OrdreEtatsEntity {
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", nullable = false, updatable = false, columnDefinition = "UUID")
     private String id;
-
+    @Column(name = "description")
+    private String description;
     @Column(name = "datecreation", updatable = false)
     private Date dateCreation;
     @Column(name = "datemodification")

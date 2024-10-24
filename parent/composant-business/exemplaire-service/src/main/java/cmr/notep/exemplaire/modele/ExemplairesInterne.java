@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 @ToString
 @EqualsAndHashCode
-public class ExemplairesInterne extends Documents {
+public class ExemplairesInterne  {
     private String id;
     private String code;
     private String codeBarre;

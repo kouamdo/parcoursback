@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "precomouvements")
+@Table(name = "precomouvements", schema = "document")
 public class PrecoMouvementsEntity {
 
     @Id

@@ -3,12 +3,14 @@ package cmr.notep.exemplaire.config;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.annotation.PostConstruct;
 
 @Configuration
 @EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "cmr.notep.exemplaire.repository")
 public class ExemplaireConfig {
 
 

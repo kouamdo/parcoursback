@@ -11,7 +11,7 @@ import java.util.Date;
 @Setter
 @Entity
 @PrimaryKeyJoinColumn(name = "personnesphysique_id")
-@Table(name = "personnesphysique")
+@Table(name = "personnesphysique", schema = "document")
 public class PersonnesPhysiquesEntity extends PersonnesEntity{
 
     @Column(name = "nom" , nullable = false)

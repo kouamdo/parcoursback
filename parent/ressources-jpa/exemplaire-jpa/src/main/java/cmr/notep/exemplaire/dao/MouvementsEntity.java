@@ -39,12 +39,12 @@ public class MouvementsEntity {
     private Date dateModification;
     //PrecoMouvementsEntity
     @ElementCollection
-    @CollectionTable(name = "respecterprecomouvement", joinColumns = @JoinColumn(name = "mouvements_id"))
+    @CollectionTable(name = "respecterprecomouvement", joinColumns = @JoinColumn(name = "mouvements_id"), schema = "exemplaire")
     @Column(name = "precomouvements_id")
     private List<String> precoMouvementsRespecterIds;
 
     @ElementCollection
-    @CollectionTable(name = "violerprecomouvement", joinColumns = @JoinColumn(name = "mouvements_id"))
+    @CollectionTable(name = "violerprecomouvement", joinColumns = @JoinColumn(name = "mouvements_id"), schema = "exemplaire")
     @Column(name = "precomouvements_id")
     private List<String> precoMouvementsViolerIds;
     @Column(name = "ressources_id")

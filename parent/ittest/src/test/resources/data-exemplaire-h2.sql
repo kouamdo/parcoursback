@@ -1,5 +1,5 @@
 -- insertions des données dans la table exemplaires
-INSERT INTO exemplaire.exemplaires (id, code, codebarre, titre, datecreation, datemodification, personnerattachee,personnebeneficiaire,documentid) VALUES
+INSERT INTO exemplaire.exemplaires (id, code, codebarre, titre, datecreation, datemodification, personnerattachee,personnebeneficiaire,document_id) VALUES
     ('3190615e-1101-7209-9932-7020bbd556f7', 'Code1', 'CodeBarre1', 'Note intervention personnalisée', '2022-03-07', '2022-03-07', null, '1979bd79-f71b-498b-b247-e7b9bbb3f600','0190615e-1101-7209-9932-7020bbd556f1'),
     ('239d9d41-4850-4984-9d81-189cf44d867d', 'Code2', 'CodeBarre12', 'Fiche de suivi personnalisée', '2022-04-07', '2022-03-07', null, 'd301ff83-2a62-4e6d-aa23-57c7825bcd57','0190615e-1101-7209-9932-7020bbd556f2'),
     ('14d6a6a5-e470-4a43-a33b-37c294974461', 'Code3', 'CodeBarre13', 'Fiche de soin personnalisée', '2022-03-07', '2022-03-07', null, '1979bd79-f71b-498b-b247-e7b9bbb3f600','0190615e-1101-7209-9932-7020bbd556f3'),
@@ -8,13 +8,13 @@ INSERT INTO exemplaire.exemplaires (id, code, codebarre, titre, datecreation, da
     ('e9eb182f-baf3-4c27-8179-a8b083c30e09', 'Code6', 'CodeBarre16', 'Note intervention personnalisée', '2022-03-07', '2022-03-07', null, '1979bd79-f71b-498b-b247-e7b9bbb3f600','0190615e-1101-7209-9932-7020bbd556f3');
 
  --insertions des données dans la table ordreetats
-INSERT INTO exemplaire.ordreetats (id, description, datecreation, datemodification,datefinvote, ordre, etats_id, exemplaireid) VALUES
+INSERT INTO exemplaire.ordreetats (id, description, datecreation, datemodification,datefinvote, ordre, etats_id, exemplaire_id) VALUES
 ('317efceb-7260-49fe-bf67-14078e0c74e2', 'ordre 1', '2019-01-01', '2019-01-01', '2025-01-01', 1, 'e190615e-1101-7209-9932-7020bbd556f1', '3190615e-1101-7209-9932-7020bbd556f7'),
 ('ffeec39a-8c61-457d-9e99-dea0b4a8ff86', 'ordre 2', '2019-01-01', '2019-01-01', '2024-01-01', 1, 'e190615e-1101-7209-9932-7020bbd556f1', '239d9d41-4850-4984-9d81-189cf44d867d'),
 ('0ce9d22a-1634-4561-9e4f-607cfaa7ad97', 'ordre 2 bis', '2019-01-01', '2019-01-01', '2025-01-01', 2, 'e190615e-1101-7209-9932-7020bbd556f2', '239d9d41-4850-4984-9d81-189cf44d867d'),
 ('6e2f8850-57e7-4af7-9881-da1880bbce49', 'ordre 3', '2019-01-01', '2019-01-01', '2023-01-01', 1, 'e190615e-1101-7209-9932-7020bbd556f1', '14d6a6a5-e470-4a43-a33b-37c294974461'),
 ('6b6d5246-6689-4e01-b019-896dec6b6369', 'ordre 3 bis', '2019-01-01', '2019-01-01', '2024-01-01', 2, 'e190615e-1101-7209-9932-7020bbd556f2', '14d6a6a5-e470-4a43-a33b-37c294974461'),
-('6e2f8850-57e7-4af7-9881-da1880bbce49', 'ordre 3 ter', '2019-01-01', '2019-01-01', '2025-01-01', 3, 'e190615e-1101-7209-9932-7020bbd556f3', '14d6a6a5-e470-4a43-a33b-37c294974461'),
+('ba305189-e319-4734-b92d-5f561c60abf9', 'ordre 3 ter', '2019-01-01', '2019-01-01', '2025-01-01', 3, 'e190615e-1101-7209-9932-7020bbd556f3', '14d6a6a5-e470-4a43-a33b-37c294974461'),
 ('1d9b1f4c-0570-4ea5-8659-91e2c8348673', 'ordre 4', '2019-01-01', '2019-01-01', '2025-01-01', 4, 'e190615e-1101-7209-9932-7020bbd556f4', '5b777f4e-ac38-4637-a065-ef87af525e86'),
 ('8332d535-d7a9-462c-9d6c-23ed891ed127', 'ordre 5', '2019-01-01', '2019-01-01', '2025-01-01', 5, 'e190615e-1101-7209-9932-7020bbd556f1', '6d5a9f88-704d-4715-9336-92835cf9e824'),
 ('1ef57c5d-b317-4232-9ae0-15695fb8cba0', 'ordre 6', '2019-01-01', '2019-01-01', '2025-01-01', 6, 'e190615e-1101-7209-9932-7020bbd556f1', 'e9eb182f-baf3-4c27-8179-a8b083c30e09');
@@ -45,7 +45,7 @@ INSERT INTO exemplaire.personnesdestinataires(exemplaires_id,personneid, dateenv
 ('3190615e-1101-7209-9932-7020bbd556f7','fdbff692-6b8d-43ab-a196-fcc3114b2daa','2022-03-07','EMAIL');
 
 -- insertions des données dans la table exemplaire.exemplairesparents
-INSERT INTO exemplaire.exemplairesparents(exemplaires_id, parentid) VALUES
+INSERT INTO exemplaire.exemplairesparents(exemplaires_id, parent_id) VALUES
 ('3190615e-1101-7209-9932-7020bbd556f7','239d9d41-4850-4984-9d81-189cf44d867d'),
 ('14d6a6a5-e470-4a43-a33b-37c294974461','5b777f4e-ac38-4637-a065-ef87af525e86'),
 ('14d6a6a5-e470-4a43-a33b-37c294974461','6d5a9f88-704d-4715-9336-92835cf9e824');

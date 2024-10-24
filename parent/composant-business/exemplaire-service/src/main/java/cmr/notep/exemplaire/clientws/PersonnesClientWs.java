@@ -10,9 +10,11 @@ import cmr.notep.wstools.api.IGenericWsClientApi;
 import cmr.notep.wstools.modeles.GenericWsRequest;
 import cmr.notep.wstools.modeles.GenericWsResponse;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
+@Profile("!ittest")
 public class PersonnesClientWs implements IPersonnesApi {
     public static final String URI_PERSONNES = "/personnes/";
 

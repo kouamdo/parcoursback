@@ -10,7 +10,7 @@ import java.util.Date;
 @Setter
 @Entity
 @PrimaryKeyJoinColumn(name = "personnesmorales_id")
-@Table(name = "personnesmorales")
+@Table(name = "personnesmorales", schema = "document")
 public class PersonnesMoralesEntity extends PersonnesEntity{
 
     @Column(name = "raisonsociale")

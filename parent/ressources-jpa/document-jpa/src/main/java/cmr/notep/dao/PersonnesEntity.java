@@ -1,7 +1,5 @@
 package cmr.notep.dao;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
@@ -15,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "personnes")
+@Table(name = "personnes", schema = "document")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class PersonnesEntity
 {
@@ -40,7 +38,7 @@ public class PersonnesEntity
     @Column(name = "datemodification")
     private Date dateModification;
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "rattacher" ,
+    @JoinTable(name = "rattacher" ,schema = "document",
             joinColumns = @JoinColumn(name = "personnes_id"),
             inverseJoinColumns = @JoinColumn(name = "rattacher_id"))
     @Mapping("personnesRatachees")
