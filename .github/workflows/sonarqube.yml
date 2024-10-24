@@ -34,7 +34,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build with Maven
         run:  |
-            cd parent && mvn clean install -Dmaven.test.skip=true -DskipTests
+            cd parent && mvn clean install -Dmaven.test.skip=true
       - name: SonarQube Scan 1
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # analysis token associated to your project
