@@ -8,8 +8,10 @@ RUN mvn clean install
 
 FROM openjdk:17-jdk-slim
 
-COPY --from=build /app/target/*.jar /app/api_greenlive.jar
+COPY --from=build /app/target/*.jar /app/parcoursback.jar
 
 WORKDIR /app
 
-CMD ["java", "-jar", "api_greenlive.jar"]
+CMD ["java", "-jar", "parcoursback.jar"]
+
+EXPOSE 8080
