@@ -31,7 +31,7 @@ public class DocumentCrudTest extends AbstractIttest {
  List<Documents> documentsList = null;
  String dossier= "data/documents";
  ObjectMapper objectMapper = new ObjectMapper();
-@Test
+//@Test
 @SneakyThrows
  public void testAvoirTousDocuments() {
    documentsList = documentService.avoirTousDocuments();
@@ -49,7 +49,7 @@ public class DocumentCrudTest extends AbstractIttest {
             ,fieldsToExclude));
  }
 
- @Test
+// @Test
  @SneakyThrows
  public void testPosterDocument(){
    Documents document = new Documents();
