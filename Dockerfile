@@ -8,13 +8,13 @@ COPY ./parent /app
 WORKDIR /app
 
 # Run Maven to build the project without tests
-RUN mvn clean install package -Dmaven.test.skip=true
+RUN mvn clean install -Dmaven.test.skip=true
 
 # Use a lightweight OpenJDK image for running the application
 FROM openjdk:17-jdk-slim
 
 # Copy the built JAR file from the previous stage
-COPY --from=build /app/target/*.jar /app/parcoursback.jar
+COPY --from=build /app/target/parcoursback-*.jar /app/parcoursback.jar
 
 # Set the working directory for running the application
 WORKDIR /app
