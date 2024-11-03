@@ -79,7 +79,7 @@ jobs:
         with:
           context: .  # Use the current directory as the build context
           file: Dockerfile  # Specify the Dockerfile to use
-          tags: localpytest:latest  # Tag for the built image
+          tags: parcoursback:latest  # Tag for the built image
           load: true  # Load the image into the Docker daemon (for local use)
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
