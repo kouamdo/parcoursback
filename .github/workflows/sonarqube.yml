@@ -57,8 +57,8 @@ jobs:
             -Dsonar.projectKey='sqa_39d51faf0f0b92870aafb760a621dcc33cec9998' \
             -Dsonar.projectName='parcoursback-apps-front'
 
-  dockerBuildAndPush:
-    name: Build and Push Docker Image
+  dockerBuildAndPush_document_service:
+    name: Build and Push Docker Image for document service
     runs-on: ubuntu-latest
     needs: sonarQubeScan  # Ensure this job runs after the SonarQube analysis
 
@@ -84,3 +84,32 @@ jobs:
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
           push: false  # Set to true if you want to push to a remote registry
+          
+  dockerBuildAndPush_exemplaire_service:
+    name: Build and Push Docker Image for exemplaire service
+    runs-on: ubuntu-latest
+    needs: sonarQubeScan  # Ensure this job runs after the SonarQube analysis
+
+    steps:
+      # Step 7: Checkout code again (if needed)
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Step 8: Set up Docker Buildx for building images
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      # Step 9: Build and push Docker image to the registry (if needed)
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: .  # Use the current directory as the build context
+          file: parent/composant-business/exemplaire-service/Dockerfile  # Specify the Dockerfile to use
+          tags: parcoursback:latest  # Tag for the built image
+          load: true  # Load the image into the Docker daemon (for local use)
+          cache-from: type=gha  # Use GitHub Actions cache as a cache source
+          cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
+          push: false  # Set to true if you want to push to a remote registry
+  
