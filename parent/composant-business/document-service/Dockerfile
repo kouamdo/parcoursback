@@ -2,7 +2,7 @@
 FROM maven:3.8.3-openjdk-17-slim AS build
 
 # Copy the entire parent directory to /app
-COPY ./parent /app
+COPY ../../../../parent /app
 
 # Set the working directory
 WORKDIR /app
