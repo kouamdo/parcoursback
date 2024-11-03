@@ -16,13 +16,13 @@ RUN find . -name "*.jar"
 FROM openjdk:17-jdk-slim
 
 # Copy the built JAR file from the previous stage
-COPY --from=build /app/target/parcoursback-*.jar /app/parcoursback.jar
+COPY --from=build /app/ressources-jpa/document-jpa/target/document-jpa-*.jar /app/ressources-jpa/document-jpa/target/document-jpa-*.jar
 
 # Set the working directory for running the application
 WORKDIR /app
 
 # Command to run the application
-CMD ["java", "-jar", "parcoursback.jar"]
+CMD ["java", "-jar", "/app/ressources-jpa/document-jpa/target/document-jpa-*.jar"]
 
 # Expose port 8080
 EXPOSE 8080
