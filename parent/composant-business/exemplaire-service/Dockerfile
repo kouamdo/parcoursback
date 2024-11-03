@@ -25,4 +25,4 @@ WORKDIR /app
 CMD ["java", "-jar", "/app/ressources-jpa/exemplaire-jpa/target/exemplaire-jpa-*.jar"]
 
 # Expose port 8080
-EXPOSE 8080
+EXPOSE 9090
