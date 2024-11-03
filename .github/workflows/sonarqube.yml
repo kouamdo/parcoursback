@@ -40,7 +40,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
             cd parent
-            mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=SONAR_PROJECT1_KEY -Dsonar.projectName='parcoursback-apps-front' 
+            mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=${{ secrets.SONAR_TOKEN }} -Dsonar.projectName='parcoursback-apps-front' 
         # Replace variables with project path, key and name
       - name: Checkout code
         uses: actions/checkout@v4
