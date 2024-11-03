@@ -78,7 +78,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .  # Use the current directory as the build context
-          file: Dockerfile  # Specify the Dockerfile to use
+          file: parent/composant-business/document-service/Dockerfile  # Specify the Dockerfile to use
           tags: parcoursback:latest  # Tag for the built image
           load: true  # Load the image into the Docker daemon (for local use)
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
