@@ -7,8 +7,8 @@ COPY ../../../../parent /app
 # Set the working directory
 WORKDIR /app
 
-# # Run Maven to build the project without tests
-# RUN mvn clean install -Dmaven.test.skip=true
+# Run Maven to build the project without tests
+RUN mvn clean install -Dmaven.test.skip=true
 
 RUN find . -name "*.jar"
 
