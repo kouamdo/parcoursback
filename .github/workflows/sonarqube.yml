@@ -44,7 +44,7 @@ jobs:
       # Step 5: Build the project using Maven
       - name: Build with Maven
         run: |
-          cd parent && mvn clean install deploy -Dmaven.test.skip=true
+          cd parent && mvn clean install -Dmaven.test.skip=true
 
       # Step 6: Run SonarQube analysis
       - name: SonarQube Scan
@@ -55,7 +55,7 @@ jobs:
           cd parent
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey='sqa_39d51faf0f0b92870aafb760a621dcc33cec9998' \
-            -Dsonar.projectName='parcoursback-apps-front'
+            -Dsonar.projectName='parcoursback-apps'
 
   dockerBuildAndPush_document_service:
     name: Build and Push Docker Image for document service
