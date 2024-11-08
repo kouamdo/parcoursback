@@ -44,6 +44,10 @@ jobs:
       # Step 5: Build the project using Maven
       - name: Build with Maven
         run: |
+          cd parent &&  mvn clean install -Dmaven.test.skip=true
+          
+      - name: Deploy with Maven
+        run: |
           cd parent &&  mvn deploy --settings settings.xml
 
       # Step 6: Run SonarQube analysis
