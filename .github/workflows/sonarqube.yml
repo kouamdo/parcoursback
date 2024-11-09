@@ -64,7 +64,7 @@ jobs:
         run: |
           cd parent
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-            -Dsonar.projectKey=${{ secrets.PARCOURS_TOKEN }} \
+            -Dsonar.projectKey=${{ secrets.SONAR_TOKEN }} \
             -Dsonar.projectName='parcoursback-apps'
 
   dockerBuildAndPush_document_service:
