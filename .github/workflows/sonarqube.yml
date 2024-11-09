@@ -48,7 +48,7 @@ jobs:
           echo "    <server>" >> ~/.m2/settings.xml
           echo "      <id>github</id>" >> ~/.m2/settings.xml
           echo "      <username>kouamdo</username>" >> ~/.m2/settings.xml
-          echo "      <password>${{ secrets.PARCOURS_TOKEN }}</password>" >> ~/.m2/settings.xml  # Utilisez le secret ici
+          echo "      <password>moumobou1998</password>" >> ~/.m2/settings.xml  # Utilisez le secret ici
           echo "    </server>" >> ~/.m2/settings.xml
           echo "  </servers>" >> ~/.m2/settings.xml
           echo "</settings>" >> ~/.m2/settings.xml
