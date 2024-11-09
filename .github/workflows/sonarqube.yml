@@ -64,7 +64,7 @@ jobs:
         run: |
           cd parent
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-            -Dsonar.projectKey='sqa_39d51faf0f0b92870aafb760a621dcc33cec9998' \
+            -Dsonar.projectKey=${{ secrets.PARCOURS_TOKEN }} \
             -Dsonar.projectName='parcoursback-apps'
 
   dockerBuildAndPush_document_service:
@@ -94,6 +94,8 @@ jobs:
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
           push: false  # Set to true if you want to push to a remote registry
+          secrets: |
+            PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}
           
   dockerBuildAndPush_exemplaire_service:
     name: Build and Push Docker Image for exemplaire service
@@ -122,4 +124,5 @@ jobs:
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
           push: false  # Set to true if you want to push to a remote registry
-  
+          secrets: |
+            PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}
