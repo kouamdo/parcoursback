@@ -83,13 +83,13 @@ jobs:
       # Step 5: Build the project using Maven
       - name: Build with Maven
         run: |
-          cd parent &&  mvn clean install -Dmaven.test.skip=true && mvn deploy --settings ~/.m2/settings.xml --file pom.xml
+          cd parent &&  mvn clean install -Dmaven.test.skip=true
           
-      # - name: Deploy  document et exemplaire applications with Maven
-      #   env:
-      #     PARCOURSBACK_TOKEN: ${{ secrets.parcours_token }}
-      #   run: |
-      #     cd parent &&  mvn deploy --settings settings.xml
+      - name: Deploy  document et exemplaire applications with Maven
+        env:
+          PARCOURSBACK_TOKEN: ${{ secrets.parcours_token }}
+        run: |
+          cd parent &&  mvn clean source:jar deploy -DuniqueVersion=false -Dmaven.source.useDefaultManifestFile=true -DdeplyAtEnd=true -Dmaven.source.includePom=true -Dmaven.install.skip=true --settings settings.xml --settings ~/.m2/settings.xml --file pom.xml 
 
       # Step 6: Run SonarQube analysis
       - name: SonarQube Scan
