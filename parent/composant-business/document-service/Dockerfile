@@ -1,28 +1,15 @@
-# Use Maven image for building
-FROM maven:3.8.3-openjdk-17-slim AS build
-
-# Copy the entire parent directory to /app
-COPY ../../../../parent /app
+# Use an appropriate base image
+FROM openjdk:17-jdk-slim
 
 # Set the working directory
 WORKDIR /app
 
-# Run Maven to build the project without tests
-RUN mvn clean install -Dmaven.test.skip=true
-
-RUN find . -name "*.jar"
-
-# Use a lightweight OpenJDK image for running the application
-FROM openjdk:17-jdk-slim
-
-# Copy the built JAR file from the previous stage
-COPY --from=build /app/ressources-jpa/document-jpa/target/document-jpa-*.jar /app/ressources-jpa/document-jpa/target/document-jpa-*.jar
-
-# Set the working directory for running the application
-WORKDIR /app
+# Copy the downloaded JAR into the container
+RUN curl -H "Authorization: Bearer ${{ secrets.PARCOURS_TOKEN }}" \
+     -L -o document-service.jar \
+     https://maven.pkg.github.com/kouamdo/parcoursback/cmr/notep/document-service/1.0-SNAPSHOT/document-service-1.0-SNAPSHOT.jar
 
 # Command to run the application
-CMD ["java", "-jar", "/app/ressources-jpa/document-jpa/target/document-jpa-*.jar"]
+ENTRYPOINT ["java", "-jar", "document-service.jar"]
 
-# Expose port 8080
 EXPOSE 8080
