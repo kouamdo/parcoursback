@@ -40,28 +40,6 @@ jobs:
           path: ~/.m2/repository
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-
-      - name: Configure Maven Settings
-        run: |
-          echo "<settings xmlns='http://maven.apache.org/SETTINGS/1.0.0' " \
-               "xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' " \
-               "xsi:schemaLocation='http://maven.apache.org/SETTINGS/1.0.0 " \
-               "http://maven.apache.org/xsd/settings-1.0.0.xsd'>" > ~/.m2/settings.xml
-          echo "" >> ~/.m2/settings.xml
-          echo "  <servers>" >> ~/.m2/settings.xml
-          echo "    <server>" >> ~/.m2/settings.xml
-          echo "      <id>github</id>" >> ~/.m2/settings.xml
-          echo "      <configuration>" >> ~/.m2/settings.xml
-          echo "        <httpHeaders>" >> ~/.m2/settings.xml
-          echo "          <property>" >> ~/.m2/settings.xml
-          echo "            <name>Authorization</name>" >> ~/.m2/settings.xml
-          echo "            <value>Bearer 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</value>" >> ~/.m2/settings.xml  # Use the secret here
-          echo "          </property>" >> ~/.m2/settings.xml
-          echo "        </httpHeaders>" >> ~/.m2/settings.xml
-          echo "      </configuration>" >> ~/.m2/settings.xml
-          echo "    </server>" >> ~/.m2/settings.xml
-          echo "  </servers>" >> ~/.m2/settings.xml
-          echo "</settings>" >> ~/.m2/settings.xml
       
       # Step 5: Build the project using Maven
       - name: Build with Maven
@@ -72,7 +50,7 @@ jobs:
         env:
           PARCOURSBACK_TOKEN: ${{ secrets.parcours_token }}
         run: |
-          cd parent && cat ~/.m2/settings.xml && mvn clean source:jar deploy -DuniqueVersion=false -Dmaven.source.useDefaultManifestFile=true -Dmaven.source.includePom=true -Dmaven.install.skip=true -DdeplyAtEnd=true -DaltDeploymentRepository='github::default::https://maven.pkg.github.com/kouamdo/parcoursback 
+          cd parent && mvn clean source:jar deploy --settings settings.xml -DuniqueVersion=false -Dmaven.source.useDefaultManifestFile=true -Dmaven.source.includePom=true -Dmaven.install.skip=true -DdeplyAtEnd=true -DaltDeploymentRepository='github::default::https://maven.pkg.github.com/kouamdo/parcoursback' 
 
       # Step 6: Run SonarQube analysis
       - name: SonarQube Scan
