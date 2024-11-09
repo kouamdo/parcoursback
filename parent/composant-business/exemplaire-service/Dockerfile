@@ -4,6 +4,8 @@ FROM openjdk:17-jdk-slim
 # Set the working directory
 WORKDIR /app
 
+RUN cat /run/secrets/PARCOURS_TOKEN
+
 # Copy the downloaded JAR into the container
 RUN --mount=type=secret,id=PARCOURS_TOKEN curl -H "Authorization: Bearer PARCOURS_TOKEN" \
      -L -o exemplaire-service.jar \
