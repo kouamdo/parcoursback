@@ -41,10 +41,22 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
+      - name: Configure Maven Settings
+        run: |
+          echo "<settings xmlns='http://maven.apache.org/SETTINGS/1.0.0'>" > ~/.m2/settings.xml
+          echo "  <servers>" >> ~/.m2/settings.xml
+          echo "    <server>" >> ~/.m2/settings.xml
+          echo "      <id>github</id>" >> ~/.m2/settings.xml
+          echo "      <username>kouamdo</username>" >> ~/.m2/settings.xml
+          echo "      <password>${{ secrets.PARCOURS_TOKEN }}</password>" >> ~/.m2/settings.xml  # Utilisez le secret ici
+          echo "    </server>" >> ~/.m2/settings.xml
+          echo "  </servers>" >> ~/.m2/settings.xml
+          echo "</settings>" >> ~/.m2/settings.xml
+      
       # Step 5: Build the project using Maven
       - name: Build with Maven
         run: |
-          cd parent &&  mvn clean install -Dmaven.test.skip=true && mvn deploy --settings settings.xml
+          cd parent &&  mvn clean install -Dmaven.test.skip=true && mvn deploy --settings ~/.m2/settings.xml
           
       # - name: Deploy  document et exemplaire applications with Maven
       #   env:
