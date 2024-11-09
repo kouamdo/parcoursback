@@ -45,13 +45,17 @@ jobs:
       - name: Build with Maven
         run: |
           cd parent &&  mvn clean install -Dmaven.test.skip=true
+
+      - name: maven-settings-action
+        uses: s4u/maven-settings-action@v3.1.0
+        with:
+          servers: '[{"id": "github","configuration": {"httpHeaders": {"property": {"name": "Authorization","value": "Bearer ${{ secrets.PARCOURS_TOKEN }}"}}}}]'
+            
           
       - name: Deploy  document et exemplaire applications with Maven
-        env:
-          PARCOURSBACK_TOKEN: ${{ secrets.parcours_token }}
         run: |
-          cd parent && cat settings.xml && mvn clean source:jar deploy --settings settings.xml -DuniqueVersion=false -Dmaven.source.useDefaultManifestFile=true -Dmaven.source.includePom=true -Dmaven.install.skip=true -DdeplyAtEnd=true -DaltDeploymentRepository='github::default::https://maven.pkg.github.com/kouamdo/parcoursback' 
-
+          cd parent && mvn deploy
+          
       # Step 6: Run SonarQube analysis
       - name: SonarQube Scan
         env:
