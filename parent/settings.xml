@@ -31,7 +31,7 @@
         <server>
             <id>github</id>
             <username>kouamdo</username>
-            <password>${{ secrets.parcours_token }}</password>
+            <password>${env.PARCOURSBACK_TOKEN}</password>
         </server>
     </servers>
 
