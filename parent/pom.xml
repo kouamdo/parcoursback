@@ -73,7 +73,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-     <distributionManagement>
+    <distributionManagement>
         <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages for exemplaires services</name>
