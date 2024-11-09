@@ -87,11 +87,4 @@
             </plugin>
         </plugins>
     </build>
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub OWNER Apache Maven Packages for document services</name>
-            <url>https://maven.pkg.github.com/kouamdo/parcoursback</url>
-        </repository>
-    </distributionManagement>
 </project>
