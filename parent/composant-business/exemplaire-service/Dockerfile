@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the downloaded JAR into the container
-RUN --mount=type=secret,id=PARCOURS_TOKEN curl -H "Authorization: Bearer $(cat /run/secrets/PARCOURS_TOKEN)" \
+RUN --mount=type=secret,id=PARCOURS_TOKEN curl -H "Authorization: Bearer PARCOURS_TOKEN" \
      -L -o exemplaire-service.jar \
      https://maven.pkg.github.com/kouamdo/parcoursback/cmr/notep/exemplaire/exemplaire-service/1.0-SNAPSHOT/exemplaire-service-1.0-SNAPSHOT.jar
 
