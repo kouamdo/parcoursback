@@ -18,7 +18,7 @@
                 </repository>
                 <repository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/kouamdo/parcoursback</url>
+                    <url>https://maven.pkg.github.com/kouamdo/parcoursback.git</url>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
