@@ -48,7 +48,7 @@ jobs:
           
       - name: Deploy  document et exemplaire applications with Maven
         run: |
-          cd parent &&  mvn deploy  -am --settings settings.xml
+          cd parent &&  mvn deploy --settings settings.xml
 
       # Step 6: Run SonarQube analysis
       - name: SonarQube Scan
