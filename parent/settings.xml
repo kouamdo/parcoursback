@@ -31,7 +31,7 @@
         <server>
             <id>github</id>
             <username>kouamdo</username>
-            <password>${env.PARCOURSBACK_TOKEN}</password>
+            <password>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</password>
         </server>
     </servers>
 
