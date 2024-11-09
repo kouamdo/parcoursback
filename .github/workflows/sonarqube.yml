@@ -46,13 +46,9 @@ jobs:
         run: |
           cd parent &&  mvn clean install -Dmaven.test.skip=true
           
-      - name: Deploy  document application with Maven
+      - name: Deploy  document et exemplaire applications with Maven
         run: |
           cd parent &&  mvn deploy  -am --settings settings.xml
-
-      - name: Deploy  exemplaire application with Maven
-        run: |
-          cd parent &&  mvn deploy -am --settings settings.xml
 
       # Step 6: Run SonarQube analysis
       - name: SonarQube Scan
