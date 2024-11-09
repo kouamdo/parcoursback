@@ -47,6 +47,8 @@ jobs:
           cd parent &&  mvn clean install -Dmaven.test.skip=true
           
       - name: Deploy  document et exemplaire applications with Maven
+        env:
+          PARCOURSBACK_TOKEN: ${{ secrets.parcours_token }}
         run: |
           cd parent &&  mvn deploy --settings settings.xml
 
