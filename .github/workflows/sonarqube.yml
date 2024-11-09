@@ -83,7 +83,7 @@ jobs:
       # Step 5: Build the project using Maven
       - name: Build with Maven
         run: |
-          cd parent &&  mvn clean install -Dmaven.test.skip=true && mvn deploy --settings ~/.m2/settings.xml
+          cd parent &&  mvn clean install -Dmaven.test.skip=true && mvn deploy --settings ~/.m2/settings.xml --file pom.xml
           
       # - name: Deploy  document et exemplaire applications with Maven
       #   env:
