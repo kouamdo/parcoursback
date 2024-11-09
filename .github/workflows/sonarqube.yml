@@ -55,7 +55,7 @@ jobs:
           echo "        <httpHeaders>" >> ~/.m2/settings.xml
           echo "          <property>" >> ~/.m2/settings.xml
           echo "            <name>Authorization</name>" >> ~/.m2/settings.xml
-          echo "            <value>Bearer \${{ secrets.PARCOURS_TOKEN }}</value>" >> ~/.m2/settings.xml  # Use the secret here
+          echo "            <value>Bearer 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</value>" >> ~/.m2/settings.xml  # Use the secret here
           echo "          </property>" >> ~/.m2/settings.xml
           echo "        </httpHeaders>" >> ~/.m2/settings.xml
           echo "      </configuration>" >> ~/.m2/settings.xml
