@@ -18,7 +18,7 @@
                 </repository>
                 <repository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/kouamdo/parcoursback.git</url>
+                    <url>https://maven.pkg.github.com/kouamdo/parcoursback</url>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
@@ -31,7 +31,7 @@
         <server>
             <id>github</id>
             <username>kouamdo</username>
-            <password>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</password>
+            <password>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</password>
         </server>
     </servers>
 
