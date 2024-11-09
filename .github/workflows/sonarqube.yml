@@ -72,8 +72,7 @@ jobs:
         env:
           PARCOURSBACK_TOKEN: ${{ secrets.parcours_token }}
         run: |
-          cd parent && cat ~/.m2/settings.xml 
-        # &&  mvn clean source:jar deploy -DuniqueVersion=false -Dmaven.source.useDefaultManifestFile=true -Dmaven.source.includePom=true -Dmaven.install.skip=true -DdeplyAtEnd=true -DaltDeploymentRepository='github::default::https://maven.pkg.github.com/kouamdo/parcoursback 
+          cd parent && cat ~/.m2/settings.xml && mvn clean source:jar deploy -DuniqueVersion=false -Dmaven.source.useDefaultManifestFile=true -Dmaven.source.includePom=true -Dmaven.install.skip=true -DdeplyAtEnd=true -DaltDeploymentRepository='github::default::https://maven.pkg.github.com/kouamdo/parcoursback 
 
       # Step 6: Run SonarQube analysis
       - name: SonarQube Scan
