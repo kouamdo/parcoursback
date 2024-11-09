@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the downloaded JAR into the container
-RUN curl -H "Authorization: Bearer ${{ secrets.PARCOURS_TOKEN }}" \
+RUN --mount=type=secret,id=PARCOURS_TOKEN curl -H "Authorization: Bearer ${{ secrets.PARCOURS_TOKEN }}" \
      -L -o document-service.jar \
      https://maven.pkg.github.com/kouamdo/parcoursback/cmr/notep/document-service/1.0-SNAPSHOT/document-service-1.0-SNAPSHOT.jar
 
