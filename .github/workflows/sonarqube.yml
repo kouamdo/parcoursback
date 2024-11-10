@@ -37,4 +37,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=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 -Dsonar.projectName='parcoursback-apps'
+        run: cd parent && mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=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 -Dsonar.projectName='parcoursback-apps'
