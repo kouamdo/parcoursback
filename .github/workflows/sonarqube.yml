@@ -10,7 +10,7 @@ on:
 jobs:
   sonarQubeScan:
     name: SonarQube Analysis
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       # Step 1: Checkout the code
@@ -69,7 +69,7 @@ jobs:
 
   dockerBuildAndPush_document_service:
     name: Build and Push Docker Image for document service
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: sonarQubeScan  # Ensure this job runs after the SonarQube analysis
 
     steps:
@@ -93,7 +93,7 @@ jobs:
         with:
           context: .  # Use the current directory as the build context
           file: parent/composant-business/document-service/Dockerfile  # Specify the Dockerfile to use
-          tags: ghcr.io/${{ github.actor }}/parcoursback/documents:latest  # Tag for the built image
+          tags: ghcr.io/${{ github.actor }}/parcoursback-documents:latest  # Tag for the built image
           load: true  # Load the image into the Docker daemon (for local use)
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
@@ -104,7 +104,7 @@ jobs:
           
   dockerBuildAndPush_exemplaire_service:
     name: Build and Push Docker Image for exemplaire service
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: sonarQubeScan  # Ensure this job runs after the SonarQube analysis
 
     steps:
@@ -127,7 +127,7 @@ jobs:
         with:
           context: .  # Use the current directory as the build context
           file: parent/composant-business/exemplaire-service/Dockerfile  # Specify the Dockerfile to use
-          tags: ghcr.io/${{ github.actor }}/parcoursback/exemplaire:latest  # Tag for the built image
+          tags: ghcr.io/${{ github.actor }}/parcoursback-exemplaire:latest  # Tag for the built image
           load: true  # Load the image into the Docker daemon (for local use)
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
