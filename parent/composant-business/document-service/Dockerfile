@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 ARG PARCOURS_TOKEN
 ARG PARCOURS_PACKAGES_URL
 
-RUN echo "${PARCOURS_PACKAGES_URL}/document-service/1.0-SNAPSHOT/document-service-1.0-SNAPSHOT.jar"
+RUN echo "${PARCOURS_TOKEN}/${PARCOURS_PACKAGES_URL}/document-service/1.0-SNAPSHOT/document-service-1.0-SNAPSHOT.jar"
 
 RUN curl -H "Authorization: Bearer ${PARCOURS_TOKEN}" \
      -L -o document-service.jar \
