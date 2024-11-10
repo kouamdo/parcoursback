@@ -95,7 +95,7 @@ jobs:
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
           push: false  # Set to true if you want to push to a remote registry
           secrets: |
-            PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }},
+            PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
           
   dockerBuildAndPush_exemplaire_service:
@@ -126,5 +126,5 @@ jobs:
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
           push: false  # Set to true if you want to push to a remote registry
           secrets: |
-            PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }},
+            PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
