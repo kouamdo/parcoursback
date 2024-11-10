@@ -1,17 +1,31 @@
-# Use an appropriate base image
-FROM openjdk:17-jdk-slim
+# Use a secure Ubuntu base image
+FROM ubuntu:20.04 AS downloader
 
 # Set the working directory
 WORKDIR /app
 
-RUN apt-get install -y curl
+# Install curl and other necessary packages
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
-# Copy the downloaded JAR into the container
-RUN --mount=type=secret,id=PARCOURS_TOKEN curl -H "Authorization: Bearer PARCOURS_TOKEN" \
+# Download the JAR file from GitHub Packages using the secret token
+ARG PARCOURS_TOKEN  # Declare the build argument for the token
+RUN curl -H "Authorization: Bearer ${PARCOURS_TOKEN}" \
      -L -o document-service.jar \
      https://maven.pkg.github.com/kouamdo/parcoursback/cmr/notep/document-service/1.0-SNAPSHOT/document-service-1.0-SNAPSHOT.jar
+
+# Use OpenJDK as the base image for running the application
+FROM openjdk:17-jdk-slim
+
+# Set the working directory in the final image
+WORKDIR /app
+
+# Copy the downloaded JAR from the previous stage
+COPY --from=downloader /app/document-service.jar .
 
 # Command to run the application
 ENTRYPOINT ["java", "-jar", "document-service.jar"]
 
+# Expose the application port
 EXPOSE 8080
