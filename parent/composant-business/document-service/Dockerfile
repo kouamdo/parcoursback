@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 ARG PARCOURS_TOKEN  # Declare the build argument for the token
 RUN curl -H "Authorization: Bearer ${PARCOURS_TOKEN}" \
      -L -o document-service.jar \
-     https://maven.pkg.github.com/kouamdo/parcoursback/cmr/notep/document-service/1.0-SNAPSHOT/document-service-1.0-SNAPSHOT.jar
+     ${PARCOURS_PACKAGES_URL}/document-service/1.0-SNAPSHOT/document-service-1.0-SNAPSHOT.jar
 
 # Use OpenJDK as the base image for running the application
 FROM openjdk:17-jdk-slim
