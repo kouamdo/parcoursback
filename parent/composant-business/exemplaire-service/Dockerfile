@@ -22,7 +22,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the downloaded JAR from the previous stage
-COPY --from=downloader /app/document-service.jar .
+COPY --from=downloader /app/exemplaire-service.jar .
 
 # Command to run the application
 ENTRYPOINT ["java", "-jar", "exemplaire-service.jar"]
