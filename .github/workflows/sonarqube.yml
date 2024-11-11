@@ -98,9 +98,10 @@ jobs:
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
           push: true  # Set to true if you want to push to a remote registry
+          build-args: |
+            PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
           secrets: |
             "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
-            "PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}"
           
   dockerBuildAndPush_exemplaire_service:
     name: Build and Push Docker Image for exemplaire service
