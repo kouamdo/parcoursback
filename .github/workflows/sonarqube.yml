@@ -89,9 +89,7 @@ jobs:
 
       # Step 9: Build and push Docker image to the registry (if needed)
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v6.9.0
-        env:
-          PARCOURS_PACKAGES_URL: ${{ secrets.PARCOURS_PACKAGES_URL }}
+        uses: docker/build-push-action@v6.9.0 
         with:
           context: .  # Use the current directory as the build context
           file: parent/composant-business/document-service/Dockerfile  # Specify the Dockerfile to use
@@ -102,6 +100,7 @@ jobs:
           push: true  # Set to true if you want to push to a remote registry
           secrets: |
             PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}
+            PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
           
   dockerBuildAndPush_exemplaire_service:
     name: Build and Push Docker Image for exemplaire service
