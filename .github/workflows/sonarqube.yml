@@ -90,6 +90,8 @@ jobs:
       # Step 9: Build and push Docker image to the registry (if needed)
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6.9.0
+        env:
+          PARCOURS_PACKAGES_URL: ${{ secrets.PARCOURS_PACKAGES_URL }}
         with:
           context: .  # Use the current directory as the build context
           file: parent/composant-business/document-service/Dockerfile  # Specify the Dockerfile to use
@@ -98,8 +100,6 @@ jobs:
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
           push: true  # Set to true if you want to push to a remote registry
-          environment: |
-            PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
           secrets: |
             PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}
           
