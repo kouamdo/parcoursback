@@ -14,7 +14,7 @@ ARG PARCOURS_TOKEN
 ARG PARCOURS_PACKAGES_URL
 
 RUN curl -H "Authorization: Bearer ${PARCOURS_TOKEN}" \
-     -L -o document-service.jar \
+     -L -o exemplaire-service.jar \
      "${PARCOURS_PACKAGES_URL}/exemplaire/exemplaire-service/1.0-SNAPSHOT/exemplaire-service-1.0-SNAPSHOT.jar"
 
 # Use OpenJDK as the base image for running the application
