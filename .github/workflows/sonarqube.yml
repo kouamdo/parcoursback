@@ -44,7 +44,7 @@ jobs:
       # Step 5: Build the project using Maven
       - name: Build with Maven
         run: |
-          cd parent &&  mvn clean install -Dmaven.test.skip=true
+          cd parent &&  mvn clean install -Dmaven.test.skip=true && find . -name "*.jar"
 
       - name: maven-settings-action
         uses: s4u/maven-settings-action@v3.1.0
