@@ -10,10 +10,12 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
 # Download the JAR file from GitHub Packages using the secret token
-ARG PARCOURS_TOKEN  # Declare the build argument for the token
+ARG PARCOURS_TOKEN
+ARG PARCOURS_PACKAGES_URL
+
 RUN curl -H "Authorization: Bearer ${PARCOURS_TOKEN}" \
-     -L -o exemplaire-service.jar \
-     https://maven.pkg.github.com/kouamdo/parcoursback/cmr/notep/exemplaire/exemplaire-service/1.0-SNAPSHOT/exemplaire-service-1.0-SNAPSHOT.jar
+     -L -o document-service.jar \
+     "${PARCOURS_PACKAGES_URL}/exemplaire/exemplaire-service/1.0-SNAPSHOT/exemplaire-service-1.0-SNAPSHOT.jar"
 
 # Use OpenJDK as the base image for running the application
 FROM openjdk:17-jdk-slim
