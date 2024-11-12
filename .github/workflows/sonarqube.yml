@@ -105,6 +105,7 @@ jobs:
           push: true  # Set to true if you want to push to a remote registry
           build-args: |
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
+            PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
           secrets: |
             "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
           
@@ -146,5 +147,6 @@ jobs:
           push: true  # Set to true if you want to push to a remote registry
           build-args: |
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
+            PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
           secrets: |
             "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
