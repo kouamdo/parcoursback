@@ -12,10 +12,11 @@ RUN apt-get update && apt-get install -y \
 # Download the JAR file from GitHub Packages using the secret token
 ARG PARCOURS_TOKEN
 ARG PARCOURS_PACKAGES_URL
+ARG PARCOURS_MICROSERVICE_VERSION
 
 RUN curl -H "Authorization: Bearer ${PARCOURS_TOKEN}" \
      -L -o exemplaire-service.jar \
-     "${PARCOURS_PACKAGES_URL}/exemplaire/exemplaire-service/1.0-SNAPSHOT/exemplaire-service-1.0-SNAPSHOT.jar"
+     "${PARCOURS_PACKAGES_URL}/exemplaire/exemplaire-service/${PARCOURS_MICROSERVICE_VERSION}-SNAPSHOT/exemplaire-service-${PARCOURS_MICROSERVICE_VERSION}-SNAPSHOT.jar"
 
 # Use OpenJDK as the base image for running the application
 FROM openjdk:17-jdk-slim
