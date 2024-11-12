@@ -86,14 +86,19 @@ jobs:
       - name: Log in to registry
         run: echo "${{ secrets.PARCOURS_PACKAGES_CONTAINER }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
         
-
+      - name: Getting microservice version
+        id: get_version
+        run: |
+          version=$(cat parent/composant-business/document-service/pom.xml | grep -m 1 '<version>' | sed -E 's/.*<version>([0-9]+\.[0-9]+)(-SNAPSHOT)?<\/version>/\1/')
+          echo "version=${version}" >> $GITHUB_OUTPUT
+      
       # Step 9: Build and push Docker image to the registry (if needed)
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6.9.0 
         with:
           context: .  # Use the current directory as the build context
           file: parent/composant-business/document-service/Dockerfile  # Specify the Dockerfile to use
-          tags: ghcr.io/${{ github.actor }}/parcoursback-documents:latest  # Tag for the built image
+          tags: ghcr.io/${{ github.actor }}/parcoursback-documents:${{ steps.get_version.outputs.version }}  # Tag for the built image
           load: true  # Load the image into the Docker daemon (for local use)
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
@@ -122,13 +127,19 @@ jobs:
       - name: Log in to registry
         run: echo "${{ secrets.PARCOURS_PACKAGES_CONTAINER }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
+      - name: Getting microservice version
+        id: get_version
+        run: |
+          version=$(cat parent/composant-business/exemplaire-service/document-service/pom.xml | grep -m 1 '<version>' | sed -E 's/.*<version>([0-9]+\.[0-9]+)(-SNAPSHOT)?<\/version>/\1/')
+          echo "version=${version}" >> $GITHUB_OUTPUT
+
       # Step 9: Build and push Docker image to the registry (if needed)
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6.9.0
         with:
           context: .  # Use the current directory as the build context
           file: parent/composant-business/exemplaire-service/Dockerfile  # Specify the Dockerfile to use
-          tags: ghcr.io/${{ github.actor }}/parcoursback-exemplaire:latest  # Tag for the built image
+          tags: ghcr.io/${{ github.actor }}/parcoursback-exemplaire:${{ steps.get_version.outputs.version }}  # Tag for the built image
           load: true  # Load the image into the Docker daemon (for local use)
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
