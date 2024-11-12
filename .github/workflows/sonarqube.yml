@@ -130,7 +130,7 @@ jobs:
       - name: Getting microservice version
         id: get_version
         run: |
-          version=$(cat parent/composant-business/exemplaire-service/document-service/pom.xml | grep -m 1 '<version>' | sed -E 's/.*<version>([0-9]+\.[0-9]+)(-SNAPSHOT)?<\/version>/\1/')
+          version=$(cat parent/composant-business/exemplaire-service/pom.xml | grep -m 1 '<version>' | sed -E 's/.*<version>([0-9]+\.[0-9]+)(-SNAPSHOT)?<\/version>/\1/')
           echo "version=${version}" >> $GITHUB_OUTPUT
 
       # Step 9: Build and push Docker image to the registry (if needed)
