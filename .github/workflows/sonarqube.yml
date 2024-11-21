@@ -56,7 +56,7 @@ jobs:
         env:
           GIT_ACTOR: ${{ github.actor }}
         run: |
-          cd parent && mvn clean deploy -Dmy.variable=$GIT_ACTOR
+          cd parent && mvn clean deploy -Dgit_actor=$GIT_ACTOR
           
       # Step 6: Run SonarQube analysis
       - name: SonarQube Scan
