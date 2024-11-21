@@ -53,6 +53,8 @@ jobs:
             
           
       - name: Deploy  document et exemplaire applications with Maven
+        env:
+          GIT_ACTOR: ${{ github.actor }}
         run: |
           cd parent && mvn clean deploy
           
