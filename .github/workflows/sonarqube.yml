@@ -102,6 +102,7 @@ jobs:
           file: parent/composant-business/document-service/Dockerfile  # Specify the Dockerfile to use
           tags: ghcr.io/${{ github.actor }}/parcoursback-documents:${{ steps.get_version.outputs.version }}  # Tag for the built image
           load: true  # Load the image into the Docker daemon (for local use)
+          visibility: public
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
           push: true  # Set to true if you want to push to a remote registry
@@ -143,6 +144,7 @@ jobs:
           context: .  # Use the current directory as the build context
           file: parent/composant-business/exemplaire-service/Dockerfile  # Specify the Dockerfile to use
           tags: ghcr.io/${{ github.actor }}/parcoursback-exemplaire:${{ steps.get_version.outputs.version }}  # Tag for the built image
+          visibility: public
           load: true  # Load the image into the Docker daemon (for local use)
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
