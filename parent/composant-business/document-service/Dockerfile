@@ -14,8 +14,7 @@ ARG PARCOURS_TOKEN
 ARG PARCOURS_PACKAGES_URL
 ARG PARCOURS_MICROSERVICE_VERSION
 
-RUN curl -H "Authorization: Bearer ${PARCOURS_TOKEN}" \
-     -L -o document-service.jar \
+RUN curl -L -o document-service.jar \
      "${PARCOURS_PACKAGES_URL}/document-service/${PARCOURS_MICROSERVICE_VERSION}-SNAPSHOT/document-service-${PARCOURS_MICROSERVICE_VERSION}-SNAPSHOT.jar"
 
 # Use OpenJDK as the base image for running the application
