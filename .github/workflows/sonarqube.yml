@@ -59,10 +59,11 @@ jobs:
           cd parent && mvn clean deploy -Dgit_actor=$GIT_ACTOR && find . -name "*.jar"
 
       - name: Upload JAR
-        uses: actions/upload-artifact@v4
+        run: cd parent && mkdir staging && cp -r *.jar staging && ls staging
+      - uses: actions/upload-artifact@v4
         with:
           name: jar-files
-          path: parent/composant-business/*.jar
+          path: staging
           
       # Step 6: Run SonarQube analysis
       - name: SonarQube Scan
