@@ -63,7 +63,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: jar-files
-          path: staging
+          path: parent/staging
           
       # Step 6: Run SonarQube analysis
       - name: SonarQube Scan
