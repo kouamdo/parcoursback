@@ -58,8 +58,8 @@ jobs:
         run: |
           cd parent && mvn clean deploy -Dgit_actor=$GIT_ACTOR && find . -name "*.jar"
 
-      - name: Upload JAR
-        run: cd parent && mkdir staging && cp -r "*.jar" staging && ls staging
+      - name: Build with Maven and upload JAR
+        run: cd parent && mvn -B package --file pom.xml -DskipTests && mkdir staging && cp -r "*.jar" staging && ls staging
       - uses: actions/upload-artifact@v4
         with:
           name: jar-files
