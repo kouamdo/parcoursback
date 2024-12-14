@@ -61,9 +61,11 @@ jobs:
       - name: Build with Maven and upload JAR
         run: cd parent && mvn -B package --file pom.xml -DskipTests && mkdir staging && find . -name "*.jar" -exec cp {} staging/ \;
       - uses: actions/upload-artifact@v4
+        id: artifact_uplaod_jar
         with:
           name: jar-files
           path: parent/staging
+          if-no-files-found: error
           
       # Step 6: Run SonarQube analysis
       - name: SonarQube Scan
@@ -115,6 +117,7 @@ jobs:
           build-args: |
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
             PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
+            ARTIFACT_URL=${{ steps.artifact_uplaod_jar.outputs.artifact-url }}
           secrets: |
             "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
           
@@ -157,5 +160,6 @@ jobs:
           build-args: |
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
             PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
+            ARTIFACT_URL=${{ steps.artifact_uplaod_jar.outputs.artifact-url }}
           secrets: |
             "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
