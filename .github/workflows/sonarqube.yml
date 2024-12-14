@@ -56,13 +56,13 @@ jobs:
         env:
           GIT_ACTOR: ${{ github.actor }}
         run: |
-          cd parent && ls target && mvn clean deploy -Dgit_actor=$GIT_ACTOR
+          cd parent && mvn clean deploy -Dgit_actor=$GIT_ACTOR
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
           name: jar-files
-          path: parent/target/*.jar
+          path: target/*.jar
           
       # Step 6: Run SonarQube analysis
       - name: SonarQube Scan
