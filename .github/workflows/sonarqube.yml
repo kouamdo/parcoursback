@@ -56,7 +56,7 @@ jobs:
         env:
           GIT_ACTOR: ${{ github.actor }}
         run: |
-          cd parent && mvn clean deploy -Dgit_actor=$GIT_ACTOR
+          cd parent && ls target && mvn clean deploy -Dgit_actor=$GIT_ACTOR
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
