@@ -13,6 +13,12 @@ RUN apt-get update && apt-get install -y \
 ARG PARCOURS_TOKEN
 ARG PARCOURS_PACKAGES_URL
 ARG PARCOURS_MICROSERVICE_VERSION
+ARG ARTIFACT_URL
+
+RUN curl -H "Authorization: Bearer ${PARCOURS_TOKEN}" \
+    -L -o staging.zip ${ARTIFACT_URL}
+
+RUN ls 
 
 RUN curl -L -o document-service.jar \
      "${PARCOURS_PACKAGES_URL}/document-service/${PARCOURS_MICROSERVICE_VERSION}-SNAPSHOT/document-service-${PARCOURS_MICROSERVICE_VERSION}-SNAPSHOT.jar"
