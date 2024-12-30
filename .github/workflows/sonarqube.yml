@@ -56,7 +56,7 @@ jobs:
         env:
           GIT_ACTOR: ${{ github.actor }}
         run: |
-          cd parent && mvn clean deploy -Dgit_actor=$GIT_ACTOR Durl=file://${GITHUB_WORKSPACE}/package && find . -name "*.jar"
+          cd parent && mvn clean deploy -Dgit_actor=$GIT_ACTOR && find . -name "*.jar"
 
       - name: Build with Maven and upload JAR
         run: cd parent && mvn -B package --file pom.xml -DskipTests && mkdir staging && find . -name "*.jar" -exec cp {} staging/ \;
