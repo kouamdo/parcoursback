@@ -78,7 +78,7 @@
         <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages for exemplaires services</name>
-            <url>https://maven.pkg.github.com/${git_actor}/parcoursback</url>
+            <url>https://maven.pkg.github.com/${git_actor}/master</url>
         </repository>
     </distributionManagement>
     <build>
@@ -88,9 +88,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
-                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/master</altDeploymentRepository>
                     <encoding>UTF-8</encoding>
-                    <url>file://${project.build.directory}/mvn-repo/package</url>
+                    <url>file://${project.build.directory}/master</url>
                     <forceJavacCompilerUse>true</forceJavacCompilerUse>
                 </configuration>
             </plugin>
