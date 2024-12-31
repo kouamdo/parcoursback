@@ -10,12 +10,6 @@
     <packaging>pom</packaging>
     <name>parent</name>
          
-    <distributionManagement>
-         <repository>
-              <id>github</id>
-              <url>https://maven.pkg.github.com/kouamdo/parcoursback</url>
-         </repository>
-    </distributionManagement>
          
     <parent>
         <groupId>org.springframework.boot</groupId>
