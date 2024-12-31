@@ -88,7 +88,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
+                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
                     <encoding>UTF-8</encoding>
+                    <url>file://${project.build.directory}/mvn-repo/package</url>
                     <forceJavacCompilerUse>true</forceJavacCompilerUse>
                 </configuration>
             </plugin>
