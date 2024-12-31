@@ -9,7 +9,14 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>parent</name>
-
+         
+    <distributionManagement>
+         <repository>
+              <id>github</id>
+              <url>https://maven.pkg.github.com/votre-utilisateur/votre-repo</url>
+         </repository>
+    </distributionManagement>
+         
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
