@@ -57,7 +57,6 @@ jobs:
           GIT_ACTOR: ${{ github.actor }}
         run: |
           cd parent && mvn clean deploy -Dgit_actor=$GIT_ACTOR \
-          -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/kouamdo/parcoursback/master \
           && find . -name "*.jar"
 
       - name: Build with Maven and upload JAR
