@@ -49,7 +49,7 @@ jobs:
       - name: maven-settings-action
         uses: s4u/maven-settings-action@v3.1.0
         with:
-          servers: '[{"id": "github","configuration": {"httpHeaders": {"property": {"name": "Authorization","value": "Bearer ${{ secrets.PARCOURS_TOKEN }}"}}}}]'
+          servers: '[{"id": "github","configuration": {"httpHeaders": {"property": {"name": "Authorization","value": "Bearer ${{ secrets.PARCOURS_TOKEN_UPLOAD_REPO }}"}}}}]'
             
           
       - name: Deploy  document et exemplaire applications with Maven
