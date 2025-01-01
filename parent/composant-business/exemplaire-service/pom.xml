@@ -11,7 +11,7 @@
 
     <groupId>cmr.notep.exemplaire</groupId>
     <artifactId>exemplaire-service</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-000</version>
 
     <dependencies>
         <dependency>
