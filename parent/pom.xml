@@ -88,9 +88,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
-                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/master/packages</altDeploymentRepository>
+                    <altDeploymentRepository>github::default::https://maven.pkg.github.com/${git_actor}/master/packages</altDeploymentRepository>
                     <encoding>UTF-8</encoding>
-                    <url>file://${project.build.directory}/master/packages</url>
                     <forceJavacCompilerUse>true</forceJavacCompilerUse>
                 </configuration>
             </plugin>
