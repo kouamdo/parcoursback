@@ -44,7 +44,7 @@ jobs:
       # Step 5: Build the project using Maven
       - name: Build with Maven
         run: |
-          cd parent &&  mvn clean install -Dmaven.test.skip=true && find . -name "*.jar"
+          cd parent &&  mvn clean install && find . -name "*.jar"
 
       - name: maven-settings-action
         uses: s4u/maven-settings-action@v3.1.0
@@ -102,7 +102,7 @@ jobs:
         id: get_version
         run: |
           version=$(cat parent/composant-business/document-service/pom.xml | grep -m 1 "<version>" | sed -e 's/<\/\?version>//g' -e 's/^[ \t]*//;s/[ \t]*$//')
-          echo "version=${version}" >> $GITHUB_OUTPUT
+          echo "version[1]=${version}" >> $GITHUB_OUTPUT
       
       # Step 9: Build and push Docker image to the registry (if needed)
       - name: Build and Push Docker Image
@@ -118,7 +118,6 @@ jobs:
           build-args: |
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
             PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
-            ARTIFACT_URL=${{ steps.artifact_uplaod_jar.outputs.artifact-url }}
           secrets: |
             "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
           
@@ -145,7 +144,7 @@ jobs:
         id: get_version
         run: |
           version=$(cat parent/composant-business/exemplaire-service/pom.xml | grep -m 1 "<version>" | sed -e 's/<\/\?version>//g' -e 's/^[ \t]*//;s/[ \t]*$//')
-          echo "version=${version}" >> $GITHUB_OUTPUT
+          echo "version[1]=${version}" >> $GITHUB_OUTPUT
 
       # Step 9: Build and push Docker image to the registry (if needed)
       - name: Build and Push Docker Image
@@ -161,6 +160,6 @@ jobs:
           build-args: |
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
             PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
-            ARTIFACT_URL=${{ steps.artifact_uplaod_jar.outputs.artifact-url }}
           secrets: |
             "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
+    
