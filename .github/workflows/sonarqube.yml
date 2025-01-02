@@ -101,7 +101,7 @@ jobs:
       - name: Getting microservice version
         id: get_version
         run: |
-          version=$(cat parent/composant-business/document-service/pom.xml | grep  "<version>" | sed -n '2p' | sed -e 's/<\/\?version>//g' -e 's/^[ \t]*//;s/[ \t]*$//' | sed -n 's/.*<version>\(.*\)<\/version>.*/\1/p')
+          version=$(cat parent/composant-business/document-service/pom.xml | grep -m 2 "<version>" | sed -n '2p' | sed -e 's/<\/\?version>//g' -e 's/^[ \t]*//;s/[ \t]*$//')
           echo ${version}
           echo "version=${version}" >> $GITHUB_OUTPUT
       
@@ -145,7 +145,7 @@ jobs:
       - name: Getting microservice version
         id: get_version
         run: |
-          version=$(cat parent/composant-business/exemplaire-service/pom.xml | grep  "<version>" | sed -n '2p' | sed -e 's/<\/\?version>//g' -e 's/^[ \t]*//;s/[ \t]*$//' | sed -n 's/.*<version>\(.*\)<\/version>.*/\1/p')
+          version=$(cat parent/composant-business/exemplaire-service/pom.xml | grep -m 2 "<version>" | sed -n '2p' | sed -e 's/<\/\?version>//g' -e 's/^[ \t]*//;s/[ \t]*$//')
           echo ${version}
           echo "version=${version}" >> $GITHUB_OUTPUT
 
