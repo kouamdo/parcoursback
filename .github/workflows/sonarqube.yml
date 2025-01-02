@@ -56,7 +56,7 @@ jobs:
         env:
           GIT_ACTOR: ${{ github.actor }}
         run: |
-          cd parent && mvn clean deploy -Dgit_actor=$GIT_ACTOR \
+          cd parent && mvn clean deploy -rf :document-service -Dgit_actor=$GIT_ACTOR  \
           && find . -name "*.jar"
 
       - name: Build with Maven and upload JAR
