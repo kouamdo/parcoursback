@@ -13,9 +13,11 @@ RUN apt-get update && apt-get install -y \
 ARG PARCOURS_TOKEN
 ARG PARCOURS_PACKAGES_URL
 ARG PARCOURS_MICROSERVICE_VERSION
+ARG PARCOURS_com_group_artifact
 
 RUN curl -L -o exemplaire-service.jar \
-     "${PARCOURS_PACKAGES_URL}/exemplaire/exemplaire-service/${PARCOURS_MICROSERVICE_VERSION}/exemplaire-service-${PARCOURS_MICROSERVICE_VERSION}.jar"
+      -H "Authorization: Bearer ${PARCOURS_TOKEN}" \
+      '${PARCOURS_PACKAGES_URL}/${PARCOURS_com_group_artifact}/${PARCOURS_MICROSERVICE_VERSION}/exemplaire-service-${PARCOURS_MICROSERVICE_VERSION}.jar'
 
 # Use OpenJDK as the base image for running the application
 FROM openjdk:17-jdk-slim
