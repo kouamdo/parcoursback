@@ -14,6 +14,10 @@ ARG PARCOURS_TOKEN
 ARG PARCOURS_PACKAGES_URL
 ARG PARCOURS_MICROSERVICE_VERSION
 ARG PARCOURS_com_group_artifact
+ARG PARCOURS_BD_NAME
+ARG PARCOURS_BD_URL
+ARG PARCOURS_DB_PASSWORD
+ARG PARCOURS_DB_USER
 
 RUN echo "take from : ${PARCOURS_PACKAGES_URL}/${PARCOURS_com_group_artifact}/${PARCOURS_MICROSERVICE_VERSION}/document-service-${PARCOURS_MICROSERVICE_VERSION}.jar"
 
@@ -31,7 +35,7 @@ WORKDIR /app
 COPY --from=downloader /app/document-service.jar .
 
 # Command to run the application
-ENTRYPOINT ["java", "-jar", "document-service.jar"]
+ENTRYPOINT ["java", "-jar", "document-service.jar", "--spring.datasource.url=${PARCOURS_BD_URL}/${PARCOURS_BD_NAME}", "--spring.datasource.username=${PARCOURS_DB_USER}", "--spring.datasource.password=${PARCOURS_DB_PASSWORD}"]
 
 # Expose the application port
 EXPOSE 8080

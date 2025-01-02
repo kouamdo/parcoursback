@@ -122,7 +122,11 @@ jobs:
             PARCOURS_com_group_artifact=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_DOCUMENT }}
           secrets: |
             "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
-          
+            "PARCOURS_BD_NAME=${{ secrets.PARCOURS_BD_NAME }}"
+            "PARCOURS_BD_URL=${{ secrets.PARCOURS_BD_URL }}"
+            "PARCOURS_DB_PASSWORD=${{ secrets.PARCOURS_DB_PASSWORD }}"
+            "PARCOURS_DB_USER=${{ secrets.PARCOURS_DB_USER }}"
+
   dockerBuildAndPush_exemplaire_service:
     name: Build and Push Docker Image for exemplaire service
     runs-on: ubuntu-22.04
@@ -166,3 +170,7 @@ jobs:
             PARCOURS_com_group_artifact=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_EXEMPLAIRE }}
           secrets: |
             "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
+            "PARCOURS_BD_NAME=${{ secrets.PARCOURS_BD_NAME }}"
+            "PARCOURS_BD_URL=${{ secrets.PARCOURS_BD_URL }}"
+            "PARCOURS_DB_PASSWORD=${{ secrets.PARCOURS_DB_PASSWORD }}"
+            "PARCOURS_DB_USER=${{ secrets.PARCOURS_DB_USER }}"
