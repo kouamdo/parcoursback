@@ -12,9 +12,7 @@
     <groupId>cmr.notep</groupId>
     <artifactId>document-service</artifactId>
     <version>1.0-001</version>
-         <configuration>
-                <skipError=true/> <!-- Ignore les erreurs de conflit -->
-         </configuration>
+    <configuration><skipError=true/> </configuration><!-- Ignore les erreurs de conflit -->
     <packaging>jar</packaging>
 
 
