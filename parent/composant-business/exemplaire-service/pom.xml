@@ -12,7 +12,7 @@
     <groupId>cmr.notep.exemplaire</groupId>
     <artifactId>exemplaire-service</artifactId>
     <version>1.0-000</version>
-    <configuration><skipError=true/> </configuration>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
