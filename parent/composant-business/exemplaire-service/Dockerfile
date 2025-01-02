@@ -15,7 +15,7 @@ ARG PARCOURS_PACKAGES_URL
 ARG PARCOURS_MICROSERVICE_VERSION
 
 RUN curl -L -o exemplaire-service.jar \
-     "${PARCOURS_PACKAGES_URL}/exemplaire/exemplaire-service/${PARCOURS_MICROSERVICE_VERSION}-SNAPSHOT/exemplaire-service-${PARCOURS_MICROSERVICE_VERSION}-SNAPSHOT.jar"
+     "${PARCOURS_PACKAGES_URL}/exemplaire/exemplaire-service/${PARCOURS_MICROSERVICE_VERSION}/exemplaire-service-${PARCOURS_MICROSERVICE_VERSION}.jar"
 
 # Use OpenJDK as the base image for running the application
 FROM openjdk:17-jdk-slim
