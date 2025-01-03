@@ -181,7 +181,8 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: ghcr.io/${{ github.actor }}/parcoursback-exemplaire:${{ steps.get_version.outputs.version }}
-          options: -p 8080:8080  # Map the container's port to the host's port
+          options: |
+            -p 8080:8080  # Map the container's port to the host's port
             -e PARCOURS_BD_NAME=${{ secrets.PARCOURS_BD_NAME }}
             -e PARCOURS_BD_URL=${{ secrets.PARCOURS_BD_URL }}
             -e PARCOURS_DB_PASSWORD=${{ secrets.PARCOURS_DB_PASSWORD }}
