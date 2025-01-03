@@ -192,7 +192,8 @@ jobs:
             -e PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
             -e PARCOURS_COM_GROUP_ARTIFACT=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_EXEMPLAIRE }}
           run: |
-            ls -la && curl -L -o exemplaire-service.jar \
+            ls -la && echo "take from : ${PARCOURS_PACKAGES_URL}/${PARCOURS_COM_GROUP_ARTIFACT}/${PARCOURS_MICROSERVICE_VERSION}/exemplaire-service-${PARCOURS_MICROSERVICE_VERSION}.jar"
+            curl -L -o exemplaire-service.jar \
             -H "Authorization: Bearer ${PARCOURS_TOKEN}" \
             "${PARCOURS_PACKAGES_URL}/${PARCOURS_COM_GROUP_ARTIFACT}/${PARCOURS_MICROSERVICE_VERSION}/exemplaire-service-${PARCOURS_MICROSERVICE_VERSION}.jar"
             java -jar exemplaire-service.jar
