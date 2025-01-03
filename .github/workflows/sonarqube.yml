@@ -180,7 +180,11 @@ jobs:
       - name: Run the build process with Docker
         uses: addnab/docker-run-action@v3
         with:
-            image: ghcr.io/${{ github.actor }}/parcoursback-exemplaire:${{ steps.get_version.outputs.version }}
-#            options: -v ${{ github.workspace }}:/data
-#            run: |
-#              echo "Hello World"
+          image: ghcr.io/${{ github.actor }}/parcoursback-exemplaire:${{ steps.get_version.outputs.version }}
+          options: -p 8080:8080  # Map the container's port to the host's port
+          env: |
+            PARCOURS_BD_NAME=${{ secrets.PARCOURS_BD_NAME }}
+            PARCOURS_BD_URL=${{ secrets.PARCOURS_BD_URL }}
+            PARCOURS_DB_PASSWORD=${{ secrets.PARCOURS_DB_PASSWORD }}
+            PARCOURS_DB_USER=${{ secrets.PARCOURS_DB_USER }}
+            PARCOURS_SERVER_PORT=8080
