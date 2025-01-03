@@ -191,4 +191,4 @@ jobs:
             -e PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
             -e PARCOURS_COM_GROUP_ARTIFACT=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_EXEMPLAIRE }}
           run: |
-            ls -la
+            ls -la && java -jar exemplaire-service.jar
