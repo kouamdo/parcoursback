@@ -17,7 +17,7 @@ ARG PARCOURS_SERVER_PORT
 
 RUN echo "take from : ${PARCOURS_PACKAGES_URL}/${PARCOURS_com_group_artifact}/${PARCOURS_MICROSERVICE_VERSION}/document-service-${PARCOURS_MICROSERVICE_VERSION}.jar"
 
-RUN curl -L -o document-service.jar \
+RUN --mount=type=secret,id=PARCOURS_TOKEN curl -L -o document-service.jar \
       -H "Authorization: Bearer ${PARCOURS_TOKEN}" \
       "${PARCOURS_PACKAGES_URL}/${PARCOURS_com_group_artifact}/${PARCOURS_MICROSERVICE_VERSION}/document-service-${PARCOURS_MICROSERVICE_VERSION}.jar"
 
