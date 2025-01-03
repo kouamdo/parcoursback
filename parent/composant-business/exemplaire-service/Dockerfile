@@ -10,14 +10,9 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
 # Download the JAR file from GitHub Packages using the secret token
-ARG PARCOURS_TOKEN
 ARG PARCOURS_PACKAGES_URL
 ARG PARCOURS_MICROSERVICE_VERSION
 ARG PARCOURS_com_group_artifact
-ARG PARCOURS_BD_NAME
-ARG PARCOURS_BD_URL
-ARG PARCOURS_DB_PASSWORD
-ARG PARCOURS_DB_USER
 ARG PARCOURS_SERVER_PORT
 
 RUN echo "take from : ${PARCOURS_PACKAGES_URL}/${PARCOURS_com_group_artifact}/${PARCOURS_MICROSERVICE_VERSION}/exemplaire-service-${PARCOURS_MICROSERVICE_VERSION}.jar"
