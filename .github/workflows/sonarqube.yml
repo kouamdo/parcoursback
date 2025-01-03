@@ -180,8 +180,7 @@ jobs:
             
       - name: Run the build process with Docker
         run: |
-          docker run --rm \
-            -p 8080:8080 \
+          docker run -p 8080:8080 \
             -e PARCOURS_BD_NAME=${{ secrets.PARCOURS_BD_NAME }} \
             -e PARCOURS_BD_URL=${{ secrets.PARCOURS_BD_URL }} \
             -e PARCOURS_DB_PASSWORD=${{ secrets.PARCOURS_DB_PASSWORD }} \
