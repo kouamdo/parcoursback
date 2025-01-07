@@ -9,11 +9,12 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "docetats")
+@Table(name = "docetats", schema = "document")
 public class DocEtatsEntity {
 
     @Id
@@ -34,7 +35,7 @@ public class DocEtatsEntity {
     private ValidationsEntity validationsEntity;
 
     @ManyToMany
-    @JoinTable(name = "docetats_predecesseurs",
+    @JoinTable(name = "docetats_predecesseur", schema = "document",
             joinColumns = @JoinColumn(name = "docetats_id"),
             inverseJoinColumns = @JoinColumn(name = "predecesseur_id"))
     @Mapping("predecesseurDocEtat")

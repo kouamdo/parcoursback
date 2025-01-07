@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>parent</name>
-
-
+         
+         
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -35,6 +35,7 @@
     </properties>
     <modules>
         <module>ressources-jpa</module>
+        <module>commun-outil</module>
         <module>commun-service</module>
         <module>composant-business</module>
         <module>ittest</module>

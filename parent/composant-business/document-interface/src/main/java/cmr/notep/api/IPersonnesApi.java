@@ -1,29 +1,23 @@
 package cmr.notep.api;
 
-import cmr.notep.modele.MacroPersonnes;
+import cmr.notep.exceptions.ParcoursException;
 import cmr.notep.modele.Personnes;
 import org.springframework.http.MediaType;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("personnes")
 public interface IPersonnesApi {
 
     @GetMapping(
-            path = "/find",
+            path = "/{idPersonne}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    Personnes avoirPersonne (@NonNull @RequestParam(name="idPersonnes") String idPersonnes);
+    Personnes avoirPersonne (@NonNull @RequestParam(name="idPersonne") String idPersonne) throws ParcoursException;
 
-    @GetMapping(
-            path = "/find_macro/",
-            produces = MediaType.APPLICATION_JSON_VALUE
-    )
-    List<MacroPersonnes> avoirParElemnt (@NonNull @RequestParam(name="value") String value);
-
+   /*
 
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
@@ -39,6 +33,6 @@ public interface IPersonnesApi {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    Personnes posterPersonne(@NonNull @RequestBody Personnes Personnes) ;
+    Personnes posterPersonne(@NonNull @RequestBody Personnes Personnes) ;*/
 
 }

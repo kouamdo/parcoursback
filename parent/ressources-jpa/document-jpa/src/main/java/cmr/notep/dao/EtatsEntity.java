@@ -13,7 +13,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "etats")
+@Table(name = "etats", schema = "document")
 public class EtatsEntity {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -34,9 +34,4 @@ public class EtatsEntity {
     @OneToMany(mappedBy = "etatsEntity")
     @Mapping("docEtats")
     private List<DocEtatsEntity> docEtatsEntities;
-
-    @OneToMany(mappedBy = "etatsEntity")
-    @Mapping("ordresEtats")
-    private List<OrdreEtatsEntity> ordreEtatsEntities;
-    //ajouter EtatsValidationsEntity avec ManyToOne sur EtatsEntity, PersonnelsEntity et OrdreEtatsEntity
 }

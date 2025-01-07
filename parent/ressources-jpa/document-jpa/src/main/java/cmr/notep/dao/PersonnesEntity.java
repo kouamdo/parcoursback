@@ -1,6 +1,5 @@
 package cmr.notep.dao;
 
-
 import lombok.Getter;
 import lombok.Setter;
 import org.dozer.Mapping;
@@ -14,9 +13,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)
-@Table(name = "personnes")
+@Table(name = "personnes", schema = "document")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class PersonnesEntity
 {
     @Id
@@ -40,18 +38,9 @@ public class PersonnesEntity
     @Column(name = "datemodification")
     private Date dateModification;
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "rattacher" ,
+    @JoinTable(name = "rattacher" ,schema = "document",
             joinColumns = @JoinColumn(name = "personnes_id"),
             inverseJoinColumns = @JoinColumn(name = "rattacher_id"))
     @Mapping("personnesRatachees")
     private List<PersonnesEntity> personnesRatachees = new ArrayList<>();
-
-    @OneToOne(mappedBy = "personnesEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "comptes_id" , referencedColumnName = "id")
-    @Mapping("compte")
-    private ComptesEntity comptesEntity;
-
-    @OneToMany(mappedBy = "personnesEntity", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @Mapping("exemplaires")
-    private List<ExemplairesEntity> exemplaireEntities;
 }
