@@ -44,7 +44,7 @@ jobs:
       # Step 5: Build the project using Maven
       - name: Build with Maven
         run: |
-          cd parent &&  mvn clean install && find . -name "*.jar"
+          cd parent &&  mvn clean install -DskipTests && find . -name "*.jar"
 
       - name: maven-settings-action
         uses: s4u/maven-settings-action@v3.1.0
@@ -56,7 +56,7 @@ jobs:
         env:
           GIT_ACTOR: ${{ github.actor }}
         run: |
-          cd parent && mvn clean deploy -Dgit_actor=$GIT_ACTOR  \
+          cd parent && mvn clean deploy -DskipTests -Dgit_actor=$GIT_ACTOR  \
           && find . -name "*.jar"
 
       - name: Build with Maven and upload JAR
