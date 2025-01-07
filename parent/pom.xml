@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <name>parent</name>
 
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -30,6 +31,7 @@
         <rest.assured.version>2.3.3</rest.assured.version>
         <dozer.version>5.5.1</dozer.version>
         <spring-context.version>5.3.24</spring-context.version>
+        <maven.model.version>3.6.3</maven.model.version>
     </properties>
     <modules>
         <module>ressources-jpa</module>
@@ -64,8 +66,20 @@
                 <artifactId>spring-context</artifactId>
                 <version>${spring-context.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-model</artifactId>
+                <version>${maven.model.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages for exemplaires services</name>
+            <url>https://maven.pkg.github.com/${git_actor}/parcoursback</url>
+        </repository>
+    </distributionManagement>
     <build>
         <plugins>
             <plugin>
@@ -73,6 +87,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
+                    <altDeploymentRepository>github::default::https://maven.pkg.github.com/${git_actor}/parcoursback/master/packages</altDeploymentRepository>
                     <encoding>UTF-8</encoding>
                     <forceJavacCompilerUse>true</forceJavacCompilerUse>
                 </configuration>

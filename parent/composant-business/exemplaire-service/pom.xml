@@ -7,13 +7,12 @@
         <groupId>cmr.notep</groupId>
         <artifactId>composant-business</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
-    <groupId>cmr.notep</groupId>
-    <artifactId>document-service</artifactId>
-    <version>1.0-001</version>
-    <packaging>jar</packaging>
 
+    <groupId>cmr.notep.exemplaire</groupId>
+    <artifactId>exemplaire-service</artifactId>
+    <version>1.0-000</version>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -57,13 +56,28 @@
             <version>${projet.version}</version>
         </dependency>
         <dependency>
-            <groupId>cmr.notep</groupId>
-            <artifactId>document-jpa</artifactId>
+            <groupId>cmr.notep.exemplaire</groupId>
+            <artifactId>exemplaire-interface</artifactId>
+            <version>${projet.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cmr.notep.exemplaire</groupId>
+            <artifactId>exemplaire-jpa</artifactId>
             <version>${projet.version}</version>
         </dependency>
         <dependency>
             <groupId>cmr.notep</groupId>
             <artifactId>common-jpa</artifactId>
+            <version>${projet.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cmr.notep</groupId>
+            <artifactId>commun-service</artifactId>
+            <version>${projet.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cmr.notep</groupId>
+            <artifactId>commun-outil</artifactId>
             <version>${projet.version}</version>
         </dependency>
     </dependencies>
