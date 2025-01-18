@@ -10,15 +10,15 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
 # Download the JAR file from GitHub Packages using the secret token
-ARG PARCOURS_PACKAGES_URL
-ARG PARCOURS_MICROSERVICE_VERSION
-ARG PARCOURS_com_group_artifact
+# ARG PARCOURS_PACKAGES_URL
+# ARG PARCOURS_MICROSERVICE_VERSION
+# ARG PARCOURS_com_group_artifact
 
-RUN echo "Taking from: ${PARCOURS_PACKAGES_URL}/${PARCOURS_com_group_artifact}/${PARCOURS_MICROSERVICE_VERSION}/document-service-${PARCOURS_MICROSERVICE_VERSION}.jar"
+# RUN echo "Taking from: ${PARCOURS_PACKAGES_URL}/${PARCOURS_com_group_artifact}/${PARCOURS_MICROSERVICE_VERSION}/document-service-${PARCOURS_MICROSERVICE_VERSION}-develop.jar"
 
-RUN --mount=type=secret,id=PARCOURS_TOKEN,dst=/run/secrets/pass_token curl -L -o document-service.jar \
+RUN curl -L -o document-service.jar \
       -H "Authorization: Bearer $(cat /run/secrets/pass_token)" \
-      "${PARCOURS_PACKAGES_URL}/${PARCOURS_com_group_artifact}/${PARCOURS_MICROSERVICE_VERSION}/document-service-${PARCOURS_MICROSERVICE_VERSION}.jar"
+      "${PARCOURS_PACKAGES_URL}/${PARCOURS_com_group_artifact}/${PARCOURS_MICROSERVICE_VERSION}/document-service-${PARCOURS_MICROSERVICE_VERSION}-develop.jar"
 
 # Use OpenJDK as the base image for running the application
 FROM openjdk:17-jdk-slim

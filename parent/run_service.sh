@@ -12,17 +12,27 @@ PARCOURS_SERVER_PORT=8080
 PARCOUR_TOKEN_FILE=/root/pass_token
 
 
-# Build the Docker image
-docker build --secret id=PARCOURS_TOKEN,src=$PARCOUR_TOKEN_FILE \
-  --build-arg PARCOURS_PACKAGES_URL=$PARCOURS_PACKAGES_URL \
-  --build-arg PARCOURS_MICROSERVICE_VERSION=$PARCOURS_MICROSERVICE_VERSION \
-  --build-arg PARCOURS_com_group_artifact=$PARCOURS_com_group_artifact \
-  -t document-service .
+## Build the Docker image
+#docker build --secret id=PARCOURS_TOKEN,src=$PARCOUR_TOKEN_FILE \
+#  --build-arg PARCOURS_PACKAGES_URL=$PARCOURS_PACKAGES_URL \
+#  --build-arg PARCOURS_MICROSERVICE_VERSION=$PARCOURS_MICROSERVICE_VERSION \
+#  --build-arg PARCOURS_com_group_artifact=$PARCOURS_com_group_artifact \
+#  -t document-service .
+#
+## Run the Docker container
+#docker run  -p 8080:8080 \
+#  -e PARCOURS_BD_NAME=$PARCOURS_BD_NAME \
+#  -e PARCOURS_BD_URL=$PARCOURS_BD_URL \
+#  -e PARCOURS_DB_USER=$PARCOURS_DB_USER \
+#  --name document-service \
+#  document-service
 
-# Run the Docker container
-docker run  -p 8080:8080 \
+docker run  -p 8080:8080 -v "pass_token:/run/secrets/pass_token:ro" \
+  -e PARCOURS_PACKAGES_URL=$PARCOURS_PACKAGES_URL \
+  -e PARCOURS_MICROSERVICE_VERSION=$PARCOURS_MICROSERVICE_VERSION \
+  -e PARCOURS_com_group_artifact=$PARCOURS_com_group_artifact \
   -e PARCOURS_BD_NAME=$PARCOURS_BD_NAME \
   -e PARCOURS_BD_URL=$PARCOURS_BD_URL \
   -e PARCOURS_DB_USER=$PARCOURS_DB_USER \
-  --name document-service \
-  document-service
+  --name document-service3 \
+  ghcr.io/kouamdo/parcoursback-documents:1.0-001
