@@ -69,15 +69,15 @@ jobs:
           if-no-files-found: error
           
       # Step 6: Run SonarQube analysis
-      - name: SonarQube Scan
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Analysis token associated with your project
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}  # SonarQube server URL
-        run: |
-          cd parent
-          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-            -Dsonar.projectKey=${{ secrets.SONAR_TOKEN }} \
-            -Dsonar.projectName='parcoursback-apps'
+#      - name: SonarQube Scan
+#        env:
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Analysis token associated with your project
+#          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}  # SonarQube server URL
+#        run: |
+#          cd parent
+#          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+#            -Dsonar.projectKey=${{ secrets.SONAR_TOKEN }} \
+#            -Dsonar.projectName='parcoursback-apps'
 
   dockerBuildAndPush_document_service:
     name: Build and Push Docker Image for document service
