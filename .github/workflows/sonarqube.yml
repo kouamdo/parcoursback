@@ -115,7 +115,7 @@ jobs:
           load: true  # Load the image into the Docker daemon (for local use)
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
-          push: false  # Set to true if you want to push to a remote registry
+          push: true  # Set to true if you want to push to a remote registry
           build-args: |
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
             PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
@@ -159,7 +159,7 @@ jobs:
           load: true  # Load the image into the Docker daemon (for local use)
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
-          push: false  # Set to true if you want to push to a remote registry
+          push: true  # Set to true if you want to push to a remote registry
           build-args: |
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
             PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
