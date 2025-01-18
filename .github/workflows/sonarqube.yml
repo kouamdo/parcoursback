@@ -116,10 +116,10 @@ jobs:
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
           push: false  # Set to true if you want to push to a remote registry
-#          build-args: |
-#            PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
-#            PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
-#            PARCOURS_com_group_artifact=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_DOCUMENT }}
+          build-args: |
+            PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
+            PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
+            PARCOURS_com_group_artifact=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_DOCUMENT }}
 #          secrets: |
 #            "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
 
@@ -160,9 +160,9 @@ jobs:
           cache-from: type=gha  # Use GitHub Actions cache as a cache source
           cache-to: type=gha,mode=max  # Store cache in GitHub Actions for future builds
           push: false  # Set to true if you want to push to a remote registry
-#          build-args: |
-#            PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
-#            PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
-#            PARCOURS_com_group_artifact=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_EXEMPLAIRE }}
+          build-args: |
+            PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
+            PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
+            PARCOURS_com_group_artifact=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_EXEMPLAIRE }}
 #          secrets: |
 #            "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"

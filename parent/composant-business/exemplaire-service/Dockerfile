@@ -10,11 +10,11 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
 
 # Download the JAR file from GitHub Packages using the secret token
-# ARG PARCOURS_PACKAGES_URL
-# ARG PARCOURS_MICROSERVICE_VERSION
-# ARG PARCOURS_com_group_artifact
-#
-# RUN echo "Taking from : ${PARCOURS_PACKAGES_URL}/${PARCOURS_COM_GROUP_ARTIFACT}/${PARCOURS_MICROSERVICE_VERSION}/exemplaire-service-${PARCOURS_MICROSERVICE_VERSION}-develop.jar"
+ARG PARCOURS_PACKAGES_URL
+ARG PARCOURS_MICROSERVICE_VERSION
+ARG PARCOURS_com_group_artifact
+
+RUN echo "Taking from : ${PARCOURS_PACKAGES_URL}/${PARCOURS_COM_GROUP_ARTIFACT}/${PARCOURS_MICROSERVICE_VERSION}/exemplaire-service-${PARCOURS_MICROSERVICE_VERSION}-develop.jar"
 
 RUN curl -L -o exemplaire-service.jar \
       -H "Authorization: Bearer $(cat /run/secrets/pass_token)" \
