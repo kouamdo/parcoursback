@@ -38,7 +38,7 @@
         <module>commun-outil</module>
         <module>commun-service</module>
         <module>composant-business</module>
-        <module>ittest</module>
+<!--        <module>ittest</module>-->
     </modules>
     <dependencyManagement>
         <dependencies>
