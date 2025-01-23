@@ -18,7 +18,7 @@ ARG PARCOURS_TOKEN
 RUN echo "Taking from : ${PARCOURS_PACKAGES_URL}/${PARCOURS_COM_GROUP_ARTIFACT}/${PARCOURS_MICROSERVICE_VERSION}/exemplaire-service-${PARCOURS_MICROSERVICE_VERSION}-develop.jar"
 
 RUN curl -v -L -o exemplaire-service.jar \
-      -H "Authorization: Bearer $(cat /root/pass_token)" \
+      -H "Authorization: Bearer $(cat /home/pass_token)" \
       "${PARCOURS_PACKAGES_URL}/${PARCOURS_COM_GROUP_ARTIFACT}/${PARCOURS_MICROSERVICE_VERSION}/exemplaire-service-${PARCOURS_MICROSERVICE_VERSION}-develop.jar" \
       && ls -lh exemplaire-service.jar
 
