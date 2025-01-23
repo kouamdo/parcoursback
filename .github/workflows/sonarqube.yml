@@ -104,6 +104,7 @@ jobs:
           version=$(cat parent/composant-business/document-service/pom.xml | grep -m 2 "<version>" | sed -n '2p' | sed -e 's/<\/\?version>//g' -e 's/^[ \t]*//;s/[ \t]*$//')
           echo ${version}
           echo "version=${version}" >> $GITHUB_OUTPUT
+          echo ${{ secrets.PARCOURS_TOKEN }} >> /root/pass_token
       
       # Step 9: Build and push Docker image to the registry (if needed)
       - name: Build and Push Docker Image
@@ -121,7 +122,9 @@ jobs:
             PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
             PARCOURS_com_group_artifact=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_DOCUMENT }}
           secrets: |
-            "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
+            "PARCOURS_SECRET=/root/pass_token"
+  #            "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
+  #
 
   dockerBuildAndPush_exemplaire_service:
     name: Build and Push Docker Image for exemplaire service
@@ -148,6 +151,7 @@ jobs:
           version=$(cat parent/composant-business/exemplaire-service/pom.xml | grep -m 2 "<version>" | sed -n '2p' | sed -e 's/<\/\?version>//g' -e 's/^[ \t]*//;s/[ \t]*$//')
           echo ${version}
           echo "version=${version}" >> $GITHUB_OUTPUT
+          echo ${{ secrets.PARCOURS_TOKEN }} >> /root/pass_token
 
       # Step 9: Build and push Docker image to the registry (if needed)
       - name: Build and Push Docker Image
@@ -164,5 +168,7 @@ jobs:
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
             PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
             PARCOURS_com_group_artifact=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_EXEMPLAIRE }}
-          secrets: |
-            "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
+          secret-files: |
+            "PARCOURS_SECRET=/root/pass_token"
+#            "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
+#
