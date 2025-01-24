@@ -122,9 +122,8 @@ jobs:
             PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
             PARCOURS_com_group_artifact=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_DOCUMENT }}
           secret-files: |
-            "PARCOURS_SECRET=./pass_token"
-  #            "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
-  #
+              "PARCOURS_SECRET=${{ secrets.PARCOURS_TOKEN }}"
+
 
   dockerBuildAndPush_exemplaire_service:
     name: Build and Push Docker Image for exemplaire service
@@ -169,6 +168,4 @@ jobs:
             PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
             PARCOURS_com_group_artifact=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_EXEMPLAIRE }}
           secret-files: |
-            "PARCOURS_SECRET=./pass_token"
-#            "PARCOURS_TOKEN=${{ secrets.PARCOURS_TOKEN }}"
-#
+            "PARCOURS_SECRET=${{ secrets.PARCOURS_TOKEN }}"

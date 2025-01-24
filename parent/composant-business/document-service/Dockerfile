@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y \
 ARG PARCOURS_PACKAGES_URL
 ARG PARCOURS_MICROSERVICE_VERSION
 ARG PARCOURS_com_group_artifact
-ARG PARCOURS_TOKEN
 
 RUN echo "Taking from: ${PARCOURS_PACKAGES_URL}/${PARCOURS_com_group_artifact}/${PARCOURS_MICROSERVICE_VERSION}/document-service-${PARCOURS_MICROSERVICE_VERSION}-develop.jar"
 
