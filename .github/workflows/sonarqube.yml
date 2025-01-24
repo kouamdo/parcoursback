@@ -104,8 +104,7 @@ jobs:
           version=$(cat parent/composant-business/document-service/pom.xml | grep -m 2 "<version>" | sed -n '2p' | sed -e 's/<\/\?version>//g' -e 's/^[ \t]*//;s/[ \t]*$//')
           echo ${version}
           echo "version=${version}" >> $GITHUB_OUTPUT
-          echo ${{ secrets.PARCOURS_TOKEN }} >> /home/pass_token
-      
+
       # Step 9: Build and push Docker image to the registry (if needed)
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6.9.0 
@@ -150,8 +149,7 @@ jobs:
           version=$(cat parent/composant-business/exemplaire-service/pom.xml | grep -m 2 "<version>" | sed -n '2p' | sed -e 's/<\/\?version>//g' -e 's/^[ \t]*//;s/[ \t]*$//')
           echo ${version}
           echo "version=${version}" >> $GITHUB_OUTPUT
-          echo ${{ secrets.PARCOURS_TOKEN }} >> /home/pass_token
-
+          
       # Step 9: Build and push Docker image to the registry (if needed)
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6.9.0
