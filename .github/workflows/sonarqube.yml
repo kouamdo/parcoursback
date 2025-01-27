@@ -120,6 +120,7 @@ jobs:
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
             PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
             PARCOURS_com_group_artifact=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_DOCUMENT }}
+          secrets:
             PARCOURS_SECRET=${{ secrets.PARCOURS_TOKEN }}
 
 
@@ -164,4 +165,5 @@ jobs:
             PARCOURS_PACKAGES_URL=${{ secrets.PARCOURS_PACKAGES_URL }}
             PARCOURS_MICROSERVICE_VERSION=${{ steps.get_version.outputs.version }}
             PARCOURS_com_group_artifact=${{ vars.PARCOURS_COM_GROUP_ARTIFACT_EXEMPLAIRE }}
+          secrets:
             PARCOURS_SECRET=${{ secrets.PARCOURS_TOKEN }}
