@@ -1,0 +1,30 @@
+# Étape 1 : Construction du projet
+FROM maven:3.8.3-openjdk-17-slim AS build
+
+# Copier le projet source
+COPY parent /source
+
+# Définir le répertoire de travail
+WORKDIR /source
+
+# Construire le projet avec Maven et lister les fichiers générés
+RUN mvn clean install && find . -name "*.jar" -exec ls -lh {} \;
+
+# Extraire les versions et copier les fichiers JAR correspondants
+RUN echo "" && exemplaire_version=$(cat /source/composant-business/exemplaire-service/pom.xml | grep -m 2 "<version>" | sed -n '2p' | sed -e 's/<\/\?version>//g' -e 's/^[ \t]*//;s/[ \t]*$//') && \
+    document_version=$(cat /source/composant-business/document-service/pom.xml | grep -m 2 "<version>" | sed -n '2p' | sed -e 's/<\/\?version>//g' -e 's/^[ \t]*//;s/[ \t]*$//') && \
+    mv /source/composant-business/exemplaire-service/target/exemplaire-service-${exemplaire_version}.jar /source/composant-business/exemplaire-service/target/exemplaire-service.jar && \
+    mv /source/composant-business/document-service/target/document-service-${document_version}.jar /source/composant-business/document-service/target/document-service.jar
+
+FROM openjdk:17-jdk-slim
+
+COPY --from=build /source/composant-business/exemplaire-service/target/exemplaire-service.jar  /app/
+
+# Command to run the application
+ENTRYPOINT ["java", "-jar", "exemplaire-service.jar"]
+
+# Pass command line arguments to Java application
+CMD ["--spring.datasource.url=jdbc:postgresql://${PARCOURS_BD_URL}/${PARCOURS_BD_NAME}", "--spring.datasource.username=${PARCOURS_DB_USER}", "--spring.datasource.password=${PARCOURS_DB_PASSWORD}"]
+
+# Expose the application port
+EXPOSE 8080
