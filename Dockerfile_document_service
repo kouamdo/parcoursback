@@ -18,6 +18,8 @@ RUN echo "" && exemplaire_version=$(cat /source/composant-business/exemplaire-se
 
 FROM openjdk:17-jdk-slim
 
+WORKDIR /app
+
 COPY --from=build /source/composant-business/document-service/target/document-service.jar /app/
 
 # Command to run the application
